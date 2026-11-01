@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16130f" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Shanghai">
+<title>Shanghai · Nov 15–20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4efe6;
+    --card: #fffdf8;
+    --ink: #1f1a14;
+    --muted: #6f655a;
+    --line: #e6dccd;
+    --accent: #b8332a;
+    --accent-soft: #f6dfd9;
+    --gold: #a77a2c;
+    --shadow: 0 1px 2px rgba(40,28,15,.06), 0 12px 32px rgba(40,28,15,.10);
+    --t-run: #2f6f5e;   --t-run-bg: #dcefe8;
+    --t-coffee: #7a4b26; --t-coffee-bg: #f1e3d4;
+    --t-food: #b8332a;  --t-food-bg: #f6dfd9;
+    --t-tea: #5e7a2c;   --t-tea-bg: #e6eed6;
+    --t-see: #345d8f;   --t-see-bg: #dfe8f4;
+    --t-shop: #8a3f7a;  --t-shop-bg: #f1dfec;
+    --t-misc: #6f655a;  --t-misc-bg: #ece6dc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16130f; --card: #211d18; --ink: #f2ebe0; --muted: #a99d8e; --line: #3a332b;
+      --accent: #e0675c; --accent-soft: #3d2420; --gold: #d3a65a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
+      --t-run: #7cc5ad; --t-run-bg: #1e3530;
+      --t-coffee: #d9a878; --t-coffee-bg: #3a2c20;
+      --t-food: #ef8a7f; --t-food-bg: #3d2420;
+      --t-tea: #b3cf7b; --t-tea-bg: #2b331d;
+      --t-see: #8fb3e3; --t-see-bg: #1f2b3b;
+      --t-shop: #d996c8; --t-shop-bg: #36222f;
+      --t-misc: #b5aa9b; --t-misc-bg: #2d2822;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16130f; --card: #211d18; --ink: #f2ebe0; --muted: #a99d8e; --line: #3a332b;
+    --accent: #e0675c; --accent-soft: #3d2420; --gold: #d3a65a;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
+    --t-run: #7cc5ad; --t-run-bg: #1e3530;
+    --t-coffee: #d9a878; --t-coffee-bg: #3a2c20;
+    --t-food: #ef8a7f; --t-food-bg: #3d2420;
+    --t-tea: #b3cf7b; --t-tea-bg: #2b331d;
+    --t-see: #8fb3e3; --t-see-bg: #1f2b3b;
+    --t-shop: #d996c8; --t-shop-bg: #36222f;
+    --t-misc: #b5aa9b; --t-misc-bg: #2d2822;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 15px/1.5 Inter, system-ui, -apple-system, "PingFang SC", "Noto Sans SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  header.top {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: calc(env(safe-area-inset-top) + 10px) 16px 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .brand h1 { font: 700 22px/1.1 Fraunces, Georgia, serif; margin: 0; letter-spacing: -.01em; }
+  .brand h1 span { color: var(--accent); }
+  .brand small { color: var(--muted); font-size: 12px; }
+  .tabs {
+    display: flex; gap: 6px; margin-top: 10px; overflow-x: auto; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex: 0 0 auto; border: 1px solid var(--line); background: var(--card); color: var(--ink);
+    border-radius: 999px; padding: 6px 12px; font: 500 13px/1 Inter, sans-serif; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 52px;
+  }
+  .tab b { font: 700 15px/1 Fraunces, serif; }
+  .tab small { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .tab.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .tab.active small { color: color-mix(in srgb, var(--bg) 70%, transparent); }
+  .tab.today::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+  .deck {
+    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; padding: 18px 0 40px;
+  }
+  .deck::-webkit-scrollbar { display: none; }
+  .slot {
+    flex: 0 0 100%; scroll-snap-align: center; padding: 0 16px;
+    display: flex; justify-content: center;
+  }
+  .card {
+    width: 100%; max-width: 560px; background: var(--card); border-radius: 22px;
+    box-shadow: var(--shadow); border: 1px solid var(--line); overflow: hidden;
+    transition: transform .35s ease, opacity .35s ease;
+    position: relative;
+  }
+  .slot.away .card { transform: scale(.94) translateY(10px); opacity: .55; }
+  .card::before, .card::after {
+    content: ""; position: absolute; left: 14px; right: 14px; height: 8px; bottom: -8px;
+    background: var(--card); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 18px 18px; z-index: -1;
+  }
+  .hero {
+    padding: 20px 20px 16px;
+    background:
+      radial-gradient(120% 90% at 100% 0%, var(--accent-soft) 0%, transparent 60%),
+      var(--card);
+    border-bottom: 1px dashed var(--line);
+  }
+  .eyebrow { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
+  .eyebrow .num { color: var(--accent); }
+  .hero h2 { font: 700 26px/1.15 Fraunces, Georgia, serif; margin: 8px 0 10px; letter-spacing: -.01em; }
+  .hero p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .highlights { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .pill { font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 999px; background: var(--t-misc-bg); color: var(--t-misc); }
+
+  .section { padding: 14px 16px 6px; }
+  .section h3 { font: 600 12px/1 Inter, sans-serif; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 6px 4px 12px; }
+
+  .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 52px; top: 6px; bottom: 6px; width: 2px; background: var(--line); border-radius: 2px; }
+  .stop { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 4px 0 14px; position: relative; }
+  .stop .time { font: 600 12px/1.25 Inter, sans-serif; color: var(--muted); text-align: right; padding-top: 3px; font-variant-numeric: tabular-nums; }
+  .stop .dot { position: absolute; left: 48px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--card); border: 2px solid var(--muted); }
+  .stop .body { min-width: 0; }
+  .tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 6px; margin-bottom: 4px; }
+  .stop .title { font-weight: 600; font-size: 15px; line-height: 1.35; }
+  .stop .detail { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .stop .addr { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+    font: 600 12.5px/1 Inter, sans-serif; padding: 8px 11px; border-radius: 10px;
+    background: var(--bg); border: 1px solid var(--line); color: var(--ink);
+  }
+  .btn svg { width: 14px; height: 14px; }
+  .btn:active { transform: scale(.97); }
+
+  .t-run .tag { background: var(--t-run-bg); color: var(--t-run); } .t-run .dot { border-color: var(--t-run); }
+  .t-coffee .tag { background: var(--t-coffee-bg); color: var(--t-coffee); } .t-coffee .dot { border-color: var(--t-coffee); background: var(--t-coffee); }
+  .t-food .tag { background: var(--t-food-bg); color: var(--t-food); } .t-food .dot { border-color: var(--t-food); background: var(--t-food); }
+  .t-tea .tag { background: var(--t-tea-bg); color: var(--t-tea); } .t-tea .dot { border-color: var(--t-tea); }
+  .t-see .tag { background: var(--t-see-bg); color: var(--t-see); } .t-see .dot { border-color: var(--t-see); }
+  .t-shop .tag { background: var(--t-shop-bg); color: var(--t-shop); } .t-shop .dot { border-color: var(--t-shop); }
+  .t-misc .tag { background: var(--t-misc-bg); color: var(--t-misc); }
+  .t-book .tag { background: var(--accent); color: #fff; } .t-book .dot { border-color: var(--accent); background: var(--accent); }
+
+  details { border-top: 1px solid var(--line); }
+  details summary {
+    list-style: none; cursor: pointer; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600; font-size: 14.5px;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary .chev { transition: transform .2s; color: var(--muted); }
+  details[open] summary .chev { transform: rotate(90deg); }
+  details summary .count { color: var(--muted); font-weight: 500; font-size: 12.5px; margin-left: 6px; }
+  .notes { padding: 0 20px 16px; }
+  .note { padding: 10px 0; border-bottom: 1px dashed var(--line); }
+  .note:last-child { border-bottom: 0; }
+  .note b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .note span { color: var(--muted); font-size: 13.5px; }
+  .intro-note { color: var(--muted); font-size: 13.5px; padding: 0 0 6px; font-style: italic; }
+
+  .card-foot { display: flex; justify-content: space-between; padding: 14px 16px 18px; border-top: 1px solid var(--line); }
+  .nav-btn { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 12px; padding: 10px 14px; font: 600 13px/1 Inter, sans-serif; cursor: pointer; }
+  .nav-btn[disabled] { opacity: .35; }
+
+  .checklist { list-style: none; padding: 0; margin: 0; }
+  .checklist li { display: flex; gap: 12px; align-items: flex-start; padding: 11px 0; border-bottom: 1px dashed var(--line); }
+  .checklist li:last-child { border-bottom: 0; }
+  .checklist input { width: 20px; height: 20px; accent-color: var(--accent); margin-top: 1px; flex: 0 0 auto; }
+  .checklist .when { font-weight: 700; font-size: 13px; color: var(--accent); display: block; }
+  .checklist label { font-size: 14px; }
+  .checklist li.done label { text-decoration: line-through; color: var(--muted); }
+  .tips { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
+  .tips li { margin: 6px 0; }
+  .about { margin-top: 8px; border: 0; }
+  .about summary { padding: 0; font-size: 12.5px; font-weight: 600; color: var(--gold); display: inline-flex; gap: 4px; justify-content: flex-start; }
+  .about[open] summary { margin-bottom: 6px; }
+  .about .ab { background: var(--bg); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; color: var(--ink); }
+  .about .ab p { margin: 0 0 8px; } .about .ab p:last-child { margin: 0; }
+  .about .ab b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 1px; }
+  .alts { padding: 4px 16px 10px; }
+  .alt-group { margin: 6px 0 14px; }
+  .alt-group h4 { margin: 0 4px 8px; font: 700 12px/1 Inter, sans-serif; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
+  .alt { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 11px 13px; margin-bottom: 8px; }
+  .alt .n { font-weight: 600; font-size: 14.5px; }
+  .alt .w { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .alt .a { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+  .alt .actions { margin-top: 8px; }
+  .alt .btn { background: var(--card); }
+  .theme-toggle { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 999px; width: 32px; height: 32px; cursor: pointer; display: grid; place-items: center; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>Shanghai <span>·</span> Nov 15–20</h1>
+    <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="Days"></nav>
+</header>
+
+<main class="deck" id="deck" aria-live="polite"></main>
+
+<script>
+const amap = k => `https://uri.amap.com/search?keyword=${encodeURIComponent(k)}&city=310000`;
+
+const START = {
+  key: "start", tabTop: "★", tabSub: "Prep",
+  eyebrow: "Before you go", title: "Bookings & essentials",
+  summary: "Six days based at 627 Nanjing East Rd. Each morning's run finishes at a local, independent coffee shop, then a light Shanghainese breakfast and a shower. Independent cafes rarely open before 8:00–9:00, so check each one in Amap the night before.",
+  checklist: [
+    ["Nov 5", "Buy train tickets Shanghai → Beijing for Nov 20 (12306 app or Trip.com)"],
+    ["~Nov 8", "Mutianyu Great Wall entrance ticket for Nov 23 (en.mutianyugreatwall.com)"],
+    ["Nov 14, 5 PM", "Optional: try National Museum for Nov 21 (you may still be travelling)"],
+    ["Nov 15, 8 PM", "Book the Forbidden City for Nov 22"],
+    ["Nov 17, 5 PM", "Book the National Museum of China for Nov 24"],
+    ["Before flying", "Reserve Eight 八EIGHT (Day 5), Fu 1088 (Day 3), Lao Ji Shi (Day 4)"],
+    ["Before flying", "Book the spa (Day 1), flash tattoo (Day 4) and Shanyucaoshe tea (Day 4)"]
+  ],
+  tips: [
+    "Set up Alipay or WeChat Pay with a foreign card; it also pays for the metro and bike-share.",
+    "Use Amap (高德) or Apple Maps; Google Maps works poorly in China. Get an eSIM or VPN for Google and WhatsApp.",
+    "Carry your physical passport everywhere: museums, trains and many attractions check it.",
+    "Every stop below has an Amap button that opens a search for that place."
+  ]
+};
+
+const DAYS = [
+{
+  key: "d1", date: "2026-11-15", tabTop: "15", tabSub: "Sun",
+  eyebrow: "Day 1 · Sunday, Nov 15", title: "Arrival, Yu Garden & spa",
+  summary: "An easy landing day with no run. Take the metro in, drop your bags, eat your way down Nanjing East Rd, and reach Yu Garden before the crowds. Soup dumplings for an early lunch, then tea at Mu Chun in Sinan Mansion and a stroll through Fuxing Park. Nap, then end with a 2-hour cupping massage and the Bund lit up at night.",
+  highlights: ["Yu Garden", "Xiao long bao", "Tea house", "Spa"],
+  stops: [
+    { t: "5:10", type: "misc", label: "Arrive", title: "Land at Pudong Airport", detail: "Immigration, SIM/eSIM, check Alipay." },
+    { t: "6:15", type: "misc", label: "Transit", title: "Metro to the hotel, drop bags", detail: "Easiest: Metro Line 2 direct to East Nanjing Rd (about 75 min, ¥8; follow signs if asked to change trains). Faster: first Maglev at 7:02 to Longyang Rd (8 min, ¥50), then Line 2 (about 30 min). Pay with Alipay's transit QR code.", addr: "627 Nanjing East Rd 南京东路627号", map: "南京东路627号" },
+    { t: "7:50", type: "food", label: "Breakfast", title: "Zhen Lao Da Fang: one hot fresh-meat mooncake", detail: "鲜肉月饼. Add a glutinous rice ball from Shen Da Cheng (636 Nanjing East Rd) if still hungry.", addr: "536 Nanjing East Rd 南京东路536号", map: "南京东路536号" },
+    { t: "8:30", type: "see", label: "See", title: "Yu Garden & Yuyuan Bazaar", detail: "Early, before the crowds.", addr: "218 Anren St 安仁街218号", map: "豫园" },
+    { t: "10:30", type: "food", label: "Lunch", title: "Nanxiang Steamed Bun, upstairs", detail: "Classic pork xiao long bao + crab-roe xiao long bao (蟹粉小笼). Early, before the lines build.", addr: "85 Yuyuan Rd 豫园路85号", map: "南翔馒头店豫园" },
+    { t: "12:00", type: "coffee", label: "Coffee", title: "1/10 Coffee Roaster", detail: "Independent shop that roasts on the spot, overlooking a small park. Taxi about 15 min from Yu Garden.", addr: "73–75 Changle Rd 长乐路73-75号", map: "长乐路73号" },
+    { t: "12:45", type: "tea", label: "Tea", title: "Mu Chun 沐春茶舍 (Sinan Mansion), then Fuxing Park", detail: "410 m from Huaihai Middle Rd metro, Exit 2.", addr: "1, Lane 196 Nanchang Rd 南昌路196弄1号", map: "沐春茶舍思南公馆店" },
+    { t: "14:15", type: "misc", label: "Rest", title: "Back to hotel, check in, nap", detail: "Metro Line 1 → Line 2, or taxi." },
+    { t: "17:30", type: "misc", label: "Spa", title: "2-hour massage with cupping", addr: "2F, 359 Weihai Rd 威海路359号", map: "威海路359号" },
+    { t: "20:00", type: "book", label: "Book now", title: "Book the Forbidden City for Nov 22", detail: "Tickets release at 8:00 PM, 7 days ahead." },
+    { t: "20:15", type: "food", label: "Dinner", title: "Hu Xi Lao Nong Tang: pork liver noodles", detail: "Then the Bund lit up at night.", addr: "1F, 500 Guangdong Rd 广东路500号", map: "广东路500号" }
+  ],
+  food: { intro: "Shanghai's home cooking is benbang cai (本帮菜), \"local-style food\": sweet, savory and glossy with soy sauce — locals call it \"thick oil, red sauce\" (浓油赤酱).", items: [
+    ["Fresh-meat mooncakes 鲜肉月饼", "Flaky pastry filled with seasoned pork, baked to order. Traditionally a Mid-Autumn treat, but the Nanjing Road shops sell them year-round. Eat them hot."],
+    ["Glutinous rice treats", "Sticky rice balls and cakes from Shen Da Cheng, a pastry shop with about 150 years of history."],
+    ["Xiao long bao 小笼包", "Steamed dumplings with broth inside; pork aspic melts into soup as they cook. They trace back to Nanxiang, a town on Shanghai's edge, in the late 1800s. Bite a small hole, sip the soup, then eat."],
+    ["Crab-roe xiao long bao 蟹粉小笼", "The autumn luxury version, filled with hairy crab meat and roe. November is peak season."]
+  ]},
+  places: [
+    ["Zhen Lao Da Fang 真老大房", "A long-established Shanghai pastry brand famous for fresh-meat mooncakes baked to order. Expect a line; it moves fast."],
+    ["Shen Da Cheng 沈大成", "A pastry shop with about 150 years of history, known for glutinous rice treats."],
+    ["Nanxiang Steamed Bun 南翔馒头店", "Founded in 1900, still drawing queues. Refurbished in 2018; eat upstairs, where the menu differs from the takeaway window. Try the oversized \"super\" bun you drink with a straw."],
+    ["1/10 Coffee Roaster", "Opened by coffee enthusiasts who roast on the spot and stock a wider-than-usual range of beans."],
+    ["Mu Chun 沐春茶舍", "A tea house inside Sinan Mansion's restored 1920s–30s villas."],
+    ["Hu Xi Lao Nong Tang 沪西老弄堂面馆", "A no-frills noodle shop in the World Trade Building, known for pork liver noodles."],
+    ["Cupping 拔罐", "A traditional Chinese medicine therapy over 2,000 years old: suction cups pull on the skin to ease muscle tension. The round red marks fade in a few days. The spa from your video (\"Yu Health\") may be the Yu Spa / Yu Massage chain; this stop is a nearby tui na and cupping option."]
+  ],
+  sights: [
+    ["Nanjing Road", "Shanghai's main shopping street since the early 1900s, when the first big department stores opened here."],
+    ["The Bund", "Grand banks and trading houses built mostly in the 1920s–30s, when Shanghai was Asia's financial capital. Across the river, Lujiazui was farmland until the 1990s."],
+    ["Yu Garden", "A private garden begun in 1559 by Ming official Pan Yunduan for his parents. Look for the rockeries, carp ponds and dragon-topped walls."],
+    ["Nine-Turn Bridge", "The zigzag bridge across Yu Garden's lake; zigzags were said to stop evil spirits, which could only travel in straight lines."],
+    ["Sinan Mansion", "Restored 1920s–30s garden villas, now cafes, shops and a hotel."],
+    ["Fuxing Park", "A French-style park opened in 1909, where locals dance, play cards and do tai chi."]
+  ]
+},
+{
+  key: "d2", date: "2026-11-16", tabTop: "16", tabSub: "Mon",
+  eyebrow: "Day 2 · Monday, Nov 16", title: "Museum day + Pudong",
+  summary: "Shanghai Museum East is open Mondays, when most museums close, and its bronze, ceramic and jade galleries deserve a long morning. Walk it off in Century Park, catch sunset on the Lujiazui riverfront looking back at the Bund, then a simple bowl of noodles near the hotel.",
+  highlights: ["Bund run", "Shanghai Museum East", "Century Park", "Sunset"],
+  stops: [
+    { t: "8:00", type: "run", label: "Run", title: "Bund promenade to Waibaidu Bridge", detail: "Back via Jiujiang Rd, finishing at the cafe.", map: "外滩" },
+    { t: "8:40", type: "coffee", label: "Coffee", title: "Always Coffee Roaster", detail: "Local roaster, 100 m from East Nanjing Rd metro Exit 4. Check opening time.", addr: "Room 106, 501 Jiujiang Rd 九江路501号106室", map: "Always Coffee Roaster 九江路" },
+    { t: "9:15", type: "food", label: "Breakfast", title: "Street stall: soy milk + fried dough stick", detail: "豆浆 + 油条, or a sticky rice roll (粢饭团)." },
+    { t: "9:45", type: "misc", label: "Hotel", title: "Shower" },
+    { t: "10:15", type: "misc", label: "Transit", title: "Metro Line 2 to Shanghai Science & Technology Museum stn" },
+    { t: "10:45", type: "see", label: "Museum", title: "Shanghai Museum East", detail: "Open Mondays. Walk-in with passport.", addr: "1952 Century Ave 世纪大道1952号", map: "上海博物馆东馆" },
+    { t: "14:00", type: "food", label: "Lunch", title: "Shanghai fried thick noodles or big wontons", detail: "上海粗炒 or 荠菜大馄饨 — easy to find in the malls along Century Ave." },
+    { t: "15:00", type: "see", label: "Park", title: "Century Park", map: "世纪公园" },
+    { t: "16:30", type: "see", label: "Sunset", title: "Lujiazui riverfront + Museum of Art Pudong", detail: "MAP is open until 21:00.", addr: "2777 Binjiang Ave 滨江大道2777号", map: "浦东美术馆" },
+    { t: "19:30", type: "food", label: "Dinner", title: "Wei Xiang Zhai: sesame noodles", detail: "麻酱面. Your note says 151 Hubei Rd; the screenshot lists a Yandang Rd branch.", map: "味香斋" }
+  ],
+  food: { items: [
+    ["Shanghai street breakfast", "The classic set is the \"four heavenly kings\" (四大金刚): sesame flatbread (大饼), fried dough stick (油条), sticky rice roll (粢饭团) and soy milk (豆浆). Pick one or two."],
+    ["Fried thick noodles 上海粗炒", "Chewy wheat noodles stir-fried with soy sauce, pork and greens. A cheap, filling lunch classic."],
+    ["Big wontons 荠菜大馄饨", "Large wontons with pork and shepherd's purse. Tiny wontons (小馄饨) in light broth are the other Shanghai style."],
+    ["Sesame noodles 麻酱面", "Noodles in rich sesame paste sauce."]
+  ]},
+  places: [
+    ["Always Coffee Roaster", "Your pick: a local roaster tucked off Jiujiang Rd, a minute from the metro."],
+    ["Wei Xiang Zhai 味香斋", "An old-school noodle shop that made the Michelin selection for its sesame noodles. Some say it's overhyped — judge for yourself."]
+  ],
+  sights: [
+    ["Waibaidu Bridge", "Shanghai's first all-steel bridge, opened in 1907 where Suzhou Creek meets the Huangpu."],
+    ["Shanghai Museum East", "The Shanghai Museum's huge Pudong branch, fully opened in 2024, home to its famous bronzes, ceramics, jade and paintings."],
+    ["Lujiazui", "Fields and warehouses until Pudong's development began in 1990; now the Oriental Pearl Tower (1994) and the 632 m Shanghai Tower."],
+    ["Museum of Art Pudong", "Designed by Jean Nouvel, opened in 2021, with big shows from partners like Tate."],
+    ["Century Park", "Pudong's largest park, opened in 2000: a big lake, lawns and wide paths, right next to the museum."]
+  ]
+},
+{
+  key: "d3", date: "2026-11-17", tabTop: "17", tabSub: "Tue",
+  eyebrow: "Day 3 · Tuesday, Nov 17", title: "Artsy day + shopping (Jing'an)",
+  summary: "Run west to a roaster, then a local breakfast. The golden Jing'an Temple, buns for lunch, galleries at M50, and an afternoon on West Nanjing Rd. Dinner at Fu 1088 covers three must-eats at once. Book the National Museum at 5 PM.",
+  highlights: ["Jing'an Temple", "M50", "Shopping", "Fu 1088"],
+  stops: [
+    { t: "7:45", type: "run", label: "Run", title: "People's Park loop, then west on Nanjing West Rd", detail: "About 4.5 km, finishing at the cafe.", map: "人民公园" },
+    { t: "8:30", type: "coffee", label: "Coffee", title: "Single Origin Roasters", detail: "Roasts its own single-origin Ethiopian beans.", addr: "151 Jiaozhou Rd 胶州路151号", map: "胶州路151号" },
+    { t: "9:15", type: "food", label: "Breakfast", title: "Zhangshifu: sticky rice roll + soy milk", detail: "Local mom-and-pop spot on the way back east.", addr: "287 Shimen 2nd Rd 石门二路287号", map: "石门二路287号" },
+    { t: "10:00", type: "misc", label: "Hotel", title: "Taxi to hotel, shower" },
+    { t: "11:15", type: "see", label: "See", title: "Jing'an Temple", addr: "1686 Nanjing West Rd 南京西路1686号", map: "静安寺" },
+    { t: "12:00", type: "food", label: "Lunch", title: "Wangjiasha: vegetable buns + shrimp wontons", detail: "菜馒头. Confirm the branch.", map: "王家沙南京西路" },
+    { t: "13:30", type: "see", label: "Art", title: "M50 Creative Space", detail: "Galleries, studios, design shops.", addr: "50 Moganshan Rd 莫干山路50号", map: "莫干山路50号" },
+    { t: "15:15", type: "shop", label: "Shop", title: "West Nanjing Rd malls & boutiques", map: "南京西路" },
+    { t: "17:00", type: "book", label: "Book now", title: "Book the National Museum of China for Nov 24", detail: "Tickets release at 5:00 PM, 7 days ahead." },
+    { t: "18:30", type: "food", label: "Dinner", title: "Fu 1088 (reserve)", detail: "Hong shao rou 红烧肉, smoked fish 熏鱼, kao fu 烤麸.", addr: "375 Zhenning Rd 镇宁路375号", map: "福1088" },
+    { t: "20:30", type: "misc", label: "Drinks", title: "Optional: ChairClub", detail: "Confirm location.", map: "ChairClub" }
+  ],
+  food: { items: [
+    ["Vegetable buns 菜馒头", "Steamed buns stuffed with finely chopped greens and mushrooms."],
+    ["Hong shao rou 红烧肉", "Pork belly braised for hours in soy sauce, rock sugar and Shaoxing wine until glossy. The signature of benbang cooking, sweeter and darker than elsewhere in China."],
+    ["Smoked fish 熏鱼", "Not actually smoked: fish is fried, soaked in a sweet spiced soy glaze, and served cold."],
+    ["Kao fu 烤麸", "Spongy wheat gluten braised with wood ear, peanuts and lily buds, served cold. Buddhist vegetarian roots; a Lunar New Year favorite."]
+  ]},
+  places: [
+    ["Single Origin Roasters", "Started in south Shanghai, moved downtown in 2017; roasts single-origin Ethiopian beans in-house."],
+    ["Zhangshifu", "A mom-and-pop spot serving everyday Shanghainese breakfast to locals."],
+    ["Wangjiasha 王家沙", "A long-running Shanghai snack shop, a top pick on your list for vegetable buns."],
+    ["Fu 1088 福1088", "Michelin one-star Shanghainese in a 1920s townhouse with original tiles, wood paneling and 16 old-Shanghai private rooms. Known for crisp smoked mackerel and river shrimp; save room for the cashew praline puff pastry."]
+  ],
+  sights: [
+    ["People's Park & Square", "Once the Shanghai Race Club's racecourse. The old clubhouse with its clock tower is now the Shanghai History Museum."],
+    ["Jing'an Temple", "Roots in the 3rd century, moved here in 1216. Today's golden halls are a modern rebuild among skyscrapers. Toss a coin at the incense burner for luck."],
+    ["M50", "Former textile mills on Suzhou Creek that artists took over around 2000."],
+    ["West Nanjing Rd", "The upscale end of Nanjing Road, lined with luxury malls and flagships."]
+  ]
+},
+{
+  key: "d4", date: "2026-11-18", tabTop: "18", tabSub: "Wed",
+  eyebrow: "Day 4 · Wednesday, Nov 18", title: "French Concession: shop, tattoo, tea, live music",
+  summary: "Your second shopping day under the plane trees. Anfu Rd and Wukang Rd boutiques, crab soup dumplings at peak season, a flash tattoo and glass jewelry. Tea at Shanyucaoshe in Rose Villa, a short walk from a hairy crab dinner, then live music.",
+  highlights: ["Anfu Rd shopping", "Flash tattoo", "Shanyucaoshe", "Live music"],
+  stops: [
+    { t: "7:45", type: "run", label: "Run", title: "Hotel → People's Square → south past Xintiandi", detail: "About 4.5 km, finishing on South Maoming Rd." },
+    { t: "8:30", type: "coffee", label: "Coffee", title: "Wunder", detail: "One-shop roaster run by a former barista who roasts in-house. Closed Mondays.", addr: "161 South Maoming Rd 茂名南路161号", map: "茂名南路161号" },
+    { t: "9:15", type: "food", label: "Breakfast", title: "Street stall: sesame flatbread + soy milk", detail: "大饼 + 豆浆." },
+    { t: "9:45", type: "misc", label: "Hotel", title: "Taxi to hotel, shower, taxi back" },
+    { t: "11:00", type: "shop", label: "Shop", title: "Anfu Rd & Wukang Rd", detail: "Salomon \"Fu Jun\" concept store, Musinsa Store, Deja Vu Recycle, Harmay. Bonus: Adidas Originals flagship at 322 Anfu Rd. Wukang Building photo stop.", addr: "Salomon 183–187 Anfu Rd · Deja Vu 300 Anfu Rd · Harmay 55 Wukang Rd · Musinsa on Anfu Rd", links: [["Salomon", "萨洛蒙安福路"], ["Deja Vu", "安福路300号"], ["Harmay", "话梅武康路"], ["Musinsa", "MUSINSA安福路"]] },
+    { t: "12:30", type: "food", label: "Lunch", title: "Wu You Xian: crab-roe xiao long bao", detail: "蟹粉小笼 + shepherd's purse (荠菜) dumplings.", addr: "1F-103, 7 South Maoming Rd 茂名南路7号", map: "屋有鲜" },
+    { t: "14:00", type: "misc", label: "Tattoo", title: "Flash tattoo at I-TATTOO (book ahead)", addr: "Panyu Rd 番禺路 (confirm)", map: "I-TATTOO" },
+    { t: "15:30", type: "misc", label: "Make", title: "Glass jewelry at Yibo Studio", addr: "1F, No. 13, Lane 553 Middle Fuxing Rd 复兴中路553弄13号", map: "复兴中路553弄" },
+    { t: "16:45", type: "tea", label: "Tea", title: "Shanyucaoshe 山余草舍 (Rose Villa) — must-do", detail: "Book ahead if you can. Optional coffee on the way: Honky Tonk (262 Xiangyang South Rd).", addr: "Lane 44 Fuxing West Rd 复兴西路44弄(玫瑰别墅)", map: "山余草舍玫瑰别墅店" },
+    { t: "18:30", type: "food", label: "Dinner", title: "Lao Ji Shi (reserve): steamed hairy crab", detail: "大闸蟹 with ginger vinegar, plus scallion oil noodles if on the menu.", addr: "41 Tianping Rd 天平路41号", map: "老吉士天平路" },
+    { t: "20:30", type: "misc", label: "Music", title: "Live music at Cozy Music Lab", detail: "Confirm location.", map: "Cozy Music Lab" }
+  ],
+  food: { items: [
+    ["Da bing 大饼", "Flaky sesame flatbread baked on the walls of a hot oven — one of the \"four heavenly kings\" of breakfast."],
+    ["Crab-roe xiao long bao 蟹粉小笼", "Soup dumplings filled with hairy crab meat and roe, at their best in November."],
+    ["Shepherd's purse 荠菜", "A slightly peppery wild green Shanghainese cooks love in dumplings and wontons."],
+    ["Hairy crab 大闸蟹", "Chinese mitten crab, named for the fuzz on its claws — an autumn obsession, especially from nearby Yangcheng Lake. Steamed with ginger vinegar; ask staff to show you how to open it."]
+  ]},
+  places: [
+    ["Wunder", "A one-shop roaster; the owner closes every Monday just to roast. Traditional Italian-style coffee."],
+    ["Wu You Xian 屋有鲜", "A xiao long bao specialist from your list, known for seasonal crab and shepherd's purse fillings."],
+    ["Shanyucaoshe 山余草舍", "Your must-do tea house, inside a lane of old garden villas off Fuxing West Rd."],
+    ["Lao Ji Shi 老吉士", "A long-standing, homey benbang restaurant on your list. Small, so book ahead."],
+    ["Cozy Music Lab", "Your non-negotiable live music bar."],
+    ["I-TATTOO", "A big studio on Panyu Rd with many artists across styles and price points, plus a gallery and bar promoting tattoo culture in China. Ask about flash designs when you book."],
+    ["Yibo Studio", "From your list: a hands-on workshop where you make your own glass jewelry to take home."]
+  ],
+  shopping: [
+    ["Salomon \"Fu Jun\"", "Salomon's first China concept store, in a century-old French-style villa modeled on its Paris Marais shop. Open 10:00–22:00."],
+    ["Musinsa Store", "The Korean platform's multi-brand store in a 100-year-old building, about 40 Korean and Chinese brands. Musinsa Standard basics: Parkson, 918 Middle Huaihai Rd."],
+    ["Deja Vu Recycle", "Secondhand books downstairs, 2,000+ pre-owned clothes upstairs, in a former film distribution building."],
+    ["Harmay 话梅", "Warehouse-style beauty store with 100+ brands and travel sizes. Moved from Anfu Rd to 55 Wukang Rd in July 2026. Open 10:00–22:00."]
+  ],
+  sights: [
+    ["Xintiandi 新天地", "Restored shikumen (stone-gate) lane houses turned into a dining and shopping district, on your run route. The Communist Party's first national congress met in one of these houses in 1921."],
+    ["Former French Concession", "Administered by France 1849–1943: plane trees, garden villas and lane houses. Shanghai's best area for cafes and boutiques."],
+    ["Wukang Building", "A 1924 flatiron apartment block by László Hudec, originally the Normandie Apartments."],
+    ["Rose Villa 玫瑰别墅", "A lane of old garden villas off Fuxing West Rd, where Shanyucaoshe sits."]
+  ]
+},
+{
+  key: "d5", date: "2026-11-19", tabTop: "19", tabSub: "Thu",
+  eyebrow: "Day 5 · Thursday, Nov 19", title: "Riverside ride, Longhua & Eight",
+  summary: "A slower, greener day in south Shanghai. Ride a share bike along the Qiantan riverside to coffee at Aftertaste, then Longhua Temple and the quiet space beneath the pagoda. Yellow croaker noodles, the Botanical Garden, free time — and your last dinner at the 8-seat chef's counter at Eight.",
+  highlights: ["Bike ride", "Longhua Temple", "Botanical Garden", "Eight 八"],
+  stops: [
+    { t: "7:30", type: "misc", label: "Transit", title: "Taxi to Qiantan (Pudong)", detail: "About 25 min." },
+    { t: "8:00", type: "run", label: "Ride", title: "Bike-share along the Qiantan riverside", detail: "Unlock via Alipay; finish at the cafe.", map: "前滩公园" },
+    { t: "8:45", type: "coffee", label: "Coffee", title: "Aftertaste", detail: "Your pick.", addr: "W3-102, Qiantan Park Lane 前滩公园巷W3-102", map: "Aftertaste 前滩" },
+    { t: "9:30", type: "food", label: "Breakfast", title: "Jianbing from a stall, or a pastry at the cafe", detail: "煎饼, savory egg crepe." },
+    { t: "10:00", type: "misc", label: "Hotel", title: "Taxi to hotel, shower", detail: "Or bring a change of clothes and go straight to Longhua." },
+    { t: "11:30", type: "see", label: "See", title: "Longhua Temple, Pagoda & underground space", addr: "2853 Longhua Rd 龙华路2853号", map: "龙华寺" },
+    { t: "12:45", type: "food", label: "Lunch", title: "Rongjia Huangyu Mian: yellow croaker noodles", detail: "黄鱼面. Confirm location.", map: "荣家黄鱼面" },
+    { t: "14:15", type: "see", label: "Park", title: "Shanghai Botanical Garden", addr: "1111 Longwu Rd 龙吴路1111号", map: "上海植物园" },
+    { t: "16:00", type: "shop", label: "Free", title: "Catch-up shopping or rest" },
+    { t: "19:00", type: "food", label: "Dinner", title: "Eight 八EIGHT (reserve — 8 seats)", detail: "No menu: an eight-course chef's tasting menu mixing Basque, Spanish and East Asian flavors. About ¥888 per person.", addr: "73 Yongkang Rd 永康路73号", map: "永康路73号" },
+    { t: "21:00", type: "misc", label: "Pack", title: "Pack for Beijing", detail: "It will be much colder." }
+  ],
+  food: { items: [
+    ["Jianbing 煎饼", "A street-stall crepe with egg, scallion, sauce and a crispy cracker inside. From northern China, now a breakfast favorite everywhere."],
+    ["Yellow croaker noodles 黄鱼面", "Noodles in milky fish-bone broth topped with tender East China Sea yellow croaker, a Shanghai and Ningbo favorite."]
+  ]},
+  places: [
+    ["Aftertaste", "Your pick: an independent cafe in Qiantan's new riverside park area."],
+    ["Rongjia Huangyu Mian 荣家黄鱼面", "A yellow croaker noodle shop from your list."],
+    ["Eight 八EIGHT", "A tiny chef's counter: eight guests, eight courses (about ¥888). No printed menu; the chef serves and explains each course. Reopened on Yongkang Rd in 2026."]
+  ],
+  sights: [
+    ["Qiantan riverside", "Pudong's newer riverside district, across from the old West Bund industrial waterfront."],
+    ["Longhua Temple & Pagoda", "Shanghai's largest Buddhist temple, said to date to the 3rd century. The seven-story pagoda dates to 977."],
+    ["Shanghai Botanical Garden", "Bonsai, orchids and quiet paths just south of Longhua."],
+    ["Yongkang Road", "Tonight's dinner street: narrow, French Concession, famous for cafes and bars."]
+  ]
+},
+{
+  key: "d6", date: "2026-11-20", tabTop: "20", tabSub: "Fri",
+  eyebrow: "Day 6 · Friday, Nov 20", title: "Farewell run & train to Beijing",
+  summary: "One last Bund run and cup at Always (buy beans to take home), then sheng jian bao and scallion oil noodles — the two must-eats saved for the end. Pack, check out, and ride Metro Line 2 straight to Hongqiao.",
+  highlights: ["Bund run", "Sheng jian", "Train"],
+  stops: [
+    { t: "7:30", type: "run", label: "Run", title: "Farewell run on the Bund", detail: "Finish at the cafe.", map: "外滩" },
+    { t: "8:15", type: "coffee", label: "Coffee", title: "Always Coffee Roaster", detail: "One last cup — buy beans to take home.", addr: "Room 106, 501 Jiujiang Rd 九江路501号106室", map: "Always Coffee Roaster 九江路" },
+    { t: "8:50", type: "food", label: "Breakfast", title: "Dongtaixiang: sheng jian + scallion oil noodles", detail: "Two 生煎包 and a small bowl of 葱油拌面 to share. Confirm nearest branch.", map: "东泰祥" },
+    { t: "9:30", type: "misc", label: "Hotel", title: "Shower, pack" },
+    { t: "10:30", type: "misc", label: "Hotel", title: "Check out" },
+    { t: "Train −1.5h", type: "misc", label: "Transit", title: "Metro Line 2 to Hongqiao Railway Station", detail: "About 40 min from East Nanjing Rd. Arrive 1 hour early with your passport.", addr: "Shanghai Hongqiao Station 上海虹桥站", map: "上海虹桥站" }
+  ],
+  food: { items: [
+    ["Sheng jian bao 生煎包", "Pan-fried pork buns with crispy bottoms and hot soup inside. A teahouse snack turned classic breakfast. Careful: the soup squirts."],
+    ["Scallion oil noodles 葱油拌面", "Noodles tossed in oil slowly fried with scallions until dark, plus soy and sugar. A test of any noodle shop."],
+    ["Small wontons 小馄饨", "Tiny thin-skinned wontons in light broth with dried shrimp and seaweed."]
+  ]},
+  places: [
+    ["Always Coffee Roaster", "Back for a last cup and beans to take home."],
+    ["Dongtaixiang 东泰祥", "A top pick on your list for half-leavened sheng jian; also recommended for scallion noodles and small wontons."]
+  ],
+  sights: [
+    ["Hongqiao Railway Station", "One of Asia's largest rail hubs. The Beijing–Shanghai high-speed line opened in 2011: about 1,300 km in roughly 4.5–6 hours."]
+  ]
+}
+];
+
+// Off-plan options: [group, name, why, address, amapKeyword]
+const ALTS = {
+  d1: [
+    ["If the line is too long", "Lai Lai Xiao Long 莱莱小笼", "Michelin-recommended soup dumplings from your list; order the crab-roe xiao long bao. Near the hotel on Tianjin Rd.", "506/481 Tianjin Rd 天津路506号", "天津路506号"],
+    ["If the line is too long", "Jia Jia Tang Bao 佳家汤包", "Small, no-frills soup dumpling shop by People's Park, known for crab xiao long bao.", "90 Huanghe Rd 黄河路90号", "佳家汤包"],
+    ["If it rains", "Shanghai History Museum", "Free, no booking, open Sundays. The city's story from 4000 BC to 1949 in the old Race Club clubhouse.", "325 Nanjing West Rd 南京西路325号", "上海市历史博物馆"],
+    ["If you have energy", "Tianzifang 田子坊", "A maze of old shikumen lanes packed with tiny shops and cafes, a short walk from Mu Chun.", "Lane 210 Taikang Rd 泰康路210弄", "田子坊"],
+    ["If you skip the spa", "House of Blues & Jazz", "An old-school live jazz bar near the Bund, running since 1995.", "60 Fuzhou Rd 福州路60号", "福州路60号"]
+  ],
+  d2: [
+    ["Different breakfast", "Xian De Lai 鲜得来", "Classic Shanghai pork chop with rice cakes, from your list, 10 min from the hotel.", "290–292 Ninghai East Rd 宁海东路290号", "宁海东路290号"],
+    ["If the museum wears you out", "Shanghai Tower observation deck", "China's tallest building (632 m) in Lujiazui; the deck is on the 118th floor. Go near sunset.", "501 Middle Yincheng Rd 银城中路501号", "上海中心大厦"],
+    ["If it rains", "China Art Museum 中华艺术宫", "From your list: the giant red Expo 2010 China Pavilion, free modern Chinese art. Book on WeChat; check it's open Mondays.", "205 Shangnan Rd 上南路205号", "中华艺术宫"],
+    ["Different dinner", "Zhang Ji beef noodles", "Locally run beef noodle soup, from your list, a few steps from the hotel.", "530 Tianjin Rd 天津路530号", "天津路530号"]
+  ],
+  d3: [
+    ["More history", "Shanghai History Museum", "Free, no booking, open Tuesdays. Right on the run route at People's Park; swap for Jing'an Temple.", "325 Nanjing West Rd 南京西路325号", "上海市历史博物馆"],
+    ["Quieter spot", "Shanghai Library 上海图书馆", "From your list: one of China's largest libraries, with a calm reading room. Near the French Concession.", "1555 Middle Huaihai Rd 淮海中路1555号", "上海图书馆淮海路"],
+    ["Different coffee", "Coffee Spot", "Hidden in an old guardhouse inside a residential compound; taste one bean three ways.", "No. 4, Lane 838 West Beijing Rd 北京西路838弄4号", "北京西路838弄"],
+    ["If Fu 1088 is full", "Huyi Xiaojiuguan 沪依小酒馆", "A check-marked benbang pick on your screenshot list. Same order: hong shao rou, smoked fish, kao fu.", "Confirm in Amap", "沪依小酒馆"],
+    ["If Fu 1088 is full", "Lao Xing Xian 老兴鲜", "Another check-marked benbang top pick from your screenshots.", "Confirm in Amap", "老兴鲜"]
+  ],
+  d4: [
+    ["More to browse", "Propaganda Poster Art Centre", "From your list: Yang Peiming's collection of Mao-era posters in a basement gallery. Quirky and memorable.", "Building 7, Block K, 726 Yan'an West Rd 延安西路726号", "杨培明宣传画艺术中心"],
+    ["More to browse", "Sisyphus vintage cameras", "From your list: a vintage digital camera shop.", "Confirm in Amap", "Sisyphus相机"],
+    ["Sweet stop", "Chinese-medicine gelato & homemade cola", "From your list: herbal gelato next to ALOHA Coffee.", "267 Xiangyang South Rd 襄阳南路267号", "襄阳南路267号"],
+    ["If the tattoo runs long", "Skip Yibo Studio", "Go straight to Shanyucaoshe for tea; the glass workshop can move to Day 5's free afternoon.", "", ""],
+    ["If Cozy Music Lab is quiet", "House of Blues & Jazz", "Live jazz most nights near the Bund, walking distance from the hotel.", "60 Fuzhou Rd 福州路60号", "福州路60号"]
+  ],
+  d5: [
+    ["Stay in Puxi instead", "West Bund ride + Long Museum", "Ride the Xuhui riverside instead of Qiantan; the Long Museum West Bund sits in an old coal hopper.", "3398 Longteng Ave 龙腾大道3398号", "龙美术馆西岸馆"],
+    ["Architecture", "The Roof / Street of 1000 Red Jars", "From your list: the terracotta-pot facades at The Roof on Madang Rd.", "458 Madang Rd 马当路458弄", "马当路458弄"],
+    ["Sweet stop", "313 Mento", "From your list: minimalist gelato with perfume-like flavors on LiXi Rd.", "LiXi Rd 丽西路 (confirm)", "313 Mento"],
+    ["If it rains", "Swap the Botanical Garden for Longhua Square", "Spend longer in the quiet underground space and cafe beneath the pagoda.", "2853 Longhua Rd 龙华路2853号", "龙华寺"],
+    ["If Eight falls through", "Hairy crab at Lao Xing Xian 老兴鲜", "A benbang top pick from your screenshots; order steamed hairy crab and crab-roe noodles.", "Confirm in Amap", "老兴鲜"]
+  ],
+  d6: [
+    ["Snacks for the train", "Shen Da Cheng & Zhen Lao Da Fang", "Grab glutinous rice treats and fresh-meat mooncakes on Nanjing East Rd before you go.", "636 & 536 Nanjing East Rd", "南京东路536号"],
+    ["Last dumplings", "Lai Lai Xiao Long 莱莱小笼", "One more round of crab-roe xiao long bao, five minutes from the hotel.", "506/481 Tianjin Rd 天津路506号", "天津路506号"]
+  ]
+};
+
+const pinIcon ='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+const chev = '<span class="chev">›</span>';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function notesBlock(title, list, intro) {
+  if (!list || !list.length) return "";
+  return `<details><summary><span>${title}<span class="count">${list.length}</span></span>${chev}</summary>
+    <div class="notes">${intro ? `<div class="intro-note">${esc(intro)}</div>` : ""}
+    ${list.map(([n, t]) => `<div class="note"><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div></details>`;
+}
+
+// Attach each place, sight and dish note to the stop it belongs to
+const plain = n => n.replace(/[㐀-鿿（）"“”()]/g, " ").replace(/\s+/g, " ").trim();
+const cjk = n => (n.match(/[㐀-鿿]+/g) || []).join("");
+const enName = n => n.split(/[㐀-鿿"“(（]/)[0].split(" & ")[0].trim().toLowerCase();
+const disp = n => n.replace(/\s*\(.*\)$/, "").trim();
+const NOTE_INDEX = {};
+DAYS.forEach(d => {
+  (d.sights || []).forEach(n => NOTE_INDEX[n[0]] = ["History", ...n]);
+  (d.places || []).forEach(n => NOTE_INDEX[n[0]] = ["Known for", ...n]);
+  (d.shopping || []).forEach(n => NOTE_INDEX[n[0]] = ["Shop", ...n]);
+  (d.food.items || []).forEach(n => NOTE_INDEX[n[0]] = ["The dish", ...n]);
+});
+// Hand-linked notes for stops whose titles don't name the place
+const KNOW = {
+  d2: { 2: ["Shanghai street breakfast"] },
+  d3: { 2: ["Shanghai street breakfast"] },
+  d4: { 4: ['Salomon "Fu Jun"', "Musinsa Store", "Deja Vu Recycle", "Harmay 话梅", "Wukang Building", "Former French Concession"] },
+  d5: { 9: ["Yongkang Road"] },
+  d6: { 0: ["The Bund", "Waibaidu Bridge"] }
+};
+Object.entries(KNOW).forEach(([dk, m]) => {
+  const d = DAYS.find(x => x.key === dk);
+  Object.entries(m).forEach(([i, names]) => { d.stops[+i].know = names; });
+});
+DAYS.forEach(d => {
+  const notes = [
+    ...(d.sights || []).map(n => ["History", ...n]),
+    ...(d.places || []).map(n => ["Known for", ...n]),
+    ...(d.food.items || []).map(n => ["The dish", ...n])
+  ];
+  d.stops.forEach(s => {
+    const hay = (s.title + " " + (s.detail || "")).toLowerCase();
+    s.about = notes.filter(([kind, name]) => {
+      const en = enName(name);
+      const zh = cjk(name);
+      if (kind === "The dish") return zh && hay.includes(zh);
+      return (en.length >= 3 && s.title.toLowerCase().includes(en)) || (zh.length > 1 && s.title.includes(zh));
+    });
+    (s.know || []).forEach(k => { const hit = NOTE_INDEX[k]; if (hit && !s.about.includes(hit)) s.about.push(hit); });
+  });
+});
+
+function aboutHTML(s) {
+  if (!s.about || !s.about.length) return "";
+  return `<details class="about"><summary>ⓘ About this place</summary><div class="ab">
+    ${s.about.map(([kind, n, t]) => `<p><b>${esc(kind)} · ${esc(disp(n))}</b>${esc(t)}</p>`).join("")}</div></details>`;
+}
+
+function altsHTML(key) {
+  const list = ALTS[key]; if (!list) return "";
+  const groups = {};
+  list.forEach(a => (groups[a[0]] = groups[a[0]] || []).push(a));
+  return `<details><summary><span>Off-plan options<span class="count">${list.length}</span></span>${chev}</summary><div class="alts">
+    ${Object.entries(groups).map(([g, items]) => `<div class="alt-group"><h4>${esc(g)}</h4>
+      ${items.map(([, n, w, a, k]) => `<div class="alt"><div class="n">${esc(n)}</div><div class="w">${esc(w)}</div>
+        ${a ? `<div class="a">${esc(a)}</div>` : ""}
+        ${k ? `<div class="actions"><a class="btn" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}Open in Amap</a></div>` : ""}</div>`).join("")}
+    </div>`).join("")}</div></details>`;
+}
+
+function stopHTML(s) {
+  const links = s.links
+    ? s.links.map(([lbl, k]) => `<a class="btn" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}${esc(lbl)}</a>`).join("")
+    : s.map ? `<a class="btn" href="${amap(s.map)}" target="_blank" rel="noopener">${pinIcon}Open in Amap</a>` : "";
+  return `<li class="stop t-${s.type}">
+    <div class="time">${esc(s.t)}</div><span class="dot"></span>
+    <div class="body">
+      <span class="tag">${esc(s.label)}</span>
+      <div class="title">${esc(s.title)}</div>
+      ${s.detail ? `<div class="detail">${esc(s.detail)}</div>` : ""}
+      ${s.addr ? `<div class="addr">${esc(s.addr)}</div>` : ""}
+      ${links ? `<div class="actions">${links}</div>` : ""}
+      ${aboutHTML(s)}
+    </div></li>`;
+}
+
+function dayCard(d, i, total) {
+  return `<article class="card">
+    <div class="hero">
+      <div class="eyebrow"><span>${esc(d.eyebrow)}</span><span class="num">${i}/${total}</span></div>
+      <h2>${esc(d.title)}</h2>
+      <p>${esc(d.summary)}</p>
+      <div class="highlights">${d.highlights.map(h => `<span class="pill">${esc(h)}</span>`).join("")}</div>
+    </div>
+    <div class="section"><h3>The day</h3><ol class="timeline">${d.stops.map(stopHTML).join("")}</ol></div>
+    ${altsHTML(d.key)}
+    ${notesBlock("Today's food, explained", d.food.items, d.food.intro)}
+    ${notesBlock("Where you're eating & drinking", d.places)}
+    ${notesBlock("Where you're shopping", d.shopping)}
+    ${notesBlock("Today's sights, explained", d.sights)}
+    <div class="card-foot">
+      <button class="nav-btn" data-go="-1">‹ Prev</button>
+      <button class="nav-btn" data-go="1" ${i === total ? "disabled" : ""}>Next ›</button>
+    </div>
+  </article>`;
+}
+
+function startCard() {
+  let done = {};
+  try { done = JSON.parse(localStorage.getItem("sh-checks") || "{}"); } catch (e) {}
+  return `<article class="card">
+    <div class="hero">
+      <div class="eyebrow"><span>${START.eyebrow}</span><span class="num">Nov 2026</span></div>
+      <h2>${START.title}</h2>
+      <p>${esc(START.summary)}</p>
+    </div>
+    <div class="section"><h3>Booking checklist</h3>
+      <ul class="checklist">${START.checklist.map(([w, t], k) => `
+        <li class="${done[k] ? "done" : ""}"><input type="checkbox" id="c${k}" data-k="${k}" ${done[k] ? "checked" : ""}>
+        <label for="c${k}"><span class="when">${esc(w)}</span>${esc(t)}</label></li>`).join("")}
+      </ul>
+    </div>
+    <div class="section"><h3>Good to know</h3><ul class="tips">${START.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></div>
+    <div class="card-foot">
+      <button class="nav-btn" disabled>‹ Prev</button>
+      <button class="nav-btn" data-go="1">Day 1 ›</button>
+    </div>
+  </article>`;
+}
+
+const all = [START, ...DAYS];
+const deck = document.getElementById("deck");
+const tabs = document.getElementById("tabs");
+
+deck.innerHTML = all.map((d, i) =>
+  `<section class="slot" id="card-${d.key}" data-i="${i}">${i === 0 ? startCard() : dayCard(d, i, DAYS.length)}</section>`
+).join("");
+
+// Today in Shanghai
+let todayKey = null;
+try {
+  const sh = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  const hit = DAYS.find(d => d.date === sh);
+  if (hit) todayKey = hit.key;
+} catch (e) {}
+
+tabs.innerHTML = all.map((d, i) =>
+  `<button class="tab ${d.key === todayKey ? "today" : ""}" data-i="${i}" aria-label="${esc(d.eyebrow)}"><small>${d.tabSub}</small><b>${d.tabTop}</b></button>`
+).join("");
+
+const slots = [...deck.querySelectorAll(".slot")];
+const tabBtns = [...tabs.querySelectorAll(".tab")];
+let current = 0;
+
+function goTo(i, smooth = true) {
+  i = Math.max(0, Math.min(all.length - 1, i));
+  deck.scrollTo({ left: slots[i].offsetLeft, behavior: smooth ? "smooth" : "auto" });
+}
+function setActive(i) {
+  current = i;
+  slots.forEach((s, k) => s.classList.toggle("away", k !== i));
+  tabBtns.forEach((b, k) => b.classList.toggle("active", k === i));
+  const tb = tabBtns[i];
+  tabs.scrollTo({ left: tb.offsetLeft - (tabs.clientWidth - tb.offsetWidth) / 2, behavior: "smooth" });
+  try { history.replaceState(null, "", "#" + all[i].key); } catch (e) {}
+}
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting && e.intersectionRatio > 0.6) setActive(+e.target.dataset.i); });
+}, { root: deck, threshold: [0.6] });
+slots.forEach(s => io.observe(s));
+
+tabs.addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if (!b) return;
+  goTo(+b.dataset.i); window.scrollTo({ top: 0, behavior: "smooth" });
+});
+deck.addEventListener("click", e => {
+  const b = e.target.closest("[data-go]"); if (!b || b.disabled) return;
+  goTo(current + (+b.dataset.go)); window.scrollTo({ top: 0, behavior: "smooth" });
+});
+deck.addEventListener("change", e => {
+  const c = e.target.closest("input[data-k]"); if (!c) return;
+  c.closest("li").classList.toggle("done", c.checked);
+  try {
+    const done = JSON.parse(localStorage.getItem("sh-checks") || "{}");
+    done[c.dataset.k] = c.checked;
+    localStorage.setItem("sh-checks", JSON.stringify(done));
+  } catch (err) {}
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "ArrowRight") goTo(current + 1);
+  if (e.key === "ArrowLeft") goTo(current - 1);
+});
+
+// Theme toggle
+const root = document.documentElement;
+try { const t = localStorage.getItem("sh-theme"); if (t) root.dataset.theme = t; } catch (e) {}
+document.getElementById("themeBtn").addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("sh-theme", root.dataset.theme); } catch (e) {}
+});
+
+// Initial card: hash > today > prep card
+const fromHash = all.findIndex(d => "#" + d.key === location.hash);
+const startIdx = fromHash >= 0 ? fromHash : todayKey ? all.findIndex(d => d.key === todayKey) : 0;
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+requestAnimationFrame(() => { goTo(startIdx, false); setActive(startIdx); window.scrollTo(0, 0); });
+</script>
+</body>
+</html>
