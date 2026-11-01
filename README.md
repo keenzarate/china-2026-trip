@@ -1,0 +1,1 @@
+# shanghai-2026-trip
