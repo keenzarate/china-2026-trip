@@ -3,213 +3,169 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#16130f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#e6e9ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c1622" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Shanghai">
 <title>Shanghai · Nov 15–20</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Noto+Sans+SC:wght@500;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f4efe6;
-    --card: #fffdf8;
-    --ink: #1f1a14;
-    --muted: #6f655a;
-    --line: #e6dccd;
-    --accent: #b8332a;
-    --accent-soft: #f6dfd9;
-    --gold: #a77a2c;
-    --shadow: 0 1px 2px rgba(40,28,15,.06), 0 12px 32px rgba(40,28,15,.10);
-    --t-run: #2f6f5e;   --t-run-bg: #dcefe8;
-    --t-coffee: #7a4b26; --t-coffee-bg: #f1e3d4;
-    --t-food: #b8332a;  --t-food-bg: #f6dfd9;
-    --t-tea: #5e7a2c;   --t-tea-bg: #e6eed6;
-    --t-see: #345d8f;   --t-see-bg: #dfe8f4;
-    --t-shop: #8a3f7a;  --t-shop-bg: #f1dfec;
-    --t-misc: #6f655a;  --t-misc-bg: #ece6dc;
+    --bg: #e6e9ec; --card: #ffffff; --ink: #14202e; --muted: #5b6673; --line: #d3d8de; --rail-bg: #f1f3f5;
+    --shadow: 0 2px 0 rgba(20,32,46,.06), 0 18px 40px -18px rgba(20,32,46,.35);
+    --c: #6b7785; --ct: #4a5563;
   }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #16130f; --card: #211d18; --ink: #f2ebe0; --muted: #a99d8e; --line: #3a332b;
-      --accent: #e0675c; --accent-soft: #3d2420; --gold: #d3a65a;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
-      --t-run: #7cc5ad; --t-run-bg: #1e3530;
-      --t-coffee: #d9a878; --t-coffee-bg: #3a2c20;
-      --t-food: #ef8a7f; --t-food-bg: #3d2420;
-      --t-tea: #b3cf7b; --t-tea-bg: #2b331d;
-      --t-see: #8fb3e3; --t-see-bg: #1f2b3b;
-      --t-shop: #d996c8; --t-shop-bg: #36222f;
-      --t-misc: #b5aa9b; --t-misc-bg: #2d2822;
-    }
+    :root:not([data-theme="light"]) { --bg: #0c1622; --card: #15212f; --ink: #e8edf2; --muted: #93a0ae; --line: #26364a; --rail-bg: #1b2938; --shadow: 0 18px 40px -18px rgba(0,0,0,.8); }
   }
-  :root[data-theme="dark"] {
-    --bg: #16130f; --card: #211d18; --ink: #f2ebe0; --muted: #a99d8e; --line: #3a332b;
-    --accent: #e0675c; --accent-soft: #3d2420; --gold: #d3a65a;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.35);
-    --t-run: #7cc5ad; --t-run-bg: #1e3530;
-    --t-coffee: #d9a878; --t-coffee-bg: #3a2c20;
-    --t-food: #ef8a7f; --t-food-bg: #3d2420;
-    --t-tea: #b3cf7b; --t-tea-bg: #2b331d;
-    --t-see: #8fb3e3; --t-see-bg: #1f2b3b;
-    --t-shop: #d996c8; --t-shop-bg: #36222f;
-    --t-misc: #b5aa9b; --t-misc-bg: #2d2822;
-  }
+  :root[data-theme="dark"] { --bg: #0c1622; --card: #15212f; --ink: #e8edf2; --muted: #93a0ae; --line: #26364a; --rail-bg: #1b2938; --shadow: 0 18px 40px -18px rgba(0,0,0,.8); }
+  .card { --at: var(--ct); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .card { --at: color-mix(in srgb, var(--c) 55%, #fff); } }
+  :root[data-theme="dark"] .card { --at: color-mix(in srgb, var(--c) 55%, #fff); }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   body {
-    background: var(--bg);
-    color: var(--ink);
-    font: 15px/1.5 Inter, system-ui, -apple-system, "PingFang SC", "Noto Sans SC", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    background: var(--bg); color: var(--ink);
+    font: 400 15.5px/1.5 Archivo, "Noto Sans SC", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
+  .zh { font-family: "Noto Sans SC", "PingFang SC", sans-serif; }
   a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--c); outline-offset: 2px; border-radius: 6px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+
+  /* Top bar: line roundels */
   header.top {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    padding: calc(env(safe-area-inset-top) + 10px) 16px 10px;
-    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 10; background: var(--card);
+    padding: calc(env(safe-area-inset-top) + 12px) 16px 12px; border-bottom: 1px solid var(--line);
   }
-  .brand { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
-  .brand h1 { font: 700 22px/1.1 Fraunces, Georgia, serif; margin: 0; letter-spacing: -.01em; }
-  .brand h1 span { color: var(--accent); }
-  .brand small { color: var(--muted); font-size: 12px; }
-  .tabs {
-    display: flex; gap: 6px; margin-top: 10px; overflow-x: auto; scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
+  .brand { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .brand h1 { margin: 0; font: 800 18px/1 Archivo, sans-serif; font-stretch: 75%; display: flex; align-items: baseline; gap: 7px; }
+  .brand h1 .zh { font-weight: 900; font-size: 18px; }
+  .brand h1 small { font-weight: 500; color: var(--muted); font-size: 14px; font-stretch: 100%; }
+  .tabs { display: flex; gap: 12px; margin-top: 12px; overflow-x: auto; scrollbar-width: none; padding: 8px 6px 2px; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab {
-    flex: 0 0 auto; border: 1px solid var(--line); background: var(--card); color: var(--ink);
-    border-radius: 999px; padding: 6px 12px; font: 500 13px/1 Inter, sans-serif; cursor: pointer;
-    display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 52px;
+    flex: 0 0 auto; background: none; border: 0; padding: 0; cursor: pointer; color: var(--ink);
+    display: flex; flex-direction: column; align-items: center; gap: 5px; font: 500 12px/1 Archivo, sans-serif;
   }
-  .tab b { font: 700 15px/1 Fraunces, serif; }
-  .tab small { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-  .tab.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-  .tab.active small { color: color-mix(in srgb, var(--bg) 70%, transparent); }
-  .tab.today::after { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .tab .roundel {
+    width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--tc); color: #fff; font: 800 19px/1 Archivo, sans-serif; font-stretch: 80%;
+    box-shadow: 0 0 0 3px var(--card); transition: box-shadow .2s, transform .2s;
+  }
+  .tab.active .roundel { box-shadow: 0 0 0 3px var(--card), 0 0 0 5.5px var(--tc); transform: scale(1.05); }
+  .tab small { color: var(--muted); }
+  .tab.active small { color: var(--ink); font-weight: 700; }
+  .tab.today small { color: var(--tc); font-weight: 800; }
 
-  .deck {
-    display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
-    -webkit-overflow-scrolling: touch; padding: 18px 0 40px;
-  }
+  /* Deck */
+  .deck { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 18px 0 48px; }
   .deck::-webkit-scrollbar { display: none; }
-  .slot {
-    flex: 0 0 100%; scroll-snap-align: center; padding: 0 16px;
-    display: flex; justify-content: center;
-  }
+  .slot { flex: 0 0 100%; scroll-snap-align: center; padding: 0 14px; display: flex; justify-content: center; }
   .card {
-    width: 100%; max-width: 560px; background: var(--card); border-radius: 22px;
-    box-shadow: var(--shadow); border: 1px solid var(--line); overflow: hidden;
-    transition: transform .35s ease, opacity .35s ease;
-    position: relative;
+    width: 100%; max-width: 560px; background: var(--card); border-radius: 18px; overflow: hidden;
+    box-shadow: var(--shadow); transition: transform .35s ease, opacity .35s ease;
   }
-  .slot.away .card { transform: scale(.94) translateY(10px); opacity: .55; }
-  .card::before, .card::after {
-    content: ""; position: absolute; left: 14px; right: 14px; height: 8px; bottom: -8px;
-    background: var(--card); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 18px 18px; z-index: -1;
-  }
-  .hero {
-    padding: 20px 20px 16px;
-    background:
-      radial-gradient(120% 90% at 100% 0%, var(--accent-soft) 0%, transparent 60%),
-      var(--card);
-    border-bottom: 1px dashed var(--line);
-  }
-  .eyebrow { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
-  .eyebrow .num { color: var(--accent); }
-  .hero h2 { font: 700 26px/1.15 Fraunces, Georgia, serif; margin: 8px 0 10px; letter-spacing: -.01em; }
-  .hero p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .slot.away .card { transform: scale(.95); opacity: .5; }
+
+  /* Hero: the station sign */
+  .hero { background: var(--c); color: #fff; padding: 18px 20px 0; overflow: hidden; }
+  .sign-top { display: flex; justify-content: space-between; align-items: center; font: 600 14px/1 Archivo, sans-serif; }
+  .sign-top .badge { display: inline-flex; align-items: center; gap: 9px; }
+  .sign-top .badge b { width: 30px; height: 30px; border-radius: 50%; background: #fff; color: var(--ct); display: grid; place-items: center; font: 800 16px/1 Archivo, sans-serif; font-stretch: 80%; }
+  .hero .zh-big { font: 900 clamp(78px, 26vw, 136px)/.9 "Noto Sans SC", sans-serif; letter-spacing: -.03em; margin: 20px 0 0 -5px; white-space: nowrap; }
+  .hero .area { font: 800 27px/1.05 Archivo, sans-serif; font-stretch: 68%; margin: 12px 0 18px; }
+  .platform { background: var(--card); color: var(--ink); margin: 0 -20px; padding: 18px 20px; border-top: 7px solid var(--ink); }
+  .platform h2 { font: 800 25px/1.12 Archivo, sans-serif; font-stretch: 85%; margin: 0 0 8px; }
+  .platform p { margin: 0; color: var(--muted); font-size: 15px; max-width: 62ch; }
   .highlights { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-  .pill { font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 999px; background: var(--t-misc-bg); color: var(--t-misc); }
+  .pill { font: 600 13px/1 Archivo, sans-serif; padding: 7px 11px; border-radius: 999px; border: 1.5px solid var(--c); color: var(--at); }
 
-  .section { padding: 14px 16px 6px; }
-  .section h3 { font: 600 12px/1 Inter, sans-serif; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 6px 4px 12px; }
-
+  /* The line diagram */
+  .section { padding: 2px 18px 4px; }
+  .section h3 { font: 800 17px/1 Archivo, sans-serif; font-stretch: 80%; margin: 14px 0 18px; }
   .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
-  .timeline::before { content: ""; position: absolute; left: 52px; top: 6px; bottom: 6px; width: 2px; background: var(--line); border-radius: 2px; }
-  .stop { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 4px 0 14px; position: relative; }
-  .stop .time { font: 600 12px/1.25 Inter, sans-serif; color: var(--muted); text-align: right; padding-top: 3px; font-variant-numeric: tabular-nums; }
-  .stop .dot { position: absolute; left: 48px; top: 7px; width: 10px; height: 10px; border-radius: 50%; background: var(--card); border: 2px solid var(--muted); }
+  .timeline::before { content: ""; position: absolute; left: 63px; top: 10px; bottom: 22px; width: 6px; background: var(--c); border-radius: 3px; }
+  .stop { display: grid; grid-template-columns: 48px 1fr; gap: 38px; padding: 0 0 22px; position: relative; }
+  .stop .time { font: 800 14.5px/1.2 Archivo, sans-serif; font-stretch: 78%; text-align: right; padding-top: 1px; font-variant-numeric: tabular-nums; }
+  .stop .dot { position: absolute; left: 57px; top: 1px; width: 18px; height: 18px; border-radius: 50%; background: var(--card); border: 4px solid var(--c); }
+  .stop.major .dot { width: 26px; height: 26px; left: 53px; top: -3px; border-width: 5px; box-shadow: 0 0 0 3px var(--card); }
+  .stop.t-book .dot { background: var(--ink); border-color: var(--ink); }
   .stop .body { min-width: 0; }
-  .tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 6px; margin-bottom: 4px; }
-  .stop .title { font-weight: 600; font-size: 15px; line-height: 1.35; }
-  .stop .detail { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
-  .stop .addr { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
-  .actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .tag { display: block; font: 600 13px/1 Archivo, sans-serif; color: var(--at); margin-bottom: 5px; }
+  .t-book .tag { color: var(--ink); font-weight: 800; }
+  .stop .title { font-weight: 700; font-size: 16px; line-height: 1.3; }
+  .stop.major .title { font: 800 19px/1.2 Archivo, sans-serif; font-stretch: 85%; }
+  .stop .detail { color: var(--muted); font-size: 14px; margin-top: 3px; }
+  .stop .addr { font-size: 13px; color: var(--muted); margin-top: 7px; padding-left: 10px; border-left: 2px solid var(--line); }
+  .actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
   .btn {
     display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
-    font: 600 12.5px/1 Inter, sans-serif; padding: 8px 11px; border-radius: 10px;
-    background: var(--bg); border: 1px solid var(--line); color: var(--ink);
+    font: 700 13px/1 Archivo, sans-serif; padding: 8px 12px 8px 10px; border-radius: 999px;
+    background: var(--ink); color: var(--card);
   }
   .btn svg { width: 14px; height: 14px; }
   .btn:active { transform: scale(.97); }
 
-  .t-run .tag { background: var(--t-run-bg); color: var(--t-run); } .t-run .dot { border-color: var(--t-run); }
-  .t-coffee .tag { background: var(--t-coffee-bg); color: var(--t-coffee); } .t-coffee .dot { border-color: var(--t-coffee); background: var(--t-coffee); }
-  .t-food .tag { background: var(--t-food-bg); color: var(--t-food); } .t-food .dot { border-color: var(--t-food); background: var(--t-food); }
-  .t-tea .tag { background: var(--t-tea-bg); color: var(--t-tea); } .t-tea .dot { border-color: var(--t-tea); }
-  .t-see .tag { background: var(--t-see-bg); color: var(--t-see); } .t-see .dot { border-color: var(--t-see); }
-  .t-shop .tag { background: var(--t-shop-bg); color: var(--t-shop); } .t-shop .dot { border-color: var(--t-shop); }
-  .t-misc .tag { background: var(--t-misc-bg); color: var(--t-misc); }
-  .t-book .tag { background: var(--accent); color: #fff; } .t-book .dot { border-color: var(--accent); background: var(--accent); }
+  /* About this place */
+  .about { margin-top: 10px; }
+  .about summary { list-style: none; cursor: pointer; font: 700 13.5px/1 Archivo, sans-serif; color: var(--at); display: inline-flex; align-items: center; gap: 7px; }
+  .about summary::-webkit-details-marker { display: none; }
+  .about summary::before { content: "i"; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--c); display: grid; place-items: center; font: italic 700 11px/1 Georgia, serif; }
+  .about[open] summary { margin-bottom: 8px; }
+  .about .ab { background: var(--rail-bg); border-left: 4px solid var(--c); border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: 14px; }
+  .about .ab p { margin: 0 0 10px; } .about .ab p:last-child { margin: 0; }
+  .about .ab b { display: block; font-size: 13px; color: var(--at); font-weight: 700; margin-bottom: 2px; }
 
-  details { border-top: 1px solid var(--line); }
-  details summary {
-    list-style: none; cursor: pointer; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
-    font-weight: 600; font-size: 14.5px;
-  }
-  details summary::-webkit-details-marker { display: none; }
-  details summary .chev { transition: transform .2s; color: var(--muted); }
-  details[open] summary .chev { transform: rotate(90deg); }
-  details summary .count { color: var(--muted); font-weight: 500; font-size: 12.5px; margin-left: 6px; }
-  .notes { padding: 0 20px 16px; }
-  .note { padding: 10px 0; border-bottom: 1px dashed var(--line); }
+  /* Folding panels */
+  .panel { border-top: 1px solid var(--line); }
+  .panel > summary { list-style: none; cursor: pointer; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .panel > summary::-webkit-details-marker { display: none; }
+  .panel > summary .ttl { font: 800 18px/1.1 Archivo, sans-serif; font-stretch: 80%; }
+  .panel > summary .sub { display: block; font: 400 13.5px/1.35 Archivo, sans-serif; color: var(--muted); margin-top: 3px; }
+  .panel > summary .plus { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-weight: 700; font-size: 17px; transition: transform .2s; }
+  .panel[open] > summary .plus { transform: rotate(45deg); }
+  .notes { padding: 0 18px 16px; }
+  .note { padding: 11px 0; border-bottom: 1px solid var(--line); }
   .note:last-child { border-bottom: 0; }
-  .note b { display: block; font-size: 14px; margin-bottom: 2px; }
-  .note span { color: var(--muted); font-size: 13.5px; }
-  .intro-note { color: var(--muted); font-size: 13.5px; padding: 0 0 6px; font-style: italic; }
+  .note b { display: block; font-size: 15px; margin-bottom: 2px; }
+  .note span { color: var(--muted); font-size: 14px; }
+  .intro-note { font-size: 14px; padding: 0 0 6px; }
 
-  .card-foot { display: flex; justify-content: space-between; padding: 14px 16px 18px; border-top: 1px solid var(--line); }
-  .nav-btn { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 12px; padding: 10px 14px; font: 600 13px/1 Inter, sans-serif; cursor: pointer; }
-  .nav-btn[disabled] { opacity: .35; }
+  /* Transfers */
+  .alts { padding: 0 18px 12px; }
+  .alt-group { margin: 2px 0 16px; }
+  .alt-group h4 { margin: 0 0 9px; font: 700 14.5px/1.2 Archivo, sans-serif; display: flex; align-items: center; gap: 9px; }
+  .alt-group h4::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 3px solid var(--c); background: var(--card); }
+  .alt { border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; margin: 0 0 8px; }
+  .alt .n { font-weight: 700; font-size: 15px; }
+  .alt .w { color: var(--muted); font-size: 14px; margin-top: 2px; }
+  .alt .a { color: var(--muted); font-size: 13px; margin-top: 5px; }
+
+  .card-foot { display: flex; justify-content: space-between; padding: 14px 18px 20px; border-top: 1px solid var(--line); }
+  .nav-btn { background: none; border: 1.5px solid var(--ink); color: var(--ink); border-radius: 999px; padding: 10px 16px; font: 700 14px/1 Archivo, sans-serif; cursor: pointer; }
+  .nav-btn[disabled] { opacity: .25; }
 
   .checklist { list-style: none; padding: 0; margin: 0; }
-  .checklist li { display: flex; gap: 12px; align-items: flex-start; padding: 11px 0; border-bottom: 1px dashed var(--line); }
+  .checklist li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--line); }
   .checklist li:last-child { border-bottom: 0; }
-  .checklist input { width: 20px; height: 20px; accent-color: var(--accent); margin-top: 1px; flex: 0 0 auto; }
-  .checklist .when { font-weight: 700; font-size: 13px; color: var(--accent); display: block; }
-  .checklist label { font-size: 14px; }
+  .checklist input { width: 22px; height: 22px; accent-color: var(--ink); margin: 0; flex: 0 0 auto; }
+  .checklist .when { font: 800 15px/1 Archivo, sans-serif; font-stretch: 78%; display: block; margin-bottom: 4px; }
+  .checklist label { font-size: 14.5px; }
   .checklist li.done label { text-decoration: line-through; color: var(--muted); }
-  .tips { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
-  .tips li { margin: 6px 0; }
-  .about { margin-top: 8px; border: 0; }
-  .about summary { padding: 0; font-size: 12.5px; font-weight: 600; color: var(--gold); display: inline-flex; gap: 4px; justify-content: flex-start; }
-  .about[open] summary { margin-bottom: 6px; }
-  .about .ab { background: var(--bg); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; color: var(--ink); }
-  .about .ab p { margin: 0 0 8px; } .about .ab p:last-child { margin: 0; }
-  .about .ab b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 1px; }
-  .alts { padding: 4px 16px 10px; }
-  .alt-group { margin: 6px 0 14px; }
-  .alt-group h4 { margin: 0 4px 8px; font: 700 12px/1 Inter, sans-serif; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
-  .alt { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 11px 13px; margin-bottom: 8px; }
-  .alt .n { font-weight: 600; font-size: 14.5px; }
-  .alt .w { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
-  .alt .a { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
-  .alt .actions { margin-top: 8px; }
-  .alt .btn { background: var(--card); }
-  .theme-toggle { background: none; border: 1px solid var(--line); color: var(--ink); border-radius: 999px; width: 32px; height: 32px; cursor: pointer; display: grid; place-items: center; }
+  .tips { margin: 0 0 10px; padding-left: 18px; color: var(--muted); font-size: 14.5px; }
+  .tips li { margin: 7px 0; }
+  .theme-toggle { background: none; border: 1.5px solid var(--line); color: var(--ink); border-radius: 999px; padding: 7px 11px; cursor: pointer; font: 600 12.5px/1 Archivo, sans-serif; }
 </style>
 </head>
 <body>
 <header class="top">
   <div class="brand">
-    <h1>Shanghai <span>·</span> Nov 15–20</h1>
-    <button class="theme-toggle" id="themeBtn" aria-label="Toggle dark mode">◐</button>
+    <h1><span class="zh">上海</span>Shanghai <small>15–20 November</small></h1>
+    <button class="theme-toggle" id="themeBtn">Night mode</button>
   </div>
   <nav class="tabs" id="tabs" aria-label="Days"></nav>
 </header>
@@ -220,7 +176,7 @@
 const amap = k => `https://uri.amap.com/search?keyword=${encodeURIComponent(k)}&city=310000`;
 
 const START = {
-  key: "start", tabTop: "★", tabSub: "Prep",
+  key: "start", color: "#6B7785", ink: "#4A5563", zh: "上海", area: "Before you go", when: "November 2026", line: "Prep", tabTop: "S", tabSub: "Prep",
   eyebrow: "Before you go", title: "Bookings & essentials",
   summary: "Six days based at 627 Nanjing East Rd. Each morning's run finishes at a local, independent coffee shop, then a light Shanghainese breakfast and a shower. Independent cafes rarely open before 8:00–9:00, so check each one in Amap the night before.",
   checklist: [
@@ -242,7 +198,7 @@ const START = {
 
 const DAYS = [
 {
-  key: "d1", date: "2026-11-15", tabTop: "15", tabSub: "Sun",
+  key: "d1", color: "#9177B8", ink: "#6B4E8C", zh: "豫园", area: "Yu Garden & the old city", when: "Sunday 15 November", line: "Line 10", date: "2026-11-15", tabTop: "15", tabSub: "Sun",
   eyebrow: "Day 1 · Sunday, Nov 15", title: "Arrival, Yu Garden & spa",
   summary: "An easy landing day with no run. Take the metro in, drop your bags, eat your way down Nanjing East Rd, and reach Yu Garden before the crowds. Soup dumplings for an early lunch, then tea at Mu Chun in Sinan Mansion and a stroll through Fuxing Park. Nap, then end with a 2-hour cupping massage and the Bund lit up at night.",
   highlights: ["Yu Garden", "Xiao long bao", "Tea house", "Spa"],
@@ -284,7 +240,7 @@ const DAYS = [
   ]
 },
 {
-  key: "d2", date: "2026-11-16", tabTop: "16", tabSub: "Mon",
+  key: "d2", color: "#6FA313", ink: "#4C7A0B", zh: "浦东", area: "Pudong", when: "Monday 16 November", line: "Line 2", date: "2026-11-16", tabTop: "16", tabSub: "Mon",
   eyebrow: "Day 2 · Monday, Nov 16", title: "Museum day + Pudong",
   summary: "Shanghai Museum East is open Mondays, when most museums close, and its bronze, ceramic and jade galleries deserve a long morning. Walk it off in Century Park, catch sunset on the Lujiazui riverfront looking back at the Bund, then a simple bowl of noodles near the hotel.",
   highlights: ["Bund run", "Shanghai Museum East", "Century Park", "Sunset"],
@@ -319,7 +275,7 @@ const DAYS = [
   ]
 },
 {
-  key: "d3", date: "2026-11-17", tabTop: "17", tabSub: "Tue",
+  key: "d3", color: "#F3560F", ink: "#C2410C", zh: "静安", area: "Jing'an", when: "Tuesday 17 November", line: "Line 7", date: "2026-11-17", tabTop: "17", tabSub: "Tue",
   eyebrow: "Day 3 · Tuesday, Nov 17", title: "Artsy day + shopping (Jing'an)",
   summary: "Run west to a roaster, then a local breakfast. The golden Jing'an Temple, buns for lunch, galleries at M50, and an afternoon on West Nanjing Rd. Dinner at Fu 1088 covers three must-eats at once. Book the National Museum at 5 PM.",
   highlights: ["Jing'an Temple", "M50", "Shopping", "Fu 1088"],
@@ -356,7 +312,7 @@ const DAYS = [
   ]
 },
 {
-  key: "d4", date: "2026-11-18", tabTop: "18", tabSub: "Wed",
+  key: "d4", color: "#E3002B", ink: "#C1001F", zh: "武康路", area: "French Concession", when: "Wednesday 18 November", line: "Line 1", date: "2026-11-18", tabTop: "18", tabSub: "Wed",
   eyebrow: "Day 4 · Wednesday, Nov 18", title: "French Concession: shop, tattoo, tea, live music",
   summary: "Your second shopping day under the plane trees. Anfu Rd and Wukang Rd boutiques, crab soup dumplings at peak season, a flash tattoo and glass jewelry. Tea at Shanyucaoshe in Rose Villa, a short walk from a hairy crab dinner, then live music.",
   highlights: ["Anfu Rd shopping", "Flash tattoo", "Shanyucaoshe", "Live music"],
@@ -402,7 +358,7 @@ const DAYS = [
   ]
 },
 {
-  key: "d5", date: "2026-11-19", tabTop: "19", tabSub: "Thu",
+  key: "d5", color: "#007A60", ink: "#007A60", zh: "龙华", area: "Longhua & the river", when: "Thursday 19 November", line: "Line 12", date: "2026-11-19", tabTop: "19", tabSub: "Thu",
   eyebrow: "Day 5 · Thursday, Nov 19", title: "Riverside ride, Longhua & Eight",
   summary: "A slower, greener day in south Shanghai. Ride a share bike along the Qiantan riverside to coffee at Aftertaste, then Longhua Temple and the quiet space beneath the pagoda. Yellow croaker noodles, the Botanical Garden, free time — and your last dinner at the 8-seat chef's counter at Eight.",
   highlights: ["Bike ride", "Longhua Temple", "Botanical Garden", "Eight 八"],
@@ -436,7 +392,7 @@ const DAYS = [
   ]
 },
 {
-  key: "d6", date: "2026-11-20", tabTop: "20", tabSub: "Fri",
+  key: "d6", color: "#871C2B", ink: "#871C2B", zh: "虹桥", area: "Hongqiao", when: "Friday 20 November", line: "Line 11", date: "2026-11-20", tabTop: "20", tabSub: "Fri",
   eyebrow: "Day 6 · Friday, Nov 20", title: "Farewell run & train to Beijing",
   summary: "One last Bund run and cup at Always (buy beans to take home), then sheng jian bao and scallion oil noodles — the two must-eats saved for the end. Pack, check out, and ride Metro Line 2 straight to Hongqiao.",
   highlights: ["Bund run", "Sheng jian", "Train"],
@@ -509,9 +465,18 @@ const pinIcon ='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strok
 const chev = '<span class="chev">›</span>';
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
+function panelHead(title, sub) {
+  return `<summary><span><span class="ttl">${title}</span><span class="sub">${sub}</span></span><span class="plus" aria-hidden="true">+</span></summary>`;
+}
+const PANEL_SUB = {
+  "Today's food, explained": "The dishes you're eating and where they come from",
+  "Where you're eating & drinking": "What each restaurant, cafe and tea house is known for",
+  "Where you're shopping": "The stores on today's route",
+  "Today's sights, explained": "Quick history of what you're seeing"
+};
 function notesBlock(title, list, intro) {
   if (!list || !list.length) return "";
-  return `<details><summary><span>${title}<span class="count">${list.length}</span></span>${chev}</summary>
+  return `<details class="panel">${panelHead(title, PANEL_SUB[title] || "")}
     <div class="notes">${intro ? `<div class="intro-note">${esc(intro)}</div>` : ""}
     ${list.map(([n, t]) => `<div class="note"><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div></details>`;
 }
@@ -560,15 +525,15 @@ DAYS.forEach(d => {
 
 function aboutHTML(s) {
   if (!s.about || !s.about.length) return "";
-  return `<details class="about"><summary>ⓘ About this place</summary><div class="ab">
-    ${s.about.map(([kind, n, t]) => `<p><b>${esc(kind)} · ${esc(disp(n))}</b>${esc(t)}</p>`).join("")}</div></details>`;
+  return `<details class="about"><summary>About this place</summary><div class="ab">
+    ${s.about.map(([kind, n, t]) => `<p><b>${esc(disp(n))}</b>${esc(t)}</p>`).join("")}</div></details>`;
 }
 
 function altsHTML(key) {
   const list = ALTS[key]; if (!list) return "";
   const groups = {};
   list.forEach(a => (groups[a[0]] = groups[a[0]] || []).push(a));
-  return `<details><summary><span>Off-plan options<span class="count">${list.length}</span></span>${chev}</summary><div class="alts">
+  return `<details class="panel">${panelHead("Transfers", `${list.length} ways to change plans if a line is long, it rains, or you want more`)}<div class="alts">
     ${Object.entries(groups).map(([g, items]) => `<div class="alt-group"><h4>${esc(g)}</h4>
       ${items.map(([, n, w, a, k]) => `<div class="alt"><div class="n">${esc(n)}</div><div class="w">${esc(w)}</div>
         ${a ? `<div class="a">${esc(a)}</div>` : ""}
@@ -580,7 +545,8 @@ function stopHTML(s) {
   const links = s.links
     ? s.links.map(([lbl, k]) => `<a class="btn" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}${esc(lbl)}</a>`).join("")
     : s.map ? `<a class="btn" href="${amap(s.map)}" target="_blank" rel="noopener">${pinIcon}Open in Amap</a>` : "";
-  return `<li class="stop t-${s.type}">
+  const major = ["see", "tea", "shop"].includes(s.type) || /^(Lunch|Dinner|Music)$/.test(s.label);
+  return `<li class="stop t-${s.type}${major ? " major" : ""}">
     <div class="time">${esc(s.t)}</div><span class="dot"></span>
     <div class="body">
       <span class="tag">${esc(s.label)}</span>
@@ -592,15 +558,23 @@ function stopHTML(s) {
     </div></li>`;
 }
 
+function heroHTML(d, badge) {
+  return `<header class="hero">
+      <div class="sign-top">${badge}<span>${esc(d.when)}</span></div>
+      <div class="zh-big" lang="zh-Hans">${esc(d.zh)}</div>
+      <div class="area">${esc(d.area)}</div>
+      <div class="platform">
+        <h2>${esc(d.title)}</h2>
+        <p>${esc(d.summary)}</p>
+        ${d.highlights ? `<div class="highlights">${d.highlights.map(h => `<span class="pill">${esc(h)}</span>`).join("")}</div>` : ""}
+      </div>
+    </header>`;
+}
+
 function dayCard(d, i, total) {
   return `<article class="card">
-    <div class="hero">
-      <div class="eyebrow"><span>${esc(d.eyebrow)}</span><span class="num">${i}/${total}</span></div>
-      <h2>${esc(d.title)}</h2>
-      <p>${esc(d.summary)}</p>
-      <div class="highlights">${d.highlights.map(h => `<span class="pill">${esc(h)}</span>`).join("")}</div>
-    </div>
-    <div class="section"><h3>The day</h3><ol class="timeline">${d.stops.map(stopHTML).join("")}</ol></div>
+    ${heroHTML(d, `<span class="badge"><b>${i}</b>Day ${i} of ${total}</span>`)}
+    <div class="section"><h3>Today's line</h3><ol class="timeline">${d.stops.map(stopHTML).join("")}</ol></div>
     ${altsHTML(d.key)}
     ${notesBlock("Today's food, explained", d.food.items, d.food.intro)}
     ${notesBlock("Where you're eating & drinking", d.places)}
@@ -617,11 +591,7 @@ function startCard() {
   let done = {};
   try { done = JSON.parse(localStorage.getItem("sh-checks") || "{}"); } catch (e) {}
   return `<article class="card">
-    <div class="hero">
-      <div class="eyebrow"><span>${START.eyebrow}</span><span class="num">Nov 2026</span></div>
-      <h2>${START.title}</h2>
-      <p>${esc(START.summary)}</p>
-    </div>
+    ${heroHTML(START, `<span class="badge"><b>S</b>Start here</span>`)}
     <div class="section"><h3>Booking checklist</h3>
       <ul class="checklist">${START.checklist.map(([w, t], k) => `
         <li class="${done[k] ? "done" : ""}"><input type="checkbox" id="c${k}" data-k="${k}" ${done[k] ? "checked" : ""}>
@@ -641,7 +611,7 @@ const deck = document.getElementById("deck");
 const tabs = document.getElementById("tabs");
 
 deck.innerHTML = all.map((d, i) =>
-  `<section class="slot" id="card-${d.key}" data-i="${i}">${i === 0 ? startCard() : dayCard(d, i, DAYS.length)}</section>`
+  `<section class="slot" id="card-${d.key}" data-i="${i}" style="--c:${d.color};--ct:${d.ink}">${i === 0 ? startCard() : dayCard(d, i, DAYS.length)}</section>`
 ).join("");
 
 // Today in Shanghai
@@ -653,7 +623,7 @@ try {
 } catch (e) {}
 
 tabs.innerHTML = all.map((d, i) =>
-  `<button class="tab ${d.key === todayKey ? "today" : ""}" data-i="${i}" aria-label="${esc(d.eyebrow)}"><small>${d.tabSub}</small><b>${d.tabTop}</b></button>`
+  `<button class="tab ${d.key === todayKey ? "today" : ""}" data-i="${i}" style="--tc:${d.color}" aria-label="${esc(d.when)}, ${esc(d.area)}"><span class="roundel">${i === 0 ? "S" : i}</span><small>${d.key === todayKey ? "Today" : (i === 0 ? "Prep" : d.tabSub + " " + d.tabTop)}</small></button>`
 ).join("");
 
 const slots = [...deck.querySelectorAll(".slot")];
@@ -702,10 +672,14 @@ document.addEventListener("keydown", e => {
 
 // Theme toggle
 const root = document.documentElement;
+const themeBtn = document.getElementById("themeBtn");
+const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+const labelTheme = () => { themeBtn.textContent = isDark() ? "Day mode" : "Night mode"; };
 try { const t = localStorage.getItem("sh-theme"); if (t) root.dataset.theme = t; } catch (e) {}
-document.getElementById("themeBtn").addEventListener("click", () => {
-  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-  root.dataset.theme = dark ? "light" : "dark";
+labelTheme();
+themeBtn.addEventListener("click", () => {
+  root.dataset.theme = isDark() ? "light" : "dark";
+  labelTheme();
   try { localStorage.setItem("sh-theme", root.dataset.theme); } catch (e) {}
 });
 
