@@ -8,6 +8,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Shanghai">
 <title>China 2026 Trip</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="China trip">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Noto+Sans+SC:wght@500;900&display=swap" rel="stylesheet">
@@ -296,6 +300,7 @@ const START = {
     "Set up Alipay or WeChat Pay with a foreign card; it also pays for the metro and bike-share.",
     "Use Amap (高德) or Apple Maps; Google Maps works poorly in China. Get an eSIM or VPN for Google and WhatsApp.",
     "Carry our physical passport everywhere: museums, trains and many attractions check it.",
+    "Works offline: open this page once with internet (and VPN) before the trip, then it opens even if the VPN drops. Amap and Dianping buttons work in China without a VPN; photos, fonts and Wikipedia links need one.",
     "We're mostly on the metro: scan the Alipay transport QR code at the gates, and use Amap's public transit tab (公交) for live routes. Stops with an M badge say which line to take.",
     "Use Dianping (大众点评) for opening hours, reviews and queues, and Amap for directions. Food and coffee stops have a Dianping button that searches in Chinese (e.g. 精品咖啡, 小笼包) to find spots near us."
   ]
@@ -1498,6 +1503,17 @@ if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   const list = [CITIES[city].start, aboutOf(CITIES[city]), listOf(CITIES[city]), ...CITIES[city].days];
   render(city, Math.max(0, list.findIndex(d => d.key === key)));
 })();
+
+// Offline copy (see sw.js): register once the page has loaded
+if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").then(() => navigator.serviceWorker.ready).then(() => {
+      // Warm the offline copy with the city photos too (they're blocked in China without a VPN)
+      const photos = [SH_INFO, BJ_INFO].flatMap(i => [i.photo, ...i.areas.map(a => a.photo)]).filter(Boolean).map(CF);
+      [...new Set(photos)].forEach(u => fetch(u, { mode: "no-cors" }).catch(() => {}));
+    }).catch(() => {});
+  });
+}
 </script>
 </body>
 </html>
