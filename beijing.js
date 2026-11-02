@@ -46,10 +46,9 @@ TRIP.beijing = {
   // ---------- Start card ----------
   prep: {
     title: "Bookings & essentials",
-    summary: "Nov 20–25 at the Crowne Plaza, 48 Wangfujing Ave. The plan is still loose. Tentatively: Great Wall Sat 21, National Museum Sun 22, Forbidden City Tue 24. The rest is TO FIGURE OUT. Late November is cold, close to freezing at night, so pack layers, gloves and a hat for the Great Wall.",
+    summary: "Nov 20–25, based by Wangfujing metro (Lines 1 & 8). The plan is still loose. Tentatively: Great Wall Sat 21, National Museum Sun 22, Forbidden City Tue 24. The rest is TO FIGURE OUT. Late November is cold, close to freezing at night, so pack layers, gloves and a hat for the Great Wall.",
     color: "#6B7785",
     ink: "#4A5563",
-    people: ["Keen", "Dani"],
     bookings: [
       {
         when: "Nov 5",
@@ -142,7 +141,7 @@ TRIP.beijing = {
   },
   // ---------- About card ----------
   history: {
-    title: "Beijing, quickly",
+    title: "Beijing",
     photo: "Great Wall at Mutianyu.jpg",
     paragraphs: [
       "Beijing has been a city for about 3,000 years. Its earliest form, the City of Ji, dates to around 1045 BC. The name means \"Northern Capital\", as opposed to Nanjing, the \"Southern Capital\".",
@@ -206,6 +205,293 @@ TRIP.beijing = {
         photo: "",
         source: "https://en.wikipedia.org/wiki/Mutianyu",
         text: "About 70 km northeast of the city. A restored Ming-era stretch, rebuilt in 1569, with 22 watchtowers and battlements on both sides."
+      }
+    ]
+  },
+  // ---------- Neighborhoods card ----------
+  neighborhoods: {
+    title: "The districts around us",
+    summary: "Beijing is split into districts (区). Old Beijing inside the 2nd Ring Road is just two of them, Dongcheng (east) and Xicheng (west), and we're staying right in the middle. Most of our Beijing days are still open, so districts we haven't planned yet show which day they could fit.",
+    layout: {
+      title: "How Beijing is laid out",
+      paragraphs: [
+        "Beijing is built like a target: a series of ring roads around the Forbidden City at the center. They're numbered outward from the 2nd Ring (there's no official 1st) to the 6th, and they're squarish rather than round. Locals describe where something is by ring: \"inside the 2nd Ring\" means the old city, \"near the East 3rd Ring\" means the business district.",
+        "The 2nd Ring follows the line of the old Ming city wall, which was torn down in the 1960s. Metro Line 2 runs in a loop right underneath it, and its stations are named after the old gates: Dongzhimen, Xizhimen, Qianmen, Jianguomen. The \"-men\" (门) in a name means gate.",
+        "Cutting through the middle is the central axis (中轴线), a straight north–south line from Yongdingmen Gate through Qianmen, Tiananmen, the Forbidden City and Jingshan Park up to the Drum and Bell Towers. It's a UNESCO World Heritage Site. Crossing it at Tiananmen is Chang'an Avenue, the big east–west boulevard, with Metro Line 1 underneath.",
+        "Old Beijing's streets run on a compass grid, so people give directions by north, south, east and west (往北走 = go north) rather than left and right. Keep the compass on in Amap."
+      ],
+      rings: [
+        {
+          name: "Inside the 2nd Ring",
+          what: "The old city: Forbidden City, Tiananmen, hutongs, Houhai, Temple of Heaven, Lama Temple. Where we're staying.",
+          metro: "Line 2 loop"
+        },
+        {
+          name: "2nd to 3rd Ring",
+          what: "Embassies, Sanlitun, Ritan Park; the CBD towers sit on the East 3rd Ring."
+        },
+        {
+          name: "3rd to 4th Ring",
+          what: "Newer housing and offices; the Olympic Park (Bird's Nest) is on the North 4th Ring.",
+          metro: "Line 10 loop, roughly"
+        },
+        { name: "4th to 5th Ring", what: "Universities, the Summer Palace, 798 Art District." },
+        {
+          name: "Past the 5th and 6th",
+          what: "Suburbs and the airports. The Great Wall is far beyond, in the mountains."
+        }
+      ],
+      map: {
+        rings: [
+          { name: "2nd", n: 39.949, s: 39.866, w: 116.354, e: 116.434 },
+          { name: "3rd", n: 39.968, s: 39.853, w: 116.317, e: 116.462 },
+          { name: "4th", n: 39.987, s: 39.834, w: 116.281, e: 116.488 }
+        ],
+        axis: { n: 39.941, s: 39.864, lng: 116.3975 },
+        avenue: { lat: 39.9075, w: 116.33, e: 116.47 },
+        palace: { n: 39.9225, s: 39.9135, w: 116.3915, e: 116.4035 }
+      }
+    },
+    hotel: {
+      name: "Our hotel",
+      transit: "Nearest metro: Wangfujing 王府井 (Lines 1 & 8), a short walk. Line 1 runs east–west along Chang'an Ave past Tiananmen; Line 8 runs north to the hutongs and Shichahai.",
+      lat: 39.917,
+      lng: 116.41
+    },
+    note: "Sketch map: each pin is roughly the heart of the district, and distances are straight lines from the hotel. Real routes are longer, so use Amap for live directions.",
+    areas: [
+      {
+        name: "Dongcheng District",
+        zh: "东城区",
+        here: true,
+        lat: 39.917,
+        lng: 116.41,
+        heart: "our hotel",
+        ring: "Inside the 2nd Ring (the old city)",
+        photo: "Wangfujing street, Beijing.JPG",
+        source: "https://en.wikipedia.org/wiki/Dongcheng_District,_Beijing",
+        getThere: "We're in it. Wangfujing is on Lines 1 and 8, and most of the big sights are a short walk or one or two stops away.",
+        days: ["d1", "d2", "d3", "d4", "d5", "d6"],
+        vibe: "The eastern half of the old imperial city, and where we're staying. The Forbidden City, Tiananmen and the National Museum are a walk away, with the busy Wangfujing shopping street outside the hotel. Further north are the hutong lanes around Nanluoguxiang, the Drum and Bell Towers and the Lama Temple; south is Qianmen and the Temple of Heaven. Grand and historic, busy around the big sights, quiet in the lanes.",
+        places: [
+          {
+            name: "Wangfujing St",
+            zh: "王府井大街",
+            note: "Pedestrian shopping street right outside the hotel.",
+            plan: "Every day",
+            amap: "王府井步行街"
+          },
+          {
+            name: "Tiananmen Square & National Museum",
+            zh: "天安门广场 / 中国国家博物馆",
+            note: "The huge square and China's main history museum.",
+            plan: "Sun 22",
+            amap: "中国国家博物馆"
+          },
+          {
+            name: "Forbidden City",
+            zh: "故宫",
+            note: "The imperial palace. Enter from the south, exit north.",
+            plan: "Tue 24",
+            amap: "故宫博物院"
+          },
+          {
+            name: "Nanluoguxiang & Drum and Bell Towers",
+            zh: "南锣鼓巷 / 钟鼓楼",
+            note: "Hutong lanes, courtyard cafes and the old timekeeping towers.",
+            plan: "Idea for Mon 23",
+            amap: "钟鼓楼"
+          },
+          {
+            name: "Lama Temple & Guozijian",
+            zh: "雍和宫 / 国子监",
+            note: "Busy Tibetan Buddhist temple, then the calm old imperial academy next door.",
+            plan: "Idea for Mon 23",
+            amap: "雍和宫"
+          },
+          {
+            name: "Temple of Heaven",
+            zh: "天坛",
+            note: "Where emperors prayed for harvests; locals exercise in the park every morning.",
+            plan: "Idea for Mon 23",
+            amap: "天坛公园"
+          },
+          {
+            name: "Qianmen St",
+            zh: "前门大街",
+            note: "Rebuilt old shopping street south of the square.",
+            plan: "Idea",
+            amap: "前门大街"
+          }
+        ]
+      },
+      {
+        name: "Xicheng District",
+        zh: "西城区",
+        lat: 39.9395,
+        lng: 116.386,
+        heart: "Houhai",
+        ring: "Inside the 2nd Ring (the old city)",
+        photo: "Houhai4.jpg",
+        source: "https://en.wikipedia.org/wiki/Xicheng_District",
+        getThere: "Line 8 north to Shichahai 什刹海, about 15 min. Jingshan Park is a walk from the Forbidden City's north gate.",
+        maybe: ["d4", "d5"],
+        vibe: "The western half of the old city, built around a chain of lakes. Houhai and Qianhai are lined with willows, hutongs, bars and rickshaws; Beihai Park has the White Dagoba; Jingshan Park gives the best view over the Forbidden City's roofs. Relaxed and pretty, especially at sunset, though the lakeside bars get touristy at night.",
+        places: [
+          {
+            name: "Jingshan Park",
+            zh: "景山公园",
+            note: "Small hill with the classic view over the Forbidden City.",
+            plan: "Could go after the Forbidden City, Tue 24",
+            amap: "景山公园"
+          },
+          {
+            name: "Beihai Park",
+            zh: "北海公园",
+            note: "Imperial lake garden with the White Dagoba.",
+            plan: "Idea",
+            amap: "北海公园"
+          },
+          {
+            name: "Houhai & Yinding Bridge",
+            zh: "后海 / 银锭桥",
+            note: "Lakeside walk through the hutongs; lively at night.",
+            plan: "Idea for Mon 23",
+            amap: "银锭桥"
+          },
+          {
+            name: "Prince Gong's Mansion",
+            zh: "恭王府",
+            note: "Grand Qing-era courtyard mansion and garden. Book ahead.",
+            plan: "Idea",
+            amap: "恭王府"
+          },
+          {
+            name: "Dashilar",
+            zh: "大栅栏",
+            note: "Old lanes of century-old shops west of Qianmen.",
+            plan: "Idea",
+            amap: "大栅栏"
+          }
+        ]
+      },
+      {
+        name: "Chaoyang District",
+        zh: "朝阳区",
+        lat: 39.9365,
+        lng: 116.4545,
+        heart: "Sanlitun",
+        ring: "Between the 2nd and 5th Rings, east side",
+        photo: "Sanlitun.jpg",
+        source: "https://en.wikipedia.org/wiki/Chaoyang_District,_Beijing",
+        getThere: "Sanlitun: Line 6 to Dongdaqiao 东大桥 (change from Line 8 at Nanluoguxiang), about 25 min. 798: Line 14 to Jiangtai 将台, then a 15-min walk.",
+        maybe: ["d4"],
+        vibe: "Modern Beijing, east of the old city. The CBD skyscrapers and CCTV tower, the embassy area, Sanlitun's shops, restaurants and bars, and the 798 art district in old factories further out. Newer and more international; good for shopping, coffee and a change from palaces.",
+        places: [
+          {
+            name: "Sanlitun Taikoo Li",
+            zh: "三里屯太古里",
+            note: "Open-air shopping area with flagship stores, cafes and bars.",
+            plan: "Idea for Mon 23",
+            amap: "三里屯太古里"
+          },
+          {
+            name: "798 Art District",
+            zh: "798艺术区",
+            note: "Galleries and cafes in 1950s factory buildings.",
+            plan: "Idea for Mon 23",
+            amap: "798艺术区"
+          },
+          {
+            name: "CBD & CCTV Headquarters",
+            zh: "国贸 / 中央电视台总部大楼",
+            note: "Skyscraper district and the famous loop-shaped tower.",
+            plan: "Idea",
+            amap: "中央电视台总部大楼"
+          },
+          {
+            name: "Ritan Park",
+            zh: "日坛公园",
+            note: "Quiet park in the embassy area.",
+            plan: "Idea",
+            amap: "日坛公园"
+          }
+        ]
+      },
+      {
+        name: "Haidian District",
+        zh: "海淀区",
+        lat: 39.9995,
+        lng: 116.2755,
+        heart: "the Summer Palace",
+        ring: "Between the 4th and 5th Rings, northwest",
+        source: "https://en.wikipedia.org/wiki/Haidian_District",
+        getThere: "Line 1 west to Xidan 西单, then Line 4 north to Beigongmen 北宫门 for the Summer Palace, about 50 min.",
+        maybe: ["d4"],
+        vibe: "The university and tech district in the northwest. Big, green imperial gardens (the Summer Palace on its lake, the ruins of the Old Summer Palace) plus Peking and Tsinghua universities and the student area of Wudaokou. Far from the hotel, so it's a half-day or full-day trip.",
+        places: [
+          {
+            name: "Summer Palace",
+            zh: "颐和园",
+            note: "Imperial lake garden with the Long Corridor and Longevity Hill.",
+            plan: "Idea for Mon 23",
+            amap: "颐和园"
+          },
+          {
+            name: "Old Summer Palace",
+            zh: "圆明园",
+            note: "Ruins of the European-style palaces destroyed in 1860.",
+            plan: "Idea",
+            amap: "圆明园遗址公园"
+          },
+          {
+            name: "Wudaokou",
+            zh: "五道口",
+            note: "Student neighborhood with cheap eats and cafes.",
+            plan: "Idea",
+            amap: "五道口"
+          }
+        ]
+      },
+      {
+        name: "Huairou District",
+        zh: "怀柔区",
+        lat: 40.4319,
+        lng: 116.5704,
+        offMap: true,
+        heart: "Mutianyu",
+        ring: "Far outside the 6th Ring, in the mountains",
+        photo: "Great Wall of China July 2006.JPG",
+        source: "https://en.wikipedia.org/wiki/Mutianyu",
+        getThere: "Our Mubus from the city, about 1.5–2 hours each way.",
+        days: ["d2"],
+        vibe: "Mountains and countryside about 70 km north of the city. We only come for the Great Wall at Mutianyu: restored watchtowers along a forested ridge, with a cable car up and a toboggan down. Cold and windy in late November, so dress warm.",
+        places: [
+          {
+            name: "Mutianyu Great Wall",
+            zh: "慕田峪长城",
+            note: "Restored section with cable car and toboggan.",
+            plan: "Sat 21",
+            amap: "慕田峪长城"
+          }
+        ]
+      },
+      {
+        name: "The airport",
+        zh: "机场",
+        lat: 40.0799,
+        lng: 116.6031,
+        offMap: true,
+        heart: "Capital Airport",
+        ring: "Out past the 5th Ring",
+        source: "https://en.wikipedia.org/wiki/Beijing_Capital_International_Airport",
+        getThere: "Airport Express trains from the city, about 1 hour. Check which airport is on our ticket. Capital (PEK): metro to Dongzhimen 东直门, then the Capital Airport Express. Daxing (PKX) is far south: metro to Caoqiao 草桥, then the Daxing Airport Express, about 1 hour 15 min.",
+        days: ["d6"],
+        vibe: "Our flight home. Beijing has two big airports: Capital in the northeast, and the new Daxing in the far south. Leave plenty of time either way.",
+        places: [
+          { name: "Beijing Capital Airport", zh: "北京首都国际机场", plan: "Wed 25, if PEK", amap: "北京首都国际机场" },
+          { name: "Beijing Daxing Airport", zh: "北京大兴国际机场", plan: "Wed 25, if PKX", amap: "北京大兴国际机场" }
+        ]
       }
     ]
   },
@@ -454,15 +740,14 @@ TRIP.beijing = {
           type: "misc",
           label: "Arrive",
           title: "Train into Beijing",
-          detail: "Train time TO FIGURE OUT. Metro to the hotel (Wangfujing, Line 1/8); Amap will route it."
+          detail: "Train time TO FIGURE OUT. Most trains from Shanghai arrive at Beijing South 北京南站: Line 4 north to Xidan 西单, then Line 1 east to Wangfujing 王府井, about 40 min. Amap will route it."
         },
         {
           time: "After",
           type: "misc",
           label: "Hotel",
-          title: "Check in at the Crowne Plaza",
-          address: "48 Wangfujing Ave 王府井大街48号",
-          amap: "王府井大街48号",
+          title: "Check in at the hotel",
+          amap: "王府井地铁站",
           metro: "Wangfujing 王府井 station (Lines 1, 8) is right there."
         },
         { time: "Evening", type: "tbd", label: "Dinner", title: "TO FIGURE OUT" }
@@ -654,7 +939,7 @@ TRIP.beijing = {
       ink: "#0077A3",
       zh: "再见",
       area: "Travel day",
-      title: "Fly to Houston / Philippines",
+      title: "Flight day",
       summary: "Last day. The morning and flight time are TO FIGURE OUT.",
       stops: [
         { time: "6:30", type: "tbd", label: "Run + breakfast", title: "TO FIGURE OUT" },

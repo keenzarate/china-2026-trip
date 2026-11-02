@@ -276,6 +276,13 @@
   .prep-p .checklist li > div { flex: 1; min-width: 0; }
   .prep-p .checklist .actions { margin-top: 8px; }
   .plists { padding: 0 18px 12px; display: grid; gap: 14px; }
+  .plist-new label { display: block; font: 700 13.5px/1.3 Archivo, sans-serif; margin-bottom: 6px; }
+  .plist-new div, .plist-rename { display: flex; gap: 6px; flex-wrap: wrap; }
+  .plist-rename { margin-bottom: 6px; }
+  .plist-new input, .plist-rename input { flex: 1; min-width: 0; font: 400 15px Archivo, sans-serif; padding: 9px 11px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); }
+  .plist-rename input { flex-basis: 100%; }
+  .plist-new button, .plist-rename button[type=submit] { -webkit-appearance: none; appearance: none; border: 0; border-radius: 10px; background: var(--ink); color: var(--card); font: 700 13px/1 Archivo, sans-serif; padding: 9px 14px; cursor: pointer; }
+  .mini.warn { color: #B3261E; border-color: currentColor; }
   .plist { border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; }
   .plist-h { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
   .plist-h b { font: 800 17px/1 Archivo, sans-serif; font-stretch: 85%; }
@@ -306,6 +313,22 @@
   .hood-map .pin text, .hood-map .hotel text { font: 800 10.5px/1 Archivo, sans-serif; text-anchor: middle; fill: var(--ink); }
   .hood-map .hotel rect { fill: var(--ink); }
   .hood-map .hotel text { fill: var(--card); }
+  .hood-map .ring { fill: none; stroke: var(--muted); stroke-width: 1.2; opacity: .45; }
+  .hood-map .ring-l, .hood-map .axis-l, .hood-map .ave-l { font: 700 9px/1 Archivo, sans-serif; fill: var(--muted); text-anchor: middle; }
+  .hood-map .axis-l { text-anchor: end; }
+  .hood-map .ave-l { text-anchor: start; }
+  .hood-map .axis { stroke: #B8862B; stroke-width: 2.5; opacity: .8; }
+  .hood-map .ave { stroke: var(--muted); stroke-width: 3; opacity: .35; }
+  .hood-map .palace { fill: #B8862B; opacity: .55; }
+  .layout p { margin: 0 0 10px; }
+  .rings { list-style: none; margin: 12px 0 0; padding: 0; border-left: 3px solid var(--line); }
+  .rings li { position: relative; padding: 7px 0 7px 16px; border-bottom: 1px solid var(--line); }
+  .rings li:last-child { border-bottom: 0; }
+  .rings li::before { content: ""; position: absolute; left: -7.5px; top: 12px; width: 12px; height: 12px; border-radius: 50%; background: var(--card); border: 2px solid #3A6E8F; opacity: calc(1 - var(--rk) * .16); }
+  .rings b { display: block; font: 800 14.5px/1.2 Archivo, sans-serif; }
+  .rings span { display: block; font-size: 14px; color: var(--muted); }
+  .rings em { display: inline-flex; align-items: center; gap: 6px; font-style: normal; font-size: 12.5px; font-weight: 700; margin-top: 4px; }
+  .rings em .m { width: 18px; height: 18px; font-size: 10px; display: inline-grid; place-items: center; border-radius: 50%; background: #3A6E8F; color: #fff; }
   .hood-map figcaption { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
   .hood-legend { font-size: 13.5px; display: flex; gap: 8px; align-items: center; }
   .hood-legend .hk { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 4px; background: var(--ink); color: var(--card); font-size: 11px; margin-right: 6px; }
@@ -337,6 +360,7 @@
   .here-on > span { font: 700 12.5px/1 Archivo, sans-serif; color: var(--muted); margin-right: 2px; }
   .day-chip { -webkit-appearance: none; appearance: none; display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid var(--tc); background: var(--card); color: var(--ink); border-radius: 999px; padding: 3px 9px 3px 3px; font: 700 12.5px/1 Archivo, sans-serif; cursor: pointer; }
   .day-chip b { width: 20px; height: 20px; border-radius: 50%; background: var(--tc); color: #fff; display: grid; place-items: center; font-size: 11.5px; }
+  .here-on.maybe .day-chip { border-style: dashed; }
   .td-days { display: block; font-weight: 500; color: var(--muted); font-size: 11.5px; margin-top: 2px; }
 </style>
 </head>
@@ -631,7 +655,9 @@ function historyHTML(info) {
 }
 
 // ----- Packing / shopping lists: each person adds their own items, saved on this phone -----
-const LISTS_KEY = "trip-lists-v1";
+const LISTS_KEY = "trip-lists-v2";
+// Older versions started every phone with two fixed names; clear those so each person types their own.
+try { localStorage.removeItem("trip-lists-v1"); } catch (e) {}
 function loadLists() { try { return JSON.parse(localStorage.getItem(LISTS_KEY) || "{}"); } catch (e) { return {}; } }
 function saveLists(L) { try { localStorage.setItem(LISTS_KEY, JSON.stringify(L)); } catch (e) {} try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {} }
 function listFor(kind, person, starter) {
@@ -643,16 +669,28 @@ function personListHTML(kind, person, starter) {
   const items = listFor(kind, person, starter);
   const left = items.filter(x => !x.done).length;
   return `<div class="plist" data-kind="${kind}" data-person="${esc(person)}">
-    <div class="plist-h"><b>${esc(person)}</b><small>${items.length ? `${left} of ${items.length} left` : "Nothing yet"}</small></div>
+    <div class="plist-h"><b>${esc(person)}</b><small>${items.length ? `${left} of ${items.length} left` : "Nothing yet"}</small><button type="button" class="mini" data-rename>Edit name</button></div>
     <ul>${items.map((x, k) => `<li class="${x.done ? "done" : ""}"><label><input type="checkbox" data-li="${k}" ${x.done ? "checked" : ""}><span>${esc(x.t)}</span></label><button type="button" class="x" data-del="${k}" aria-label="Remove ${esc(x.t)}">×</button></li>`).join("")}</ul>
     <form class="add" data-add><input type="text" placeholder="Add for ${esc(person)}…" aria-label="Add an item for ${esc(person)}" enterkeyhint="done"><button type="submit">Add</button></form>
   </div>`;
 }
-function listsPanel(kind, title, sub, S, open) {
-  const people = S.people || ["Keen", "Dani"];
+// The people are whoever has a list on this phone: type a name to start one.
+function peopleFor(kind) { return Object.keys(loadLists()[kind] || {}); }
+function plistsInner(kind, S) {
+  const people = peopleFor(kind);
   const starter = kind === "packing" ? S.packingStarter : S.shoppingStarter;
-  return `<details class="panel prep-p" data-panel="${kind}"${open ? " open" : ""}>${panelHead(title, sub)}<div class="plists">${people.map(p => personListHTML(kind, p, starter)).join("")}
-    <p class="fine">Saved on this phone, and stays after refreshing. Paste several lines into the box to add them all at once.</p></div></details>`;
+  return `${people.map(p => personListHTML(kind, p, starter)).join("")}
+    <form class="plist-new" data-newp>
+      <label for="np-${kind}">Start a list for</label>
+      <div><input id="np-${kind}" type="text" placeholder="Name" autocomplete="given-name" enterkeyhint="done" maxlength="40"><button type="submit">Start list</button></div>
+    </form>
+    <p class="fine">List only saves on your local device.</p>`;
+}
+function listsPanel(kind, title, sub, S, open) {
+  return `<details class="panel prep-p" data-panel="${kind}"${open ? " open" : ""}>${panelHead(title, sub)}<div class="plists">${plistsInner(kind, S)}</div></details>`;
+}
+function rerenderPanel(kind) {
+  deck.querySelectorAll(`[data-panel="${kind}"] .plists`).forEach(el => { el.innerHTML = plistsInner(kind, CITIES[CITY].start); });
 }
 
 function startCard(S, info) {
@@ -668,7 +706,7 @@ function startCard(S, info) {
         <div><label for="c-${CITY}-${k}"><span class="when">${esc(b.when)}</span>${esc(b.what)}</label>
         ${(b.links || []).length || b.dianping ? `<div class="actions">${(b.links || []).map(l => `<a class="btn sm" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}${b.dianping ? dpBtn(b.dianping).replace('class="btn dp"', 'class="btn dp sm"') : ""}</div>` : ""}</div></li>`).join("")}
       </ul></details>
-    ${listsPanel("packing", "Packing checklist", "Keen and Dani each add their own", S, false)}
+    ${listsPanel("packing", "Packing checklist", "Everyone adds their own", S, false)}
     ${listsPanel("shopping", "Shopping list", "Things to buy on the trip", S, false)}
     <details class="panel prep-p">${panelHead("Good to know", "Apps to download, and how things work")}
       <div class="notes"><h4 class="apps-h">Apps to download</h4>
@@ -722,17 +760,25 @@ function hoodMap(H) {
   const pts = H.areas.filter(a => !a.offMap && !a.here);
   const all = [H.hotel, ...pts];
   const lat0 = H.hotel.lat * Math.PI / 180, kx = Math.cos(lat0);
-  const xs = all.map(a => a.lng * kx), ys = all.map(a => a.lat);
+  const M = (H.layout && H.layout.map) || {};
+  const corners = (M.rings || []).flatMap(r => [{ lat: r.n, lng: r.w }, { lat: r.s, lng: r.e }]);
+  const xs = [...all, ...corners].map(a => a.lng * kx), ys = [...all, ...corners].map(a => a.lat);
   const pad = 0.006, minX = Math.min(...xs) - pad, maxX = Math.max(...xs) + pad, minY = Math.min(...ys) - pad, maxY = Math.max(...ys) + pad;
   const W = 340, Hh = Math.round(W * (maxY - minY) / (maxX - minX));
   const P = (lat, lng) => [((lng * kx - minX) / (maxX - minX) * W).toFixed(1), ((maxY - lat) / (maxY - minY) * Hh).toFixed(1)];
   const [hx, hy] = P(H.hotel.lat, H.hotel.lng);
   const rivers = (RIVERS[CITY] || []).map(r => `<polyline points="${r.pts.map(([a, b]) => P(a, b).join(",")).join(" ")}" class="river"/>`).join("");
+  const box = (b, cls, rx) => { const [x1, y1] = P(b.n, b.w), [x2, y2] = P(b.s, b.e); return `<rect x="${x1}" y="${y1}" width="${(x2 - x1).toFixed(1)}" height="${(y2 - y1).toFixed(1)}" rx="${rx}" class="${cls}"/>`; };
+  const ringsSvg = (M.rings || []).map(r => { const [x1, y1] = P(r.n, r.w), [x2] = P(r.n, r.e);
+    return `${box(r, "ring", 18)}<text class="ring-l" x="${((+x1 + +x2) / 2).toFixed(1)}" y="${(+y1 + 4).toFixed(1)}">${esc(r.name)} Ring</text>`; }).join("");
+  const axisSvg = M.axis ? (() => { const [x, y1] = P(M.axis.n, M.axis.lng), [, y2] = P(M.axis.s, M.axis.lng); return `<line x1="${x}" y1="${y1}" x2="${x}" y2="${y2}" class="axis"/><text class="axis-l" x="${(+x - 4).toFixed(1)}" y="${(+y2 - 4).toFixed(1)}">Central axis</text>`; })() : "";
+  const aveSvg = M.avenue ? (() => { const [x1, y] = P(M.avenue.lat, M.avenue.w), [x2] = P(M.avenue.lat, M.avenue.e); return `<line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" class="ave"/><text class="ave-l" x="${x1}" y="${(+y + 11).toFixed(1)}">Chang'an Ave</text>`; })() : "";
+  const palaceSvg = M.palace ? box(M.palace, "palace", 1) : "";
   const lines = pts.map(a => { const [x, y] = P(a.lat, a.lng); return `<line x1="${hx}" y1="${hy}" x2="${x}" y2="${y}" class="ray"/>`; }).join("");
   const dots = pts.map(a => { const [x, y] = P(a.lat, a.lng); const n = H.areas.indexOf(a) + 1;
     return `<g class="pin"><circle cx="${x}" cy="${y}" r="10"/><text x="${x}" y="${(+y + 4).toFixed(1)}">${n}</text></g>`; }).join("");
   return `<figure class="hood-map"><svg viewBox="-12 -12 ${W + 24} ${Hh + 24}" role="img" aria-label="Sketch map of the districts around our hotel">
-    ${rivers}${lines}${dots}
+    ${ringsSvg}${rivers}${aveSvg}${axisSvg}${palaceSvg}${lines}${dots}
     <g class="hotel"><rect x="${hx - 9}" y="${hy - 9}" width="18" height="18" rx="4"/><text x="${hx}" y="${(+hy + 4).toFixed(1)}">H</text></g>
   </svg><figcaption>${esc(H.note || "")}</figcaption></figure>`;
 }
@@ -740,10 +786,15 @@ function hoodsCard(N, C) {
   const H = C.hoods;
   return `<article class="card">
     ${heroHTML(N, `<span class="badge"><b>D</b>Districts</span>`)}
+    ${H.layout ? `<div class="section layout">
+      <h3>${esc(H.layout.title || "How the city is laid out")}</h3>
+      ${(H.layout.paragraphs || []).map(t => `<p>${esc(t)}</p>`).join("")}
+      ${(H.layout.rings || []).length ? `<ol class="rings">${H.layout.rings.map((r, i) => `<li style="--rk:${i}"><b>${esc(r.name)}</b><span>${esc(r.what)}</span>${r.metro ? `<em><span class="m">M</span>${esc(r.metro)}</em>` : ""}</li>`).join("")}</ol>` : ""}
+    </div>` : ""}
     <div class="section">${hoodMap(H)}
-      <div class="hood-legend"><span><b class="hk">H</b>${esc(H.hotel.name)}, ${esc(H.hotel.address)}</span></div>
+      <div class="hood-legend"><span><b class="hk">H</b>${esc(H.hotel.name)}. ${esc(H.hotel.transit || "")}</span></div>
       <table class="dist"><thead><tr><th></th><th>District</th><th>From hotel</th><th>Getting there</th></tr></thead><tbody>
-        ${H.areas.map((a, i) => { const km = kmBetween(H.hotel, a); return `<tr><td><span class="num">${i + 1}</span></td><td><b>${esc(a.name)}</b></td><td>${a.here ? "We're here" : km.toFixed(1) + " km"}${(a.days || []).length ? `<small class="td-days">${a.days.length === C.days.length ? "every day" : "Day " + a.days.map(k => C.days.findIndex(d => d.key === k) + 1).join(", ")}</small>` : ""}</td><td>${esc((a.getThere || "").split(/[,(]/)[0].replace(/\.$/, ""))}</td></tr>`; }).join("")}
+        ${H.areas.map((a, i) => { const km = kmBetween(H.hotel, a); return `<tr><td><span class="num">${i + 1}</span></td><td><b>${esc(a.name)}</b></td><td>${a.here ? "We're here" : km.toFixed(1) + " km"}${(a.days || []).length ? `<small class="td-days">${a.days.length === C.days.length ? "every day" : "Day " + a.days.map(k => C.days.findIndex(d => d.key === k) + 1).join(", ")}</small>` : (a.maybe || []).length ? `<small class="td-days">could fit Day ${a.maybe.map(k => C.days.findIndex(d => d.key === k) + 1).join(", ")}</small>` : ""}</td><td>${esc((a.getThere || "").split(/[,(]/)[0].replace(/\.$/, ""))}</td></tr>`; }).join("")}
       </tbody></table>
     </div>
     <div class="section"><div class="areas">${H.areas.map((a, i) => {
@@ -752,8 +803,9 @@ function hoodsCard(N, C) {
         ${photo(a.photo, a.name, "area-photo")}
         <div class="area-body">
           <h4><span class="num">${i + 1}</span>${esc(a.name)} <span class="zh">${esc(a.zh || "")}</span></h4>
-          <div class="hood-meta"><span>${a.here ? "Our hotel is here" : `${km.toFixed(1)} km to ${esc(a.heart || "its center")}`}</span></div>
+          <div class="hood-meta"><span>${a.here ? "Our hotel is here" : `${km.toFixed(1)} km to ${esc(a.heart || "its center")}`}</span>${a.ring ? `<span>${esc(a.ring)}</span>` : ""}</div>
           ${(a.days || []).length ? `<div class="here-on"><span>We're here on</span>${a.days.map(k => { const n = C.days.findIndex(d => d.key === k); const d = C.days[n]; return d ? `<button type="button" class="day-chip" data-goto="${k}" style="--tc:${d.color}"><b>${n + 1}</b>${esc(d.tabSub)} ${esc(d.tabTop)}</button>` : ""; }).join("")}</div>` : ""}
+          ${(a.maybe || []).length ? `<div class="here-on maybe"><span>Not planned yet. Could fit</span>${a.maybe.map(k => { const n = C.days.findIndex(d => d.key === k); const d = C.days[n]; return d ? `<button type="button" class="day-chip" data-goto="${k}" style="--tc:${d.color}"><b>${n + 1}</b>${esc(d.tabSub)} ${esc(d.tabTop)}</button>` : ""; }).join("")}</div>` : ""}
           <p class="vibe">${esc(a.vibe || "")}</p>
           ${a.getThere ? `<div class="metro"><span class="m">M</span>${esc(a.getThere)}</div>` : ""}
           ${a.plan ? `<div class="on-plan"><b>On our plan:</b> ${esc(a.plan)}</div>` : ""}
@@ -876,6 +928,27 @@ deck.addEventListener("click", e => {
   if (i >= 0) { goTo(i); window.scrollTo({ top: 0, behavior: "smooth" }); }
 });
 deck.addEventListener("submit", e => {
+  const nf = e.target.closest("form[data-newp]");
+  if (nf) {
+    e.preventDefault();
+    const name = nf.querySelector("input").value.trim(); if (!name) return;
+    const kind = nf.closest("[data-panel]").dataset.panel, S = CITIES[CITY].start;
+    listFor(kind, name, kind === "packing" ? S.packingStarter : S.shoppingStarter);
+    rerenderPanel(kind);
+    const box = deck.querySelector(`.plist[data-kind="${kind}"][data-person="${CSS.escape(name)}"] form[data-add] input`); if (box) box.focus();
+    return;
+  }
+  const rf = e.target.closest("form[data-renamef]");
+  if (rf) {
+    e.preventDefault();
+    const box = rf.closest(".plist"), kind = box.dataset.kind, old = box.dataset.person;
+    const name = rf.querySelector("input").value.trim();
+    if (name && name !== old) {
+      const L = loadLists(), cur = L[kind] || {};
+      if (!cur[name]) { const next = {}; Object.keys(cur).forEach(k => { next[k === old ? name : k] = cur[k]; }); L[kind] = next; saveLists(L); }
+    }
+    rerenderPanel(kind); return;
+  }
   const f = e.target.closest("form[data-add]"); if (!f) return;
   e.preventDefault();
   const box = f.closest(".plist"); const lines = f.querySelector("input").value.split(/\n|;/).map(x => x.replace(/^[-•*\s]+/, "").trim()).filter(Boolean);
@@ -892,6 +965,19 @@ deck.addEventListener("paste", e => {
 deck.addEventListener("click", e => {
   const del = e.target.closest("[data-del]");
   if (del) { const box = del.closest(".plist"); editList(box, arr => arr.splice(+del.dataset.del, 1)); return; }
+  const rn = e.target.closest("[data-rename]");
+  if (rn) {
+    const box = rn.closest(".plist"), h = box.querySelector(".plist-h");
+    h.outerHTML = `<form class="plist-rename" data-renamef><input type="text" value="${esc(box.dataset.person)}" aria-label="Name" maxlength="40" enterkeyhint="done"><button type="submit">Save</button><button type="button" class="mini" data-cancel>Cancel</button><button type="button" class="mini warn" data-droplist>Delete list</button></form>`;
+    const inp = box.querySelector(".plist-rename input"); inp.focus(); inp.select(); return;
+  }
+  if (e.target.closest("[data-cancel]")) { rerenderPanel(e.target.closest(".plist").dataset.kind); return; }
+  const dr = e.target.closest("[data-droplist]");
+  if (dr) {
+    if (!dr.dataset.sure) { dr.dataset.sure = "1"; dr.textContent = "Tap again to delete"; return; }
+    const box = dr.closest(".plist"), kind = box.dataset.kind, L = loadLists();
+    if (L[kind]) delete L[kind][box.dataset.person]; saveLists(L); rerenderPanel(kind); return;
+  }
 });
 deck.addEventListener("change", e => {
   const li = e.target.closest("input[data-li]");

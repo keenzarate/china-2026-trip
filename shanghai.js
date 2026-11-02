@@ -13,7 +13,6 @@
 //  What the fields mean:
 //   prep         Start card, in folding sections:
 //     bookings       Booking checklist (when, what, links: [{ label, url }], dianping search).
-//     people         Names for the packing and shopping lists (each person adds items on the page itself).
 //     packingStarter / shoppingStarter   Items pre-filled into everyone's list the first time.
 //     apps           "Good to know" apps to download (name, why).    tips   Other good-to-know lines.
 //   history      About card: short history paragraphs (photo = Wikimedia file name).
@@ -46,10 +45,9 @@ TRIP.shanghai = {
   // ---------- Start card ----------
   prep: {
     title: "Bookings & essentials",
-    summary: "Six days based at 627 Nanjing East Rd. Morning run at 6:30, coffee and light breakfast post run then back to hotel. Search in Dianping for other coffee shop options.",
+    summary: "Six days based by Nanjing East Rd metro (Lines 2 & 10). Morning run at 6:30, coffee and light breakfast post run then back to hotel. Search in Dianping for other coffee shop options.",
     color: "#6B7785",
     ink: "#4A5563",
-    people: ["Keen", "Dani"],
     bookings: [
       {
         when: "Nov 5",
@@ -196,7 +194,7 @@ TRIP.shanghai = {
   },
   // ---------- About card ----------
   history: {
-    title: "Shanghai, quickly",
+    title: "Shanghai",
     photo: "Shanghai Nanjing Road 1930s.jpg",
     paragraphs: [
       "It started as a small farming and fishing village on the Huangpu River. It became a county seat in 1292, and in the 1550s it got a city wall to keep out Japanese pirates.",
@@ -268,15 +266,15 @@ TRIP.shanghai = {
   neighborhoods: {
     title: "The districts around us",
     summary: "Shanghai is split into districts (区). Here's each one on our plan: what it feels like, how far it is from the hotel, and what to see there.",
-    hotel: { name: "Our hotel", address: "627 Nanjing East Rd, Huangpu 南京东路627号", lat: 31.2366, lng: 121.4786 },
+    hotel: { name: "Our hotel", transit: "Nearest metro: Nanjing East Rd 南京东路 (Lines 2 & 10), a few minutes' walk. People's Square 人民广场 (Lines 1, 2 & 8) is one stop west.", lat: 31.237, lng: 121.479 },
     note: "Sketch map: each pin is roughly the heart of the district, and distances are straight lines from the hotel. Real routes are longer, so use Amap for live directions.",
     areas: [
       {
         name: "Huangpu District",
         zh: "黄浦区",
         here: true,
-        lat: 31.2366,
-        lng: 121.4786,
+        lat: 31.237,
+        lng: 121.479,
         heart: "our hotel",
         photo: "Bund and Huangpu River, Shangahi.JPG",
         source: "https://en.wikipedia.org/wiki/Huangpu_District",
@@ -1014,8 +1012,8 @@ TRIP.shanghai = {
           label: "Transit",
           title: "Metro to the hotel, drop bags",
           detail: "Easiest: Metro Line 2 direct to East Nanjing Rd (about 75 min, ¥8; follow signs if asked to change trains). Faster: first Maglev at 7:02 to Longyang Rd (8 min, ¥50), then Line 2 (about 30 min). Pay with Alipay's transit QR code.",
-          address: "627 Nanjing East Rd 南京东路627号",
-          amap: "南京东路627号"
+          metro: "Get off at East Nanjing Rd 南京东路, a few minutes' walk to the hotel.",
+          amap: "南京东路地铁站"
         },
         {
           time: "7:50",
@@ -1370,7 +1368,7 @@ TRIP.shanghai = {
       zh: "浦东",
       area: "Pudong",
       title: "Museum day + Pudong",
-      summary: "Museum day! Run the Bund, breaky, coffee at Always or whatever coffee place in the area, then most of the morning at Shanghai Museum East (open Mondays, when most museums are closed). Grab a snack somewhere then walk around Century Park, catch sunset across the river from the Bund, and end with crab-roe noodles near the hotel.",
+      summary: "Museum day! Run the Bund, breaky, coffee at Always, then most of the morning at Shanghai Museum East (open Mondays, when most museums are closed). Grab a snack somewhere then walk around Century Park, catch sunset across the river from the Bund, and end with crab-roe noodles near the hotel.",
       highlights: ["Bund run", "Shanghai Museum East", "Century Park", "Sunset"],
       stops: [
         {
@@ -1636,8 +1634,8 @@ TRIP.shanghai = {
       ink: "#C2410C",
       zh: "静安",
       area: "Jing'an",
-      title: "Explore + shopping (Jing'an)",
-      summary: "Artsy day + shopping round 1. Run west to a local breakfast at Zhangshifu, then after the shower, coffee at Single Origin Roasters  or another coffee place in the area and the golden Jing'an Temple, buns at Wangjiasha, galleries at M50, and an afternoon on West Nanjing Rd with a sheng jian and scallion oil noodle snack. Dinner at 157 Shi Fang, a Michelin Bib Gourmand: hong shao rou, kao fu and whatever else looks good. Don't forget: book the Forbidden City at 8 PM!",
+      title: "Artsy day + shopping (Jing'an)",
+      summary: "Artsy day + shopping round 1. Run west to a proper local breakfast at Zhangshifu, then after the shower, coffee at Single Origin Roasters and the golden Jing'an Temple, buns at Wangjiasha, galleries at M50, and an afternoon on West Nanjing Rd with a sheng jian and scallion oil noodle snack. Dinner at 157 Shi Fang, a Michelin Bib Gourmand: hong shao rou, kao fu and whatever else looks good. Don't forget: book the Forbidden City at 8 PM!",
       highlights: ["Jing'an Temple", "M50", "Shopping", "157 Shi Fang"],
       stops: [
         {
@@ -1950,8 +1948,8 @@ TRIP.shanghai = {
       ink: "#C1001F",
       zh: "武康路",
       area: "French Concession",
-      title: "French Concession, tea, shopping again, live music",
-      summary: "Shopping round 2 in the French Concession. Find coffee place, then Salomon, Musinsa, Deja Vu and Harmay on Anfu and Wukang Rd, pork and shepherd's purse soup dumplings for lunch, then maybe get a flash tattoo and making glass jewelry? Tea at Shanyucaoshe in Rose Villa, braised pork and duck at Lan Xin, and live music at Cozy Music Lab",
+      title: "French Concession: shop, tattoo, tea, live music",
+      summary: "Shopping round 2 in the French Concession. Coffee at Wunder to kick it off, then Salomon, Musinsa, Deja Vu and Harmay on Anfu and Wukang Rd, pork and shepherd's purse soup dumplings for lunch, then the flash tattoo and making glass jewelry. Tea at Shanyucaoshe in Rose Villa, braised pork and duck at Lan Xin, and live music at Cozy Music Lab to close it out.",
       highlights: ["Anfu Rd shopping", "Flash tattoo", "Shanyucaoshe", "Live music"],
       stops: [
         {
@@ -2255,7 +2253,7 @@ TRIP.shanghai = {
       zh: "龙华",
       area: "Longhua & the river",
       title: "Riverside ride, Longhua & Eight",
-      summary: "A vibe type of day. Short run, then bike the Qiantan riverside to coffee at Aftertaste, then Longhua Temple and the quiet underground space under the pagoda. Yellow croaker noodles, the West Bund art riverfront next door, and a wander through Tianzifang's lanes, before the big one: dinner at Eight's!",
+      summary: "A slower, greener day down south. Short run, then bike the Qiantan riverside to coffee at Aftertaste, then Longhua Temple and the quiet underground space under the pagoda. Yellow croaker noodles, the West Bund art riverfront next door, and a wander through Tianzifang's lanes, before the big one: dinner at Eight's 8-seat chef's counter.",
       highlights: ["Bike ride", "Longhua Temple", "West Bund", "Tianzifang", "Eight 八"],
       stops: [
         {
@@ -2582,7 +2580,7 @@ TRIP.shanghai = {
       places: [
         {
           name: "Always Coffee Roaster",
-          text: "Our pick: a local roaster on Jiujiang Rd, about a minute from the East Nanjing Rd metro. Super close to the hotel, so it's an easy first stop on the way out.\nSince they roast their own beans, could be a good place to buy a bag to bring home."
+          text: "Our pick: a local roaster on Jiujiang Rd, about a minute from the East Nanjing Rd metro. Super close to the hotel, so it's an easy first stop on the way out.\nSince they roast their own beans, it's a good place to buy a bag to bring home."
         },
         {
           name: "Dongtaixiang 东泰祥",
