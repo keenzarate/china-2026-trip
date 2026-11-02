@@ -7,7 +7,7 @@
 <meta name="theme-color" content="#0c1622" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Shanghai">
-<title>Shanghai · Nov 15–20</title>
+<title>China 2026 Trip</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Noto+Sans+SC:wght@500;900&display=swap" rel="stylesheet">
@@ -117,8 +117,11 @@
   .about summary::before { content: "i"; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--c); display: grid; place-items: center; font: italic 700 11px/1 Georgia, serif; }
   .about[open] summary { margin-bottom: 8px; }
   .about .ab { background: var(--rail-bg); border-left: 4px solid var(--c); border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: 14px; }
-  .about .ab p { margin: 0 0 10px; } .about .ab p:last-child { margin: 0; }
-  .about .ab b { display: block; font-size: 13px; color: var(--at); font-weight: 700; margin-bottom: 2px; }
+  .about .ab p { margin: 0 0 7px; line-height: 1.55; }
+  .about .ab .ab-item { padding: 0 0 12px; margin: 0 0 12px; border-bottom: 1px solid var(--line); }
+  .about .ab .ab-item:last-child { padding: 0; margin: 0; border: 0; }
+  .about .ab .ab-item p:last-child { margin: 0; }
+  .about .ab b { display: block; font-size: 14px; color: var(--at); font-weight: 800; margin-bottom: 4px; }
 
   /* Folding panels */
   .panel { border-top: 1px solid var(--line); }
@@ -132,10 +135,11 @@
   .note { padding: 11px 0; border-bottom: 1px solid var(--line); }
   .note:last-child { border-bottom: 0; }
   .note b { display: block; font-size: 15px; margin-bottom: 2px; }
-  .note span { color: var(--muted); font-size: 14px; }
+  .note span { color: var(--muted); font-size: 14px; display: block; }
+  .note span p { margin: 0 0 6px; } .note span p:last-child { margin: 0; }
   .intro-note { font-size: 14px; padding: 0 0 6px; }
 
-  /* Transfers */
+  /* Other options */
   .alts { padding: 0 18px 12px; }
   .alt-group { margin: 2px 0 16px; }
   .alt-group h4 { margin: 0 0 9px; font: 700 14.5px/1.2 Archivo, sans-serif; display: flex; align-items: center; gap: 9px; }
@@ -159,13 +163,100 @@
   .tips { margin: 0 0 10px; padding-left: 18px; color: var(--muted); font-size: 14.5px; }
   .tips li { margin: 7px 0; }
   .theme-toggle { background: none; border: 1.5px solid var(--line); color: var(--ink); border-radius: 999px; padding: 7px 11px; cursor: pointer; font: 600 12.5px/1 Archivo, sans-serif; }
+
+  .brand h1, .city-switch button { white-space: nowrap; }
+  @media (max-width: 440px) { .brand h1 small { display: none; } }
+  .top-actions { display: flex; align-items: center; gap: 8px; }
+  .city-switch { display: flex; border: 1.5px solid var(--ink); border-radius: 999px; overflow: hidden; }
+  .city-switch button { background: none; border: 0; color: var(--ink); padding: 6px 11px; cursor: pointer; font: 900 14px/1 "Noto Sans SC", sans-serif; }
+  .city-switch button[aria-pressed="true"] { background: var(--ink); color: var(--card); }
+  .stop.t-tbd .title { color: var(--muted); letter-spacing: .04em; font-weight: 800; }
+  .stop.t-tbd .dot { border-style: dashed; }
+  .src { display: inline-block; margin-top: 4px; font: 600 12px/1.3 Archivo, sans-serif; color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+  .btn.dp { background: none; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+  .btn.dp span { font-family: "Noto Sans SC", sans-serif; font-weight: 900; }
+  .ab-item + .ab-item { margin-top: 12px; }
+  .history p { margin: 0 0 10px; font-size: 14.5px; max-width: 62ch; }
+  figure { margin: 0 0 12px; }
+  figure img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 10px; background: var(--rail-bg); }
+  figcaption a { font-size: 11.5px; color: var(--muted); }
+  .areas { display: grid; gap: 14px; }
+  .area-card { border: 1.5px solid var(--line); border-left: 6px solid var(--c); border-radius: 12px; overflow: hidden; }
+  .area-card figure { margin: 0; } .area-card figure img { border-radius: 0; aspect-ratio: 2/1; }
+  .area-card figcaption { padding: 4px 14px 0; }
+  .area-body { padding: 10px 14px 12px; }
+  .area-body h4 { margin: 0 0 4px; font: 800 18px/1.15 Archivo, sans-serif; font-stretch: 82%; }
+  .area-body h4 .zh { font-weight: 900; color: var(--muted); margin-left: 4px; }
+  .area-body p { margin: 0; font-size: 14px; color: var(--muted); }
+  .fine { font-size: 12.5px; color: var(--muted); margin: 12px 0 6px; }
+  .idea-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .idea-chips span { font-size: 13px; padding: 5px 9px; border-radius: 999px; background: var(--rail-bg); }
+
+
+  .opts { margin-top: 10px; }
+  .opts-h { font: 700 13px/1 Archivo, sans-serif; color: var(--ct); margin-bottom: 7px; }
+  .opt { border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; margin-bottom: 7px; }
+  .opt .n { font-weight: 700; font-size: 15px; }
+  .opt .w { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .opt .a { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+  .opt .actions { margin-top: 8px; }
+  .opt .btn.sm { padding: 6px 10px 6px 8px; font-size: 12.5px; }
+  .order { margin-top: 10px; background: var(--rail-bg); border-radius: 12px; padding: 10px 12px 6px; }
+  .order ul { list-style: none; margin: 0; padding: 0; }
+  .order li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-top: 1px solid var(--line); font-size: 14px; }
+  .order li:first-child { border-top: 0; }
+  .order li b { font: 900 15px/1.3 "Noto Sans SC", sans-serif; white-space: nowrap; }
+  .li-list { padding: 0 18px 12px; }
+  .li-item { padding: 11px 0; border-bottom: 1px solid var(--line); }
+  .li-item:last-child { border-bottom: 0; }
+  .li-item .n { font-weight: 700; font-size: 15px; }
+  .li-item .n .zh { font-weight: 900; color: var(--ct); margin-left: 2px; }
+  .li-item .w { color: var(--muted); font-size: 14px; margin-top: 2px; }
+  .li-item .a { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+  .li-item .actions { margin-top: 7px; }
+  .btn.sm { padding: 6px 10px 6px 8px; font-size: 12.5px; }
+  .part { margin: 4px 0 18px; }
+  .part h4 { display: flex; align-items: baseline; gap: 8px; margin: 0 0 4px; padding: 7px 12px; border-radius: 10px; background: var(--rail-bg); border-left: 6px solid var(--c); font: 800 17px/1 Archivo, sans-serif; font-stretch: 85%; }
+  .part h4 small { font: 900 13px/1 "Noto Sans SC", sans-serif; color: var(--muted); }
+  .plan { list-style: none; margin: 0; padding: 0; }
+  .plan .stop { display: block; padding: 14px 2px 14px 14px; border-bottom: 1px solid var(--line); }
+  .plan .stop:last-child { border-bottom: 0; }
+  .plan .stop .dot, .plan .stop .time { display: none; }
+  .plan .stop .tag { display: flex; gap: 8px; align-items: baseline; }
+  .plan .stop .hint { font-weight: 500; color: var(--muted); font-size: 12.5px; }
+  .plan .stop.t-book .tag { color: var(--ink); }
+  .wander { margin-top: 10px; border-left: 3px solid var(--c); padding-left: 12px; }
+  .wd { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); }
+  .wd:first-of-type { border-top: 0; }
+  .wd b { display: block; font-size: 14.5px; }
+  .wd span { display: block; color: var(--muted); font-size: 13px; }
+  .wd .btn { flex: 0 0 auto; }
+  .food-sec { border-top: 1px solid var(--line); margin-top: 6px; }
+  .part.meal h4 { background: none; border: 1.5px solid var(--line); border-left: 6px solid var(--c); }
+  .sec-h { display: flex; justify-content: space-between; align-items: center; }
+  .expand { background: none; border: 1.5px solid var(--line); color: var(--ink); border-radius: 999px; padding: 6px 12px; font: 700 12.5px/1 Archivo, sans-serif; cursor: pointer; }
+  .stop-d > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+  .stop-d > summary::-webkit-details-marker { display: none; }
+  .stop-d > summary .body { flex: 1; }
+  .stop-d > summary .chev { flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; transition: transform .2s; }
+  .stop-d > summary .chev::before { content: ""; width: 7px; height: 7px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: translateY(-2px) rotate(45deg); }
+  .stop-d[open] > summary .chev { transform: rotate(180deg); }
+  .stop-d .more { padding-top: 2px; }
+  .metro { display: flex; gap: 8px; align-items: flex-start; font-size: 13.5px; color: var(--ink); margin-top: 8px; }
+  .metro .m { flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%; background: var(--c); color: #fff; display: grid; place-items: center; font: 800 11px/1 Archivo, sans-serif; margin-top: 1px; }
 </style>
 </head>
 <body>
 <header class="top">
   <div class="brand">
-    <h1><span class="zh">上海</span>Shanghai <small>15–20 November</small></h1>
-    <button class="theme-toggle" id="themeBtn">Night mode</button>
+    <h1 id="cityTitle"><span class="zh">上海</span>Shanghai <small>15–20 November</small></h1>
+    <div class="top-actions">
+      <div class="city-switch" role="group" aria-label="City">
+        <button data-city="sh" aria-pressed="true"><span class="zh">上海</span></button>
+        <button data-city="bj" aria-pressed="false"><span class="zh">北京</span></button>
+      </div>
+      <button class="theme-toggle" id="themeBtn">Night</button>
+    </div>
   </div>
   <nav class="tabs" id="tabs" aria-label="Days"></nav>
 </header>
@@ -173,26 +264,31 @@
 <main class="deck" id="deck" aria-live="polite"></main>
 
 <script>
-const amap = k => `https://uri.amap.com/search?keyword=${encodeURIComponent(k)}&city=310000`;
 
 const START = {
-  key: "start", color: "#6B7785", ink: "#4A5563", zh: "上海", area: "Before you go", when: "November 2026", line: "Prep", tabTop: "S", tabSub: "Prep",
-  eyebrow: "Before you go", title: "Bookings & essentials",
-  summary: "Six days based at 627 Nanjing East Rd. Each morning's run finishes at a local, independent coffee shop, then a light Shanghainese breakfast and a shower. Independent cafes rarely open before 8:00–9:00, so check each one in Amap the night before.",
+  key: "start", color: "#6B7785", ink: "#4A5563", zh: "上海", area: "Before we go", when: "November 2026", line: "Prep", tabTop: "S", tabSub: "Prep",
+  eyebrow: "Before we go", title: "Bookings & essentials",
+  summary: "Six days based at 627 Nanjing East Rd. Every morning: run at 6:30, then coffee, a light Shanghainese breakfast and a shower in whatever order works. Each day has a suggested local roaster and breakfast; if Dianping shows an indie cafe open early near the run, go there instead.",
   checklist: [
     ["Nov 5", "Buy train tickets Shanghai → Beijing for Nov 20 (12306 app or Trip.com)"],
-    ["~Nov 8", "Mutianyu Great Wall entrance ticket for Nov 23 (en.mutianyugreatwall.com)"],
-    ["Nov 14, 5 PM", "Optional: try National Museum for Nov 21 (you may still be travelling)"],
-    ["Nov 15, 8 PM", "Book the Forbidden City for Nov 22"],
-    ["Nov 17, 5 PM", "Book the National Museum of China for Nov 24"],
-    ["Before flying", "Reserve Eight 八EIGHT (Day 5), Fu 1088 (Day 3), Lao Ji Shi (Day 4)"],
-    ["Before flying", "Book the spa (Day 1), flash tattoo (Day 4) and Shanyucaoshe tea (Day 4)"]
+    ["By Nov 5", "Reserve Eight 八EIGHT for Thu Nov 19 dinner (only 8 seats a night, so book first)"],
+    ["By Nov 10", "Reserve Cheng Long Hang for Mon Nov 16 hairy crab dinner (+86 21 6321 2010, or book online via the Michelin page)"],
+    ["Nov 17, afternoon", "Optional: call 157 Shi Fang (+86 158 0075 5157) to hold a table for tonight, or just show up early"],
+    ["Nov 18", "Lan Xin takes no bookings and is cash only: bring yuan and get in line by 5:30 PM"],
+    ["By Nov 10", "Message I-TATTOO for a flash tattoo on Wed Nov 18, around 2 PM"],
+    ["By Nov 12", "Book Shanyucaoshe tea for Wed Nov 18, around 4:45 PM"],
+    ["By Nov 12", "Book the 2-hour cupping massage for Sun Nov 15, 5:30 PM"],
+    ["Nov 15, 5 PM", "Book the National Museum of China for Sun Nov 22 (opens 7 days ahead)"],
+    ["Nov 15", "Reserve Tiananmen Square entry for Sun Nov 22 (free, 1–7 days ahead)"],
+    ["Nov 17, 8 PM", "Book the Forbidden City for Tue Nov 24 (opens 7 days ahead)"],
+    ["Nov 18–19", "Check the Beijing forecast and book Mubus (bus + Great Wall entry) on Trip.com. Plan is Sat Nov 21; Mon Nov 23 is the backup"]
   ],
   tips: [
     "Set up Alipay or WeChat Pay with a foreign card; it also pays for the metro and bike-share.",
     "Use Amap (高德) or Apple Maps; Google Maps works poorly in China. Get an eSIM or VPN for Google and WhatsApp.",
-    "Carry your physical passport everywhere: museums, trains and many attractions check it.",
-    "Every stop below has an Amap button that opens a search for that place."
+    "Carry our physical passport everywhere: museums, trains and many attractions check it.",
+    "We're mostly on the metro: scan the Alipay transport QR code at the gates, and use Amap's public transit tab (公交) for live routes. Stops with an M badge say which line to take.",
+    "Use Dianping (大众点评) for opening hours, reviews and queues, and Amap for directions. Food and coffee stops have a Dianping button that searches in Chinese (e.g. 精品咖啡, 小笼包) to find spots near us."
   ]
 };
 
@@ -200,20 +296,22 @@ const DAYS = [
 {
   key: "d1", color: "#9177B8", ink: "#6B4E8C", zh: "豫园", area: "Yu Garden & the old city", when: "Sunday 15 November", line: "Line 10", date: "2026-11-15", tabTop: "15", tabSub: "Sun",
   eyebrow: "Day 1 · Sunday, Nov 15", title: "Arrival, Yu Garden & spa",
-  summary: "An easy landing day with no run. Take the metro in, drop your bags, eat your way down Nanjing East Rd, and reach Yu Garden before the crowds. Soup dumplings for an early lunch, then tea at Mu Chun in Sinan Mansion and a stroll through Fuxing Park. Nap, then end with a 2-hour cupping massage and the Bund lit up at night.",
+  summary: "An easy landing day with no run. Take the metro in, drop our bags, eat our way down Nanjing East Rd, and reach Yu Garden before the crowds. Soup dumplings for an early lunch, then tea at Mu Chun in Sinan Mansion and a stroll through Fuxing Park. Nap, then end with a 2-hour cupping massage and the Bund lit up at night.",
   highlights: ["Yu Garden", "Xiao long bao", "Tea house", "Spa"],
   stops: [
     { t: "5:10", type: "misc", label: "Arrive", title: "Land at Pudong Airport", detail: "Immigration, SIM/eSIM, check Alipay." },
     { t: "6:15", type: "misc", label: "Transit", title: "Metro to the hotel, drop bags", detail: "Easiest: Metro Line 2 direct to East Nanjing Rd (about 75 min, ¥8; follow signs if asked to change trains). Faster: first Maglev at 7:02 to Longyang Rd (8 min, ¥50), then Line 2 (about 30 min). Pay with Alipay's transit QR code.", addr: "627 Nanjing East Rd 南京东路627号", map: "南京东路627号" },
     { t: "7:50", type: "food", label: "Breakfast", title: "Zhen Lao Da Fang: one hot fresh-meat mooncake", detail: "鲜肉月饼. Add a glutinous rice ball from Shen Da Cheng (636 Nanjing East Rd) if still hungry.", addr: "536 Nanjing East Rd 南京东路536号", map: "南京东路536号" },
-    { t: "8:30", type: "see", label: "See", title: "Yu Garden & Yuyuan Bazaar", detail: "Early, before the crowds.", addr: "218 Anren St 安仁街218号", map: "豫园" },
-    { t: "10:30", type: "food", label: "Lunch", title: "Nanxiang Steamed Bun, upstairs", detail: "Classic pork xiao long bao + crab-roe xiao long bao (蟹粉小笼). Early, before the lines build.", addr: "85 Yuyuan Rd 豫园路85号", map: "南翔馒头店豫园" },
-    { t: "12:00", type: "coffee", label: "Coffee", title: "1/10 Coffee Roaster", detail: "Independent shop that roasts on the spot, overlooking a small park. Taxi about 15 min from Yu Garden.", addr: "73–75 Changle Rd 长乐路73-75号", map: "长乐路73号" },
-    { t: "12:45", type: "tea", label: "Tea", title: "Mu Chun 沐春茶舍 (Sinan Mansion), then Fuxing Park", detail: "410 m from Huaihai Middle Rd metro, Exit 2.", addr: "1, Lane 196 Nanchang Rd 南昌路196弄1号", map: "沐春茶舍思南公馆店" },
-    { t: "14:15", type: "misc", label: "Rest", title: "Back to hotel, check in, nap", detail: "Metro Line 1 → Line 2, or taxi." },
+    { t: "8:10", type: "coffee", label: "Coffee", title: "Always Coffee Roaster, to go", detail: "We need it after the flight! Local roaster a minute off Nanjing East Rd, so grab a cup with the mooncake. If it's not open yet, tap Dianping for an early cafe nearby.", addr: "Room 106, 501 Jiujiang Rd 九江路501号106室", map: "Always Coffee Roaster 九江路" },
+    { t: "8:40", type: "see", label: "See", title: "Yu Garden & Yuyuan Bazaar", detail: "Early, before the crowds.", addr: "218 Anren St 安仁街218号", map: "豫园" },
+    { t: "Lunch", type: "food", label: "What to eat", title: "Xiao long bao 小笼包", order: [["Pork xiao long bao", "鲜肉小笼"], ["Crab-roe xiao long bao (1 basket to try)", "蟹粉小笼"], ["Small wonton soup", "小馄饨"], ["Scallion oil noodles, if on the menu", "葱油拌面"]], detail: "Classic pork soup dumplings; crab-roe 蟹粉小笼 if we want to splurge. Go early (around 10:30) before the lines.", dp: "小笼包", options: [["Nanxiang Steamed Bun 南翔馒头店", "The famous one, right at Yu Garden. Sit upstairs.", "85 Yuyuan Rd 豫园路85号", "南翔馒头店豫园"], ["Lai Lai Xiao Long 莱莱小笼", "Michelin-recommended, from our list. Near the hotel if we'd rather eat later.", "506 Tianjin Rd 天津路506号", "天津路506号"], ["Jia Jia Tang Bao 佳家汤包", "Small, no-frills dumpling shop by People's Park.", "90 Huanghe Rd 黄河路90号", "佳家汤包"]] },
+    { t: "11:15", type: "see", label: "Walk", title: "Shanghai Old Street 上海老街 (Fangbang Middle Rd)", detail: "Walk it east to west, right next to Yu Garden: late-Qing/Republican shopfronts at the east end, then black tiles, white walls and red columns in the Ming/Qing-style west end.", addr: "Fangbang Middle Rd 方浜中路 (Henan South Rd → Zhonghua Rd)", map: "上海老街" },
+    { t: "12:15", type: "coffee", label: "Afternoon coffee", title: "1/10 Coffee Roaster", detail: "Independent shop that roasts on the spot, overlooking a small park.", addr: "73–75 Changle Rd 长乐路73-75号", map: "长乐路73号" },
+    { t: "13:00", type: "tea", label: "Tea", title: "Mu Chun 沐春茶舍 (Sinan Mansion), then Fuxing Park & around", detail: "410 m from Huaihai Middle Rd metro, Exit 2.", addr: "1, Lane 196 Nanchang Rd 南昌路196弄1号", map: "沐春茶舍思南公馆店" },
+    { t: "14:15", type: "misc", label: "Rest", title: "Back to hotel, check in, nap" },
+    { t: "17:00", type: "book", label: "Book now", title: "Book the National Museum for Nov 22 + Tiananmen Square", detail: "Museum tickets release at 5:00 PM, 7 days ahead. Reserve Tiananmen for the same day." },
     { t: "17:30", type: "misc", label: "Spa", title: "2-hour massage with cupping", addr: "2F, 359 Weihai Rd 威海路359号", map: "威海路359号" },
-    { t: "20:00", type: "book", label: "Book now", title: "Book the Forbidden City for Nov 22", detail: "Tickets release at 8:00 PM, 7 days ahead." },
-    { t: "20:15", type: "food", label: "Dinner", title: "Hu Xi Lao Nong Tang: pork liver noodles", detail: "Then the Bund lit up at night.", addr: "1F, 500 Guangdong Rd 广东路500号", map: "广东路500号" }
+    { t: "Dinner", type: "food", label: "What to eat", title: "Braised pork noodles 焖肉面", order: [["Braised pork noodles", "焖肉面"], ["Scallion oil noodles", "葱油拌面"], ["Sweet & sour ribs (cold)", "糖醋小排"], ["Braised gluten (cold)", "烤麸"], ["Stir-fried greens", "清炒时蔬"]], detail: "Shanghai noodle-house comfort food, plus a cold dish or two. Then the Bund lit up at night.", dp: "焖肉面", options: [["De Xing Guan 德兴馆", "Since 1878, Michelin Guide, on our list. 5 min from the Bund.", "471 Guangdong Rd 广东路471号", "德兴馆 广东路"], ["Lao Di Fang Mian Guan 老地方面馆", "Michelin Bib Gourmand noodle shop from our list; braised pork belly in spiced dark soy. Cash only.", "107 Sinan Rd 思南路107号", "老地方面馆 思南路"]] },
   ],
   food: { intro: "Shanghai's home cooking is benbang cai (本帮菜), \"local-style food\": sweet, savory and glossy with soy sauce — locals call it \"thick oil, red sauce\" (浓油赤酱).", items: [
     ["Fresh-meat mooncakes 鲜肉月饼", "Flaky pastry filled with seasoned pork, baked to order. Traditionally a Mid-Autumn treat, but the Nanjing Road shops sell them year-round. Eat them hot."],
@@ -224,16 +322,17 @@ const DAYS = [
   places: [
     ["Zhen Lao Da Fang 真老大房", "A long-established Shanghai pastry brand famous for fresh-meat mooncakes baked to order. Expect a line; it moves fast."],
     ["Shen Da Cheng 沈大成", "A pastry shop with about 150 years of history, known for glutinous rice treats."],
-    ["Nanxiang Steamed Bun 南翔馒头店", "Founded in 1900, still drawing queues. Refurbished in 2018; eat upstairs, where the menu differs from the takeaway window. Try the oversized \"super\" bun you drink with a straw."],
+    ["Nanxiang Steamed Bun 南翔馒头店", "Founded in 1900, still drawing queues. Refurbished in 2018; eat upstairs, where the menu differs from the takeaway window. Try the oversized \"super\" bun we drink with a straw."],
     ["1/10 Coffee Roaster", "Opened by coffee enthusiasts who roast on the spot and stock a wider-than-usual range of beans."],
     ["Mu Chun 沐春茶舍", "A tea house inside Sinan Mansion's restored 1920s–30s villas."],
-    ["Hu Xi Lao Nong Tang 沪西老弄堂面馆", "A no-frills noodle shop in the World Trade Building, known for pork liver noodles."],
-    ["Cupping 拔罐", "A traditional Chinese medicine therapy over 2,000 years old: suction cups pull on the skin to ease muscle tension. The round red marks fade in a few days. The spa from your video (\"Yu Health\") may be the Yu Spa / Yu Massage chain; this stop is a nearby tui na and cupping option."]
+    ["De Xing Guan 德兴馆", "A noodle house founded in 1878, in the Michelin Guide and on our list."],
+    ["Cupping 拔罐", "A traditional Chinese medicine therapy over 2,000 years old: suction cups pull on the skin to ease muscle tension. The round red marks fade in a few days. The spa from our video (\"Yu Health\") may be the Yu Spa / Yu Massage chain; this stop is a nearby tui na and cupping option."]
   ],
   sights: [
     ["Nanjing Road", "Shanghai's main shopping street since the early 1900s, when the first big department stores opened here."],
     ["The Bund", "Grand banks and trading houses built mostly in the 1920s–30s, when Shanghai was Asia's financial capital. Across the river, Lujiazui was farmland until the 1990s."],
     ["Yu Garden", "A private garden begun in 1559 by Ming official Pan Yunduan for his parents. Look for the rockeries, carp ponds and dragon-topped walls."],
+    ["Shanghai Old Street 上海老街", "Old-city street with late-Qing shopfronts and Ming/Qing-style buildings."],
     ["Nine-Turn Bridge", "The zigzag bridge across Yu Garden's lake; zigzags were said to stop evil spirits, which could only travel in straight lines."],
     ["Sinan Mansion", "Restored 1920s–30s garden villas, now cafes, shops and a hotel."],
     ["Fuxing Park", "A French-style park opened in 1909, where locals dance, play cards and do tai chi."]
@@ -245,26 +344,27 @@ const DAYS = [
   summary: "Shanghai Museum East is open Mondays, when most museums close, and its bronze, ceramic and jade galleries deserve a long morning. Walk it off in Century Park, catch sunset on the Lujiazui riverfront looking back at the Bund, then a simple bowl of noodles near the hotel.",
   highlights: ["Bund run", "Shanghai Museum East", "Century Park", "Sunset"],
   stops: [
-    { t: "8:00", type: "run", label: "Run", title: "Bund promenade to Waibaidu Bridge", detail: "Back via Jiujiang Rd, finishing at the cafe.", map: "外滩" },
-    { t: "8:40", type: "coffee", label: "Coffee", title: "Always Coffee Roaster", detail: "Local roaster, 100 m from East Nanjing Rd metro Exit 4. Check opening time.", addr: "Room 106, 501 Jiujiang Rd 九江路501号106室", map: "Always Coffee Roaster 九江路" },
-    { t: "9:15", type: "food", label: "Breakfast", title: "Street stall: soy milk + fried dough stick", detail: "豆浆 + 油条, or a sticky rice roll (粢饭团)." },
-    { t: "9:45", type: "misc", label: "Hotel", title: "Shower" },
-    { t: "10:15", type: "misc", label: "Transit", title: "Metro Line 2 to Shanghai Science & Technology Museum stn" },
-    { t: "10:45", type: "see", label: "Museum", title: "Shanghai Museum East", detail: "Open Mondays. Walk-in with passport.", addr: "1952 Century Ave 世纪大道1952号", map: "上海博物馆东馆" },
-    { t: "14:00", type: "food", label: "Lunch", title: "Shanghai fried thick noodles or big wontons", detail: "上海粗炒 or 荠菜大馄饨 — easy to find in the malls along Century Ave." },
-    { t: "15:00", type: "see", label: "Park", title: "Century Park", map: "世纪公园" },
+    { t: "6:30", type: "run", label: "Run", title: "Bund promenade to Waibaidu Bridge", detail: "Back via Jiujiang Rd to the hotel. Then coffee, breakfast and shower in whatever order works.", map: "外滩" },
+    { t: "Then", type: "coffee", label: "Suggested coffee", title: "Always Coffee Roaster", detail: "A minute from the hotel. Or any early cafe we spot on Dianping.", addr: "Room 106, 501 Jiujiang Rd 九江路501号106室", map: "Always Coffee Roaster 九江路" },
+    { t: "Then", type: "food", label: "Suggested breakfast", title: "Street stall: soy milk + fried dough stick", detail: "豆浆 + 油条, or a sticky rice roll (粢饭团)." },
+    { t: "Then", type: "misc", label: "Hotel", title: "Shower" },
+    { t: "9:30", type: "misc", label: "Transit", title: "Metro Line 2 to Shanghai Science & Technology Museum stn" },
+    { t: "10:00", type: "see", label: "Museum", title: "Shanghai Museum East", detail: "Open Mondays. Walk-in with passport.", addr: "1952 Century Ave 世纪大道1952号", map: "上海博物馆东馆" },
+    { t: "Lunch", type: "food", label: "What to eat", title: "Fried thick noodles 上海粗炒 or big wontons 荠菜大馄饨", order: [["Shanghai fried thick noodles", "上海粗炒"], ["Pork & shepherd's purse wontons", "荠菜大馄饨"], ["Sheng jian, if they have it", "生煎"]], detail: "Easy everyday Shanghai lunch after the museum.", dp: "上海粗炒", options: [["Any noodle shop around Century Ave", "The malls and side streets near the museum have plenty. Tap Dianping to find one close by.", "", ""]] },
+    { t: "15:00", type: "see", label: "Wander", title: "Century Park & around", detail: "No agenda: loop the lake, then drift through the streets and malls nearby.", map: "世纪公园" },
     { t: "16:30", type: "see", label: "Sunset", title: "Lujiazui riverfront + Museum of Art Pudong", detail: "MAP is open until 21:00.", addr: "2777 Binjiang Ave 滨江大道2777号", map: "浦东美术馆" },
-    { t: "19:30", type: "food", label: "Dinner", title: "Wei Xiang Zhai: sesame noodles", detail: "麻酱面. Your note says 151 Hubei Rd; the screenshot lists a Yandang Rd branch.", map: "味香斋" }
+    { t: "Dinner", type: "food", label: "What to eat", title: "Hairy crab 大闸蟹", order: [["Steamed hairy crab, 1 each", "清蒸大闸蟹"], ["Crab-roe tofu", "蟹粉豆腐"], ["Crab-roe noodles", "蟹粉拌面"], ["Wine-fried clover sprouts", "酒香草头"], ["Drunken crab, to try (Cheng Long Hang)", "醉蟹"]], detail: "Our one crab night, peak season. Steamed whole with ginger vinegar; ask for a male (公蟹) in November. If a whole crab is too much, crab-roe noodles 蟹粉面 or crab-roe tofu work too.", dp: "大闸蟹", options: [["Cheng Long Hang 成隆行蟹王府", "One Michelin star, THE hairy crab name, with its own crab farm. 5 min from the hotel. Book ahead: +86 21 6321 2010.", "216 Jiujiang Rd 九江路216号", "成隆行蟹王府 九江路"], ["Lao Xing Xian 老兴鲜", "Michelin-listed, ticked on our list. Big mall restaurant, so walk-ins are realistic, and it has plenty of non-crab dishes.", "5F Parkson, 918 Middle Huaihai Rd 淮海中路918号百盛5楼", "老兴鲜 淮海中路918号"]] },
   ],
   food: { items: [
     ["Shanghai street breakfast", "The classic set is the \"four heavenly kings\" (四大金刚): sesame flatbread (大饼), fried dough stick (油条), sticky rice roll (粢饭团) and soy milk (豆浆). Pick one or two."],
     ["Fried thick noodles 上海粗炒", "Chewy wheat noodles stir-fried with soy sauce, pork and greens. A cheap, filling lunch classic."],
     ["Big wontons 荠菜大馄饨", "Large wontons with pork and shepherd's purse. Tiny wontons (小馄饨) in light broth are the other Shanghai style."],
-    ["Sesame noodles 麻酱面", "Noodles in rich sesame paste sauce."]
+    ["Hairy crab 大闸蟹", "Chinese mitten crab, the autumn obsession. Steamed with ginger vinegar."]
   ]},
   places: [
-    ["Always Coffee Roaster", "Your pick: a local roaster tucked off Jiujiang Rd, a minute from the metro."],
-    ["Wei Xiang Zhai 味香斋", "An old-school noodle shop that made the Michelin selection for its sesame noodles. Some say it's overhyped — judge for yourself."]
+    ["Always Coffee Roaster", "Our pick: a local roaster tucked off Jiujiang Rd, a minute from the metro."],
+    ["Cheng Long Hang 成隆行蟹王府", "One Michelin star, the household name for hairy crab."],
+    ["Lao Xing Xian 老兴鲜", "Michelin-listed Shanghainese, ticked on our list."],
   ],
   sights: [
     ["Waibaidu Bridge", "Shanghai's first all-steel bridge, opened in 1907 where Suzhou Creek meets the Huangpu."],
@@ -277,32 +377,32 @@ const DAYS = [
 {
   key: "d3", color: "#F3560F", ink: "#C2410C", zh: "静安", area: "Jing'an", when: "Tuesday 17 November", line: "Line 7", date: "2026-11-17", tabTop: "17", tabSub: "Tue",
   eyebrow: "Day 3 · Tuesday, Nov 17", title: "Artsy day + shopping (Jing'an)",
-  summary: "Run west to a roaster, then a local breakfast. The golden Jing'an Temple, buns for lunch, galleries at M50, and an afternoon on West Nanjing Rd. Dinner at Fu 1088 covers three must-eats at once. Book the National Museum at 5 PM.",
-  highlights: ["Jing'an Temple", "M50", "Shopping", "Fu 1088"],
+  summary: "Run west to a roaster, then a local breakfast. The golden Jing'an Temple, buns for lunch, galleries at M50, and an afternoon on West Nanjing Rd with a sheng jian and scallion oil noodle snack. Dinner at 157 Shi Fang (Michelin Bib Gourmand, no booking). Book the National Museum at 5 PM.",
+  highlights: ["Jing'an Temple", "M50", "Shopping", "157 Shi Fang"],
   stops: [
-    { t: "7:45", type: "run", label: "Run", title: "People's Park loop, then west on Nanjing West Rd", detail: "About 4.5 km, finishing at the cafe.", map: "人民公园" },
-    { t: "8:30", type: "coffee", label: "Coffee", title: "Single Origin Roasters", detail: "Roasts its own single-origin Ethiopian beans.", addr: "151 Jiaozhou Rd 胶州路151号", map: "胶州路151号" },
-    { t: "9:15", type: "food", label: "Breakfast", title: "Zhangshifu: sticky rice roll + soy milk", detail: "Local mom-and-pop spot on the way back east.", addr: "287 Shimen 2nd Rd 石门二路287号", map: "石门二路287号" },
-    { t: "10:00", type: "misc", label: "Hotel", title: "Taxi to hotel, shower" },
-    { t: "11:15", type: "see", label: "See", title: "Jing'an Temple", addr: "1686 Nanjing West Rd 南京西路1686号", map: "静安寺" },
-    { t: "12:00", type: "food", label: "Lunch", title: "Wangjiasha: vegetable buns + shrimp wontons", detail: "菜馒头. Confirm the branch.", map: "王家沙南京西路" },
+    { t: "6:30", type: "run", label: "Run", title: "People's Park loop, then west on Nanjing West Rd", detail: "About 4 km, finishing at Zhangshifu for breakfast. Then coffee, breakfast and shower in whatever order works.", map: "人民公园" },
+    { t: "Then", type: "coffee", label: "Suggested coffee", title: "Single Origin Roasters", detail: "Near Jing'an Temple. Roasts its own single-origin Ethiopian beans. Or any early cafe we spot on Dianping.", addr: "151 Jiaozhou Rd 胶州路151号", map: "胶州路151号" },
+    { t: "Then", type: "food", label: "Suggested breakfast", title: "Zhangshifu: sticky rice roll + soy milk", detail: "Local mom-and-pop spot.", addr: "287 Shimen 2nd Rd 石门二路287号", map: "石门二路287号" },
+    { t: "Then", type: "misc", label: "Hotel", title: "Back to hotel, shower" },
+    { t: "10:00", type: "see", label: "See", title: "Jing'an Temple", addr: "1686 Nanjing West Rd 南京西路1686号", map: "静安寺" },
+    { t: "Lunch", type: "food", label: "What to eat", title: "Vegetable buns 菜馒头 + pork wontons 鲜肉馄饨", order: [["Vegetable buns", "菜馒头"], ["Pork wontons", "鲜肉馄饨"], ["Sheng jian", "生煎"]], detail: "Light snack-lunch between Jing'an Temple and M50.", dp: "菜馒头", options: [["Wangjiasha 王家沙", "A Shanghai snack institution since the 1940s, from our list. Order and pay at the counter first.", "Nanjing West Rd 南京西路 (confirm branch)", "王家沙南京西路"]] },
     { t: "13:30", type: "see", label: "Art", title: "M50 Creative Space", detail: "Galleries, studios, design shops.", addr: "50 Moganshan Rd 莫干山路50号", map: "莫干山路50号" },
-    { t: "15:15", type: "shop", label: "Shop", title: "West Nanjing Rd malls & boutiques", map: "南京西路" },
-    { t: "17:00", type: "book", label: "Book now", title: "Book the National Museum of China for Nov 24", detail: "Tickets release at 5:00 PM, 7 days ahead." },
-    { t: "18:30", type: "food", label: "Dinner", title: "Fu 1088 (reserve)", detail: "Hong shao rou 红烧肉, smoked fish 熏鱼, kao fu 烤麸.", addr: "375 Zhenning Rd 镇宁路375号", map: "福1088" },
+    { t: "15:15", type: "shop", label: "Shop", title: "West Nanjing Rd & around", detail: "Shopping round 1: the big malls, plus the lanes and side streets behind them.", map: "南京西路" },
+    { t: "16:30", type: "food", label: "Snack", title: "Sheng jian bao 生煎 + scallion oil noodles 葱油拌面", order: [["Pork sheng jian (4 = one order)", "鲜肉生煎"], ["Scallion oil noodles", "葱油拌面"], ["Small wonton soup", "小馄饨"]], detail: "Afternoon pick-me-up between shopping and dinner. Bite a small hole first, the soup squirts!", dp: "生煎", options: [["Yang's Dumplings 小杨生煎", "Right off West Nanjing Rd, open 6:30 AM to 11 PM. Sheng jian only, so pair with noodles elsewhere if we want.", "178 Wujiang Rd 吴江路178号", "小杨生煎 吴江路"], ["Da Hu Chun 大壶春", "Michelin Bib Gourmand since 1932, near the hotel, 8 AM to 9 PM. Classic pork sheng jian plus mini wontons.", "136 Middle Sichuan Rd 四川中路136号", "大壶春 四川中路"], ["Dongtaixiang 东泰祥", "Ticked on our list for both sheng jian (half-leavened) and scallion oil noodles. The flagship is open 24 hours.", "Chongqing North Rd 重庆北路 (flagship)", "东泰祥生煎 重庆北路"]] },
+    { t: "Dinner", type: "food", label: "What to eat", title: "Hong shao rou 红烧肉 + kao fu 烤麸", order: [["Red-braised pork belly", "红烧肉"], ["Braised gluten (cold)", "烤麸"], ["Sweet & sour ribs", "糖醋小排"], ["Wine-fried clover sprouts", "酒香草头"], ["Vegetable rice with pork", "菜饭"], ["Eel claypot rice, only if we want one fish dish (157)", "鳝丝煲仔饭"]], detail: "The benbang classics: sweet, glossy braised pork and the cold gluten dish. Go early to skip the queue.", dp: "本帮菜", options: [["157 Shi Fang 157食坊", "Michelin Bib Gourmand, from our list. Line 2 from Jing'an Temple to Zhongshan Park. Alipay, no foreign cards.", "1398 Kaixuan Rd, IM Shanghai T10 凯旋路1398号长宁国际T10栋", "157食坊 凯旋路"], ["Mao Long 茂隆", "Michelin Bib Gourmand home cooking, proud of its braised pork. Five tables, cash only. Call ahead: +86 21 6256 1167.", "134 Jinxian Rd 进贤路134号", "茂隆餐厅 进贤路"]] },
+    { t: "20:00", type: "book", label: "Book now", title: "Book the Forbidden City for Nov 24", detail: "Tickets release at 8:00 PM, 7 days ahead. Do it at the table!" },
     { t: "20:30", type: "misc", label: "Drinks", title: "Optional: ChairClub", detail: "Confirm location.", map: "ChairClub" }
   ],
   food: { items: [
     ["Vegetable buns 菜馒头", "Steamed buns stuffed with finely chopped greens and mushrooms."],
     ["Hong shao rou 红烧肉", "Pork belly braised for hours in soy sauce, rock sugar and Shaoxing wine until glossy. The signature of benbang cooking, sweeter and darker than elsewhere in China."],
-    ["Smoked fish 熏鱼", "Not actually smoked: fish is fried, soaked in a sweet spiced soy glaze, and served cold."],
     ["Kao fu 烤麸", "Spongy wheat gluten braised with wood ear, peanuts and lily buds, served cold. Buddhist vegetarian roots; a Lunar New Year favorite."]
   ]},
   places: [
     ["Single Origin Roasters", "Started in south Shanghai, moved downtown in 2017; roasts single-origin Ethiopian beans in-house."],
     ["Zhangshifu", "A mom-and-pop spot serving everyday Shanghainese breakfast to locals."],
-    ["Wangjiasha 王家沙", "A long-running Shanghai snack shop, a top pick on your list for vegetable buns."],
-    ["Fu 1088 福1088", "Michelin one-star Shanghainese in a 1920s townhouse with original tiles, wood paneling and 16 old-Shanghai private rooms. Known for crisp smoked mackerel and river shrimp; save room for the cashew praline puff pastry."]
+    ["Wangjiasha 王家沙", "A long-running Shanghai snack shop, a top pick on our list for vegetable buns."],
+    ["157 Shi Fang 157食坊", "A Michelin Bib Gourmand for traditional Shanghainese, ticked on our list."],
   ],
   sights: [
     ["People's Park & Square", "Once the Shanghai Race Club's racecourse. The old clubhouse with its clock tower is now the Shanghai History Museum."],
@@ -314,35 +414,35 @@ const DAYS = [
 {
   key: "d4", color: "#E3002B", ink: "#C1001F", zh: "武康路", area: "French Concession", when: "Wednesday 18 November", line: "Line 1", date: "2026-11-18", tabTop: "18", tabSub: "Wed",
   eyebrow: "Day 4 · Wednesday, Nov 18", title: "French Concession: shop, tattoo, tea, live music",
-  summary: "Your second shopping day under the plane trees. Anfu Rd and Wukang Rd boutiques, crab soup dumplings at peak season, a flash tattoo and glass jewelry. Tea at Shanyucaoshe in Rose Villa, a short walk from a hairy crab dinner, then live music.",
+  summary: "Our second shopping day under the plane trees. Anfu Rd and Wukang Rd boutiques, pork and shepherd's purse soup dumplings, a flash tattoo and glass jewelry. Tea at Shanyucaoshe in Rose Villa, a short walk from a hairy crab dinner, then live music.",
   highlights: ["Anfu Rd shopping", "Flash tattoo", "Shanyucaoshe", "Live music"],
   stops: [
-    { t: "7:45", type: "run", label: "Run", title: "Hotel → People's Square → south past Xintiandi", detail: "About 4.5 km, finishing on South Maoming Rd." },
-    { t: "8:30", type: "coffee", label: "Coffee", title: "Wunder", detail: "One-shop roaster run by a former barista who roasts in-house. Closed Mondays.", addr: "161 South Maoming Rd 茂名南路161号", map: "茂名南路161号" },
-    { t: "9:15", type: "food", label: "Breakfast", title: "Street stall: sesame flatbread + soy milk", detail: "大饼 + 豆浆." },
-    { t: "9:45", type: "misc", label: "Hotel", title: "Taxi to hotel, shower, taxi back" },
-    { t: "11:00", type: "shop", label: "Shop", title: "Anfu Rd & Wukang Rd", detail: "Salomon \"Fu Jun\" concept store, Musinsa Store, Deja Vu Recycle, Harmay. Bonus: Adidas Originals flagship at 322 Anfu Rd. Wukang Building photo stop.", addr: "Salomon 183–187 Anfu Rd · Deja Vu 300 Anfu Rd · Harmay 55 Wukang Rd · Musinsa on Anfu Rd", links: [["Salomon", "萨洛蒙安福路"], ["Deja Vu", "安福路300号"], ["Harmay", "话梅武康路"], ["Musinsa", "MUSINSA安福路"]] },
-    { t: "12:30", type: "food", label: "Lunch", title: "Wu You Xian: crab-roe xiao long bao", detail: "蟹粉小笼 + shepherd's purse (荠菜) dumplings.", addr: "1F-103, 7 South Maoming Rd 茂名南路7号", map: "屋有鲜" },
+    { t: "6:30", type: "run", label: "Run", title: "Hotel → People's Square → Xintiandi → back", detail: "About 5 km loop. Then coffee, breakfast and shower in whatever order works." },
+    { t: "Then", type: "coffee", label: "Suggested coffee", title: "Wunder", detail: "First stop in the French Concession. Or any early cafe on Dianping. One-shop roaster run by a former barista who roasts in-house. Closed Mondays.", addr: "161 South Maoming Rd 茂名南路161号", map: "茂名南路161号" },
+    { t: "Then", type: "food", label: "Suggested breakfast", title: "Street stall: sesame flatbread + soy milk", detail: "大饼 + 豆浆, near the hotel." },
+    { t: "Then", type: "misc", label: "Hotel", title: "Shower" },
+    { t: "10:00", type: "shop", label: "Shop", title: "Anfu Rd & Wukang Rd", detail: "Salomon \"Fu Jun\" concept store, Musinsa Store, Deja Vu Recycle, Harmay. Bonus: Adidas Originals flagship at 322 Anfu Rd. Wukang Building photo stop.", addr: "Salomon 183–187 Anfu Rd · Deja Vu 300 Anfu Rd · Harmay 55 Wukang Rd · Musinsa on Anfu Rd", links: [["Salomon", "萨洛蒙安福路"], ["Deja Vu", "安福路300号"], ["Harmay", "话梅武康路"], ["Musinsa", "MUSINSA安福路"]] },
+    { t: "Lunch", type: "food", label: "What to eat", title: "Pork & shepherd's purse xiao long bao 荠菜鲜肉小笼", order: [["Pork & shepherd's purse XLB", "荠菜鲜肉小笼"], ["Crab-roe XLB (1 to try)", "蟹粉小笼"], ["Small wonton soup", "小馄饨"]], detail: "The seasonal green with pork. Crab-roe 蟹粉小笼 if we want to try one.", dp: "荠菜小笼", options: [["Wu You Xian 屋有鲜", "From our list, known for seasonal fillings. Right on the shopping route.", "1F-103, 7 South Maoming Rd 茂名南路7号", "屋有鲜"]] },
     { t: "14:00", type: "misc", label: "Tattoo", title: "Flash tattoo at I-TATTOO (book ahead)", addr: "Panyu Rd 番禺路 (confirm)", map: "I-TATTOO" },
     { t: "15:30", type: "misc", label: "Make", title: "Glass jewelry at Yibo Studio", addr: "1F, No. 13, Lane 553 Middle Fuxing Rd 复兴中路553弄13号", map: "复兴中路553弄" },
-    { t: "16:45", type: "tea", label: "Tea", title: "Shanyucaoshe 山余草舍 (Rose Villa) — must-do", detail: "Book ahead if you can. Optional coffee on the way: Honky Tonk (262 Xiangyang South Rd).", addr: "Lane 44 Fuxing West Rd 复兴西路44弄(玫瑰别墅)", map: "山余草舍玫瑰别墅店" },
-    { t: "18:30", type: "food", label: "Dinner", title: "Lao Ji Shi (reserve): steamed hairy crab", detail: "大闸蟹 with ginger vinegar, plus scallion oil noodles if on the menu.", addr: "41 Tianping Rd 天平路41号", map: "老吉士天平路" },
+    { t: "16:45", type: "tea", label: "Tea", title: "Shanyucaoshe 山余草舍 (Rose Villa) — must-do", detail: "Book ahead if we can. Optional coffee on the way: Honky Tonk (262 Xiangyang South Rd).", addr: "Lane 44 Fuxing West Rd 复兴西路44弄(玫瑰别墅)", map: "山余草舍玫瑰别墅店" },
+    { t: "Dinner", type: "food", label: "What to eat", title: "Braised pork 红烧肉 + braised duck 酱鸭", order: [["Braised pork", "红烧肉"], ["Braised duck in brown sauce", "酱鸭"], ["Gluten puffs stuffed with pork", "油面筋塞肉"], ["Wine-fried clover sprouts", "酒香草头"], ["Scallion oil noodles", "葱油拌面"]], detail: "Old-school home-style Shanghainese. No bookings at either, so get in line early (around 5:30). Cash only.", dp: "红烧肉", options: [["Lan Xin 兰心", "Michelin Bib Gourmand, \"worth queueing for\". Braised pork and braised duck are Michelin's picks.", "130 Jinxian Rd 进贤路130号", "兰心餐厅 进贤路"], ["Mao Long 茂隆", "Next door, also a Bib Gourmand, especially proud of its braised pork.", "134 Jinxian Rd 进贤路134号", "茂隆餐厅 进贤路"]] },
     { t: "20:30", type: "misc", label: "Music", title: "Live music at Cozy Music Lab", detail: "Confirm location.", map: "Cozy Music Lab" }
   ],
   food: { items: [
     ["Da bing 大饼", "Flaky sesame flatbread baked on the walls of a hot oven — one of the \"four heavenly kings\" of breakfast."],
     ["Crab-roe xiao long bao 蟹粉小笼", "Soup dumplings filled with hairy crab meat and roe, at their best in November."],
     ["Shepherd's purse 荠菜", "A slightly peppery wild green Shanghainese cooks love in dumplings and wontons."],
-    ["Hairy crab 大闸蟹", "Chinese mitten crab, named for the fuzz on its claws — an autumn obsession, especially from nearby Yangcheng Lake. Steamed with ginger vinegar; ask staff to show you how to open it."]
+    ["Braised duck 酱鸭", "Duck braised in soy, sugar and spices until the skin goes dark and glossy, sweet-savory like most Shanghai home cooking."],
   ]},
   places: [
     ["Wunder", "A one-shop roaster; the owner closes every Monday just to roast. Traditional Italian-style coffee."],
-    ["Wu You Xian 屋有鲜", "A xiao long bao specialist from your list, known for seasonal crab and shepherd's purse fillings."],
-    ["Shanyucaoshe 山余草舍", "Your must-do tea house, inside a lane of old garden villas off Fuxing West Rd."],
-    ["Lao Ji Shi 老吉士", "A long-standing, homey benbang restaurant on your list. Small, so book ahead."],
-    ["Cozy Music Lab", "Your non-negotiable live music bar."],
-    ["I-TATTOO", "A big studio on Panyu Rd with many artists across styles and price points, plus a gallery and bar promoting tattoo culture in China. Ask about flash designs when you book."],
-    ["Yibo Studio", "From your list: a hands-on workshop where you make your own glass jewelry to take home."]
+    ["Wu You Xian 屋有鲜", "A xiao long bao specialist from our list, known for seasonal fillings like shepherd's purse with pork."],
+    ["Shanyucaoshe 山余草舍", "Our must-do tea house, inside a lane of old garden villas off Fuxing West Rd."],
+    ["Lan Xin 兰心", "Michelin Bib Gourmand home-style Shanghainese in a former house on Jinxian Rd. No bookings, cash only."],
+    ["Cozy Music Lab", "Our non-negotiable live music bar."],
+    ["I-TATTOO", "A big studio on Panyu Rd with many artists across styles and price points, plus a gallery and bar promoting tattoo culture in China. Ask about flash designs when we book."],
+    ["Yibo Studio", "From our list: a hands-on workshop where we make our own glass jewelry to take home."]
   ],
   shopping: [
     ["Salomon \"Fu Jun\"", "Salomon's first China concept store, in a century-old French-style villa modeled on its Paris Marais shop. Open 10:00–22:00."],
@@ -351,7 +451,7 @@ const DAYS = [
     ["Harmay 话梅", "Warehouse-style beauty store with 100+ brands and travel sizes. Moved from Anfu Rd to 55 Wukang Rd in July 2026. Open 10:00–22:00."]
   ],
   sights: [
-    ["Xintiandi 新天地", "Restored shikumen (stone-gate) lane houses turned into a dining and shopping district, on your run route. The Communist Party's first national congress met in one of these houses in 1921."],
+    ["Xintiandi 新天地", "Restored shikumen (stone-gate) lane houses turned into a dining and shopping district, on our run route. The Communist Party's first national congress met in one of these houses in 1921."],
     ["Former French Concession", "Administered by France 1849–1943: plane trees, garden villas and lane houses. Shanghai's best area for cafes and boutiques."],
     ["Wukang Building", "A 1924 flatiron apartment block by László Hudec, originally the Normandie Apartments."],
     ["Rose Villa 玫瑰别墅", "A lane of old garden villas off Fuxing West Rd, where Shanyucaoshe sits."]
@@ -360,34 +460,36 @@ const DAYS = [
 {
   key: "d5", color: "#007A60", ink: "#007A60", zh: "龙华", area: "Longhua & the river", when: "Thursday 19 November", line: "Line 12", date: "2026-11-19", tabTop: "19", tabSub: "Thu",
   eyebrow: "Day 5 · Thursday, Nov 19", title: "Riverside ride, Longhua & Eight",
-  summary: "A slower, greener day in south Shanghai. Ride a share bike along the Qiantan riverside to coffee at Aftertaste, then Longhua Temple and the quiet space beneath the pagoda. Yellow croaker noodles, the Botanical Garden, free time — and your last dinner at the 8-seat chef's counter at Eight.",
-  highlights: ["Bike ride", "Longhua Temple", "Botanical Garden", "Eight 八"],
+  summary: "A slower, greener day in south Shanghai. Ride a share bike along the Qiantan riverside to coffee at Aftertaste, then Longhua Temple and the quiet space beneath the pagoda. Yellow croaker noodles, the Botanical Garden, free time — and our last dinner at the 8-seat chef's counter at Eight.",
+  highlights: ["Bike ride", "Longhua Temple", "West Bund", "Tianzifang", "Eight 八"],
   stops: [
-    { t: "7:30", type: "misc", label: "Transit", title: "Taxi to Qiantan (Pudong)", detail: "About 25 min." },
-    { t: "8:00", type: "run", label: "Ride", title: "Bike-share along the Qiantan riverside", detail: "Unlock via Alipay; finish at the cafe.", map: "前滩公园" },
-    { t: "8:45", type: "coffee", label: "Coffee", title: "Aftertaste", detail: "Your pick.", addr: "W3-102, Qiantan Park Lane 前滩公园巷W3-102", map: "Aftertaste 前滩" },
-    { t: "9:30", type: "food", label: "Breakfast", title: "Jianbing from a stall, or a pastry at the cafe", detail: "煎饼, savory egg crepe." },
-    { t: "10:00", type: "misc", label: "Hotel", title: "Taxi to hotel, shower", detail: "Or bring a change of clothes and go straight to Longhua." },
-    { t: "11:30", type: "see", label: "See", title: "Longhua Temple, Pagoda & underground space", addr: "2853 Longhua Rd 龙华路2853号", map: "龙华寺" },
-    { t: "12:45", type: "food", label: "Lunch", title: "Rongjia Huangyu Mian: yellow croaker noodles", detail: "黄鱼面. Confirm location.", map: "荣家黄鱼面" },
-    { t: "14:15", type: "see", label: "Park", title: "Shanghai Botanical Garden", addr: "1111 Longwu Rd 龙吴路1111号", map: "上海植物园" },
-    { t: "16:00", type: "shop", label: "Free", title: "Catch-up shopping or rest" },
+    { t: "6:30", type: "run", label: "Run", title: "Short Bund run", detail: "Easy 30 min; the bike ride later is the real outing. Then breakfast and shower; coffee comes after the bike ride.", map: "外滩" },
+    { t: "Then", type: "food", label: "Suggested breakfast", title: "Jianbing from a stall", detail: "煎饼, savory egg crepe." },
+    { t: "Then", type: "misc", label: "Hotel", title: "Shower" },
+    { t: "8:30", type: "misc", label: "Transit", title: "Metro to Qiantan (Pudong)", detail: "About 45 min." },
+    { t: "9:00", type: "run", label: "Ride", title: "Bike-share along the Qiantan riverside", detail: "Unlock via Alipay; finish at the cafe.", map: "前滩公园" },
+    { t: "9:45", type: "coffee", label: "Coffee", title: "Aftertaste", detail: "Our pick. Coffee break before Longhua.", addr: "W3-102, Qiantan Park Lane 前滩公园巷W3-102", map: "Aftertaste 前滩" },
+    { t: "11:45", type: "see", label: "See", title: "Longhua Temple, Pagoda & underground space", addr: "2853 Longhua Rd 龙华路2853号", map: "龙华寺" },
+    { t: "Lunch", type: "food", label: "What to eat", title: "Vegetarian noodles 素面", order: [["Vegetarian noodles", "素面"], ["Vegetarian 'chicken' (tofu skin)", "素鸡"], ["Buddha's delight (mixed veg)", "罗汉斋"]], detail: "Mushrooms, gluten, tofu skin and greens. Or braised pork noodles 焖肉面 nearby.", dp: "素面", options: [["Longhua Temple vegetarian restaurant", "Right at the temple. Confirm hours on Dianping.", "2853 Longhua Rd 龙华路2853号", "龙华寺素斋"]] },
+    { t: "14:00", type: "see", label: "Art", title: "West Bund riverfront + Long Museum", detail: "Walk the old docks-turned-promenade along the Huangpu, and see the Long Museum built around an old coal-unloading bridge. Closed Mondays.", addr: "3398 Longteng Ave 龙腾大道3398号", map: "龙美术馆西岸馆" },
+    { t: "16:30", type: "shop", label: "Wander", title: "Tianzifang 田子坊", detail: "Maze of 1930s shikumen lanes with tiny shops, studios and cafes. Then walk about 20 min to Yongkang Rd for dinner.", addr: "Lane 210 Taikang Rd 泰康路210弄", map: "田子坊" },
     { t: "19:00", type: "food", label: "Dinner", title: "Eight 八EIGHT (reserve — 8 seats)", detail: "No menu: an eight-course chef's tasting menu mixing Basque, Spanish and East Asian flavors. About ¥888 per person.", addr: "73 Yongkang Rd 永康路73号", map: "永康路73号" },
-    { t: "21:00", type: "misc", label: "Pack", title: "Pack for Beijing", detail: "It will be much colder." }
+    { t: "21:00", type: "book", label: "Book now", title: "Book the Great Wall (Mubus on Trip.com)", detail: "Check the Beijing forecast. Book Sat 21 if it looks clear; Mon 23 is the backup.", url: "https://www.trip.com/things-to-do/detail/89362507?language=EN&locale=en_xx&districtId=1&districtType=1" },
+    { t: "21:15", type: "misc", label: "Pack", title: "Pack for Beijing", detail: "It will be much colder." }
   ],
   food: { items: [
     ["Jianbing 煎饼", "A street-stall crepe with egg, scallion, sauce and a crispy cracker inside. From northern China, now a breakfast favorite everywhere."],
-    ["Yellow croaker noodles 黄鱼面", "Noodles in milky fish-bone broth topped with tender East China Sea yellow croaker, a Shanghai and Ningbo favorite."]
+    ["Vegetarian noodles 素面", "Buddhist temples in China often run vegetarian kitchens; temple noodles come topped with mushrooms, gluten, tofu skin and greens."],
   ]},
   places: [
-    ["Aftertaste", "Your pick: an independent cafe in Qiantan's new riverside park area."],
-    ["Rongjia Huangyu Mian 荣家黄鱼面", "A yellow croaker noodle shop from your list."],
+    ["Aftertaste", "Our pick: an independent cafe in Qiantan's new riverside park area."],
     ["Eight 八EIGHT", "A tiny chef's counter: eight guests, eight courses (about ¥888). No printed menu; the chef serves and explains each course. Reopened on Yongkang Rd in 2026."]
   ],
   sights: [
     ["Qiantan riverside", "Pudong's newer riverside district, across from the old West Bund industrial waterfront."],
     ["Longhua Temple & Pagoda", "Shanghai's largest Buddhist temple, said to date to the 3rd century. The seven-story pagoda dates to 977."],
-    ["Shanghai Botanical Garden", "Bonsai, orchids and quiet paths just south of Longhua."],
+    ["West Bund", "Old docks and an airport turned into an art riverfront."],
+    ["Tianzifang 田子坊", "1930s shikumen lanes turned into tiny shops and studios."],
     ["Yongkang Road", "Tonight's dinner street: narrow, French Concession, famous for cafes and bars."]
   ]
 },
@@ -397,12 +499,12 @@ const DAYS = [
   summary: "One last Bund run and cup at Always (buy beans to take home), then sheng jian bao and scallion oil noodles — the two must-eats saved for the end. Pack, check out, and ride Metro Line 2 straight to Hongqiao.",
   highlights: ["Bund run", "Sheng jian", "Train"],
   stops: [
-    { t: "7:30", type: "run", label: "Run", title: "Farewell run on the Bund", detail: "Finish at the cafe.", map: "外滩" },
-    { t: "8:15", type: "coffee", label: "Coffee", title: "Always Coffee Roaster", detail: "One last cup — buy beans to take home.", addr: "Room 106, 501 Jiujiang Rd 九江路501号106室", map: "Always Coffee Roaster 九江路" },
-    { t: "8:50", type: "food", label: "Breakfast", title: "Dongtaixiang: sheng jian + scallion oil noodles", detail: "Two 生煎包 and a small bowl of 葱油拌面 to share. Confirm nearest branch.", map: "东泰祥" },
-    { t: "9:30", type: "misc", label: "Hotel", title: "Shower, pack" },
-    { t: "10:30", type: "misc", label: "Hotel", title: "Check out" },
-    { t: "Train −1.5h", type: "misc", label: "Transit", title: "Metro Line 2 to Hongqiao Railway Station", detail: "About 40 min from East Nanjing Rd. Arrive 1 hour early with your passport.", addr: "Shanghai Hongqiao Station 上海虹桥站", map: "上海虹桥站" }
+    { t: "6:30", type: "run", label: "Run", title: "Farewell run on the Bund", detail: "Loop back to the hotel side of Nanjing East Rd. Then coffee, breakfast and shower in whatever order works.", map: "外滩" },
+    { t: "Then", type: "coffee", label: "Suggested coffee", title: "Always Coffee Roaster", detail: "One last cup, and buy beans to take home. A minute from the hotel.", addr: "Room 106, 501 Jiujiang Rd 九江路501号106室", map: "Always Coffee Roaster 九江路" },
+    { t: "Then", type: "food", label: "Suggested breakfast", title: "Dongtaixiang: sheng jian + scallion oil noodles", order: [["Pork sheng jian", "鲜肉生煎"], ["Scallion oil noodles", "葱油拌面"], ["Small wonton soup", "小馄饨"]], detail: "Two 生煎包 and a small bowl of 葱油拌面 to share. Confirm nearest branch.", map: "东泰祥" },
+    { t: "Then", type: "misc", label: "Hotel", title: "Shower, pack" },
+    { t: "10:00", type: "misc", label: "Hotel", title: "Check out" },
+    { t: "Train −1.5h", type: "misc", label: "Transit", title: "Metro Line 2 to Hongqiao Railway Station", detail: "About 40 min from East Nanjing Rd. Arrive 1 hour early with our passport.", addr: "Shanghai Hongqiao Station 上海虹桥站", map: "上海虹桥站" }
   ],
   food: { items: [
     ["Sheng jian bao 生煎包", "Pan-fried pork buns with crispy bottoms and hot soup inside. A teahouse snack turned classic breakfast. Careful: the soup squirts."],
@@ -411,7 +513,7 @@ const DAYS = [
   ]},
   places: [
     ["Always Coffee Roaster", "Back for a last cup and beans to take home."],
-    ["Dongtaixiang 东泰祥", "A top pick on your list for half-leavened sheng jian; also recommended for scallion noodles and small wontons."]
+    ["Dongtaixiang 东泰祥", "A top pick on our list for half-leavened sheng jian; also recommended for scallion noodles and small wontons."]
   ],
   sights: [
     ["Hongqiao Railway Station", "One of Asia's largest rail hubs. The Beijing–Shanghai high-speed line opened in 2011: about 1,300 km in roughly 4.5–6 hours."]
@@ -419,121 +521,639 @@ const DAYS = [
 }
 ];
 
+// Fuller notes, written in our voice. Each "\n" starts a new paragraph.
+const RICH = {
+  // ---------- Day 1 ----------
+  "Fresh-meat mooncakes 鲜肉月饼": "Not the dense sweet mooncakes we know. These are Suzhou-style: flaky, layered pastry wrapped around a juicy seasoned pork filling, baked to order.\nLocals line up for them around Mid-Autumn Festival, but the Nanjing Rd shops sell them all year. Eat it right away while it's hot, or it's just not the same.",
+  "Glutinous rice treats": "Shen Da Cheng's thing is sticky rice snacks. The classic to get is 双酿团 (shuang niang tuan): a chewy rice ball rolled in sesame, with red bean and black sesame filling inside.\nThey're sold by the piece, so it's easy to grab one or two and keep walking.",
+  "Xiao long bao 小笼包": "THE Shanghai dumpling. The trick is pork aspic (basically meat jelly) folded into the filling, which melts into soup when it's steamed.\nThey come from Nanxiang, a town on Shanghai's northwest edge, around the 1870s.\nHow to eat without burning ourselves: lift it gently by the top knot into the spoon, bite a tiny hole, sip the soup, then dip in the ginger vinegar and eat the rest.",
+  "Crab-roe xiao long bao 蟹粉小笼": "The fancy autumn version. 蟹粉 means hairy crab meat and roe, mixed into or replacing the pork filling, so the soup comes out rich, orange and a little sweet.\nCrab season runs roughly September to December, so November is perfect timing. Expect it to cost a few times more than the regular ones. Worth it at least once.",
+  "Zhen Lao Da Fang 真老大房": "A long-running Shanghai pastry brand, and the Nanjing Rd shop is the famous one for fresh-meat mooncakes. In our notes: potential for a long line.\nThe line usually moves fast because they're baking nonstop. Order at the window, pay with Alipay, and eat on the street like everyone else.",
+  "Shen Da Cheng 沈大成": "A pastry shop with about 150 years of history (founded in the 1870s), known for traditional Jiangnan sticky rice snacks and cakes.\nGood for a little sweet thing after the mooncake. The glass counters show everything, so we can just point.",
+  "Nanxiang Steamed Bun 南翔馒头店": "Founded in 1900, and it's the name everyone links with xiao long bao. Still a constant line out the door.\nTip from our notes: go upstairs to sit down. The menu up there is different from the takeaway window downstairs, and the dining room was refurbished in 2018 so it's nice and airy.\nTry the seasonal fillings, and if we're feeling silly, the oversized \"super\" bun we drink with a straw. Going at 10:30 should beat the lunch rush.",
+  "1/10 Coffee Roaster": "Opened by coffee nerds who roast their beans right there in the shop, so it's about as local as it gets. They carry a wider range of beans than most places.\nIt's a chill spot overlooking a little park. Good place to sit down after the Yu Garden crowds before tea.",
+  "Mu Chun 沐春茶舍": "Our tea house for Day 1, inside Sinan Mansion's restored old villas.\nHow tea houses work here: we pick a tea (oolong, pu'er, white or green), they brew it in front of us and keep topping up hot water, and we can stay a while. Little snacks usually come with it. Ask them to recommend something local, like a Longjing green tea from nearby Hangzhou.",
+  "De Xing Guan 德兴馆": "One of the oldest names in Shanghai food, founded in 1878, and on our list (it's also famous for its mooncakes). The Guangdong Rd flagship is in the Michelin Guide.\nDownstairs is the classic noodle-and-rice hall; upstairs is a comfier dining room for Shanghai home-style cooking: cold dishes, hot dishes, soups, noodles and dim sum. The noodles and dim sum are made in-house, and the kitchen starts at 4 AM.\nMichelin's picks are the 两鲜面 and 三鲜面 (mixed-topping noodles, which can include seafood), so for us it's braised pork noodles 焖肉面. A 5-minute walk from the Bund.",
+  "Cupping 拔罐": "A traditional Chinese medicine therapy that's over 2,000 years old. Cups are put on the back with suction, which pulls the skin up and is supposed to boost circulation and loosen tight muscles.\nIt leaves round red-purple marks that fade in a few days, so heads up if we're planning any photos! It usually comes with tui na, a firm Chinese massage.\nThe spa from the vid we saw is \"Yu Health\". This stop is a nearby tui na and cupping place, so swap in Yu Health if we find its address.",
+  "Nanjing Road": "It started in 1845 as \"Park Lane\" and was renamed Nanking Road in 1862. By the early 1900s it had eight big department stores and was China's most famous shopping street, and a lot of those old buildings are still standing.\nThe East part right by our hotel is pedestrian-only, about 1.2 km of neon signs and crowds. It's best at night when everything's lit up.",
+  "The Bund": "The riverside strip of grand old banks and trading houses, mostly built in the 1920s and 30s when Shanghai was Asia's money capital.\nLook for the Peace Hotel (green pyramid roof, 1929), the old HSBC building with its domed mosaic ceiling, and the Customs House clock tower.\nAcross the river is Lujiazui, which was basically farmland until the 1990s. The view is best at night, and the lights usually go off around 10–11 PM.",
+  "Yu Garden": "A private garden that Ming dynasty official Pan Yunduan started in 1559 for his father, Pan En, to enjoy in old age. Work stalled when Pan was posted to Sichuan, so it wasn't done until around 1577, almost 20 years later.\nLater it was the headquarters of the Small Swords Society uprising (1853–55), got badly damaged, and was restored in 1956–61.\nWhat to look for: the huge rockeries, koi ponds, the walls with dragons running along the top, and the Exquisite Jade Rock, a 3.3 m, 5-ton stone full of holes.\nIn our notes: must go before 9am. The garden itself opens around 9:00, but the bazaar streets around it are open earlier, so we can wander first and be at the gate when it opens.",
+  "Shanghai Old Street 上海老街": "The 825 m stretch of Fangbang Middle Rd running past Yu Garden, inside what used to be the walled old city. It was restored as a showcase of old Shanghai streetscapes, and the two ends look different on purpose.\nThe east end is late Qing and early Republican: checkered windows, wooden shop boards and upturned eaves. The west end is Ming and Qing style, with black tiles, whitewashed walls and red columns, plus antique and curio shops and teahouses.\nIt's touristy, but it's the easiest way to see traditional Shanghai architecture in one walk. Old-name shops to spot include Tonghanchun (traditional medicine), Wuliangcai and Old Shanghai Tea House.",
+  "Nine-Turn Bridge": "The zigzag bridge across Yu Garden's lake. The story is that evil spirits can only travel in straight lines, so the zigzags keep them out.\nIt gets packed fast, which is another reason to go early.",
+  "Sinan Mansion": "A block of restored 1920s–30s garden villas from the French Concession days, now cafes, shops and a boutique hotel.\nThe area had famous neighbors back in the day: Zhou Enlai's old Shanghai residence and opera star Mei Lanfang's home are both on Sinan Rd. It's a really pretty stroll, especially with the trees changing color in November.",
+  "Fuxing Park": "Opened in 1909 as the French Park, with a formal French-style garden.\nToday it's full of locals doing their thing: dancing, tai chi, playing cards and mahjong, and singing. Just sit on a bench and people-watch. There's also a big statue of Marx and Engels in there, which is kind of random and fun to find.",
+  // ---------- Day 2 ----------
+  "Shanghai street breakfast": "Locals call the classic breakfast combo the \"four heavenly kings\" (四大金刚): sesame flatbread (大饼), a fried dough stick (油条), a sticky rice roll (粢饭团) and soy milk (豆浆).\nYou can get soy milk sweet (甜) or salty (咸). Salty comes with toppings and is very Shanghai, so it's worth trying once. Pick one or two things to keep it light.",
+  "Fried thick noodles 上海粗炒": "Thick, chewy wheat noodles stir-fried with dark soy, shredded pork and greens until they're glossy and a little smoky.\nA cheap, filling, very everyday Shanghai lunch. It's easy to find around the malls on Century Ave.",
+  "Big wontons 荠菜大馄饨": "Shanghai has two styles of wontons, and these are the big ones: plump, stuffed with pork and shepherd's purse (a wild green), and served in a light broth.\nThe small style (小馄饨) is tiny, silky and almost all skin. Fun to try both during the trip.",
+  "Sesame noodles 麻酱面": "Noodles tossed in a thick sesame paste sauce with a bit of soy, vinegar and sugar. It's a Shanghai classic, usually eaten cold or room temperature.\nMix it really well before eating so every noodle gets coated.",
+  "Always Coffee Roaster": "Our pick: a local roaster on Jiujiang Rd, about a minute from the East Nanjing Rd metro. Super close to the hotel, so it's an easy first stop on the way out.\nSince they roast their own beans, it's a good place to buy a bag to bring home.",
+  "Wei Xiang Zhai 味香斋": "An old-school noodle shop famous for what some call Shanghai's best sesame noodles. It's Michelin selected.\nIn our notes: some people say it's overhyped? It's cheap and quick though, so worth trying ourselves and deciding. Expect a plain, busy, local room. That's part of the charm.",
+  "Waibaidu Bridge": "China's first all-steel bridge, opened on 20 January 1908 where Suzhou Creek meets the Huangpu. It replaced Wills' Bridge, an 1856 wooden toll bridge.\nIt's also called the Garden Bridge, after the Public Garden next to it, and it's the only surviving camelback truss bridge in China. It's in Empire of the Sun and Lust, Caution. In 2008 they actually floated it away on boats to repair it, and it was back in April 2009.",
+  "Shanghai Museum East": "The Shanghai Museum's huge new Pudong building, fully opened in 2024. It's where the famous collection lives now: ancient bronzes, ceramics, jade, and painting and calligraphy, plus galleries on the Jiangnan region's culture.\nFree, and normally walk-in with a passport. It's one of the few museums open on Mondays. It's big, so pick a few galleries rather than trying to see everything.",
+  "Lujiazui": "Pudong's financial district. The wild part is that it was fields and warehouses until development kicked off in 1990.\nThe skyline: the pink-ball Oriental Pearl Tower (1994), Jin Mao Tower (1999), the \"bottle opener\" Shanghai World Financial Center (2008), and the twisting Shanghai Tower, China's tallest building at 632 m.",
+  "Museum of Art Pudong": "An art museum right on the river facing the Bund, designed by French architect Jean Nouvel and opened in 2021. It does big international shows, often with partners like Tate in London.\nEven if the exhibition isn't our thing, some of the galleries have huge windows framing the Bund. It's open late, so it's great around sunset.",
+  "Century Park": "Pudong's biggest park, opened in 2000, with a huge lake, lawns and long paths. We can rent bikes or little boats if we want.\nIt's right by the museum, so it's a nice way to walk off a long museum morning.",
+  // ---------- Day 3 ----------
+  "Vegetable buns 菜馒头": "Fluffy steamed buns filled with finely chopped greens (usually bok choy) and mushrooms, sometimes with a bit of tofu. Simple but so good.\nIn our screenshot list, Wangjiasha's 菜馒头 is the one to get.",
+  "Hong shao rou 红烧肉": "Red-braised pork belly: chunks slow-cooked for hours in soy sauce, rock sugar and Shaoxing wine until it's glossy, sticky and melts in our mouth.\nShanghai's version is sweeter and darker than the rest of China's, and it's the dish that defines local cooking (本帮菜). Order rice with it, it's rich.",
+  "Smoked fish 熏鱼": "Funny name, because it's not actually smoked. Slices of fish (often carp) are fried until crisp, then soaked in a sweet, spiced soy glaze.\nIt's served cold as a starter, and every Shanghai banquet and holiday table has it.",
+  "Kao fu 烤麸": "Spongy wheat gluten cubes braised with wood ear mushrooms, peanuts and lily buds in a sweet-savory soy sauce, served cold.\nIt comes from Buddhist vegetarian cooking and is a Lunar New Year favorite. The gluten soaks up all the sauce, so it's way better than it sounds.",
+  "Single Origin Roasters": "Started in south Shanghai and moved downtown in 2017. True to the name, they focus on single-origin beans (lots of Ethiopian) and roast them in-house.\nA proper coffee-nerd spot, and it's on the way to Jing'an Temple. Ask what they're roasting that week.",
+  "Zhangshifu": "In our notes: a mom-and-pop local Shanghainese breakfast spot, highly recommended.\nThere's no fancy menu here, so the move is to look at what the regulars are eating and point. Usually it's soy milk, rice rolls, fried dough sticks and maybe wontons. Cash is rare, so have Alipay ready.",
+  "Wangjiasha 王家沙": "A Shanghai snack institution that's been around since the 1940s, right on Nanjing West Rd. Famous for vegetable buns, shrimp wontons and their crab soup dumplings in season.\nIt's busy and a bit chaotic: order and pay at the counter first, then grab a seat.",
+  "157 Shi Fang 157食坊": "A Michelin Bib Gourmand (good food, good value) that's been a go-to for traditional Shanghainese for years. It moved into a bright new space in the IM Shanghai complex, but the menu is still handwritten like the old days.\nMichelin says the eel claypot rice is a must: plump, oily eel over pearl rice that gets crispy on the bottom. The oil-blanched shrimp get a shout-out too for their wok hei.\nNo foreign credit cards, so have Alipay ready. Going right at opening is our move instead of booking.",
+  "People's Park & Square": "This whole area used to be the Shanghai Race Club's racecourse, the center of colonial-era social life. The old clubhouse with the clock tower is now the Shanghai History Museum.\nOn weekends, roughly noon to 5 PM, People's Park has the famous \"marriage market\": parents and grandparents line the paths with their kids' profiles (age, height, job, income, sometimes a photo) pinned to umbrellas, trying to find them a match. The kids themselves are rarely there! We land on a Sunday, so we can actually catch it.",
+  "Jing'an Temple": "A Buddhist temple with roots going back to the 3rd century. It moved to this spot in 1216, and the old road out front used to be called Bubbling Well Road after the temple's well.\nThe gold-roofed halls are mostly a modern rebuild, sitting right between malls and skyscrapers, which is such a Shanghai contrast. Try tossing a coin into the top of the big incense burner in the courtyard. Landing it is supposed to be good luck. There's a small entry fee.",
+  "M50": "Old textile mills along Suzhou Creek that artists started taking over around 2000, which made it the original home of Shanghai's contemporary art scene.\nNow it's galleries, artist studios and indie design shops. Walk Moganshan Rd for the graffiti wall too. Many galleries close Mondays, but Tuesday is fine.",
+  "West Nanjing Rd": "The fancy end of Nanjing Rd, lined with luxury malls (Plaza 66, Jing'an Kerry Centre, Taikoo Hui) and flagship stores.\nIt was once called Bubbling Well Road, after Jing'an Temple's well. Good for shopping, and for ducking into the side lanes to see the old lane houses.",
+  // ---------- Day 4 ----------
+  "Da bing 大饼": "A flaky sesame flatbread baked stuck to the inside wall of a hot clay oven. It comes savory with scallion or sweet.\nOne of the \"four heavenly kings\" of Shanghai breakfast. Grab it fresh and hot with a soy milk.",
+  "Shepherd's purse 荠菜": "A slightly peppery wild green that Shanghainese people love, especially in cooler months. It's usually chopped into dumplings and wontons with pork.\nIt tastes fresh and a bit grassy, and it's very Jiangnan.",
+  "Cheng Long Hang 成隆行蟹王府": "\"A household name among hairy crab lovers\", says Michelin, which gives it one star. It runs its own crab farm, so the supply and quality stay steady, and the shells come packed with creamy yellow roe.\nMichelin's picks: drunken crabs steeped in Shaoxing wine for a month, and a steamed meringue on a stuffed crab shell that uses the meat and roe of three crabs per serving. It's on Jiujiang Rd, about 5 minutes from the hotel. Book ahead.",
+  "Lao Xing Xian 老兴鲜": "A Michelin Guide pick on the 5th floor of the Parkson mall on Huaihai Rd, ticked on our list. It's Shanghainese with a seafood leaning plus a few Cantonese classics, so there's plenty that isn't fish.\nIt's our walk-in backup for hairy crab night: they take bookings, but as a big mall restaurant, showing up early should be fine.",
+  "Hairy crab 大闸蟹": "Chinese mitten crab, called \"hairy\" because of the fuzz on its claws. It's THE autumn obsession here, especially crab from nearby Yangcheng Lake.\nInsider tip: by the lunar calendar, females are best in the 9th month (roughly October) for the roe, and males get fattier and creamier in the 10th (roughly November), so ask for a male (公蟹). Heads up: way more \"Yangcheng Lake\" crab gets sold than the lake produces, so a lot is fake. It comes steamed and whole with ginger vinegar, and often warm yellow wine to \"balance\" it.\nEating it is a whole process, so don't be shy asking staff to show us how to crack it.",
+  "Wunder": "A one-shop roaster run by a former barista turned roaster. The owner closes every Monday just to roast, timing each batch so it hits its best flavor.\nKnown for traditional Italian-style coffee. It's a tiny neighborhood spot and a great first stop before shopping.",
+  "Wu You Xian 屋有鲜": "A xiao long bao specialist from our screenshot list, known for seasonal fillings: crab in autumn and shepherd's purse in the cooler months.\nIt's on South Maoming Rd, right in the French Concession, so it's perfect to slot in between shopping and the tattoo.",
+  "Shanyucaoshe 山余草舍": "Our must-do tea house, tucked inside Rose Villa, a lane of old garden villas off Fuxing West Rd.\nIt's the kind of tea house that's about the setting and slowing down: pick a tea, let them walk us through it, and just hang out. Book ahead if we can, since it's popular.",
+  "Lan Xin 兰心": "A tiny Michelin Bib Gourmand on Jinxian Rd in what used to be a private home. Michelin tags it \"worth queueing for\", and the line often goes down the street, since it doesn't take bookings.\nIt's traditional home-style Shanghainese. Michelin's picks are the braised pork, the braised duck in brown sauce, and a sweet-and-sour yellow croaker (skip that one). Cash only, so bring yuan.\nIf the line is crazy, Mao Long next door at 134 Jinxian Rd is another Bib Gourmand that's especially proud of its braised pork.",
+  "Cozy Music Lab": "One of our non-negotiables: the live music bar for the trip.\nCheck its WeChat or Dianping the day before for who's playing and what time the music starts. Shanghai bar gigs often don't get going until 9 or 10.",
+  "I-TATTOO": "A big studio on Panyu Rd with lots of artists across different styles and price points. It's also a gallery and bar that's all about tattoo culture in China.\nMessage ahead to ask about flash designs, walk-ins and payment. Bring the design idea saved on our phone.",
+  "Yibo Studio": "From our list: a hands-on workshop where we make our own glass jewelry to take home.\nSuch a good souvenir. Check how long a session takes when booking, in case the tattoo runs long.",
+  "Salomon \"Fu Jun\"": "Salomon's first China concept store, called \"Fu Jun\", in a century-old French-style villa. It's inspired by their store in Paris's Marais.\nThree floors, with limited drops and collabs with local artists. Open 10:00–22:00.",
+  "Musinsa Store": "Musinsa is Korea's biggest fashion platform, and this Anfu Rd store (opened December 2025) is their multi-brand concept store, in a 100-year-old three-story building.\nAround 40 Korean and Chinese brands under one roof. For basics, their Musinsa Standard flagship is about 2 km away at Parkson, 918 Middle Huaihai Rd.",
+  "Deja Vu Recycle": "A really popular secondhand store in an old film-distribution company building. Books are downstairs, displayed in crates like a greengrocer, and 2,000+ pre-owned clothes are upstairs.\nIt's famous for its design, so it's a good photo stop too. There's a bigger branch at Hongqiao Tiandi, but this one's on our route.",
+  "Harmay 话梅": "A warehouse-style beauty store: shelves of 100+ brands stacked like inventory, plus lots of travel sizes and discounted items.\nHeads up: the old Anfu Rd shop closed in July 2026 and moved across the road to 55 Wukang Rd. Open 10:00–22:00.",
+  "Xintiandi 新天地": "Restored shikumen (\"stone gate\") lane houses, a very Shanghai style of housing, turned into a dining and shopping area. We pass through on the run.\nFun history: the Communist Party's first national congress was held in one of these houses in 1921, and there's a museum there now.",
+  "Former French Concession": "The part of the city France ran from 1849 to 1943. It's why the streets are lined with plane trees, garden villas and lane houses.\nIt's now Shanghai's coolest area for cafes, boutiques and just wandering. In November the plane trees go yellow, so it's prime time.",
+  "Wukang Building": "The flatiron-shaped apartment building at the corner of Wukang Rd and Huaihai Rd, designed by Hungarian-Slovak architect László Hudec and finished in 1924. Its original name was the Normandie Apartments.\nFilm stars lived here after 1949, and now it's probably the most photographed building in the city. Best photo spot is from across the intersection.",
+  "Rose Villa 玫瑰别墅": "A quiet lane of old garden villas off Fuxing West Rd, right in the heart of the French Concession, where Shanyucaoshe sits.\nIt's a nice escape from the busy shopping streets just a few blocks away.",
+  // ---------- Day 5 ----------
+  "Jianbing 煎饼": "A street-stall crepe: batter spread thin on a hot griddle, cracked egg, scallion, cilantro, sweet bean and chili sauce, with a crispy cracker folded inside.\nIt's originally from northern China but now everywhere. Say 不要辣 (bu yao la) if we don't want it spicy.",
+  "Yellow croaker noodles 黄鱼面": "Noodles in a milky-white broth made by boiling fish bones for hours, topped with tender pieces of yellow croaker.\nThe fish comes from the East China Sea and has long been a favorite in Shanghai and nearby Ningbo. Super comforting, and it's on our must-eat list.",
+  "Aftertaste": "Our pick: an independent cafe in Qiantan, Pudong's newer riverside area.\nIt's a different vibe from the old-lane cafes, more modern and open, which works for the bike ride.",
+  "Rongjia Huangyu Mian 荣家黄鱼面": "A yellow croaker noodle shop from our screenshot list, under the noodles part.\nDouble check the address in Amap, and order the classic 黄鱼面.",
+  "Eight 八EIGHT": "The big dinner! A tiny chef's counter with just eight seats a night and an eight-course tasting menu, around ¥888 each.\nThere's no printed menu: dishes change daily based on what the kitchen gets, mixing Basque, Spanish and East Asian flavors, and the chef serves and explains every course across the counter.\nIt moved from Wuyi Rd and reopened on Yongkang Rd in 2026. Get the reservation locked in!",
+  "Qiantan riverside": "Pudong's newer riverside district, across the river from the old West Bund industrial waterfront. It's all new parks, bike paths and the Taikoo Li Qiantan mall.\nIt's flat and smooth, which is great for an easy morning bike ride.",
+  "Longhua Temple & Pagoda": "Shanghai's largest Buddhist temple, said to go back to the 3rd century. The seven-story pagoda out front is from 977 in the Song dynasty, one of the oldest things standing in the city.\nThe temple is famous for its New Year's Eve bell ringing. In our notes: the Longhua Square underground space beneath the pagoda is a quiet architectural spot with a small museum and cafe, so no crowds.",
+  "West Bund": "The Xuhui riverfront just north of Longhua used to be industrial: docks, wharves and the old Longhua Airport. It's been turned into a long riverside promenade with art museums along it, so it's a nice slow walk right next to the temple.\nThe Long Museum West Bund was founded by collector couple Liu Yiqian and Wang Wei, and the building wraps around an old coal-unloading bridge from the docks days. Check what's showing before going in.",
+  "Tianzifang 田子坊": "A maze of shikumen (\"stone gate\") lane houses off Taikang Rd. The core block dates from 1933, and artists moved in for the cheap rent. Painter Huang Yongyu named it, as a pun on Tian Zifang, often called China's earliest recorded artist.\nWhen developers wanted to tear it down in 2006, artist Chen Yifei (who had a studio here) and the residents pushed back. Unlike Xintiandi, it kept its original buildings. Now it's 200+ tiny shops, studios and cafes.",
+  "Yongkang Road": "Where tonight's dinner is. It's a narrow French Concession street that used to be a wet market, then turned into a famous expat bar street around 2013.\nThere's a funny local legend about neighbors upstairs throwing water on noisy drinkers below. It's calmer now, with lots of cafes and small bars.",
+  // ---------- Day 6 ----------
+  "Sheng jian bao 生煎包": "Pan-fried pork buns: fluffy on top, crispy golden bottoms, sesame and scallion sprinkled over, and hot soup inside.\nThey came over from Suzhou in the early 1900s and have been a Shanghai breakfast since the 1920s. Traditionally they're sold in fours, a unit called a \"liang\". Careful, the soup squirts! Bite a tiny corner first and let the steam out.",
+  "Scallion oil noodles 葱油拌面": "Simple but so good: thin noodles tossed in oil that's been slowly fried with scallions until they're dark and crispy, plus soy sauce and a little sugar.\nEvery Shanghai noodle shop has it, and locals judge shops by it. One of our must-eats.",
+  "Small wontons 小馄饨": "Tiny, thin-skinned wontons in a light broth, usually with dried shrimp, seaweed and scallion.\nThey're almost all silky wrapper, a gentle little side with breakfast.",
+  "Dongtaixiang 东泰祥": "A top pick on our screenshot list for sheng jian made with half-leavened dough, so they're slightly thinner and crispier than the fluffy kind.\nThe list also says the scallion oil noodles and small wontons are great here, which knocks out two must-eats on the last morning.",
+  "Hongqiao Railway Station": "One of the biggest train stations in Asia, opened in 2010 and connected to the airport and metro.\nThe Beijing–Shanghai high-speed line opened in 2011. It's about 1,300 km, and the fastest trains do it in around 4.5 hours at up to 350 km/h. Bring the same passport we booked with, since they check it at the gates."
+};
+
+// Day summaries, in our voice
+const RICH_SUMMARY = {
+  d1: "Landing day, so no run! Metro into the city, drop our bags, grab coffee and eat our way down Nanjing East Rd before hitting Yu Garden early to beat the crowds. Soup dumplings for an early lunch and a walk down Old Street for the architecture, then coffee and tea in the French Concession and a lazy stroll through Fuxing Park. Nap, then a 2-hour cupping massage and the Bund all lit up at night.",
+  d2: "Museum day! Run the Bund, street breakfast, coffee at Always on the way out, then most of the morning at Shanghai Museum East (open Mondays, when most museums are closed). Walk it off in Century Park, catch sunset across the river from the Bund, and end with our hairy crab dinner near the hotel.",
+  d3: "Artsy day + shopping round 1. Run west to a proper local breakfast at Zhangshifu, then after the shower, coffee at Single Origin Roasters and the golden Jing'an Temple, buns at Wangjiasha, galleries at M50, and an afternoon on West Nanjing Rd with a sheng jian and scallion oil noodle snack. Dinner at 157 Shi Fang, a Michelin Bib Gourmand: hong shao rou, kao fu and whatever else looks good. Don't forget: book the Forbidden City at 8 PM!",
+  d4: "Shopping round 2 in the French Concession. Coffee at Wunder to kick it off, then Salomon, Musinsa, Deja Vu and Harmay on Anfu and Wukang Rd, pork and shepherd's purse soup dumplings for lunch, then the flash tattoo and making glass jewelry. Tea at Shanyucaoshe in Rose Villa, braised pork and duck at Lan Xin, and live music at Cozy Music Lab to close it out.",
+  d5: "A slower, greener day down south. Short run, then bike the Qiantan riverside to coffee at Aftertaste, then Longhua Temple and the quiet underground space under the pagoda. Yellow croaker noodles, the West Bund art riverfront next door, and a wander through Tianzifang's lanes, before the big one: dinner at Eight's 8-seat chef's counter.",
+  d6: "Last morning! One more Bund run, then sheng jian bao and scallion oil noodles, the two must-eats we saved for the end. Pack, a last cup at Always (buy beans to take home), check out, and Line 2 straight to Hongqiao for the train to Beijing."
+};
+
+DAYS.forEach(d => {
+  if (RICH_SUMMARY[d.key]) d.summary = RICH_SUMMARY[d.key];
+  [d.food.items, d.places, d.shopping, d.sights].forEach(list => (list || []).forEach(n => { if (RICH[n[0]]) n[1] = RICH[n[0]]; }));
+});
+
 // Off-plan options: [group, name, why, address, amapKeyword]
 const ALTS = {
   d1: [
-    ["If the line is too long", "Lai Lai Xiao Long 莱莱小笼", "Michelin-recommended soup dumplings from your list; order the crab-roe xiao long bao. Near the hotel on Tianjin Rd.", "506/481 Tianjin Rd 天津路506号", "天津路506号"],
-    ["If the line is too long", "Jia Jia Tang Bao 佳家汤包", "Small, no-frills soup dumpling shop by People's Park, known for crab xiao long bao.", "90 Huanghe Rd 黄河路90号", "佳家汤包"],
-    ["If it rains", "Shanghai History Museum", "Free, no booking, open Sundays. The city's story from 4000 BC to 1949 in the old Race Club clubhouse.", "325 Nanjing West Rd 南京西路325号", "上海市历史博物馆"],
-    ["If you have energy", "Tianzifang 田子坊", "A maze of old shikumen lanes packed with tiny shops and cafes, a short walk from Mu Chun.", "Lane 210 Taikang Rd 泰康路210弄", "田子坊"],
-    ["If you skip the spa", "House of Blues & Jazz", "An old-school live jazz bar near the Bund, running since 1995.", "60 Fuzhou Rd 福州路60号", "福州路60号"]
+    ["If the line is too long", "Lai Lai Xiao Long 莱莱小笼", "Michelin-recommended soup dumplings from our list; classic pork xiao long bao. Near the hotel on Tianjin Rd.", "506/481 Tianjin Rd 天津路506号", "天津路506号"],
+    ["If the line is too long", "Jia Jia Tang Bao 佳家汤包", "Small, no-frills soup dumpling shop by People's Park; get the pork ones.", "90 Huanghe Rd 黄河路90号", "佳家汤包"],
+    ["If it rains", "Tianzifang 田子坊", "Covered-ish shikumen lanes full of tiny shops and cafes, a short walk from Mu Chun. (It's also on Thursday.)", "Lane 210 Taikang Rd 泰康路210弄", "田子坊"],
+    ["If we skip the spa", "House of Blues & Jazz", "An old-school live jazz bar near the Bund, running since 1995.", "60 Fuzhou Rd 福州路60号", "福州路60号"]
   ],
   d2: [
-    ["Different breakfast", "Xian De Lai 鲜得来", "Classic Shanghai pork chop with rice cakes, from your list, 10 min from the hotel.", "290–292 Ninghai East Rd 宁海东路290号", "宁海东路290号"],
-    ["If the museum wears you out", "Shanghai Tower observation deck", "China's tallest building (632 m) in Lujiazui; the deck is on the 118th floor. Go near sunset.", "501 Middle Yincheng Rd 银城中路501号", "上海中心大厦"],
-    ["If it rains", "China Art Museum 中华艺术宫", "From your list: the giant red Expo 2010 China Pavilion, free modern Chinese art. Book on WeChat; check it's open Mondays.", "205 Shangnan Rd 上南路205号", "中华艺术宫"],
-    ["Different dinner", "Zhang Ji beef noodles", "Locally run beef noodle soup, from your list, a few steps from the hotel.", "530 Tianjin Rd 天津路530号", "天津路530号"]
+    ["Different breakfast", "Xian De Lai 鲜得来", "Classic Shanghai pork chop with rice cakes, from our list, 10 min from the hotel.", "290–292 Ninghai East Rd 宁海东路290号", "宁海东路290号"],
+    ["If the museum wears us out", "Shanghai Tower observation deck", "China's tallest building (632 m) in Lujiazui; the deck is on the 118th floor. Go near sunset.", "501 Middle Yincheng Rd 银城中路501号", "上海中心大厦"],
+    ["If it rains", "China Art Museum 中华艺术宫", "From our list: the giant red Expo 2010 China Pavilion, free modern Chinese art. Book on WeChat; check it's open Mondays.", "205 Shangnan Rd 上南路205号", "中华艺术宫"],
+    ["Different dinner", "Wei Xiang Zhai 味香斋", "Michelin-selected sesame noodles 麻酱面, if we skip the crab. Our note says 151 Hubei Rd; the screenshot lists a Yandang Rd branch.", "Confirm branch in Amap", "味香斋"],
+    ["Different dinner", "Zhang Ji beef noodles", "Locally run beef noodle soup, from our list, a few steps from the hotel.", "530 Tianjin Rd 天津路530号", "天津路530号"]
   ],
   d3: [
-    ["More history", "Shanghai History Museum", "Free, no booking, open Tuesdays. Right on the run route at People's Park; swap for Jing'an Temple.", "325 Nanjing West Rd 南京西路325号", "上海市历史博物馆"],
-    ["Quieter spot", "Shanghai Library 上海图书馆", "From your list: one of China's largest libraries, with a calm reading room. Near the French Concession.", "1555 Middle Huaihai Rd 淮海中路1555号", "上海图书馆淮海路"],
+    ["Quieter spot", "Shanghai Library 上海图书馆", "From our list: one of China's largest libraries, with a calm reading room. Near the French Concession.", "1555 Middle Huaihai Rd 淮海中路1555号", "上海图书馆淮海路"],
     ["Different coffee", "Coffee Spot", "Hidden in an old guardhouse inside a residential compound; taste one bean three ways.", "No. 4, Lane 838 West Beijing Rd 北京西路838弄4号", "北京西路838弄"],
-    ["If Fu 1088 is full", "Huyi Xiaojiuguan 沪依小酒馆", "A check-marked benbang pick on your screenshot list. Same order: hong shao rou, smoked fish, kao fu.", "Confirm in Amap", "沪依小酒馆"],
-    ["If Fu 1088 is full", "Lao Xing Xian 老兴鲜", "Another check-marked benbang top pick from your screenshots.", "Confirm in Amap", "老兴鲜"]
+    ["If 157 is packed", "Mao Long 茂隆", "Michelin Bib Gourmand home cooking run by a mother in her 80s and her daughter since 1989; especially proud of its braised pork. Five tables, cash only. Call ahead: +86 21 6256 1167.", "134 Jinxian Rd 进贤路134号", "茂隆餐厅 进贤路"],
   ],
   d4: [
-    ["More to browse", "Propaganda Poster Art Centre", "From your list: Yang Peiming's collection of Mao-era posters in a basement gallery. Quirky and memorable.", "Building 7, Block K, 726 Yan'an West Rd 延安西路726号", "杨培明宣传画艺术中心"],
-    ["More to browse", "Sisyphus vintage cameras", "From your list: a vintage digital camera shop.", "Confirm in Amap", "Sisyphus相机"],
-    ["Sweet stop", "Chinese-medicine gelato & homemade cola", "From your list: herbal gelato next to ALOHA Coffee.", "267 Xiangyang South Rd 襄阳南路267号", "襄阳南路267号"],
+    ["More to browse", "Propaganda Poster Art Centre", "From our list: Yang Peiming's collection of Mao-era posters in a basement gallery. Quirky and memorable.", "Building 7, Block K, 726 Yan'an West Rd 延安西路726号", "杨培明宣传画艺术中心"],
+    ["More to browse", "Sisyphus vintage cameras", "From our list: a vintage digital camera shop.", "Confirm in Amap", "Sisyphus相机"],
+    ["Sweet stop", "Chinese-medicine gelato & homemade cola", "From our list: herbal gelato next to ALOHA Coffee.", "267 Xiangyang South Rd 襄阳南路267号", "襄阳南路267号"],
     ["If the tattoo runs long", "Skip Yibo Studio", "Go straight to Shanyucaoshe for tea; the glass workshop can move to Day 5's free afternoon.", "", ""],
     ["If Cozy Music Lab is quiet", "House of Blues & Jazz", "Live jazz most nights near the Bund, walking distance from the hotel.", "60 Fuzhou Rd 福州路60号", "福州路60号"]
   ],
   d5: [
-    ["Stay in Puxi instead", "West Bund ride + Long Museum", "Ride the Xuhui riverside instead of Qiantan; the Long Museum West Bund sits in an old coal hopper.", "3398 Longteng Ave 龙腾大道3398号", "龙美术馆西岸馆"],
-    ["Architecture", "The Roof / Street of 1000 Red Jars", "From your list: the terracotta-pot facades at The Roof on Madang Rd.", "458 Madang Rd 马当路458弄", "马当路458弄"],
-    ["Sweet stop", "313 Mento", "From your list: minimalist gelato with perfume-like flavors on LiXi Rd.", "LiXi Rd 丽西路 (confirm)", "313 Mento"],
-    ["If it rains", "Swap the Botanical Garden for Longhua Square", "Spend longer in the quiet underground space and cafe beneath the pagoda.", "2853 Longhua Rd 龙华路2853号", "龙华寺"],
-    ["If Eight falls through", "Hairy crab at Lao Xing Xian 老兴鲜", "A benbang top pick from your screenshots; order steamed hairy crab and crab-roe noodles.", "Confirm in Amap", "老兴鲜"]
+    ["Snack near Tianzifang", "Lao Di Fang Mian Guan 老地方面馆", "Michelin Bib Gourmand noodle shop from our list, 30+ years old. Get the braised pork belly in spiced dark soy, or tofu skin-wrapped pork. Cash only.", "107 Sinan Rd 思南路107号", "老地方面馆 思南路"],
+    ["Stay in Puxi instead", "Ride the Xuhui riverside", "Bike the West Bund side instead of Qiantan, then it's a short hop to Longhua.", "West Bund 徐汇滨江", "徐汇滨江"],
+    ["Architecture", "The Roof / Street of 1000 Red Jars", "From our list: the terracotta-pot facades at The Roof on Madang Rd.", "458 Madang Rd 马当路458弄", "马当路458弄"],
+    ["Sweet stop", "313 Mento", "From our list: minimalist gelato with perfume-like flavors on LiXi Rd.", "LiXi Rd 丽西路 (confirm)", "313 Mento"],
+    ["If we want a museum instead", "Shanghai History Museum", "Free, walk-in, in the old Race Club clubhouse at People's Square. Swap for the West Bund.", "325 Nanjing West Rd 南京西路325号", "上海市历史博物馆"],
+    ["If Eight falls through", "Mao Long 茂隆", "Michelin Bib Gourmand home cooking run by a mother in her 80s and her daughter since 1989; especially proud of its braised pork. Five tables, cash only. Call ahead: +86 21 6256 1167.", "134 Jinxian Rd 进贤路134号", "茂隆餐厅 进贤路"],
   ],
   d6: [
-    ["Snacks for the train", "Shen Da Cheng & Zhen Lao Da Fang", "Grab glutinous rice treats and fresh-meat mooncakes on Nanjing East Rd before you go.", "636 & 536 Nanjing East Rd", "南京东路536号"],
-    ["Last dumplings", "Lai Lai Xiao Long 莱莱小笼", "One more round of crab-roe xiao long bao, five minutes from the hotel.", "506/481 Tianjin Rd 天津路506号", "天津路506号"]
+    ["Snacks for the train", "Shen Da Cheng & Zhen Lao Da Fang", "Grab glutinous rice treats and fresh-meat mooncakes on Nanjing East Rd before we go.", "636 & 536 Nanjing East Rd", "南京东路536号"],
+    ["Last dumplings", "Lai Lai Xiao Long 莱莱小笼", "One more round of pork xiao long bao, five minutes from the hotel.", "506/481 Tianjin Rd 天津路506号", "天津路506号"],
   ]
 };
 
+// ================= BEIJING =================
+const TBD = "TO FIGURE OUT";
+const BJ_START = {
+  key: "start", color: "#6B7785", ink: "#4A5563", zh: "北京", area: "Before we go", when: "November 2026", tabTop: "S", tabSub: "Prep",
+  title: "Bookings & essentials",
+  summary: "Nov 20–25 at the Crowne Plaza, 48 Wangfujing Ave. The plan is still loose. Tentatively: Great Wall Sat 21, National Museum Sun 22, Forbidden City Tue 24. The rest is TO FIGURE OUT. Late November is cold, close to freezing at night, so pack layers, gloves and a hat for the Great Wall.",
+  checklist: [
+    ["Nov 5", "Buy train tickets Shanghai → Beijing for Nov 20"],
+    ["By Nov 13", "Check the phone is unlocked"],
+    ["By Nov 13", "Download WeChat, Amap and a VPN"],
+    ["By Nov 13", "Pack pocket tissues and power banks"],
+    ["Nov 15, 5 PM", "Book the National Museum of China for Sun Nov 22"],
+    ["Nov 15", "Reserve Tiananmen Square entry for Sun Nov 22 (free, real-name, 1–7 days ahead)"],
+    ["Nov 17, 8 PM", "Book the Forbidden City for Tue Nov 24"],
+    ["Nov 18–19", "Check the forecast and book Mubus (bus + Great Wall entry) on Trip.com. Plan is Sat Nov 21; Mon Nov 23 is the backup"]
+  ],
+  tips: [
+    "Forbidden City and National Museum are closed Mondays, and so are Red Brick, Nanchizi and Song Art Museum.",
+    "Bring the passport we booked with; the Forbidden City, National Museum and Tiananmen check it at the gate.",
+    "Dianping (大众点评) for hours and reviews, Amap for directions. Amap links on the Beijing cards search inside Beijing."
+  ],
+  ideas: [
+    ["Non-negotiables", ["Great Wall", "Forbidden City", "Ghost Street (Gui Jie), late-night food"]],
+    ["Places to see", ["Tian'anmen Square", "Jingshan Park", "Xianyukou Street", "Qianmen East hutongs", "Lama Temple", "Longtan Park", "Shichahai lakes", "Red Brick Art Museum (closed Mon)", "Summer Palace", "Nanchizi Museum (closed Mon)", "Song Art Museum (closed Mon)", "Forest Library", "798 Art Zone", "Cycling tour?"]],
+    ["Things to eat", ["Jianbing", "Shou juan", "Peking duck", "Braised pork noodles 红烧肉面", "Zhajiangmian 炸酱面", "Shao rou jia bing", "Chao liang fen 炒凉粉", "Suan la fen 酸辣粉", "Liang mian 凉面", "Tang er duo 糖耳朵", "Malatang 麻辣烫", "Beijing yogurt", "Snow pear tea"]],
+    ["Food spots", ["Zeng Sheng Kui 增盛魁 (since 1928)", "Yin San Douzhi", "Xihuashi battercake", "Hu Da 胡大 (crawfish)", "Punk Rock Noodle", "Mingyuan Park Restaurant", "Jiangniu Dumplings", "Donglaishun (Qianmen)", "Niujie street food", "Shendian Noodles"]],
+    ["Cafes", ["Brickyard Courtyard Cafe", "Wudaoying Slow Coffee", "Drum Tower Tea House Cafe", "Junwangfu Hotel afternoon tea", "Swim Cafe", "Remap Cafe", "Townhouse", "YuanGuBen Coffee", "StillWater", "Tangfant Coffee", "Cenchi Coffee", "Jingshui Coffee", "CHILL Pill (donuts)"]]
+  ]
+};
+
+const tbd = (t, label = "Plan") => ({ t, type: "tbd", label, title: TBD });
+const BJ_DAYS = [
+{
+  key: "d1", color: "#C23A30", ink: "#A12A21", zh: "王府井", area: "Wangfujing", when: "Friday 20 November", date: "2026-11-20", tabTop: "20", tabSub: "Fri",
+  title: "Arrive in Beijing", summary: "Train up from Shanghai and check in on Wangfujing. The rest of the day is TO FIGURE OUT.",
+  stops: [
+    { t: "Afternoon", type: "misc", label: "Arrive", title: "Train into Beijing", detail: "Train time TO FIGURE OUT. Metro to the hotel (Wangfujing, Line 1/8); Amap will route it." },
+    { t: "After", type: "misc", label: "Hotel", title: "Check in at the Crowne Plaza", addr: "48 Wangfujing Ave 王府井大街48号", map: "王府井大街48号" },
+    tbd("Evening", "Dinner")
+  ], food: { items: [] }, places: [], sights: []
+},
+{
+  key: "d2", color: "#653279", ink: "#653279", zh: "长城", area: "Mutianyu Great Wall", when: "Saturday 21 November", date: "2026-11-21", tabTop: "21", tabSub: "Sat",
+  title: "The Great Wall (tentative)", summary: "Great Wall day if the forecast is good. We book Mubus from Shanghai on Nov 18–19; if Saturday looks bad, swap with Monday 23. Times and dinner are TO FIGURE OUT. Dress warm.",
+  highlights: ["Great Wall"],
+  stops: [
+    tbd("Early", "Breakfast"),
+    { t: "Time TBD", type: "misc", label: "Transit", title: "Mubus to Mutianyu", detail: "Bus and Great Wall entry in one booking. Pickup point and time are on the Trip.com voucher.", url: "https://www.trip.com/things-to-do/detail/89362507?language=EN&locale=en_xx&districtId=1&districtType=1" },
+    { t: "Day", type: "see", label: "See", title: "Mutianyu Great Wall", detail: "Bring the passport used for the booking.", addr: "Mutianyu, Huairou District 慕田峪长城", map: "慕田峪长城" },
+    tbd("Evening", "Dinner")
+  ],
+  food: { items: [] }, places: [],
+  sights: [
+    ["Mutianyu Great Wall", "A 2.25 km restored stretch about 70 km northeast of central Beijing, with 22 watchtowers.\nThe first wall here was built in the mid-500s (Northern Qi), and the Ming rebuilt it in 1569. Rare detail: both sides have battlements, so archers could fire either way. It opened to visitors in 1988."]
+  ]
+},
+{
+  key: "d3", color: "#004A9D", ink: "#004A9D", zh: "天安门", area: "Tiananmen", when: "Sunday 22 November", date: "2026-11-22", tabTop: "22", tabSub: "Sun",
+  title: "National Museum & Tiananmen", summary: "National Museum and Tiananmen Square, both booked from Shanghai on Nov 15. Everything else is TO FIGURE OUT.",
+  highlights: ["National Museum", "Tiananmen"],
+  stops: [
+    tbd("6:30", "Run + breakfast"),
+    { t: "Time TBD", type: "see", label: "See", title: "Tiananmen Square (reserved Nov 15)", detail: "Bring the passport we booked with; there's a security check.", map: "天安门广场" },
+    { t: "Time TBD", type: "see", label: "Museum", title: "National Museum of China (booked Nov 15)", detail: "On the east side of Tiananmen Square. Closed Mondays.", addr: "16 East Chang'an Ave 东长安街16号", map: "中国国家博物馆" },
+    tbd("Later"), tbd("Evening", "Dinner")
+  ],
+  food: { items: [] }, places: [],
+  sights: [
+    ["Tiananmen Square", "One of the largest city squares in the world, between Tiananmen gate (the \"Gate of Heavenly Peace\", with Mao's portrait) and Qianmen. The National Museum, Great Hall of the People and Mao's Mausoleum line it."],
+    ["National Museum of China", "Built in 1959 as one of the \"Ten Great Buildings\" and reopened in 2011 after a 4-year renovation. It's one of the biggest museums in the world, with over a million objects.\nMust-sees: the Houmuwu Ding, an 833 kg Shang dynasty bronze, and Han dynasty jade burial suits sewn with gold thread."]
+  ]
+},
+{
+  key: "d4", color: "#A6217F", ink: "#8A1B69", zh: "胡同", area: "To figure out", when: "Monday 23 November", date: "2026-11-23", tabTop: "23", tabSub: "Mon",
+  title: TBD, summary: "Open day, and the Great Wall backup if Saturday's weather is bad. Heads up: the Forbidden City, National Museum and most museums are closed Mondays. Ideas are on the Beijing prep card.",
+  stops: [tbd("6:30", "Run + breakfast"), tbd("Midday", "Lunch"), tbd("Later"), tbd("Evening", "Dinner")],
+  food: { items: [] }, places: [], sights: []
+},
+{
+  key: "d5", color: "#009B6B", ink: "#007A54", zh: "故宫", area: "The Forbidden City", when: "Tuesday 24 November", date: "2026-11-24", tabTop: "24", tabSub: "Tue",
+  title: "Forbidden City", summary: "Forbidden City, booked from Shanghai on Nov 17. Everything around it is TO FIGURE OUT. Jingshan Park is right across from the north exit if we want the view.",
+  highlights: ["Forbidden City"],
+  stops: [
+    tbd("6:30", "Run + breakfast"),
+    { t: "Time TBD", type: "see", label: "See", title: "Forbidden City (booked Nov 17)", detail: "Enter at the Meridian Gate (south), exit at the north gate. Closed Mondays.", addr: "Meridian Gate 午门 (Tiananmen East metro, Exit B)", map: "故宫博物院 午门" },
+    tbd("Later"), tbd("Evening", "Dinner")
+  ],
+  food: { items: [] }, places: [],
+  sights: [
+    ["Forbidden City", "Built 1406–1420 by about a million workers under the Yongle Emperor. It has 980 buildings and, legend says, \"9,999.5\" rooms.\n24 Ming and Qing emperors lived here from 1420 to 1912, and Puyi, the last emperor, stayed in the inner court until 1924. It became a museum in 1925."]
+  ]
+},
+{
+  key: "d6", color: "#0092C7", ink: "#0077A3", zh: "再见", area: "Travel day", when: "Wednesday 25 November", date: "2026-11-25", tabTop: "25", tabSub: "Wed",
+  title: "Fly to Houston / Philippines", summary: "Last day. The morning and flight time are TO FIGURE OUT.",
+  stops: [tbd("6:30", "Run + breakfast"), { t: "Time TBD", type: "misc", label: "Transit", title: "Airport", detail: "Check which airport (Capital PEK or Daxing PKX) and leave about 3 hours before the flight." }],
+  food: { items: [] }, places: [], sights: []
+}
+];
+const BJ_KNOW = {};
+const BJ_ALTS = {};
+
+// ================= SOURCES =================
+// Public sources behind each note (name → URL)
+const W = p => "https://en.wikipedia.org/wiki/" + p;
+const SRC = {
+  // Shanghai
+  "Yu Garden": W("Yu_Garden"), "Shanghai Old Street 上海老街": "https://www.chinahighlights.com/shanghai/attraction/shanghai-old-street.htm", "Nine-Turn Bridge": W("Nine-turn_bridge"), "The Bund": W("The_Bund"), "Nanjing Road": W("Nanjing_Road"),
+  "West Nanjing Rd": W("Nanjing_Road"), "Waibaidu Bridge": W("Waibaidu_Bridge"), "Jing'an Temple": W("Jing'an_Temple"),
+  "Longhua Temple & Pagoda": W("Longhua_Temple"), "Wukang Building": W("Wukang_Mansion"), "Fuxing Park": W("Fuxing_Park"),
+  "Xintiandi 新天地": W("Xintiandi"), "M50": W("50_Moganshan_Road"), "Shanghai Museum East": W("Shanghai_Museum_East"),
+  "Lujiazui": W("Lujiazui"), "West Bund": W("Long_Museum"), "Tianzifang 田子坊": W("Tianzifang"), "Former French Concession": W("French_concession_of_Shanghai"),
+  "People's Park & Square": W("People's_Square_(Shanghai)"), "Hongqiao Railway Station": W("Shanghai_Hongqiao_railway_station"),
+  "Xiao long bao 小笼包": W("Xiaolongbao"), "Crab-roe xiao long bao 蟹粉小笼": W("Xiaolongbao"), "Sheng jian bao 生煎包": W("Shengjian_mantou"),
+  "Hong shao rou 红烧肉": W("Red_braised_pork_belly"), "Hairy crab 大闸蟹": W("Chinese_mitten_crab"), "Cupping 拔罐": W("Cupping_therapy"),
+  "Jianbing 煎饼": W("Jianbing"), "Nanxiang Steamed Bun 南翔馒头店": W("Nanxiang_Steamed_Bun_Restaurant"),
+  "157 Shi Fang 157食坊": "https://guide.michelin.com/th/en/shanghai-municipality/shanghai/restaurant/157-shi-fang",
+  "Lao Di Fang Mian Guan 老地方面馆": "https://guide.michelin.com/en/shanghai-municipality/shanghai/restaurant/lao-di-fang-mian-guan",
+  "Cheng Long Hang 成隆行蟹王府": "https://guide.michelin.com/us/en/shanghai-municipality/shanghai/restaurant/cheng-long-hang-huangpu",
+  "Lao Xing Xian 老兴鲜": "https://guide.michelin.com/sg/zh_CN/shanghai-municipality/shanghai/restaurant/lao-xing-xian",
+  "Lan Xin 兰心": "https://guide.michelin.com/en/shanghai-municipality/shanghai/restaurant/lan-xin-jinxian-road",
+  "Eight 八EIGHT": "https://www.smartshanghai.com/venue/34506/eight_yongkang_lu",
+  "Salomon \"Fu Jun\"": "https://english.shanghai.gov.cn/en-FirstStores/20250807/6eeb5fff438a46a3871c564eac0d4a77.html",
+  "Musinsa Store": "https://www.koreajoongangdaily.com/business/musinsa-enters-china-with-two-shanghai-stores-banking-on-k-fashions-global-appeal/12430525",
+  "Deja Vu Recycle": "https://english.shanghai.gov.cn/en-BookstoresLibraries/20231221/2d0a9d8dc3544843a7f7faa4a7926949.html",
+  "Harmay 话梅": "https://www.smartshanghai.com/articles/shopping/the-address-please-9-instagram-famous-shops-in-shanghai",
+  "Wunder": "https://english.shanghai.gov.cn/en-Cafes/20250605/093287378e49409dbb1171859011ad47.html",
+  "1/10 Coffee Roaster": "https://www.smartshanghai.com/listings/cafes/?page=1",
+  "Single Origin Roasters": "https://www.smartshanghai.com/listings/cafes/coffee/",
+  "De Xing Guan 德兴馆": "https://guide.michelin.com/sg/zh_CN/shanghai-municipality/shanghai/restaurant/de-xing-guan-guangdong-road",
+  "I-TATTOO": "https://www.timeoutshanghai.com/features/Things_to_Do-Things_to_Do/69567/The-best-tattoo-studios-in-Shanghai.html",
+  // Beijing
+  "Wangfujing": W("Wangfujing"), "Temple of Heaven": W("Temple_of_Heaven"), "Hutongs": W("Hutong"), "Nanluoguxiang": W("Nanluoguxiang"),
+  "Drum Tower & Bell Tower": W("Drum_Tower_and_Bell_Tower_of_Beijing"), "Shichahai & Houhai": W("Shichahai"),
+  "Forbidden City": W("Forbidden_City"), "Jingshan Park": W("Jingshan_Park"), "Beihai Park": W("Beihai_Park"), "Niujie": W("Niujie"),
+  "Mutianyu Great Wall": W("Mutianyu"), "Wangfujing Snack Street": W("Wangfujing"), "Tiananmen Square": W("Tiananmen_Square"),
+  "National Museum of China": W("National_Museum_of_China"), "Qianmen (Zhengyangmen)": W("Zhengyangmen"),
+  "Lama Temple (Yonghe Temple)": W("Yonghe_Temple"), "Peking duck 北京烤鸭": W("Peking_duck"), "Douzhi 豆汁": W("Douzhi"),
+  "Zhajiangmian 炸酱面": W("Zhajiangmian"), "Tanghulu 糖葫芦": W("Tanghulu"), "Baozi 包子": W("Baozi"),
+  "Siji Minfu 四季民福": "https://www.trvlogue.com/en/siji-minfu-beijing-peking-duck",
+  "No. 69 Fangzhuanchang 方砖厂69号炸酱面": "https://guide.michelin.com/sg/zh_CN/beijing-municipality/beijing/restaurant/no-69-fangzhuanchang-zhajiangmian",
+  "Yin San Douzhi 尹三豆汁": "https://www.beijing-kids.com/blog/2019/08/16/6-breakfast-items-beijing/",
+  "Huntun Hou 馄饨侯": "https://www.beijing-kids.com/blog/2019/08/16/6-breakfast-items-beijing/",
+  "Qingfeng Baozi 庆丰包子铺": "https://www.beijing-kids.com/blog/2019/08/16/6-breakfast-items-beijing/",
+  "Jubaoyuan 聚宝源": "https://english.visitbeijing.com.cn/article/47OOqPEv9NQ",
+  "Lao She Teahouse 老舍茶馆": "https://www.nomadotravel.app/en/attractions/lao-she-teahouse",
+  "Fu 3 Coffee 福叁咖啡": "https://lostplate.com/beijings-best-cafes", "WakeMeUp Coffee": "https://lostplate.com/beijings-best-cafes",
+  "Townhouse Coffee": "https://lostplate.com/beijings-best-cafes", "Meya Coffee": "https://tripchina.me/best-beijing-hutong-coffee-shops/"
+};
+
+// ================= CITY INTROS =================
+const CF = f => "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(f) + "?width=900";
+const CP = f => "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(f.replace(/ /g, "_"));
+
+const SH_INFO = {
+  photo: "Shanghai Nanjing Road 1930s.jpg",
+  title: "Shanghai, quickly",
+  paras: [
+    "It started as a small farming and fishing village on the Huangpu River. It became a county seat in 1292, and in the 1550s it got a city wall to keep out Japanese pirates.",
+    "Everything changed in 1842, when the Treaty of Nanjing after the First Opium War forced Shanghai open as a treaty port. The British (1845), Americans (1848) and French (1849) carved out their own self-run zones, and the British and American ones merged into the International Settlement in 1863.",
+    "By the 1920s and 30s it was Asia's money and party capital, called \"the Paris of the East, the New York of the West\". Japan occupied it during WWII, and the Communists took the city in 1949.",
+    "From the 1990s, Pudong across the river went from farmland to the skyline we know. Today it's a city of about 25 million."
+  ],
+  source: W("History_of_Shanghai"),
+  areas: [
+    { name: "The Bund", zh: "外滩", photo: "Bund and Huangpu River, Shangahi.JPG", src: W("The_Bund"), text: "\"Bund\" comes from a Hindi word for an embankment. This 1.6 km riverfront was the headquarters of foreign banks and trading houses from the 1860s to the 1940s, which is why it's lined with 52 grand European-style buildings. The Chinese name, 外滩, just means \"outer bank\"." },
+    { name: "Nanjing Road", zh: "南京路", photo: "2014.11.15.181414 Nanjing Road Pedestrian Zone Shanghai.jpg", src: W("Nanjing_Road"), text: "Started in 1845 as \"Park Lane\" and named Nanking Road in 1862. Eight big department stores opened here in the early 1900s, making it China's most famous shopping street. The east end has been pedestrian since 2000; the west end used to be called Bubbling Well Road." },
+    { name: "People's Square", zh: "人民广场", photo: "People's Square of Shanghai City at night.jpg", src: W("People's_Square_(Shanghai)"), text: "The old International Settlement racecourse, now the city's civic center: the Shanghai Museum, Grand Theatre and People's Park. The old Race Club clubhouse with its clock tower is now the Shanghai History Museum." },
+    { name: "The Old City", zh: "老城厢", photo: "Shanghai - Yu Garden - 0034.jpg", src: W("Old_City_(Shanghai)"), text: "The original walled Chinese town, built up in the 1550s against pirates. While the foreigners ran the concessions, foreigners called this the \"Chinese City\". The wall came down in 1912 and became Renmin Rd and Zhonghua Rd. Yu Garden and the City God Temple are its heart." },
+    { name: "Former French Concession", zh: "法租界", photo: "Wukang Mansion, Shanghai, May 2016 01.JPG", src: W("French_concession_of_Shanghai"), text: "France's self-run zone from 1849 to 1943, expanded until it was about 15 times its original size. The French planted plane trees on Avenue Joffre (now Huaihai Rd) in 1902, and \"French planes\" now line streets all over China. Sun Yat-sen and writer Eileen Chang lived here." },
+    { name: "Jing'an", zh: "静安", photo: "Jing'an Temple,Shanghai.JPG", src: W("Jing'an,_Shanghai"), text: "Named after Jing'an Temple (\"peace and quiet temple\"). West Nanjing Rd, the old Bubbling Well Road, is now the fancy shopping strip, with lane houses tucked behind the malls." },
+    { name: "Pudong & Lujiazui", zh: "浦东", photo: "Lujiazui Skyline from Bund.jpg", src: W("Lujiazui"), text: "\"East of the Huangpu.\" It was mostly farmland and warehouses until the government made it a special development zone in the early 1990s. Now it's the Oriental Pearl, Jin Mao, the \"bottle opener\" and China's tallest building, the 632 m Shanghai Tower." },
+    { name: "Xuhui & Longhua", zh: "徐汇", photo: "Longhua Pagoda.JPG", src: W("Longhua_Temple"), text: "The south side of the old French Concession and the riverside. Home to Longhua Temple, whose seven-story pagoda dates back to 977, and the West Bund, a former docks and airport area turned art district." }
+  ]
+};
+
+const BJ_INFO = {
+  photo: "Great Wall at Mutianyu.jpg",
+  title: "Beijing, quickly",
+  paras: [
+    "Beijing has been a city for about 3,000 years. Its earliest form, the City of Ji, dates to around 1045 BC. The name means \"Northern Capital\", as opposed to Nanjing, the \"Southern Capital\".",
+    "Kublai Khan made it his capital, Dadu, in 1271, and in 1279 it became the capital of all China for the first time. The Ming renamed it Beijing in 1403, and the Yongle Emperor moved the capital here in 1421 and built the Forbidden City and Temple of Heaven.",
+    "The Qing took over in 1644 and ruled from here until 1912. It was renamed Beiping when the capital moved in 1928, and became the capital again in 1949."
+  ],
+  source: W("History_of_Beijing"),
+  areas: [
+    { name: "The Forbidden City & central axis", zh: "故宫", photo: "The Forbidden City - View from Coal Hill.jpg", src: W("Forbidden_City"), text: "The imperial palace at the center of everything, built 1406–1420. Beijing was laid out along a north–south axis running from Qianmen through Tiananmen and the palace up to Jingshan and the Drum and Bell Towers. We walk most of it this week." },
+    { name: "Tiananmen", zh: "天安门", photo: "Tiananmen or Gate of Heavenly Peace (6349930988).jpg", src: W("Tiananmen_Square"), text: "The \"Gate of Heavenly Peace\" was the front door of the Imperial City. The huge square in front, lined by the National Museum and Great Hall of the People, is the political heart of modern China." },
+    { name: "Wangfujing", zh: "王府井", photo: "Wangfujing street, Beijing.JPG", src: W("Wangfujing"), text: "Our home base. Named for the princes' mansions (王府) and a sweet-water well (井), it's been a commercial street since the Ming dynasty and has been pedestrian since around 2000." },
+    { name: "Qianmen & Dashilar", zh: "前门", photo: "Qianmen Gate.jpg", src: W("Zhengyangmen"), text: "Qianmen, the \"Front Gate\", was first built in 1419 to guard the main southern entrance to the inner city. Its 42 m gatehouse survived the demolition of the city walls in the 1960s. The lanes south of it, Dashilar, have been shopping streets for centuries." },
+    { name: "The hutongs & Gulou", zh: "胡同", photo: "Hutong Jiemen (Snowyowls).jpg", src: W("Hutong"), text: "Narrow alleys of courtyard houses, named from a Mongolian word for \"well\" in the Yuan dynasty. The Drum and Bell Tower, Nanluoguxiang and Houhai area is where the old-Beijing feel is strongest." },
+    { name: "Temple of Heaven", zh: "天坛", photo: "Hall of Prayer for Good Harvest.JPG", src: W("Temple_of_Heaven"), text: "Where emperors prayed for good harvests, built by the Yongle Emperor. Today it's a huge park, busiest in the early morning with tai chi, dancing and choirs." },
+    { name: "Lama Temple & Guozijian", zh: "雍和宫", photo: "Beijing, Lama Temple (6169821757).jpg", src: W("Yonghe_Temple"), text: "A prince's mansion turned Tibetan Buddhist monastery in 1744, with the Imperial Academy and Confucius Temple on the leafy street next door." },
+    { name: "Mutianyu Great Wall", zh: "慕田峪", photo: "", src: W("Mutianyu"), text: "About 70 km northeast of the city. A restored Ming-era stretch, rebuilt in 1569, with 22 watchtowers and battlements on both sides." }
+  ]
+};
+
+const CTA = { "#C60C30": "Red Line", "#00A1DE": "Blue Line", "#62361B": "Brown Line", "#009B3A": "Green Line", "#F9461C": "Orange Line", "#522398": "Purple Line", "#E27EA6": "Pink Line", "#F9E300": "Yellow Line" };
+const onColor = c => c === "#F9E300" ? "#1d1d1d" : "#fff";
 const pinIcon ='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
-const chev = '<span class="chev">›</span>';
+const paras = t => String(t).split("\n").map(x => `<p>${esc(x)}</p>`).join("");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const host = u => { try { const h = new URL(u).hostname.replace(/^www\.|^en\.|^english\./, ""); return h === "wikipedia.org" ? "Wikipedia" : h; } catch (e) { return "link"; } };
+const srcLink = (u, cls = "src") => u ? `<a class="${cls}" href="${u}" target="_blank" rel="noopener">Source: ${esc(host(u))}</a>` : "";
+
+// Hand-linked notes for stops whose titles don't name the place
+const KNOW = {
+  d1: { 2: ["Nanjing Road", "Shen Da Cheng 沈大成", "Glutinous rice treats"], 3: ["Always Coffee Roaster"], 4: ["Nine-Turn Bridge"], 5: ["Xiao long bao 小笼包"], 12: ["The Bund"] },
+  d2: { 2: ["Shanghai street breakfast"] },
+  d3: { 2: ["Shanghai street breakfast"] },
+  d4: { 9: ["Hong shao rou 红烧肉"], 4: ['Salomon "Fu Jun"', "Musinsa Store", "Deja Vu Recycle", "Harmay 话梅", "Wukang Building", "Former French Concession"] },
+  d5: { 8: ["People's Park & Square"], 10: ["Yongkang Road"] },
+  d6: { 0: ["The Bund", "Waibaidu Bridge"], 2: ["Small wontons 小馄饨"] }
+};
+// Dianping searches: [stop title starts with, Chinese keyword]
+const DP = [
+  ["Zhen Lao Da Fang", "鲜肉月饼"], ["Nanxiang Steamed Bun", "小笼包"], ["De Xing Guan", "焖肉面"],
+  ["Street stall: soy milk", "豆浆油条"], ["Shanghai fried thick noodles", "上海粗炒"], ["Wei Xiang Zhai", "麻酱面"],
+  ["Zhangshifu", "上海早餐"], ["Wangjiasha", "菜馒头"], ["157 Shi Fang", "本帮菜"],
+  ["Street stall: sesame flatbread", "大饼油条"], ["Wu You Xian", "蟹粉小笼"], ["Lan Xin", "本帮菜"],
+  ["Jianbing", "煎饼"], ["Longhua Temple vegetarian", "素面"], ["Dongtaixiang", "生煎"]
+];
+function dpKey(s) {
+  if (s.dp) return s.dp;
+  if (s.type === "coffee") return "精品咖啡";
+  if (s.type === "tea") return "茶馆";
+  const hit = DP.find(([pre]) => s.title.startsWith(pre));
+  if (hit) return hit[1];
+  if (s.type === "tbd") {
+    if (/breakfast/i.test(s.label)) return "早餐";
+    if (/lunch|dinner/i.test(s.label)) return CITY === "bj" ? "北京菜" : "本帮菜";
+  }
+  return "";
+}
+const dpWeb = k => `https://www.dianping.com/search/keyword/${CITY === "bj" ? 2 : 1}/0_${encodeURIComponent(k)}`;
+const dpBtn = (k, pre = "Dianping: ") => k ? `<a class="btn dp" href="${dpWeb(k)}" data-dp="${esc(k)}" target="_blank" rel="noopener">${pre}<span lang="zh-Hans">${esc(k)}</span></a>` : "";
+
+// ================= OUR LISTS (everything from our notes) =================
+// Each item: [name, chinese, note, address, amapKeyword]. "Plan:" notes say where it shows up in the suggested plan.
+const LIST_SH = [
+  ["Must-try Shanghainese dishes", [
+    ["Hong shao rou", "红烧肉", "Red-braised pork belly: thick cubes slow-braised in soy, sugar and Shaoxing wine until caramelized. Plan: Tue 157 Shi Fang, Wed Lan Xin.", "", ""],
+    ["Xiao long bao", "小笼包", "Steamed soup dumplings: minced pork plus gelatin that melts into broth. Plan: Sun lunch, Wed lunch.", "", ""],
+    ["Sheng jian bao", "生煎包", "Pan-fried pork buns with a crispy bottom, sesame and scallion on top, and hot soup inside. Plan: Tue snack, Fri breakfast.", "", ""],
+    ["Scallion oil noodles", "葱油拌面", "Noodles tossed in sweet-savory soy and scallion-infused oil. Plan: Tue snack, Fri breakfast, plus on several dinner order lists.", "", ""],
+    ["Hairy crab & crab roe", "大闸蟹 / 蟹粉面", "Autumn delicacy: steamed whole with ginger vinegar, or crab meat and roe over noodles or rice. Plan: Mon dinner.", "", ""],
+    ["Kao fu", "烤麸", "Braised wheat gluten with wood ear, peanuts and daylilies. Plan: Tue dinner order list.", "", ""],
+    ["Smoked fish", "熏鱼", "Fried fish soaked in a sweet spiced soy glaze (not actually smoked). Optional, since we're going lighter on fish.", "", ""],
+    ["Yellow croaker noodle soup", "黄鱼面", "Flaky yellow croaker in milky fish-bone broth. Optional, since we're going lighter on fish.", "", ""],
+    ["Yan du xian", "腌笃鲜", "Fresh and salted pork, bamboo shoots and tofu skin soup. Heads up: it's a spring dish, so it may not be on menus in November.", "", ""]
+  ]],
+  ["Food spots", [
+    ["Zhangshifu Breakfast", "张师傅", "Local mom-and-pop Shanghainese breakfast, highly recommended. Plan: Tue breakfast.", "287 Shimen 2nd Rd, Jing'an 石门二路287号", "石门二路287号"],
+    ["Lai Lai Xiao Long", "莱莱小笼", "Michelin-recommended soup dumplings; crab-roe xiao long bao. Plan: Sun lunch option.", "506 / 481 Tianjin Rd, Huangpu 天津路506号", "天津路506号"],
+    ["Zhang Ji Niu Rou Mian Guan", "张记牛肉面馆", "Beef noodle soup, locally run, a few steps from the hotel.", "530 Tianjin Rd, Huangpu 天津路530号", "天津路530号"],
+    ["Xian De Lai", "鲜得来", "Shanghai pork chop with rice cakes (排骨年糕), 10 min from the hotel.", "290–292 Ninghai East Rd, Huangpu 宁海东路290号", "宁海东路290号"],
+    ["Zhen Lao Da Fang", "真老大房", "Fresh-meat mooncakes, baked to order. Potential for a long line. Plan: Sun breakfast.", "536 Nanjing East Rd, Huangpu 南京东路536号", "南京东路536号"],
+    ["Shen Da Cheng", "沈大成", "Pastry shop with ~150 years of history: glutinous rice balls (双酿团). Plan: Sun breakfast add-on.", "636 Nanjing East Rd, Huangpu 南京东路636号", "南京东路636号"],
+    ["Wei Xiang Zhai", "味香斋", "\"Shanghai's best sesame noodles\" (麻酱面). Some people say it's overhyped, but it's Michelin selected. Plan: Mon other options.", "151 Hubei Rd, Huangpu 湖北路151号 (screenshot also lists a Yandang Rd branch)", "味香斋"],
+    ["Hu Xi Lao Nong Tang Mian Guan", "沪西老弄堂面馆", "Pork liver noodles. (Not for us, but keeping it on the list.)", "02, 1F, World Trade Building, 500 Guangdong Rd 广东路500号", "广东路500号"],
+    ["Yi Gui He", "逸桂禾", "Shoyu-style soup noodles with green onion. Our screenshot list says only get the yangchun noodles (阳春面), curry beef noodles (咖喱牛肉面) or battered pork chop (面拖大排); you can also buy raw noodles to take home.", "", "逸桂禾"],
+    ["Xiao Tao Mian Guan", "小桃面馆", "Scallion noodles with spicy pork. It's a Michelin Bib Gourmand noodle shop.", "", "小桃面馆"],
+    ["Lao Di Fang Mian Guan", "老地方面馆", "\"Best home-style noodles.\" Michelin Bib Gourmand, 30+ years; braised pork belly in spiced dark soy, tofu-skin-wrapped pork. Cash only.", "107 Sinan Rd, Huangpu 思南路107号", "老地方面馆 思南路"],
+    ["Xiao Fang's Noodles", "", "Soy-based soup noodles with pork belly.", "", "Xiao Fang noodles"],
+    ["Jia Jia Tang Bao", "佳家汤包", "Soup dumplings; crab roe noodles. Plan: Sun lunch option.", "90 Huanghe Rd, Huangpu 黄河路90号", "佳家汤包"],
+    ["Dingxing Rd Dan Bing Tan", "定兴路蛋饼摊", "Jianbing / egg pancakes. About \"Dingxing Rd Egg Pancake\": that's almost certainly the same stall, since 蛋饼 (dan bing) literally means egg pancake.", "No. 6 Dingxing Rd 定兴路6号", "定兴路蛋饼"],
+    ["YongFeng Noodles", "永丰面馆", "Benbang noodle shop from the screenshot list.", "", "永丰面馆"],
+    ["Jingmei Wuxi Noodles (Yanping Rd)", "", "Michelin Bib Gourmand noodles, Wuxi style (slightly sweet).", "Yanping Rd 延平路", "Jingmei Wuxi Noodles Yanping Road"],
+    ["Ding Te Le Zhou Mian Guan", "", "Congee and noodle shop.", "", "Ding Te Le congee noodles"],
+    ["Shangda Food City (Hongji Culture Leisure Square)", "", "Night market.", "", "Shangda Food City Hongji"],
+    ["Yongxing Restaurant", "", "Home-style Chinese food in an old French Concession lane. Shanghai's government guide recommends the salted-egg-yolk duck rolls, salt and pepper spare ribs, and potherb mustard with cashews.", "No. 1, Lane 626, Middle Fuxing Rd 复兴中路626弄1号", "复兴中路626弄1号"],
+    ["Nanxiang Steamed Bun", "南翔馒头店", "Founded 1900: paper-thin xiao long bao, seasonal fillings, and the oversized \"super\" bun you drink with a straw. Dining room refurbished 2018. Book a private room or be ready to queue. Plan: Sun lunch.", "85 Yuyuan Rd 豫园路85号", "南翔馒头店豫园"],
+    ["Wu You Xian", "屋有鲜", "Seasonal xiao long bao (crab, shepherd's purse). Plan: Wed lunch.", "1F-103, 7 South Maoming Rd 茂名南路7号", "屋有鲜"]
+  ]],
+  ["Coffee", [
+    ["Shanlifang Coffee", "", "From our list.", "", "Shanlifang Coffee"],
+    ["Aftertaste", "", "Local, our pick. Plan: Thu after the bike ride.", "W3-102, Qiantan Park Lane 前滩公园巷W3-102", "Aftertaste 前滩"],
+    ["Marmalade (Chaoyang Rd)", "", "Small and cozy.", "Chaoyang Rd 朝阳路", "Marmalade coffee"],
+    ["Blacksheep Espresso", "", "They have a bathroom!", "", "Blacksheep Espresso"],
+    ["Chill Cool Cafe", "", "From our list.", "", "Chill Cool Cafe"],
+    ["Honky Tonk Coffee", "", "Near the French Concession. Plan: optional on Wed.", "262 Xiangyang South Rd 襄阳南路262号", "襄阳南路262号"],
+    ["313 Mento", "", "Gelato on LiXi Rd: minimalist vibe, flavors curated like perfume, interesting flavor profiles.", "LiXi Rd 丽西路", "313 Mento"],
+    ["SSP", "", "Cafe from our list.", "", "SSP cafe"],
+    ["Yichi Garden Cafe (Guangfu)", "", "Historical architecture; may be far from the center.", "", "Yichi Garden Cafe"],
+    ["1/10 Coffee Roaster", "", "Roasts on site, overlooks a small park. Plan: Sun afternoon.", "73–75 Changle Rd 长乐路73号", "长乐路73号"],
+    ["Always Coffee Roaster", "", "Local roaster near the hotel. Plan: Sun, Mon, Fri.", "Room 106, 501 Jiujiang Rd 九江路501号106室", "Always Coffee Roaster 九江路"],
+    ["Single Origin Roasters", "", "Single-origin, roasts in-house. Plan: Tue.", "151 Jiaozhou Rd 胶州路151号", "胶州路151号"],
+    ["Wunder", "", "One-shop roaster, closed Mondays. Plan: Wed.", "161 South Maoming Rd 茂名南路161号", "茂名南路161号"]
+  ]],
+  ["Tea", [
+    ["Shanyucaoshe (Shan Yu Cao She / Shanyu Grass House)", "山余草舍", "Our must-do tea house, in Rose Villa. Plan: Wed.", "Lane 44 Fuxing West Rd, Xuhui 复兴西路44弄", "山余草舍"],
+    ["Mu Chun Tea House (Sinan Mansion)", "沐春茶舍", "Plan: Sun.", "1, Lane 196 Nanchang Rd 南昌路196弄1号", "沐春茶舍思南公馆店"],
+    ["Chinese-medicine gelato & homemade Chinese cola", "", "Right next to ALOHA Coffee.", "267 Xiangyang South Rd 襄阳南路267号", "襄阳南路267号"]
+  ]],
+  ["Places to see", [
+    ["Shanghai Grand Theatre / Opera House", "", "See from outside; shows are too hard to get.", "People's Square 人民广场", "上海大剧院"],
+    ["The Bund", "外滩", "Plan: runs and Sun night.", "", "外滩"],
+    ["Shanghai Museum East", "上海博物馆东馆", "Plan: Mon.", "1952 Century Ave 世纪大道1952号", "上海博物馆东馆"],
+    ["China Art Museum", "中华艺术宫", "Giant red Expo 2010 pavilion. Plan: Mon other options.", "205 Shangnan Rd 上南路205号", "中华艺术宫"],
+    ["Jing'an Temple", "静安寺", "Plan: Tue.", "1686 Nanjing West Rd 南京西路1686号", "静安寺"],
+    ["Shanghai Library", "上海图书馆", "Calm reading room. Plan: Tue other options.", "1555 Middle Huaihai Rd 淮海中路1555号", "上海图书馆淮海路"],
+    ["Nanjing Road", "南京路", "Right by the hotel.", "", "南京东路步行街"],
+    ["Yu Garden & Yuyuan Bazaar", "豫园", "Must go before 9am. Plan: Sun.", "218 Anren St 安仁街218号", "豫园"],
+    ["People's Park", "人民公园", "Plan: Tue run.", "231 Nanjing West Rd 南京西路231号", "人民公园"],
+    ["Longhua Pagoda & Longhua Square underground space", "龙华寺", "Architectural space with an underground museum and cafe beneath the pagoda, quiet from crowds. Plan: Thu.", "2853 Longhua Rd 龙华路2853号", "龙华寺"],
+    ["Shanghai Botanical Garden", "上海植物园", "Dropped from the plan (far from everything).", "1111 Longwu Rd 龙吴路1111号", "上海植物园"],
+    ["French Concession", "法租界", "Plan: Wed.", "", "武康路"],
+    ["Wukang Building", "武康大楼", "Plan: Wed.", "Wukang Rd & Huaihai Rd 武康路淮海中路口", "武康大楼"],
+    ["The Roof / Street of 1000 Red Jars", "", "Terracotta-pot facades; architecture.", "458 Madang Rd 马当路458弄", "马当路458弄"],
+    ["\"Henghi xuhui World\"", "", "Architecture and trees, from our notes. Not sure which place this is: maybe the Hengshan Rd area in Xuhui? Check before going.", "", ""],
+    ["Fosun Foundation art center", "复星艺术中心", "Art center on the Bund.", "", "复星艺术中心"],
+    ["LiXi Road", "丽西路", "Where 313 Mento is.", "", "丽西路"]
+  ]],
+  ["Shopping", [
+    ["M50 Creative Space", "", "Contemporary galleries, artist studios, independent shops. Plan: Tue.", "50 Moganshan Rd, Putuo 莫干山路50号", "莫干山路50号"],
+    ["Moon Moon Home", "", "Stationery shop.", "", "Moon Moon Home"],
+    ["Deja Vu Recycle", "", "Bookstore and secondhand clothing. Plan: Wed (Anfu Rd).", "300 Anfu Rd 安福路300号 (bigger branch at Hongqiao Tiandi)", "安福路300号"],
+    ["Anfu Road", "安福路", "Plan: Wed.", "", "安福路"],
+    ["Salomon \"Fu Jun\"", "", "Plan: Wed.", "183–187 Anfu Rd 安福路183号", "安福路183号"],
+    ["Musinsa", "", "Plan: Wed.", "Anfu Rd 安福路", "Musinsa 安福路"],
+    ["Harmay", "话梅", "Skincare and beauty. Plan: Wed.", "55 Wukang Rd 武康路55号", "武康路55号"]
+  ]],
+  ["Bars", [
+    ["ChairClub", "", "Plan: optional Tue night.", "", "ChairClub"],
+    ["Cozy Music Lab", "", "Our live music bar. Plan: Wed night.", "", "Cozy Music Lab"]
+  ]],
+  ["Other things to do", [
+    ["Photoshoot?", "", "Idea from our notes.", "", ""],
+    ["Yibo Studio", "", "Make our own glass jewelry. Plan: Wed.", "1F, No. 13, Lane 553 Middle Fuxing Rd 复兴中路553弄13号", "复兴中路553弄"],
+    ["Yang Peiming Propaganda Poster Art Centre", "杨培明宣传画艺术中心", "Communist propaganda poster collection. Plan: Wed other options.", "Bldg 7, Block K, 726 Yan'an West Rd, Changning 延安西路726号", "杨培明宣传画艺术中心"],
+    ["Yu Health", "", "Spa with cupping, from the video we saw. Plan: Sun (swap in if we find it).", "", "Yu Health"],
+    ["Sisyphus", "", "Vintage digital camera store.", "", "Sisyphus相机"]
+  ]]
+];
+
+const LIST_BJ = [
+  ["Must-try foods", [
+    ["Jianbing", "煎饼", "Classic breakfast; crepe with egg.", "", ""],
+    ["Shou juan", "", "Thin wrap rolled around meats and veggies.", "", ""],
+    ["Peking duck", "北京烤鸭", "Of course.", "", ""],
+    ["Braised pork", "红烧肉", "", "", ""],
+    ["Shao rou jia bing", "", "Roast meat in a flatbread.", "", ""],
+    ["Chao liang fen", "炒凉粉", "Chunks of wobbly, sticky mung bean jelly in a spicy, slightly vinegary sesame sauce.", "", ""],
+    ["Spicy sour noodles", "酸辣粉", "", "", ""],
+    ["Braised pork noodles", "红烧肉面", "Thick hand-pulled noodles, rich broth, lots of fatty pork belly (~¥28).", "", ""],
+    ["Zhajiangmian", "炸酱面", "Beijing's most famous noodles, chunky meat sauce and crunchy veggies (~¥22); the ancestor of Korean jjajangmyeon.", "", ""],
+    ["Beijing yogurt", "老北京酸奶", "Nice restaurants sometimes make their own; also the drinking yogurt brand.", "", ""],
+    ["Snow pear tea", "雪梨茶", "", "", ""],
+    ["Liang mian (crepe roll)", "凉面", "Not cold noodles here: a thick chewy crepe rolled around spices and filling, heavy on cumin and chili.", "", ""],
+    ["Tang er duo", "糖耳朵", "\"Sugar ear\", a traditional Beijing sweet (~¥3).", "", ""],
+    ["Malatang", "麻辣烫", "", "", ""]
+  ]],
+  ["Non-negotiables", [
+    ["Great Wall", "长城", "Plan: Sat 21 (tentative).", "", "慕田峪长城"],
+    ["Forbidden City", "故宫", "Plan: Tue 24.", "", "故宫博物院"],
+    ["Ghost Street (Gui Jie)", "簋街", "The most famous late-night street food street.", "Dongzhimen Inner St 东直门内大街", "簋街"]
+  ]],
+  ["Places to see", [
+    ["Tian'anmen Square", "天安门广场", "Plan: Sun 22.", "", "天安门广场"],
+    ["Jingshan Park", "景山公园", "Panoramic view of the Forbidden City.", "", "景山公园"],
+    ["Xianyukou Street", "鲜鱼口", "Traditional food street near Qianmen.", "", "鲜鱼口美食街"],
+    ["Qianmen East hutongs", "前门东区", "Calmer, lived-in streets.", "", "前门东区胡同"],
+    ["Lama Temple (Yonghe Gong)", "雍和宫", "", "", "雍和宫"],
+    ["Longtan Park", "龙潭公园", "", "", "龙潭公园"],
+    ["Shichahai lakes", "什刹海", "", "", "什刹海"],
+    ["Red Brick Art Museum", "红砖美术馆", "Really scenic! Closed Mondays.", "Hegezhuang Village, Shunbai Rd, Cuigezhuang, Chaoyang 朝阳区崔各庄何各庄村顺白路", "红砖美术馆"],
+    ["Hutongs", "胡同", "", "", "南锣鼓巷"],
+    ["Summer Palace", "颐和园", "", "", "颐和园"],
+    ["Nanchizi Museum", "", "Closed Mondays.", "21 West Alley, Pudu Temple, Dongcheng 普度寺西巷21号", "普度寺西巷21号"],
+    ["Song Art Museum", "", "Closed Mondays.", "", "Song Art Museum"],
+    ["Forest Library", "", "", "", "Forest Library Beijing"],
+    ["798 Art Zone", "798艺术区", "", "", "798艺术区"],
+    ["Cycling tour?", "", "Idea from our notes.", "", ""]
+  ]],
+  ["Food spots", [
+    ["Punk Rock Noodle", "", "", "", "Punk Rock Noodle"],
+    ["Zeng Sheng Kui", "增盛魁", "Breakfast since 1928: sugar pancake, savory silken tofu, doornail meat pie. Gets really busy.", "", "增盛魁"],
+    ["Hu Da", "胡大", "Popular for crawfish, on Ghost Street.", "", "胡大饭馆 簋街"],
+    ["86 Guozijian Street", "", "From our list.", "86 Guozijian St 国子监街86号", "国子监街86号"],
+    ["Xihuashi Battercake", "", "Breakfast egg pancake.", "", "西花市 煎饼"],
+    ["Yin San Douzhi", "尹三豆汁", "Breakfast; douzhi with fried dough rings. Open 5:30 to noon.", "176 Dongxiaoshi St 东晓市街176号", "尹三豆汁"],
+    ["Zengshengkui Snack Bar", "增盛魁", "Baozi.", "", "增盛魁"],
+    ["Mingyuan Park Restaurant", "", "Soybean noodles.", "Beizongbu Hutong 北总布胡同", "北总布胡同"],
+    ["Jiangniu Dumplings (Sanyuanli)", "", "Dumplings.", "Sanyuanli 三源里", "Jiangniu dumplings"],
+    ["Donglaishun (Qianmen Street)", "东来顺", "Lamb skewers, street food; famous for copper-pot lamb hot pot.", "Qianmen Street 前门大街", "东来顺 前门"],
+    ["Niujie street food", "牛街", "Beijing's historic Muslim quarter.", "", "牛街"],
+    ["Shi Ji Xian Bing", "", "", "", "Shi Ji Xian Bing"],
+    ["Ma Ji Shao Bing", "", "", "", "Ma Ji Shao Bing"],
+    ["Bai Ji Nian Gao", "白记年糕", "", "", "白记年糕"],
+    ["Xian Yun Xuan", "", "", "", "Xian Yun Xuan"],
+    ["Shendian Noodles", "", "", "", "Shendian noodles"]
+  ]],
+  ["Cafes & tea", [
+    ["Xicha Tea Workshop (Sanlitun Taikoo Li)", "喜茶", "Black Gold store.", "Sanlitun Taikoo Li 三里屯太古里", "喜茶 三里屯"],
+    ["Brickyard Courtyard Cafe", "", "Seating alcoves in century-old brick kilns.", "Dongsi hutong strip, Dongcheng 东四", "Brickyard Courtyard Cafe"],
+    ["Wudaoying Slow Coffee", "", "One of Beijing's quietest hutong streets, with an ancient temple as backdrop.", "Wudaoying Hutong, near Lama Temple 五道营胡同", "五道营胡同 咖啡"],
+    ["Drum Tower Tea House Cafe", "", "Qing carved architecture; oolong-infused americano?", "Gulou East St, near the Drum Tower 鼓楼东大街", "鼓楼 茶馆 咖啡"],
+    ["Junwangfu Hotel afternoon tea", "君王府", "Book on Dianping.", "", "君王府"],
+    ["Swim Cafe", "", "", "37 Guozijian St 国子监街37号", "国子监街37号"],
+    ["Remap Cafe", "", "", "86 Guozijian St, Andingmen 国子监街86号", "国子监街86号"],
+    ["CHILL Pill", "", "Donuts.", "", "CHILL Pill"],
+    ["Chunfen", "", "", "", "Chunfen coffee"],
+    ["Townhouse", "", "Scandi-style cafe on Guozijian St.", "76 Guozijian St 国子监街76号", "国子监街76号"],
+    ["Courtyard coffee space near Guozijian St", "", "", "", "国子监街 咖啡"],
+    ["Voyage", "", "", "", "Voyage coffee Beijing"],
+    ["Longfu Temple", "隆福寺", "", "", "隆福寺"],
+    ["Shashasha", "", "", "", "Shashasha cafe"],
+    ["YuanGuBen Coffee (Nanluoguxiang)", "", "Quiet courtyard cafe.", "Nanluoguxiang 南锣鼓巷", "南锣鼓巷 咖啡"],
+    ["StillWater", "", "Minimalist cafe in the old neighborhood.", "", "StillWater coffee"],
+    ["Tangfant Coffee (Shichahai)", "", "Cozy cafe inside a hutong.", "Shichahai 什刹海", "什刹海 咖啡"],
+    ["Colorful Brain", "", "", "", "Colorful Brain"],
+    ["Cenchi Coffee", "汵奇", "Has a kitty inside! Roasts in-house.", "114 Dongsi South St 东四南大街114号", "东四南大街114号"],
+    ["SWANSEEN", "", "Vintage.", "", "SWANSEEN"],
+    ["Jingshui Coffee", "", "", "69 Gulou East Ave, Dongcheng 鼓楼东大街69号", "鼓楼东大街69号"]
+  ]],
+  ["Shopping", [
+    ["42 Guozijian Street", "", "From our list.", "42 Guozijian St 国子监街42号", "国子监街42号"]
+  ]]
+];
+
+const CITIES = {
+  sh: { name: "Shanghai", zh: "上海", dates: "15–20 November", code: "310000", start: START, list: LIST_SH, days: DAYS, alts: ALTS, know: KNOW, info: SH_INFO },
+  bj: { name: "Beijing", zh: "北京", dates: "20–25 November", code: "110000", start: BJ_START, list: LIST_BJ, days: BJ_DAYS, alts: BJ_ALTS, know: BJ_KNOW, info: BJ_INFO }
+};
 
 function panelHead(title, sub) {
   return `<summary><span><span class="ttl">${title}</span><span class="sub">${sub}</span></span><span class="plus" aria-hidden="true">+</span></summary>`;
 }
 const PANEL_SUB = {
-  "Today's food, explained": "The dishes you're eating and where they come from",
-  "Where you're eating & drinking": "What each restaurant, cafe and tea house is known for",
-  "Where you're shopping": "The stores on today's route",
-  "Today's sights, explained": "Quick history of what you're seeing"
+  "Today's food, explained": "The dishes we're eating and where they come from",
+  "Where we're eating & drinking": "What each restaurant, cafe and tea house is known for",
+  "Where we're shopping": "The stores on today's route",
+  "Today's sights, explained": "Quick history of what we're seeing"
 };
 function notesBlock(title, list, intro) {
   if (!list || !list.length) return "";
   return `<details class="panel">${panelHead(title, PANEL_SUB[title] || "")}
     <div class="notes">${intro ? `<div class="intro-note">${esc(intro)}</div>` : ""}
-    ${list.map(([n, t]) => `<div class="note"><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div></details>`;
+    ${list.map(([n, t]) => `<div class="note"><b>${esc(n)}</b><span>${paras(t)}</span>${srcLink(SRC[n])}</div>`).join("")}</div></details>`;
 }
 
 // Attach each place, sight and dish note to the stop it belongs to
-const plain = n => n.replace(/[㐀-鿿（）"“”()]/g, " ").replace(/\s+/g, " ").trim();
 const cjk = n => (n.match(/[㐀-鿿]+/g) || []).join("");
 const enName = n => n.split(/[㐀-鿿"“(（]/)[0].split(" & ")[0].trim().toLowerCase();
 const disp = n => n.replace(/\s*\(.*\)$/, "").trim();
-const NOTE_INDEX = {};
-DAYS.forEach(d => {
-  (d.sights || []).forEach(n => NOTE_INDEX[n[0]] = ["History", ...n]);
-  (d.places || []).forEach(n => NOTE_INDEX[n[0]] = ["Known for", ...n]);
-  (d.shopping || []).forEach(n => NOTE_INDEX[n[0]] = ["Shop", ...n]);
-  (d.food.items || []).forEach(n => NOTE_INDEX[n[0]] = ["The dish", ...n]);
-});
-// Hand-linked notes for stops whose titles don't name the place
-const KNOW = {
-  d2: { 2: ["Shanghai street breakfast"] },
-  d3: { 2: ["Shanghai street breakfast"] },
-  d4: { 4: ['Salomon "Fu Jun"', "Musinsa Store", "Deja Vu Recycle", "Harmay 话梅", "Wukang Building", "Former French Concession"] },
-  d5: { 9: ["Yongkang Road"] },
-  d6: { 0: ["The Bund", "Waibaidu Bridge"] }
-};
-Object.entries(KNOW).forEach(([dk, m]) => {
-  const d = DAYS.find(x => x.key === dk);
-  Object.entries(m).forEach(([i, names]) => { d.stops[+i].know = names; });
-});
-DAYS.forEach(d => {
-  const notes = [
-    ...(d.sights || []).map(n => ["History", ...n]),
-    ...(d.places || []).map(n => ["Known for", ...n]),
-    ...(d.food.items || []).map(n => ["The dish", ...n])
-  ];
-  d.stops.forEach(s => {
-    const hay = (s.title + " " + (s.detail || "")).toLowerCase();
-    s.about = notes.filter(([kind, name]) => {
-      const en = enName(name);
-      const zh = cjk(name);
-      if (kind === "The dish") return zh && hay.includes(zh);
-      return (en.length >= 3 && s.title.toLowerCase().includes(en)) || (zh.length > 1 && s.title.includes(zh));
-    });
-    (s.know || []).forEach(k => { const hit = NOTE_INDEX[k]; if (hit && !s.about.includes(hit)) s.about.push(hit); });
+function enrich(days, know) {
+  const index = {};
+  days.forEach(d => {
+    (d.sights || []).forEach(n => index[n[0]] = ["History", ...n]);
+    (d.places || []).forEach(n => index[n[0]] = ["Known for", ...n]);
+    (d.shopping || []).forEach(n => index[n[0]] = ["Shop", ...n]);
+    (d.food.items || []).forEach(n => index[n[0]] = ["The dish", ...n]);
   });
-});
+  Object.entries(know).forEach(([dk, m]) => {
+    const d = days.find(x => x.key === dk);
+    Object.entries(m).forEach(([i, names]) => { if (d.stops[+i]) d.stops[+i].know = names; });
+  });
+  days.forEach(d => {
+    const notes = [
+      ...(d.sights || []).map(n => ["History", ...n]),
+      ...(d.places || []).map(n => ["Known for", ...n]),
+      ...(d.food.items || []).map(n => ["The dish", ...n])
+    ];
+    d.stops.forEach(s => {
+      const hay = (s.title + " " + (s.detail || "")).toLowerCase();
+      s.about = notes.filter(([kind, name]) => {
+        const en = enName(name), zh = cjk(name);
+        if (kind === "The dish") return zh && hay.includes(zh);
+        const names = s.title + " " + (s.options || []).map(o => o[0]).join(" ");
+        return (en.length >= 3 && names.toLowerCase().includes(en)) || (zh.length > 1 && names.includes(zh));
+      });
+      (s.know || []).forEach(k => { const hit = index[k]; if (hit && !s.about.includes(hit)) s.about.push(hit); });
+    });
+  });
+}
+Object.values(CITIES).forEach(c => enrich(c.days, c.know));
+
+let CITY = "sh";
+const amap = k => `https://uri.amap.com/search?keyword=${encodeURIComponent(k)}&city=${CITIES[CITY].code}`;
 
 function aboutHTML(s) {
   if (!s.about || !s.about.length) return "";
   return `<details class="about"><summary>About this place</summary><div class="ab">
-    ${s.about.map(([kind, n, t]) => `<p><b>${esc(disp(n))}</b>${esc(t)}</p>`).join("")}</div></details>`;
+    ${s.about.map(([kind, n, t]) => `<div class="ab-item"><b>${esc(disp(n))}</b>${paras(t)}${srcLink(SRC[n])}</div>`).join("")}</div></details>`;
 }
 
 function altsHTML(key) {
-  const list = ALTS[key]; if (!list) return "";
+  const list = CITIES[CITY].alts[key]; if (!list || !list.length) return "";
   const groups = {};
   list.forEach(a => (groups[a[0]] = groups[a[0]] || []).push(a));
-  return `<details class="panel">${panelHead("Transfers", `${list.length} ways to change plans if a line is long, it rains, or you want more`)}<div class="alts">
+  return `<details class="panel">${panelHead("Other options", `${list.length} other ideas if a line is long, it rains, or we want more`)}<div class="alts">
     ${Object.entries(groups).map(([g, items]) => `<div class="alt-group"><h4>${esc(g)}</h4>
       ${items.map(([, n, w, a, k]) => `<div class="alt"><div class="n">${esc(n)}</div><div class="w">${esc(w)}</div>
         ${a ? `<div class="a">${esc(a)}</div>` : ""}
@@ -541,21 +1161,110 @@ function altsHTML(key) {
     </div>`).join("")}</div></details>`;
 }
 
-function stopHTML(s) {
+
+// "Wander around" ideas for the walking stops: [name, note, amapKeyword]
+const WANDER = [
+  ["Yu Garden", [["City God Temple 城隍庙", "Right next to the garden; the old heart of the walled city.", "上海城隍庙"], ["Yuyuan Bazaar side lanes", "Snack stalls and souvenir shops all around the garden.", "豫园商城"]]],
+  ["Mu Chun", [["Sinan Rd 思南路", "Plane trees, garden villas, Zhou Enlai's old residence.", "思南路"], ["Nanchang Rd 南昌路", "Quiet lane with small cafes and boutiques.", "南昌路"], ["Fuxing Middle Rd 复兴中路", "Tree-lined; walk west for old apartment buildings.", "复兴中路"], ["Xintiandi 新天地", "Restored shikumen lanes, 10 min east.", "新天地"]]],
+  ["Century Park", [["AP Plaza 亚太新阳服饰礼品市场", "The famous underground market at Science & Technology Museum metro: bags, clothes, gadgets. Bargain hard!", "亚太新阳服饰礼品市场"], ["Century Ave 世纪大道", "Walk the big boulevard toward Lujiazui for the skyline.", "世纪大道"]]],
+  ["Lujiazui riverfront", [["Binjiang Ave promenade 滨江大道", "Riverside walk with the Bund straight across.", "滨江大道"], ["IFC Mall 国金中心", "Big mall right by the towers, good for a warm-up stop.", "上海国金中心"]]],
+  ["Jing'an Temple", [["Yuyuan Rd 愚园路", "One of the best streets for small boutiques, lane houses and cafes, a few minutes west.", "愚园路"], ["Jing'an Park 静安公园", "Small park across the road from the temple.", "静安公园"]]],
+  ["M50", [["Suzhou Creek walk 苏州河", "Follow the creek path past old warehouses and bridges.", "苏州河步道"], ["Moganshan Rd graffiti wall", "The long painted wall along the street.", "莫干山路"]]],
+  ["West Nanjing Rd", [["Zhangyuan 张园", "Restored shikumen block reopened as shops and pop-ups, right off the main road.", "张园"], ["Wujiang Rd 吴江路", "Snack street, and where Yang's sheng jian is.", "吴江路"], ["Jing'an Kerry Centre 静安嘉里中心", "Mall with a nice courtyard and design shops.", "静安嘉里中心"]]],
+  ["Anfu Rd & Wukang Rd", [["Fumin Rd 富民路", "Indie boutiques and cafes, crosses Changle Rd.", "富民路"], ["Changle Rd 长乐路", "Small fashion and vintage shops.", "长乐路"], ["Julu Rd 巨鹿路", "Lane houses, restaurants and bars.", "巨鹿路"], ["Xiangyang South Rd 襄阳南路", "Cafes, including Honky Tonk and the herbal gelato shop.", "襄阳南路"]]],
+  ["West Bund", [["Xuhui riverside 徐汇滨江", "Long riverside promenade; keep walking north along the water.", "徐汇滨江"], ["Yuz Museum 余德耀美术馆", "Another big art museum on the same stretch.", "余德耀美术馆"]]],
+  ["Tianzifang", [["Taikang Rd 泰康路", "The street outside the lanes.", "泰康路"], ["Walk to Yongkang Rd 永康路", "About 20 min through the French Concession to dinner.", "永康路"]]],
+  ["Wangfujing", [["Wangfujing Snack Street 王府井小吃街", "Skewers, tanghulu, people-watching.", "王府井小吃街"], ["St. Joseph's Church 王府井天主堂", "At the north end of the street.", "王府井天主堂"]]]
+];
+const wanderOf = s => { const hit = WANDER.find(([pre]) => s.title.startsWith(pre)); return hit ? hit[1] : null; };
+
+// How to get there by metro: [stop title starts with, directions]. Amap's transit tab has the live route.
+const METRO = [
+  ["Yu Garden", "Line 10 to Yuyuan Garden 豫园, or a 20-min walk from the hotel."],
+  ["1/10 Coffee", "Line 10 from Yuyuan Garden toward Xintiandi / Shaanxi South Rd 陕西南路, then walk."],
+  ["Mu Chun", "Line 13 to Huaihai Middle Rd 淮海中路, Exit 2, about 400 m."],
+  ["Back to hotel, check in", "Line 13 to West Nanjing Rd 南京西路, change to Line 2 for East Nanjing Rd 南京东路."],
+  ["Lujiazui riverfront", "Line 2 to Lujiazui 陆家嘴, then walk to the river. Two stops back to the hotel after."],
+  ["Back to hotel, shower", "Line 2 from West Nanjing Rd 南京西路 to East Nanjing Rd 南京东路, 2 stops."],
+  ["Single Origin", "Line 2 to Jing'an Temple 静安寺, then about 10 min on foot."],
+  ["M50", "Line 13 to Jiangning Rd 江宁路, then about 10 min on foot."],
+  ["West Nanjing Rd", "Line 13 back to West Nanjing Rd 南京西路."],
+  ["Wunder", "Line 2 to People's Square 人民广场, change to Line 1 for Shaanxi South Rd 陕西南路, then about 10 min on foot."],
+  ["Anfu Rd & Wukang Rd", "All walkable from Wunder. Closest station for the way back: Jiaotong University 交通大学 (Lines 10, 11)."],
+  ["Metro to Qiantan", "Line 2 to People's Square, change to Line 8 for Oriental Sports Center 东方体育中心, then walk or grab a share bike into Qiantan."],
+  ["Longhua Temple", "Line 11 from Oriental Sports Center to Longhua 龙华."],
+  ["West Bund", "Line 11 one stop to Yunjin Rd 云锦路, then walk to the river."],
+  ["Tianzifang", "Line 11 to Xujiahui 徐家汇, change to Line 9 for Dapuqiao 打浦桥."],
+  ["Check in at the Crowne Plaza", "Wangfujing 王府井 station (Lines 1, 8) is right there."]
+];
+const metroOf = s => { const hit = METRO.find(([pre]) => s.title.startsWith(pre)); return hit ? hit[1] : ""; };
+
+function stopHTML(s, inFood) {
   const links = s.links
     ? s.links.map(([lbl, k]) => `<a class="btn" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}${esc(lbl)}</a>`).join("")
     : s.map ? `<a class="btn" href="${amap(s.map)}" target="_blank" rel="noopener">${pinIcon}Open in Amap</a>` : "";
-  const major = ["see", "tea", "shop"].includes(s.type) || /^(Lunch|Dinner|Music)$/.test(s.label);
-  return `<li class="stop t-${s.type}${major ? " major" : ""}">
-    <div class="time">${esc(s.t)}</div><span class="dot"></span>
-    <div class="body">
-      <span class="tag">${esc(s.label)}</span>
-      <div class="title">${esc(s.title)}</div>
+  const major = ["see", "tea", "shop"].includes(s.type) || !!s.options || /^(Lunch|Dinner|Music)$/.test(s.label);
+  const hint = /^\d{1,2}:\d{2}$/.test(s.t) ? `around ${s.t}` : (/[−-]\d/.test(s.t) || /TBD/.test(s.t) ? s.t : "");
+  const head = `      ${(lbl => lbl || hint ? `<span class="tag">${esc(lbl)}${hint ? `<span class="hint">${esc(hint)}</span>` : ""}</span>` : "")(inFood && /^(Suggested .*|What to eat|Breakfast|Coffee|Lunch|Dinner|Snack)$/.test(s.label) ? "" : s.label)}
+      <div class="title">${esc(s.title)}</div>`;
+  const metro = metroOf(s);
+  const rest = `${metro ? `<div class="metro"><span class="m">M</span>${esc(metro)}</div>` : ""}
       ${s.detail ? `<div class="detail">${esc(s.detail)}</div>` : ""}
       ${s.addr ? `<div class="addr">${esc(s.addr)}</div>` : ""}
-      ${links ? `<div class="actions">${links}</div>` : ""}
+      ${(w => w ? `<div class="wander"><div class="opts-h">Wander around</div>${w.map(([n, note, k]) => `<div class="wd"><div><b>${esc(n)}</b><span>${esc(note)}</span></div><a class="btn sm" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}Amap</a></div>`).join("")}</div>` : "")(wanderOf(s))}
+      ${s.order ? `<div class="order"><div class="opts-h">What to order (sharing)</div><ul>${s.order.map(([en, zh]) => `<li><span>${esc(en)}</span><b lang="zh-Hans">${esc(zh)}</b></li>`).join("")}</ul></div>` : ""}
+      ${s.options ? `<div class="opts"><div class="opts-h">Where to get it</div>${s.options.map(([n, w, ad, k]) => `<div class="opt"><div class="n">${esc(n)}</div><div class="w">${esc(w)}</div>${ad ? `<div class="a">${esc(ad)}</div>` : ""}<div class="actions">${k ? `<a class="btn sm" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}Open in Amap</a>` : ""}${dpBtn((n.match(/[㐀-鿿]+/g) || []).join("") || s.dp || "").replace('class="btn dp"', 'class="btn dp sm"')}</div></div>`).join("")}</div>` : ""}
+      ${(() => { const dp = dpBtn(dpKey(s), s.options ? "More nearby on Dianping: " : "Dianping: "); return links || s.url || dp ? `<div class="actions">${links}${dp}${s.url ? `<a class="btn" href="${s.url}" target="_blank" rel="noopener">Open booking page</a>` : ""}</div>` : ""; })()}
       ${aboutHTML(s)}
-    </div></li>`;
+`;
+  const open = rest.replace(/\s/g, "").length > 0;
+  return `<li class="stop t-${s.type}${major ? " major" : ""}">${open
+    ? `<details class="stop-d"><summary><div class="body">${head}</div><span class="chev" aria-hidden="true"></span></summary><div class="body more">${rest}</div></details>`
+    : `<div class="body">${head}</div>`}</li>`;
+}
+
+// Group stops into parts of the day instead of a strict timetable
+function partOf(t, prev) {
+  const m = /^(\d{1,2}):(\d{2})$/.exec(t);
+  if (m) { const h = +m[1]; return h < 11 ? "Morning" : h < 14 ? "Midday" : h < 17 ? "Afternoon" : "Evening"; }
+  if (/^(Then|Early|Morning|6:30)$/i.test(t)) return "Morning";
+  if (/^(Lunch|Midday)$/i.test(t)) return "Midday";
+  if (/^(Afternoon|Later|Day)$/i.test(t)) return prev === "Morning" ? "Afternoon" : prev || "Afternoon";
+  if (/^(Dinner|Evening|Night)$/i.test(t)) return "Evening";
+  return prev || "Morning";
+}
+// Food and coffee stops get their own section, grouped by meal
+function mealOf(s) {
+  if (s.type === "coffee") return "Coffee";
+  if (s.type !== "food" && !(s.type === "tbd" && /^(breakfast|lunch|dinner)$/i.test(s.label))) return null;
+  const k = (s.t + " " + s.label).toLowerCase();
+  if (/breakfast/.test(k)) return "Breakfast";
+  if (/snack/.test(k)) return "Snack";
+  if (/lunch/.test(k)) return "Lunch";
+  if (/dinner/.test(k)) return "Dinner";
+  const m = /^(\d{1,2}):/.exec(s.t);
+  if (m) return +m[1] < 11 ? "Breakfast" : +m[1] < 15 ? "Lunch" : +m[1] < 17 ? "Snack" : "Dinner";
+  return "Snack";
+}
+const MEALS = [["Breakfast", "早餐"], ["Coffee", "咖啡"], ["Lunch", "午餐"], ["Snack", "小吃"], ["Dinner", "晚餐"]];
+function foodHTML(stops) {
+  if (!stops.length) return "";
+  return `<div class="section food-sec"><h3>Food & coffee</h3>${MEALS.map(([m, zh]) => {
+    const list = stops.filter(s => mealOf(s) === m);
+    return list.length ? `<section class="part meal"><h4><span>${m}</span><small lang="zh-Hans">${zh}</small></h4><ol class="plan">${list.map(x => stopHTML(x, true)).join("")}</ol></section>` : "";
+  }).join("")}</div>`;
+}
+const PART_ZH = { Morning: "上午", Midday: "中午", Afternoon: "下午", Evening: "晚上" };
+function itinHTML(stops) {
+  const groups = []; let prev = null;
+  stops.forEach(s => {
+    let p = partOf(s.t, prev);
+    const order = ["Morning", "Midday", "Afternoon", "Evening"];
+    if (prev && order.indexOf(p) < order.indexOf(prev)) p = prev;
+    if (!groups.length || groups[groups.length - 1][0] !== p) groups.push([p, []]);
+    groups[groups.length - 1][1].push(s); prev = p;
+  });
+  return groups.map(([p, list]) => `<section class="part"><h4><span>${p}</span><small lang="zh-Hans">${PART_ZH[p]}</small></h4><ol class="plan">${list.map(stopHTML).join("")}</ol></section>`).join("");
 }
 
 function heroHTML(d, badge) {
@@ -572,63 +1281,134 @@ function heroHTML(d, badge) {
 }
 
 function dayCard(d, i, total) {
+  // Notes already shown under a stop's "About this place" aren't repeated at the bottom
+  const shown = new Set(d.stops.flatMap(s => (s.about || []).map(x => x[1])));
+  const rest = list => (list || []).filter(n => !shown.has(n[0]));
   return `<article class="card">
     ${heroHTML(d, `<span class="badge"><b>${i}</b>Day ${i} of ${total}</span>`)}
-    <div class="section"><h3>Today's line</h3><ol class="timeline">${d.stops.map(stopHTML).join("")}</ol></div>
+    <div class="section"><div class="sec-h"><h3>Suggested plan</h3><button class="expand" data-expand>Expand all</button></div>${itinHTML(d.stops.filter(s => !mealOf(s)))}</div>
+    ${foodHTML(d.stops.filter(mealOf))}
     ${altsHTML(d.key)}
-    ${notesBlock("Today's food, explained", d.food.items, d.food.intro)}
-    ${notesBlock("Where you're eating & drinking", d.places)}
-    ${notesBlock("Where you're shopping", d.shopping)}
-    ${notesBlock("Today's sights, explained", d.sights)}
+    ${notesBlock("Today's food, explained", rest(d.food.items), d.food.intro)}
+    ${notesBlock("Where we're eating & drinking", rest(d.places))}
+    ${notesBlock("Where we're shopping", rest(d.shopping))}
+    ${notesBlock("Today's sights, explained", rest(d.sights))}
     <div class="card-foot">
       <button class="nav-btn" data-go="-1">‹ Prev</button>
-      <button class="nav-btn" data-go="1" ${i === total ? "disabled" : ""}>Next ›</button>
+      ${i === total && CITY === "sh"
+        ? `<button class="nav-btn" data-city="bj">Beijing ›</button>`
+        : `<button class="nav-btn" data-go="1" ${i === total ? "disabled" : ""}>Next ›</button>`}
     </div>
   </article>`;
 }
 
-function startCard() {
+const photo = (f, alt, cls) => f ? `<figure class="${cls}"><img src="${CF(f)}" alt="${esc(alt)}" loading="lazy" onerror="this.closest('figure').remove()"><figcaption><a href="${CP(f)}" target="_blank" rel="noopener">Photo: Wikimedia Commons</a></figcaption></figure>` : "";
+
+function historyHTML(info) {
+  return `<div class="section history">
+      <h3>The short history</h3>
+      ${photo(info.photo, info.title, "hist-photo")}
+      ${info.paras.map(p => `<p>${esc(p)}</p>`).join("")}
+      ${srcLink(info.source)}
+    </div>
+    <div class="section"><h3>The areas, explained</h3>
+      <div class="areas">${info.areas.map(a => `<section class="area-card">
+        ${photo(a.photo, a.name, "area-photo")}
+        <div class="area-body"><h4>${esc(a.name)} <span class="zh">${esc(a.zh)}</span></h4><p>${esc(a.text)}</p>${srcLink(a.src)}</div>
+      </section>`).join("")}</div>
+      <p class="fine">Photos load from Wikimedia Commons, which is often blocked in mainland China without a VPN. If they don't show, the text still works.</p>
+    </div>`;
+}
+
+function startCard(S, info) {
   let done = {};
-  try { done = JSON.parse(localStorage.getItem("sh-checks") || "{}"); } catch (e) {}
+  try { done = JSON.parse(localStorage.getItem(CITY + "-checks") || "{}"); } catch (e) {}
   return `<article class="card">
-    ${heroHTML(START, `<span class="badge"><b>S</b>Start here</span>`)}
+    ${heroHTML(S, `<span class="badge"><b>S</b>Start here</span>`)}
     <div class="section"><h3>Booking checklist</h3>
-      <ul class="checklist">${START.checklist.map(([w, t], k) => `
+      <ul class="checklist">${S.checklist.map(([w, t], k) => `
         <li class="${done[k] ? "done" : ""}"><input type="checkbox" id="c${k}" data-k="${k}" ${done[k] ? "checked" : ""}>
         <label for="c${k}"><span class="when">${esc(w)}</span>${esc(t)}</label></li>`).join("")}
       </ul>
     </div>
-    <div class="section"><h3>Good to know</h3><ul class="tips">${START.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></div>
+    <div class="section"><h3>Good to know</h3><ul class="tips">${S.tips.map(t => `<li>${esc(t)}</li>`).join("")}</ul></div>
     <div class="card-foot">
-      <button class="nav-btn" disabled>‹ Prev</button>
-      <button class="nav-btn" data-go="1">Day 1 ›</button>
+      ${CITY === "bj" ? `<button class="nav-btn" data-city="sh">‹ Shanghai</button>` : `<button class="nav-btn" disabled>‹ Prev</button>`}
+      <button class="nav-btn" data-go="1">About ›</button>
     </div>
   </article>`;
 }
 
-const all = [START, ...DAYS];
+function aboutCard(A, info) {
+  return `<article class="card">
+    ${heroHTML(A, `<span class="badge"><b>A</b>About the city</span>`)}
+    ${historyHTML(info)}
+    <div class="card-foot">
+      <button class="nav-btn" data-go="-1">‹ Prep</button>
+      <button class="nav-btn" data-go="1">Our list ›</button>
+    </div>
+  </article>`;
+}
+function listCard(L, C) {
+  const item = ([n, zh, note, ad, k]) => `<div class="li-item"><div class="n">${esc(n)}${zh ? ` <span class="zh" lang="zh-Hans">${esc(zh)}</span>` : ""}</div>
+    ${note ? `<div class="w">${esc(note)}</div>` : ""}${ad ? `<div class="a">${esc(ad)}</div>` : ""}
+    ${k || zh ? `<div class="actions">${k ? `<a class="btn sm" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}Amap</a>` : ""}${dpBtn((zh || "").split(" / ")[0] || k).replace('class="btn dp"', 'class="btn dp sm"')}</div>` : ""}</div>`;
+  return `<article class="card">
+    ${heroHTML(L, `<span class="badge"><b>L</b>Our list</span>`)}
+    ${C.list.map(([sec, items], i) => `<details class="panel"${i === 0 ? " open" : ""}>${panelHead(sec, `${items.length} from our notes`)}<div class="li-list">${items.map(item).join("")}</div></details>`).join("")}
+    <div class="card-foot">
+      <button class="nav-btn" data-go="-1">‹ About</button>
+      <button class="nav-btn" data-go="1">Day 1 ›</button>
+    </div>
+  </article>`;
+}
+const listOf = C => ({ key: "list", color: "#4A5A3C", ink: "#4A5A3C", zh: "清单", area: "Our list", when: C.name,
+  title: "Everything from our notes", summary: "Every food spot, cafe, sight and idea we saved, whether or not it made it into the suggested plan. Each one has Amap and Dianping links, and \"Plan:\" says where it already shows up." });
+const aboutOf = C => ({ key: "about", color: "#2F3B4A", ink: "#2F3B4A", zh: C.zh, area: "The city, explained", when: C.name,
+  title: C.info.title, summary: `How ${C.name} came to be, and what each neighborhood we'll see is about.` });
+
 const deck = document.getElementById("deck");
 const tabs = document.getElementById("tabs");
+const cityTitle = document.getElementById("cityTitle");
+const switchBtns = [...document.querySelectorAll(".city-switch button")];
+let all = [], slots = [], tabBtns = [], current = 0, io = null;
 
-deck.innerHTML = all.map((d, i) =>
-  `<section class="slot" id="card-${d.key}" data-i="${i}" style="--c:${d.color};--ct:${d.ink}">${i === 0 ? startCard() : dayCard(d, i, DAYS.length)}</section>`
-).join("");
+// Today in China: Shanghai until 2 PM on Nov 20 (train day), Beijing after
+function todayFor() {
+  try {
+    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", hourCycle: "h23" })
+      .formatToParts(new Date()).map(p => [p.type, p.value]));
+    const date = `${parts.year}-${parts.month}-${parts.day}`;
+    if (date === "2026-11-20") return +parts.hour < 14 ? ["sh", "d6"] : ["bj", "d1"];
+    for (const [ck, c] of Object.entries(CITIES)) { const hit = c.days.find(d => d.date === date); if (hit) return [ck, hit.key]; }
+  } catch (e) {}
+  return [null, null];
+}
+const [todayCity, todayKey] = todayFor();
 
-// Today in Shanghai
-let todayKey = null;
-try {
-  const sh = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-  const hit = DAYS.find(d => d.date === sh);
-  if (hit) todayKey = hit.key;
-} catch (e) {}
-
-tabs.innerHTML = all.map((d, i) =>
-  `<button class="tab ${d.key === todayKey ? "today" : ""}" data-i="${i}" style="--tc:${d.color}" aria-label="${esc(d.when)}, ${esc(d.area)}"><span class="roundel">${i === 0 ? "S" : i}</span><small>${d.key === todayKey ? "Today" : (i === 0 ? "Prep" : d.tabSub + " " + d.tabTop)}</small></button>`
-).join("");
-
-const slots = [...deck.querySelectorAll(".slot")];
-const tabBtns = [...tabs.querySelectorAll(".tab")];
-let current = 0;
+function render(city, idx = 0) {
+  CITY = city;
+  const C = CITIES[city];
+  all = [C.start, aboutOf(C), listOf(C), ...C.days];
+  document.title = `${C.name} · China 2026`;
+  cityTitle.innerHTML = `<span class="zh">${C.zh}</span>${C.name} <small>${C.dates}</small>`;
+  switchBtns.forEach(b => b.setAttribute("aria-pressed", b.dataset.city === city));
+  deck.innerHTML = all.map((d, i) =>
+    `<section class="slot" id="card-${city}-${d.key}" data-i="${i}" style="--c:${d.color};--ct:${d.ink};--on:${onColor(d.color)}">${i === 0 ? startCard(C.start, C.info) : i === 1 ? aboutCard(d, C.info) : i === 2 ? listCard(d, C) : dayCard(d, i - 2, C.days.length)}</section>`
+  ).join("");
+  const tk = todayCity === city ? todayKey : null;
+  tabs.innerHTML = all.map((d, i) =>
+    `<button class="tab ${d.key === tk ? "today" : ""}" data-i="${i}" style="--tc:${d.color};--to:${onColor(d.color)}" aria-label="${esc(d.when)}, ${esc(d.area)}"><span class="roundel">${i === 0 ? "S" : i === 1 ? "A" : i === 2 ? "L" : i - 2}</span><small>${d.key === tk ? "Today" : (i === 0 ? "Prep" : i === 1 ? "About" : i === 2 ? "List" : d.tabSub + " " + d.tabTop)}</small></button>`
+  ).join("");
+  slots = [...deck.querySelectorAll(".slot")];
+  tabBtns = [...tabs.querySelectorAll(".tab")];
+  if (io) io.disconnect();
+  io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting && e.intersectionRatio > 0.6) setActive(+e.target.dataset.i); });
+  }, { root: deck, threshold: [0.6] });
+  slots.forEach(s => io.observe(s));
+  requestAnimationFrame(() => { goTo(idx, false); setActive(idx); window.scrollTo(0, 0); });
+}
 
 function goTo(i, smooth = true) {
   i = Math.max(0, Math.min(all.length - 1, i));
@@ -640,29 +1420,45 @@ function setActive(i) {
   tabBtns.forEach((b, k) => b.classList.toggle("active", k === i));
   const tb = tabBtns[i];
   tabs.scrollTo({ left: tb.offsetLeft - (tabs.clientWidth - tb.offsetWidth) / 2, behavior: "smooth" });
-  try { history.replaceState(null, "", "#" + all[i].key); } catch (e) {}
+  try { history.replaceState(null, "", `#${CITY}-${all[i].key}`); } catch (e) {}
 }
 
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting && e.intersectionRatio > 0.6) setActive(+e.target.dataset.i); });
-}, { root: deck, threshold: [0.6] });
-slots.forEach(s => io.observe(s));
-
+switchBtns.forEach(b => b.addEventListener("click", () => { if (b.dataset.city !== CITY) render(b.dataset.city, 0); }));
 tabs.addEventListener("click", e => {
   const b = e.target.closest(".tab"); if (!b) return;
   goTo(+b.dataset.i); window.scrollTo({ top: 0, behavior: "smooth" });
 });
 deck.addEventListener("click", e => {
+  const c = e.target.closest("[data-city]");
+  if (c) { render(c.dataset.city, c.dataset.city === "sh" ? CITIES.sh.days.length + 2 : 0); return; }
   const b = e.target.closest("[data-go]"); if (!b || b.disabled) return;
   goTo(current + (+b.dataset.go)); window.scrollTo({ top: 0, behavior: "smooth" });
+});
+deck.addEventListener("click", e => {
+  const a = e.target.closest("a.dp"); if (!a) return;
+  e.preventDefault();
+  const web = a.href;
+  let left = false;
+  const mark = () => { left = true; };
+  document.addEventListener("visibilitychange", mark, { once: true });
+  window.addEventListener("pagehide", mark, { once: true });
+  location.href = "dianping://searchshoplist?keyword=" + encodeURIComponent(a.dataset.dp);
+  setTimeout(() => { if (!left && document.visibilityState === "visible") window.open(web, "_blank", "noopener"); }, 1500);
+});
+deck.addEventListener("click", e => {
+  const b = e.target.closest("[data-expand]"); if (!b) return;
+  const card = b.closest(".card"); const all = [...card.querySelectorAll("details.stop-d")];
+  const openAll = all.some(d => !d.open);
+  all.forEach(d => d.open = openAll);
+  card.querySelectorAll("[data-expand]").forEach(x => x.textContent = openAll ? "Collapse all" : "Expand all");
 });
 deck.addEventListener("change", e => {
   const c = e.target.closest("input[data-k]"); if (!c) return;
   c.closest("li").classList.toggle("done", c.checked);
   try {
-    const done = JSON.parse(localStorage.getItem("sh-checks") || "{}");
+    const done = JSON.parse(localStorage.getItem(CITY + "-checks") || "{}");
     done[c.dataset.k] = c.checked;
-    localStorage.setItem("sh-checks", JSON.stringify(done));
+    localStorage.setItem(CITY + "-checks", JSON.stringify(done));
   } catch (err) {}
 });
 document.addEventListener("keydown", e => {
@@ -674,7 +1470,7 @@ document.addEventListener("keydown", e => {
 const root = document.documentElement;
 const themeBtn = document.getElementById("themeBtn");
 const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-const labelTheme = () => { themeBtn.textContent = isDark() ? "Day mode" : "Night mode"; };
+const labelTheme = () => { themeBtn.textContent = isDark() ? "Day" : "Night"; themeBtn.setAttribute("aria-label", isDark() ? "Switch to day mode" : "Switch to night mode"); };
 try { const t = localStorage.getItem("sh-theme"); if (t) root.dataset.theme = t; } catch (e) {}
 labelTheme();
 themeBtn.addEventListener("click", () => {
@@ -683,11 +1479,16 @@ themeBtn.addEventListener("click", () => {
   try { localStorage.setItem("sh-theme", root.dataset.theme); } catch (e) {}
 });
 
-// Initial card: hash > today > prep card
-const fromHash = all.findIndex(d => "#" + d.key === location.hash);
-const startIdx = fromHash >= 0 ? fromHash : todayKey ? all.findIndex(d => d.key === todayKey) : 0;
+// Initial card: hash (#bj-d2, or old-style #d2 = Shanghai) > today > Shanghai prep
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-requestAnimationFrame(() => { goTo(startIdx, false); setActive(startIdx); window.scrollTo(0, 0); });
+(() => {
+  const m = location.hash.match(/^#(?:(sh|bj)-)?(start|about|list|d\d)$/);
+  let city = "sh", key = null;
+  if (m) { city = m[1] || "sh"; key = m[2]; }
+  else if (todayCity) { city = todayCity; key = todayKey; }
+  const list = [CITIES[city].start, aboutOf(CITIES[city]), listOf(CITIES[city]), ...CITIES[city].days];
+  render(city, Math.max(0, list.findIndex(d => d.key === key)));
+})();
 </script>
 </body>
 </html>
