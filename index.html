@@ -244,19 +244,28 @@
   .stop-d .more { padding-top: 2px; }
   .metro { display: flex; gap: 8px; align-items: flex-start; font-size: 13.5px; color: var(--ink); margin-top: 8px; }
   .metro .m { flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%; background: var(--c); color: #fff; display: grid; place-items: center; font: 800 11px/1 Archivo, sans-serif; margin-top: 1px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .brand { gap: 10px; }
+  .city-switch { flex: 1; min-width: 0; display: flex; border: 2px solid var(--ink); border-radius: 14px; overflow: hidden; }
+  .city-switch button { -webkit-appearance: none; appearance: none; flex: 1; min-width: 0; min-height: 44px; margin: 0; border: 0; border-radius: 0;
+    background: var(--card); color: var(--ink); -webkit-text-fill-color: currentColor; padding: 6px 8px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; font: 700 15px/1.1 Archivo, sans-serif; -webkit-tap-highlight-color: transparent; }
+  .city-switch button + button { border-left: 2px solid var(--ink); }
+  .city-switch button .zh { font: 900 16px/1 "Noto Sans SC", "PingFang SC", sans-serif; }
+  .city-switch button small { flex-basis: 100%; text-align: center; font: 500 11px/1 Archivo, sans-serif; opacity: .75; }
+  .city-switch button[aria-pressed="true"] { background: var(--ink); color: var(--card); }
+  .theme-toggle { -webkit-appearance: none; appearance: none; flex: 0 0 auto; min-height: 44px; border-radius: 14px; -webkit-text-fill-color: currentColor; }
 </style>
 </head>
 <body>
 <header class="top">
   <div class="brand">
-    <h1 id="cityTitle"><span class="zh">上海</span>Shanghai <small>15–20 November</small></h1>
-    <div class="top-actions">
-      <div class="city-switch" role="group" aria-label="City">
-        <button data-city="sh" aria-pressed="true"><span class="zh">上海</span></button>
-        <button data-city="bj" aria-pressed="false"><span class="zh">北京</span></button>
-      </div>
-      <button class="theme-toggle" id="themeBtn">Night</button>
+    <h1 id="cityTitle" class="sr-only">Shanghai</h1>
+    <div class="city-switch" role="group" aria-label="City">
+      <button type="button" data-city="sh" aria-pressed="true"><span class="zh">上海</span><span class="en">Shanghai</span><small>Nov 15–20</small></button>
+      <button type="button" data-city="bj" aria-pressed="false"><span class="zh">北京</span><span class="en">Beijing</span><small>Nov 20–25</small></button>
     </div>
+    <button type="button" class="theme-toggle" id="themeBtn">Night</button>
   </div>
   <nav class="tabs" id="tabs" aria-label="Days"></nav>
 </header>
@@ -1391,7 +1400,7 @@ function render(city, idx = 0) {
   const C = CITIES[city];
   all = [C.start, aboutOf(C), listOf(C), ...C.days];
   document.title = `${C.name} · China 2026`;
-  cityTitle.innerHTML = `<span class="zh">${C.zh}</span>${C.name} <small>${C.dates}</small>`;
+  cityTitle.textContent = `${C.name}, ${C.dates}`;
   switchBtns.forEach(b => b.setAttribute("aria-pressed", b.dataset.city === city));
   deck.innerHTML = all.map((d, i) =>
     `<section class="slot" id="card-${city}-${d.key}" data-i="${i}" style="--c:${d.color};--ct:${d.ink};--on:${onColor(d.color)}">${i === 0 ? startCard(C.start, C.info) : i === 1 ? aboutCard(d, C.info) : i === 2 ? listCard(d, C) : dayCard(d, i - 2, C.days.length)}</section>`
