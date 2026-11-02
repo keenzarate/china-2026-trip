@@ -1,6 +1,6 @@
 // Offline support: keeps a copy of the trip page (and fonts/photos it has loaded) on the phone,
 // so it still opens in China if the VPN drops. Bump VERSION after each update to refresh the copy.
-const VERSION = "trip-v1";
+const VERSION = "trip-v2";
 const CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", e => {

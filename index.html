@@ -285,7 +285,7 @@ const START = {
   checklist: [
     ["Nov 5", "Buy train tickets Shanghai → Beijing for Nov 20 (12306 app or Trip.com)"],
     ["By Nov 5", "Reserve Eight 八EIGHT for Thu Nov 19 dinner (only 8 seats a night, so book first)"],
-    ["By Nov 10", "Reserve Cheng Long Hang for Mon Nov 16 hairy crab dinner (+86 21 6321 2010, or book online via the Michelin page)"],
+    ["By Nov 10", "Optional: reserve Cheng Long Hang for Mon Nov 16 crab-roe noodles (+86 21 6321 2010). Jia Jia Tang Bao and Lao Xing Xian need no booking"],
     ["Nov 17, afternoon", "Optional: call 157 Shi Fang (+86 158 0075 5157) to hold a table for tonight, or just show up early"],
     ["Nov 18", "Lan Xin takes no bookings and is cash only: bring yuan and get in line by 5:30 PM"],
     ["By Nov 10", "Message I-TATTOO for a flash tattoo on Wed Nov 18, around 2 PM"],
@@ -367,13 +367,13 @@ const DAYS = [
     { t: "Lunch", type: "food", label: "What to eat", title: "Fried thick noodles 上海粗炒 or big wontons 荠菜大馄饨", order: [["Shanghai fried thick noodles", "上海粗炒"], ["Pork & shepherd's purse wontons", "荠菜大馄饨"], ["Sheng jian, if they have it", "生煎"]], detail: "Easy everyday Shanghai lunch after the museum.", dp: "上海粗炒", options: [["Any noodle shop around Century Ave", "The malls and side streets near the museum have plenty. Tap Dianping to find one close by.", "", ""]] },
     { t: "15:00", type: "see", label: "Wander", title: "Century Park & around", detail: "No agenda: loop the lake, then drift through the streets and malls nearby.", map: "世纪公园" },
     { t: "16:30", type: "see", label: "Sunset", title: "Lujiazui riverfront + Museum of Art Pudong", detail: "MAP is open until 21:00.", addr: "2777 Binjiang Ave 滨江大道2777号", map: "浦东美术馆" },
-    { t: "Dinner", type: "food", label: "What to eat", title: "Hairy crab 大闸蟹", order: [["Steamed hairy crab, 1 each", "清蒸大闸蟹"], ["Crab-roe tofu", "蟹粉豆腐"], ["Crab-roe noodles", "蟹粉拌面"], ["Wine-fried clover sprouts", "酒香草头"], ["Drunken crab, to try (Cheng Long Hang)", "醉蟹"]], detail: "Our one crab night, peak season. Steamed whole with ginger vinegar; ask for a male (公蟹) in November. If a whole crab is too much, crab-roe noodles 蟹粉面 or crab-roe tofu work too.", dp: "大闸蟹", options: [["Cheng Long Hang 成隆行蟹王府", "One Michelin star, THE hairy crab name, with its own crab farm. 5 min from the hotel. Book ahead: +86 21 6321 2010.", "216 Jiujiang Rd 九江路216号", "成隆行蟹王府 九江路"], ["Lao Xing Xian 老兴鲜", "Michelin-listed, ticked on our list. Big mall restaurant, so walk-ins are realistic, and it has plenty of non-crab dishes.", "5F Parkson, 918 Middle Huaihai Rd 淮海中路918号百盛5楼", "老兴鲜 淮海中路918号"]] },
+    { t: "Dinner", type: "food", label: "What to eat", title: "Crab-roe noodles 蟹粉面 or crab-roe rice 蟹粉饭", order: [["Crab-roe noodles", "蟹粉拌面"], ["Crab-roe over rice", "蟹粉捞饭"], ["Crab-roe tofu", "蟹粉豆腐"], ["Wine-fried clover sprouts", "酒香草头"], ["Scallion oil noodles", "葱油拌面"]], detail: "Our crab night, without wrestling a whole crab: hairy crab meat and roe already picked out and spooned over noodles or rice. Peak season in November. Mix it all in, then a splash of vinegar.", dp: "蟹粉面", options: [["Jia Jia Tang Bao 佳家汤包", "On our list for crab-roe noodles; small, no-frills, by People's Park.", "90 Huanghe Rd 黄河路90号", "佳家汤包"], ["Cheng Long Hang 成隆行蟹王府", "One Michelin star, the hairy crab specialist, 5 min from the hotel. Ask for crab-roe noodles or rice (蟹粉面 / 蟹粉饭). Book ahead: +86 21 6321 2010.", "216 Jiujiang Rd 九江路216号", "成隆行蟹王府 九江路"], ["Lao Xing Xian 老兴鲜", "Michelin-listed, on our list; big mall restaurant with lots of non-crab dishes. Walk-ins are realistic.", "5F Parkson, 918 Middle Huaihai Rd 淮海中路918号百盛5楼", "老兴鲜 淮海中路918号"]] },
   ],
   food: { items: [
     ["Shanghai street breakfast", "The classic set is the \"four heavenly kings\" (四大金刚): sesame flatbread (大饼), fried dough stick (油条), sticky rice roll (粢饭团) and soy milk (豆浆). Pick one or two."],
     ["Fried thick noodles 上海粗炒", "Chewy wheat noodles stir-fried with soy sauce, pork and greens. A cheap, filling lunch classic."],
     ["Big wontons 荠菜大馄饨", "Large wontons with pork and shepherd's purse. Tiny wontons (小馄饨) in light broth are the other Shanghai style."],
-    ["Hairy crab 大闸蟹", "Chinese mitten crab, the autumn obsession. Steamed with ginger vinegar."]
+    ["Crab-roe noodles 蟹粉面", "Hairy crab meat and roe, picked and cooked down, spooned over noodles or rice."]
   ]},
   places: [
     ["Always Coffee Roaster", "Our pick: a local roaster tucked off Jiujiang Rd, a minute from the metro."],
@@ -586,6 +586,7 @@ const RICH = {
   "Shepherd's purse 荠菜": "A slightly peppery wild green that Shanghainese people love, especially in cooler months. It's usually chopped into dumplings and wontons with pork.\nIt tastes fresh and a bit grassy, and it's very Jiangnan.",
   "Cheng Long Hang 成隆行蟹王府": "\"A household name among hairy crab lovers\", says Michelin, which gives it one star. It runs its own crab farm, so the supply and quality stay steady, and the shells come packed with creamy yellow roe.\nMichelin's picks: drunken crabs steeped in Shaoxing wine for a month, and a steamed meringue on a stuffed crab shell that uses the meat and roe of three crabs per serving. It's on Jiujiang Rd, about 5 minutes from the hotel. Book ahead.",
   "Lao Xing Xian 老兴鲜": "A Michelin Guide pick on the 5th floor of the Parkson mall on Huaihai Rd, ticked on our list. It's Shanghainese with a seafood leaning plus a few Cantonese classics, so there's plenty that isn't fish.\nIt's our walk-in backup for hairy crab night: they take bookings, but as a big mall restaurant, showing up early should be fine.",
+  "Crab-roe noodles 蟹粉面": "蟹粉 (xie fen) is hairy crab meat and roe, picked by hand and cooked down with a little lard, ginger and Shaoxing wine into a rich orange sauce. Spoon it over plain noodles (蟹粉面 / 蟹粉拌面) or rice (蟹粉饭 / 蟹粉捞饭), mix it all in, and add a splash of vinegar.\nIt's the easy way to eat hairy crab in season: all the flavor, none of the cracking. It's pricey, since it takes several crabs per bowl.",
   "Hairy crab 大闸蟹": "Chinese mitten crab, called \"hairy\" because of the fuzz on its claws. It's THE autumn obsession here, especially crab from nearby Yangcheng Lake.\nInsider tip: by the lunar calendar, females are best in the 9th month (roughly October) for the roe, and males get fattier and creamier in the 10th (roughly November), so ask for a male (公蟹). Heads up: way more \"Yangcheng Lake\" crab gets sold than the lake produces, so a lot is fake. It comes steamed and whole with ginger vinegar, and often warm yellow wine to \"balance\" it.\nEating it is a whole process, so don't be shy asking staff to show us how to crack it.",
   "Wunder": "A one-shop roaster run by a former barista turned roaster. The owner closes every Monday just to roast, timing each batch so it hits its best flavor.\nKnown for traditional Italian-style coffee. It's a tiny neighborhood spot and a great first stop before shopping.",
   "Wu You Xian 屋有鲜": "A xiao long bao specialist from our screenshot list, known for seasonal fillings: crab in autumn and shepherd's purse in the cooler months.\nIt's on South Maoming Rd, right in the French Concession, so it's perfect to slot in between shopping and the tattoo.",
@@ -624,7 +625,7 @@ const RICH = {
 // Day summaries, in our voice
 const RICH_SUMMARY = {
   d1: "Landing day, so no run! Metro into the city, drop our bags, grab coffee and eat our way down Nanjing East Rd before hitting Yu Garden early to beat the crowds. Soup dumplings for an early lunch and a walk down Old Street for the architecture, then coffee and tea in the French Concession and a lazy stroll through Fuxing Park. Nap, then a 2-hour cupping massage and the Bund all lit up at night.",
-  d2: "Museum day! Run the Bund, street breakfast, coffee at Always on the way out, then most of the morning at Shanghai Museum East (open Mondays, when most museums are closed). Walk it off in Century Park, catch sunset across the river from the Bund, and end with our hairy crab dinner near the hotel.",
+  d2: "Museum day! Run the Bund, street breakfast, coffee at Always on the way out, then most of the morning at Shanghai Museum East (open Mondays, when most museums are closed). Walk it off in Century Park, catch sunset across the river from the Bund, and end with crab-roe noodles near the hotel.",
   d3: "Artsy day + shopping round 1. Run west to a proper local breakfast at Zhangshifu, then after the shower, coffee at Single Origin Roasters and the golden Jing'an Temple, buns at Wangjiasha, galleries at M50, and an afternoon on West Nanjing Rd with a sheng jian and scallion oil noodle snack. Dinner at 157 Shi Fang, a Michelin Bib Gourmand: hong shao rou, kao fu and whatever else looks good. Don't forget: book the Forbidden City at 8 PM!",
   d4: "Shopping round 2 in the French Concession. Coffee at Wunder to kick it off, then Salomon, Musinsa, Deja Vu and Harmay on Anfu and Wukang Rd, pork and shepherd's purse soup dumplings for lunch, then the flash tattoo and making glass jewelry. Tea at Shanyucaoshe in Rose Villa, braised pork and duck at Lan Xin, and live music at Cozy Music Lab to close it out.",
   d5: "A slower, greener day down south. Short run, then bike the Qiantan riverside to coffee at Aftertaste, then Longhua Temple and the quiet underground space under the pagoda. Yellow croaker noodles, the West Bund art riverfront next door, and a wander through Tianzifang's lanes, before the big one: dinner at Eight's 8-seat chef's counter.",
@@ -791,7 +792,7 @@ const SRC = {
   "Lujiazui": W("Lujiazui"), "West Bund": W("Long_Museum"), "Tianzifang 田子坊": W("Tianzifang"), "Former French Concession": W("French_concession_of_Shanghai"),
   "People's Park & Square": W("People's_Square_(Shanghai)"), "Hongqiao Railway Station": W("Shanghai_Hongqiao_railway_station"),
   "Xiao long bao 小笼包": W("Xiaolongbao"), "Crab-roe xiao long bao 蟹粉小笼": W("Xiaolongbao"), "Sheng jian bao 生煎包": W("Shengjian_mantou"),
-  "Hong shao rou 红烧肉": W("Red_braised_pork_belly"), "Hairy crab 大闸蟹": W("Chinese_mitten_crab"), "Cupping 拔罐": W("Cupping_therapy"),
+  "Hong shao rou 红烧肉": W("Red_braised_pork_belly"), "Hairy crab 大闸蟹": W("Chinese_mitten_crab"), "Crab-roe noodles 蟹粉面": W("Chinese_mitten_crab"), "Cupping 拔罐": W("Cupping_therapy"),
   "Jianbing 煎饼": W("Jianbing"), "Nanxiang Steamed Bun 南翔馒头店": W("Nanxiang_Steamed_Bun_Restaurant"),
   "157 Shi Fang 157食坊": "https://guide.michelin.com/th/en/shanghai-municipality/shanghai/restaurant/157-shi-fang",
   "Lao Di Fang Mian Guan 老地方面馆": "https://guide.michelin.com/en/shanghai-municipality/shanghai/restaurant/lao-di-fang-mian-guan",
@@ -922,7 +923,7 @@ const LIST_SH = [
     ["Xiao long bao", "小笼包", "Steamed soup dumplings: minced pork plus gelatin that melts into broth. Plan: Sun lunch, Wed lunch.", "", ""],
     ["Sheng jian bao", "生煎包", "Pan-fried pork buns with a crispy bottom, sesame and scallion on top, and hot soup inside. Plan: Tue snack, Fri breakfast.", "", ""],
     ["Scallion oil noodles", "葱油拌面", "Noodles tossed in sweet-savory soy and scallion-infused oil. Plan: Tue snack, Fri breakfast, plus on several dinner order lists.", "", ""],
-    ["Hairy crab & crab roe", "大闸蟹 / 蟹粉面", "Autumn delicacy: steamed whole with ginger vinegar, or crab meat and roe over noodles or rice. Plan: Mon dinner.", "", ""],
+    ["Hairy crab & crab roe", "大闸蟹 / 蟹粉面", "Autumn delicacy: steamed whole with ginger vinegar, or crab meat and roe over noodles or rice. Plan: Mon dinner, as crab-roe noodles or rice.", "", ""],
     ["Kao fu", "烤麸", "Braised wheat gluten with wood ear, peanuts and daylilies. Plan: Tue dinner order list.", "", ""],
     ["Smoked fish", "熏鱼", "Fried fish soaked in a sweet spiced soy glaze (not actually smoked). Optional, since we're going lighter on fish.", "", ""],
     ["Yellow croaker noodle soup", "黄鱼面", "Flaky yellow croaker in milky fish-bone broth. Optional, since we're going lighter on fish.", "", ""],
