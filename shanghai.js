@@ -23,17 +23,20 @@
 //     zh / area / title / summary / highlights   The station sign at the top of the card.
 //     stops      The suggested plan, in order. Each stop:
 //       time       "9:30" shows as "around 9:30"; words like "Then", "Lunch", "Dinner" are fine too.
-//       type       run, see, shop, tea, coffee, food, misc, book, tbd (food + coffee go in the Food section).
+//       type       run, see, shop, tea, coffee, food, misc, book, tbd (meals sit in the plan with their meal name).
 //       label      Small word above the title (Run, See, Lunch...).
 //       detail     The line under the title.     address    Shown under the detail.
 //       amap       What the "Open in Amap" button searches.      dianping   What the Dianping button searches.
-//       metro      The "M" directions line.        wander     "Wander around" spots (name, note, amap).
+//       metro      The "M" directions line. 
 //       order      "What to order (sharing)" dishes (en, zh).
 //       options    "Where to get it" places (name, why, address, amap).
 //       alsoShowNotes  Names of notes (below) to show under "About this place" for this stop.
 //     food / places / shopping / sights   The notes behind "About this place" (name, text, source link).
-//     foodIdeas       "Not feeling it? Other food ideas" backups (meal, dish, name, why, address, amap).
-//     otherOptions    The "Other options" panel for activities (group, name, why, address, amap).
+//     explore         "Explore nearby" per part of the day: { Morning: [...], Midday, Afternoon, Evening },
+//                     each place (name, zh, kind, about, amap).
+//     foodIdeas       "Explore Food Choices": the food (dish, short = a few words on it) and a place to get it
+//                     (name, what, why, tip, area, address, hours, amap). Already-planned ones are hidden.
+//     otherOptions    The "If we have time" panel for activities (group, name, why, address, amap).
 // =====================================================================
 
 window.TRIP = window.TRIP || {};
@@ -194,7 +197,7 @@ TRIP.shanghai = {
   },
   // ---------- About card ----------
   history: {
-    title: "Shanghai",
+    title: "Shanghai, quickly",
     photo: "Shanghai Nanjing Road 1930s.jpg",
     paragraphs: [
       "It started as a small farming and fishing village on the Huangpu River. It became a county seat in 1292, and in the 1550s it got a city wall to keep out Japanese pirates.",
@@ -266,7 +269,12 @@ TRIP.shanghai = {
   neighborhoods: {
     title: "The districts around us",
     summary: "Shanghai is split into districts (区). Here's each one on our plan: what it feels like, how far it is from the hotel, and what to see there.",
-    hotel: { name: "Our hotel", transit: "Nearest metro: Nanjing East Rd 南京东路 (Lines 2 & 10), a few minutes' walk. People's Square 人民广场 (Lines 1, 2 & 8) is one stop west.", lat: 31.237, lng: 121.479 },
+    hotel: {
+      name: "Our hotel",
+      transit: "Nearest metro: Nanjing East Rd 南京东路 (Lines 2 & 10), a few minutes' walk. People's Square 人民广场 (Lines 1, 2 & 8) is one stop west.",
+      lat: 31.237,
+      lng: 121.479
+    },
     note: "Sketch map: each pin is roughly the heart of the district, and distances are straight lines from the hotel. Real routes are longer, so use Amap for live directions.",
     areas: [
       {
@@ -655,9 +663,10 @@ TRIP.shanghai = {
         },
         {
           name: "Xiao Tao Mian Guan",
-          zh: "小桃面馆",
+          zh: "小陶面馆",
           note: "Scallion noodles with spicy pork. It's a Michelin Bib Gourmand noodle shop.",
-          amap: "小桃面馆"
+          amap: "小陶面馆 嘉善路",
+          address: "222 Jiashan Rd, Xuhui 嘉善路222号"
         },
         {
           name: "Lao Di Fang Mian Guan",
@@ -1045,18 +1054,6 @@ TRIP.shanghai = {
           address: "218 Anren St 安仁街218号",
           amap: "豫园",
           metro: "Line 10 to Yuyuan Garden 豫园, or a 20-min walk from the hotel.",
-          wander: [
-            {
-              name: "City God Temple 城隍庙",
-              note: "Right next to the garden; the old heart of the walled city.",
-              amap: "上海城隍庙"
-            },
-            {
-              name: "Yuyuan Bazaar side lanes",
-              note: "Snack stalls and souvenir shops all around the garden.",
-              amap: "豫园商城"
-            }
-          ],
           alsoShowNotes: ["Nine-Turn Bridge"]
         },
         {
@@ -1133,21 +1130,7 @@ TRIP.shanghai = {
           detail: "410 m from Huaihai Middle Rd metro, Exit 2.",
           address: "1, Lane 196 Nanchang Rd 南昌路196弄1号",
           amap: "沐春茶舍思南公馆店",
-          metro: "Line 13 to Huaihai Middle Rd 淮海中路, Exit 2, about 400 m.",
-          wander: [
-            {
-              name: "Sinan Rd 思南路",
-              note: "Plane trees, garden villas, Zhou Enlai's old residence.",
-              amap: "思南路"
-            },
-            { name: "Nanchang Rd 南昌路", note: "Quiet lane with small cafes and boutiques.", amap: "南昌路" },
-            {
-              name: "Fuxing Middle Rd 复兴中路",
-              note: "Tree-lined; walk west for old apartment buildings.",
-              amap: "复兴中路"
-            },
-            { name: "Xintiandi 新天地", note: "Restored shikumen lanes, 10 min east.", amap: "新天地" }
-          ]
+          metro: "Line 13 to Huaihai Middle Rd 淮海中路, Exit 2, about 400 m."
         },
         {
           time: "14:15",
@@ -1198,10 +1181,94 @@ TRIP.shanghai = {
               amap: "老地方面馆 思南路"
             }
           ],
-          dianping: "焖肉面",
-          alsoShowNotes: ["The Bund"]
+          dianping: "焖肉面"
         }
       ],
+      explore: {
+        Morning: [
+          {
+            name: "Huxinting Teahouse",
+            zh: "湖心亭",
+            kind: "Teahouse",
+            about: "The pavilion on the pond outside Yu Garden, reached by a zigzag bridge (spirits are said to only travel in straight lines). The building dates from 1784.",
+            amap: "湖心亭茶楼"
+          },
+          {
+            name: "City God Temple",
+            zh: "城隍庙",
+            kind: "Temple",
+            about: "Taoist temple right next to Yu Garden, first built in the 1400s. Locals come to burn incense for luck.",
+            amap: "上海城隍庙"
+          },
+          {
+            name: "Yuyuan Bazaar side lanes",
+            zh: "豫园商城",
+            kind: "Old lanes",
+            about: "Step off the main loop into the smaller lanes for snack shops and tea sellers, with fewer crowds.",
+            amap: "豫园商城"
+          },
+          {
+            name: "Dajing Pavilion",
+            zh: "大境阁",
+            kind: "History",
+            about: "The last surviving piece of the old city wall, with a small pavilion on top. A quiet five-minute detour from Old Street.",
+            amap: "大境阁"
+          }
+        ],
+        Midday: [
+          {
+            name: "Fuxing Park",
+            zh: "复兴公园",
+            kind: "Park",
+            about: "Opened in 1909 as the French Park. Locals dance, play cards and mahjong, and sing; there's also a big Marx and Engels statue.",
+            amap: "复兴公园"
+          },
+          {
+            name: "Sinan Rd",
+            zh: "思南路",
+            kind: "Old villas",
+            about: "Plane-tree street of 1920s and 30s garden villas. Zhou Enlai's former Shanghai home is along here.",
+            amap: "思南路"
+          },
+          {
+            name: "Nanchang Rd",
+            zh: "南昌路",
+            kind: "Street",
+            about: "Quiet lane-house street with small cafes and vintage shops.",
+            amap: "南昌路"
+          },
+          {
+            name: "Xintiandi",
+            zh: "新天地",
+            kind: "Old lanes, now shops",
+            about: "Restored shikumen lanes turned into restaurants and shops. It's also where the Communist Party held its first congress in 1921; the house is now a museum.",
+            amap: "新天地"
+          }
+        ],
+        Evening: [
+          {
+            name: "The Bund at night",
+            zh: "外滩",
+            kind: "Sight",
+            about: "The old banks are lit up in the evening with the Pudong skyline glowing across the river. About 10 min on foot from the hotel.",
+            amap: "外滩"
+          },
+          {
+            name: "Nanjing East Rd at night",
+            zh: "南京东路步行街",
+            kind: "Street",
+            about: "Neon signs on and crowds out. Walk it from the hotel to the Bund.",
+            amap: "南京东路步行街"
+          },
+          {
+            name: "Fuzhou Rd bookstores",
+            zh: "福州路",
+            kind: "Books",
+            about: "Shanghai's old book street. Shanghai Book City is a huge multi-floor bookstore with art books and stationery.",
+            amap: "上海书城 福州路"
+          }
+        ]
+      },
       food: {
         intro: "Shanghai's home cooking is benbang cai (本帮菜), \"local-style food\": sweet, savory and glossy with soy sauce — locals call it \"thick oil, red sauce\" (浓油赤酱).",
         items: [
@@ -1300,43 +1367,97 @@ TRIP.shanghai = {
       foodIdeas: [
         {
           meal: "Lunch",
+          area: "Near the hotel",
           dish: "Xiao long bao 小笼包",
+          short: "soup dumplings",
           name: "Lai Lai Xiao Long 莱莱小笼",
-          why: "Michelin-recommended, from our list, near the hotel. Good if Nanxiang's line is crazy.",
+          what: "Steamed soup dumplings: a thin wrapper around pork and hot broth. Nibble a small hole and sip the soup first.",
+          why: "Michelin-recommended, near the hotel. Good if Nanxiang's line is crazy.",
           address: "506 Tianjin Rd 天津路506号",
           amap: "天津路506号"
         },
         {
           meal: "Lunch",
+          area: "People's Square",
           dish: "Xiao long bao 小笼包",
+          short: "soup dumplings",
           name: "Jia Jia Tang Bao 佳家汤包",
+          what: "Steamed soup dumplings: a thin wrapper around pork and hot broth. Nibble a small hole and sip the soup first.",
           why: "Small, no-frills dumpling shop by People's Park; get the pork ones.",
           address: "90 Huanghe Rd 黄河路90号",
           amap: "佳家汤包"
         },
         {
           meal: "Snack",
+          area: "Near the hotel",
           dish: "Sheng jian bao 生煎",
+          short: "pan-fried pork buns with soup inside",
           name: "Da Hu Chun 大壶春",
+          what: "Pan-fried pork buns: fluffy on top, crispy on the bottom, with hot soup inside.",
           why: "Michelin Bib Gourmand since 1932, near the hotel, open 8 AM to 9 PM.",
           address: "136 Middle Sichuan Rd 四川中路136号",
-          amap: "大壶春 四川中路"
+          amap: "大壶春 四川中路",
+          hours: "8:00–21:00"
         },
         {
           meal: "Dinner",
+          area: "Near the hotel",
           dish: "Pork chop with rice cakes 排骨年糕",
+          short: "fried pork chop with chewy rice cakes",
           name: "Xian De Lai 鲜得来",
-          why: "From our list, 10 min from the hotel. Crispy fried pork chop and chewy rice cakes in sweet sauce.",
+          what: "A crispy fried pork chop with chewy rice cakes in a sweet soy sauce.",
+          why: "10 min from the hotel. Crispy fried pork chop and chewy rice cakes in sweet sauce.",
           address: "290–292 Ninghai East Rd 宁海东路290号",
           amap: "宁海东路290号"
         },
         {
           meal: "Dinner",
+          area: "Near the hotel",
           dish: "Beef noodle soup 牛肉面",
+          short: "clear beef broth noodles",
           name: "Zhang Ji Niu Rou Mian Guan 张记牛肉面馆",
-          why: "Locally run, from our list, a few steps from the hotel.",
+          what: "Noodles in a clear beef broth with sliced beef. A quick, cheap bowl.",
+          why: "Locally run, a few steps from the hotel.",
           address: "530 Tianjin Rd 天津路530号",
           amap: "天津路530号"
+        },
+        {
+          meal: "Lunch",
+          area: "Near the hotel",
+          dish: "Shanghai noodles 上海面",
+          short: "soy-broth noodles with braised toppings",
+          name: "Yong Feng Mian Guan 永丰面馆",
+          what: "Classic benbang noodle shop: soy-broth or tossed noodles with toppings like braised pork or fried eel.",
+          why: "Michelin-listed noodle shop.",
+          address: "320 Hankou Rd 汉口路320号",
+          hours: "7:00–21:00",
+          amap: "永丰面馆 汉口路",
+          dianping: "上海面馆"
+        },
+        {
+          meal: "Lunch",
+          area: "Near the hotel",
+          dish: "Shanghai noodles 上海面",
+          short: "soy-broth noodles with braised toppings",
+          name: "Fu Xing Mian Wang 复兴面王",
+          what: "Shanghai-style noodles in soup or tossed, with a choice of toppings.",
+          why: "Michelin-listed noodle shop.",
+          address: "Shop 101B, West Wing 1F, 355–377 Fuzhou Rd 福州路355号",
+          hours: "8:00–21:00",
+          amap: "复兴面王 福州路",
+          dianping: "上海面馆"
+        },
+        {
+          meal: "Lunch",
+          area: "Near Xintiandi",
+          dish: "Congee and noodles 粥 / 面",
+          short: "rice porridge and noodle bowls, open 24 hours",
+          name: "Ding Te Le 顶特勒",
+          what: "Rice porridge and noodle bowls, plus simple Shanghai dishes. Open around the clock, so good for very early or very late.",
+          why: "Michelin-listed noodle shop.",
+          address: "22, Lane 494 Middle Huaihai Rd 淮海中路494弄22号",
+          hours: "Open 24 hours",
+          amap: "顶特勒 淮海中路"
         }
       ],
       otherOptions: [
@@ -1438,19 +1559,7 @@ TRIP.shanghai = {
           label: "Wander",
           title: "Century Park & around",
           detail: "No agenda: loop the lake, then drift through the streets and malls nearby.",
-          amap: "世纪公园",
-          wander: [
-            {
-              name: "AP Plaza 亚太新阳服饰礼品市场",
-              note: "The famous underground market at Science & Technology Museum metro: bags, clothes, gadgets. Bargain hard!",
-              amap: "亚太新阳服饰礼品市场"
-            },
-            {
-              name: "Century Ave 世纪大道",
-              note: "Walk the big boulevard toward Lujiazui for the skyline.",
-              amap: "世纪大道"
-            }
-          ]
+          amap: "世纪公园"
         },
         {
           time: "16:30",
@@ -1460,19 +1569,7 @@ TRIP.shanghai = {
           detail: "MAP is open until 21:00.",
           address: "2777 Binjiang Ave 滨江大道2777号",
           amap: "浦东美术馆",
-          metro: "Line 2 to Lujiazui 陆家嘴, then walk to the river. Two stops back to the hotel after.",
-          wander: [
-            {
-              name: "Binjiang Ave promenade 滨江大道",
-              note: "Riverside walk with the Bund straight across.",
-              amap: "滨江大道"
-            },
-            {
-              name: "IFC Mall 国金中心",
-              note: "Big mall right by the towers, good for a warm-up stop.",
-              amap: "上海国金中心"
-            }
-          ]
+          metro: "Line 2 to Lujiazui 陆家嘴, then walk to the river. Two stops back to the hotel after."
         },
         {
           time: "Dinner",
@@ -1510,6 +1607,79 @@ TRIP.shanghai = {
           dianping: "蟹粉面"
         }
       ],
+      explore: {
+        Morning: [
+          {
+            name: "Waibaidu Bridge",
+            zh: "外白渡桥",
+            kind: "Bridge",
+            about: "The 1907 steel bridge where Suzhou Creek meets the Huangpu. The turnaround point of our run.",
+            amap: "外白渡桥"
+          },
+          {
+            name: "Yuanmingyuan Rd",
+            zh: "圆明园路",
+            kind: "Old buildings",
+            about: "Quiet street of restored 1920s and 30s buildings just behind the north end of the Bund. Good photos without the crowds.",
+            amap: "圆明园路"
+          }
+        ],
+        Midday: [
+          {
+            name: "Century Ave",
+            zh: "世纪大道",
+            kind: "Walk",
+            about: "Wide boulevard with sculptures that runs from the museum toward Lujiazui.",
+            amap: "世纪大道"
+          }
+        ],
+        Afternoon: [
+          {
+            name: "AP Plaza market",
+            zh: "亚太新阳服饰礼品市场",
+            kind: "Market",
+            about: "Underground market at Science & Technology Museum station: clothes, bags, tailoring and souvenirs. Haggle hard.",
+            amap: "亚太新阳服饰礼品市场"
+          },
+          {
+            name: "Lujiazui Circular Bridge",
+            zh: "陆家嘴环形天桥",
+            kind: "Viewpoint",
+            about: "Big round footbridge between the towers, good for photos of the Oriental Pearl Tower.",
+            amap: "陆家嘴环形天桥"
+          },
+          {
+            name: "Binjiang Ave promenade",
+            zh: "滨江大道",
+            kind: "Riverside walk",
+            about: "Riverside path on the Pudong side with the best view back to the Bund.",
+            amap: "滨江大道"
+          },
+          {
+            name: "IFC Mall",
+            zh: "国金中心",
+            kind: "Mall",
+            about: "Glossy mall right at Lujiazui station. Good for a warm break and clean bathrooms.",
+            amap: "上海国金中心商场"
+          }
+        ],
+        Evening: [
+          {
+            name: "Peace Hotel",
+            zh: "和平饭店",
+            kind: "Historic hotel",
+            about: "The 1929 hotel with the green pyramid roof on the Bund. Walk through the art deco lobby; the Old Jazz Bar has a band most nights.",
+            amap: "和平饭店"
+          },
+          {
+            name: "The Bund at night",
+            zh: "外滩",
+            kind: "Sight",
+            about: "If we missed it on Sunday: the banks are lit up and the Pudong skyline glows across the river.",
+            amap: "外滩"
+          }
+        ]
+      },
       food: {
         items: [
           {
@@ -1575,33 +1745,46 @@ TRIP.shanghai = {
       foodIdeas: [
         {
           meal: "Breakfast",
+          area: "Near the hotel",
           dish: "Pork chop with rice cakes 排骨年糕",
+          short: "fried pork chop with chewy rice cakes",
           name: "Xian De Lai 鲜得来",
-          why: "Classic Shanghai pork chop, from our list, 10 min from the hotel.",
+          what: "A crispy fried pork chop with chewy rice cakes in a sweet soy sauce.",
+          why: "Classic Shanghai pork chop, 10 min from the hotel.",
           address: "290–292 Ninghai East Rd 宁海东路290号",
           amap: "宁海东路290号"
         },
         {
           meal: "Dinner",
+          area: "Near the hotel",
           dish: "Sesame noodles 麻酱面",
+          short: "noodles in rich sesame sauce",
           name: "Wei Xiang Zhai 味香斋",
-          why: "Michelin-selected, if we skip the crab. Our note says 151 Hubei Rd; the screenshot lists a Yandang Rd branch.",
-          address: "Confirm branch in Amap",
-          amap: "味香斋"
+          what: "Noodles tossed in rich sesame paste with soy and a little vinegar.",
+          why: "Michelin-selected, if we skip the crab. There's also a branch on Yandang Rd.",
+          address: "151 Hubei Rd 湖北路151号",
+          amap: "味香斋",
+          hours: "7:30–20:30"
         },
         {
           meal: "Dinner",
+          area: "Near the hotel",
           dish: "Braised pork noodles 焖肉面",
+          short: "noodles topped with melt-soft pork belly",
           name: "De Xing Guan 德兴馆",
+          what: "Noodles in soy broth topped with a slab of slow-braised pork belly that melts in the mouth.",
           why: "Since 1878, Michelin Guide, 10 min from the hotel.",
           address: "471 Guangdong Rd 广东路471号",
           amap: "德兴馆 广东路"
         },
         {
           meal: "Dinner",
+          area: "Near the hotel",
           dish: "Beef noodle soup 牛肉面",
+          short: "clear beef broth noodles",
           name: "Zhang Ji Niu Rou Mian Guan 张记牛肉面馆",
-          why: "Locally run, from our list, a few steps from the hotel.",
+          what: "Noodles in a clear beef broth with sliced beef. A quick, cheap bowl.",
+          why: "Locally run, a few steps from the hotel.",
           address: "530 Tianjin Rd 天津路530号",
           amap: "天津路530号"
         }
@@ -1680,15 +1863,7 @@ TRIP.shanghai = {
           label: "See",
           title: "Jing'an Temple",
           address: "1686 Nanjing West Rd 南京西路1686号",
-          amap: "静安寺",
-          wander: [
-            {
-              name: "Yuyuan Rd 愚园路",
-              note: "One of the best streets for small boutiques, lane houses and cafes, a few minutes west.",
-              amap: "愚园路"
-            },
-            { name: "Jing'an Park 静安公园", note: "Small park across the road from the temple.", amap: "静安公园" }
-          ]
+          amap: "静安寺"
         },
         {
           time: "Lunch",
@@ -1719,19 +1894,7 @@ TRIP.shanghai = {
           detail: "Galleries, studios, design shops.",
           address: "50 Moganshan Rd 莫干山路50号",
           amap: "莫干山路50号",
-          metro: "Line 13 to Jiangning Rd 江宁路, then about 10 min on foot.",
-          wander: [
-            {
-              name: "Suzhou Creek walk 苏州河",
-              note: "Follow the creek path past old warehouses and bridges.",
-              amap: "苏州河步道"
-            },
-            {
-              name: "Moganshan Rd graffiti wall",
-              note: "The long painted wall along the street.",
-              amap: "莫干山路"
-            }
-          ]
+          metro: "Line 13 to Jiangning Rd 江宁路, then about 10 min on foot."
         },
         {
           time: "15:15",
@@ -1740,20 +1903,7 @@ TRIP.shanghai = {
           title: "West Nanjing Rd & around",
           detail: "Shopping round 1: the big malls, plus the lanes and side streets behind them.",
           amap: "南京西路",
-          metro: "Line 13 back to West Nanjing Rd 南京西路.",
-          wander: [
-            {
-              name: "Zhangyuan 张园",
-              note: "Restored shikumen block reopened as shops and pop-ups, right off the main road.",
-              amap: "张园"
-            },
-            { name: "Wujiang Rd 吴江路", note: "Snack street, and where Yang's sheng jian is.", amap: "吴江路" },
-            {
-              name: "Jing'an Kerry Centre 静安嘉里中心",
-              note: "Mall with a nice courtyard and design shops.",
-              amap: "静安嘉里中心"
-            }
-          ]
+          metro: "Line 13 back to West Nanjing Rd 南京西路."
         },
         {
           time: "16:30",
@@ -1834,6 +1984,114 @@ TRIP.shanghai = {
           amap: "ChairClub"
         }
       ],
+      explore: {
+        Morning: [
+          {
+            name: "Jing'an Sculpture Park",
+            zh: "静安雕塑公园",
+            kind: "Park + art",
+            about: "Free park full of big outdoor sculptures, a few minutes from our breakfast spot. The spiral-shell building at the north end is the Shanghai Natural History Museum.",
+            amap: "静安雕塑公园"
+          },
+          {
+            name: "Jing'an Park",
+            zh: "静安公园",
+            kind: "Park",
+            about: "Right across from the temple. Huge old plane trees, a little pond, and locals doing tai chi and dancing in the morning.",
+            amap: "静安公园"
+          },
+          {
+            name: "Yuyuan Rd",
+            zh: "愚园路",
+            kind: "Street",
+            about: "Quiet, tree-lined street a few minutes west of the temple, full of old lane houses, small boutiques and cafes. Good for a slow wander.",
+            amap: "愚园路"
+          },
+          {
+            name: "Changde Apartments",
+            zh: "常德公寓",
+            kind: "Literary spot",
+            about: "The 1930s apartment block where the writer Eileen Chang lived in the 1940s. Usually there's a little cafe-bookshop on the ground floor.",
+            amap: "常德公寓"
+          }
+        ],
+        Midday: [
+          {
+            name: "Jade Buddha Temple",
+            zh: "玉佛禅寺",
+            kind: "Temple",
+            about: "Working Buddhist temple from 1882, famous for two Buddhas carved from white Burmese jade. About a 15-minute walk from M50, so it's easy to add before or after.",
+            amap: "玉佛禅寺"
+          },
+          {
+            name: "Suzhou Creek walk",
+            zh: "苏州河步道",
+            kind: "Walk",
+            about: "Follow the creek path past old warehouses and bridges. Runs right behind M50.",
+            amap: "苏州河步道"
+          },
+          {
+            name: "Moganshan Rd graffiti wall",
+            zh: "莫干山路涂鸦墙",
+            kind: "Street art",
+            about: "The long painted wall along the road outside M50. It changes all the time.",
+            amap: "莫干山路"
+          },
+          {
+            name: "Sihang Warehouse",
+            zh: "四行仓库",
+            kind: "History",
+            about: "Where Chinese soldiers held off the Japanese army in 1937 (the \"Eight Hundred Heroes\"). The west wall still has the shell holes, and there's a free museum inside; it may need a free booking on WeChat. About 30 min east along the creek.",
+            amap: "四行仓库抗战纪念馆"
+          }
+        ],
+        Afternoon: [
+          {
+            name: "Zhangyuan",
+            zh: "张园",
+            kind: "Old lanes",
+            about: "A block of restored shikumen (the stone-gate lane houses Shanghai is famous for), reopened as shops and pop-ups right off the main road.",
+            amap: "张园"
+          },
+          {
+            name: "Shanghai Exhibition Centre",
+            zh: "上海展览中心",
+            kind: "Architecture",
+            about: "The giant Soviet-style building with a gold spire, built in 1955 as the Sino-Soviet Friendship Building. Best seen from the front plaza on Yan'an Rd.",
+            amap: "上海展览中心"
+          },
+          {
+            name: "Wujiang Rd",
+            zh: "吴江路",
+            kind: "Snack street",
+            about: "Pedestrian street of snack shops behind the malls. Yang's sheng jian is here.",
+            amap: "吴江路"
+          },
+          {
+            name: "Jing'an Kerry Centre",
+            zh: "静安嘉里中心",
+            kind: "Mall",
+            about: "Mall with a nice open courtyard and design shops, if we want something calmer than the big flagships.",
+            amap: "静安嘉里中心"
+          }
+        ],
+        Evening: [
+          {
+            name: "Columbia Circle",
+            zh: "上生·新所",
+            kind: "Old club, now shops",
+            about: "The 1920s Columbia Country Club, restored with its old pool house, cafes and shops, open into the evening. About 15 min on foot from dinner.",
+            amap: "上生新所"
+          },
+          {
+            name: "Jing'an Temple at night",
+            zh: "静安寺",
+            kind: "Sight",
+            about: "On the way back on Line 2: the gold roofs are lit up after dark and look great from Nanjing West Rd.",
+            amap: "静安寺"
+          }
+        ]
+      },
       food: {
         items: [
           {
@@ -1896,35 +2154,141 @@ TRIP.shanghai = {
       foodIdeas: [
         {
           meal: "Coffee",
+          area: "Jing'an",
           dish: "Coffee",
+          short: "specialty coffee",
           name: "Coffee Spot",
+          what: "Pour-overs and espresso from a tiny specialty coffee bar.",
           why: "Hidden in an old guardhouse inside a residential compound; taste one bean three ways.",
           address: "No. 4, Lane 838 West Beijing Rd 北京西路838弄4号",
           amap: "北京西路838弄"
         },
         {
           meal: "Lunch",
+          area: "Jing'an",
           dish: "Wuxi-style noodles 无锡面",
+          short: "slightly sweet soy-broth noodles",
           name: "Jingmei Wuxi Noodles (Yanping Rd)",
-          why: "Michelin Bib Gourmand from our list, slightly sweet Wuxi-style noodles, in Jing'an.",
+          what: "Noodles in a slightly sweet soy broth with toppings like braised pork. Wuxi, a city near Shanghai, likes its food on the sweet side.",
+          why: "Michelin Bib Gourmand, in Jing'an.",
           address: "Yanping Rd 延平路",
           amap: "Jingmei Wuxi Noodles Yanping Road"
         },
         {
           meal: "Snack",
+          area: "Jing'an",
           dish: "Sheng jian bao 生煎",
+          short: "pan-fried pork buns with soup inside",
           name: "Yang's Dumplings 小杨生煎",
+          what: "Pan-fried pork buns: fluffy on top, crispy on the bottom, with hot soup inside.",
           why: "Right off West Nanjing Rd, open 6:30 AM to 11 PM.",
           address: "178 Wujiang Rd 吴江路178号",
           amap: "小杨生煎 吴江路"
         },
         {
           meal: "Dinner",
+          area: "Near Maoming Rd",
           dish: "Braised pork 红烧肉",
+          short: "sweet, glossy red-braised pork belly",
           name: "Mao Long 茂隆",
+          what: "Red-braised pork belly: glossy, sweet and soy-dark, slow-cooked until soft.",
           why: "Michelin Bib Gourmand home cooking, proud of its braised pork. Five tables, cash only. Call ahead: +86 21 6256 1167.",
           address: "134 Jinxian Rd 进贤路134号",
           amap: "茂隆餐厅 进贤路"
+        },
+        {
+          meal: "Breakfast",
+          area: "People's Square",
+          dish: "Jianbing 煎饼",
+          short: "egg crepe with a crispy cracker",
+          name: "Dingxing Rd Jianbing 定兴路蛋饼",
+          what: "Chinese street crepe: a thin egg crepe folded around a crispy cracker, savory sauces, scallion and coriander.",
+          why: "Viral street stall near People's Square Station, Exit 8.",
+          tip: "Ask for spicy or not (要辣 / 不要辣), and with or without coriander (要香菜 / 不要香菜).",
+          address: "No. 6 Dingxing Rd 定兴路6号",
+          amap: "定兴路蛋饼"
+        },
+        {
+          meal: "Lunch",
+          area: "Jing'an",
+          dish: "Shanghai noodles 上海面",
+          short: "soy-broth noodles with braised toppings",
+          name: "Ren He Mian Guan 人和面馆",
+          what: "Neighborhood noodle shop: soy-broth or scallion oil noodles with toppings like braised pork or a fried pork chop.",
+          why: "Michelin-listed noodle shop. At the temple end of Yuyuan Rd.",
+          address: "1F, 142 Yuyuan Rd 愚园路142号",
+          hours: "11:00–21:00",
+          amap: "人和面馆 愚园路",
+          dianping: "上海面馆"
+        },
+        {
+          meal: "Dinner",
+          area: "Changning (Tianshan Rd)",
+          dish: "Xiao long bao 小笼包",
+          short: "soup dumplings",
+          name: "Shan Shan Xiao Long 珊珊小笼",
+          what: "Steamed soup dumplings: a thin wrapper around pork and hot broth. Nibble a small hole and sip the soup first.",
+          why: "Line 2 to Loushanguan Rd 娄山关路, one stop past Zhongshan Park.",
+          address: "842 Loushanguan Rd 娄山关路842号",
+          hours: "6:00–20:00",
+          amap: "珊珊小笼 娄山关路"
+        },
+        {
+          meal: "Snack",
+          area: "Changning (Tianshan Rd)",
+          dish: "Sheng jian bao 生煎",
+          short: "pan-fried pork buns with soup inside",
+          name: "Xu Ji Sheng Jian 许记生煎",
+          what: "Pan-fried pork buns: fluffy on top, crispy on the bottom, with hot soup inside.",
+          why: "Closes early.",
+          address: "565-1 Zunyi Rd 遵义路565-1号",
+          hours: "6:30–17:30",
+          amap: "许记生煎 遵义路"
+        },
+        {
+          meal: "Dinner",
+          area: "Changning (Tianshan Rd)",
+          dish: "Local snacks 小吃",
+          short: "noodles, wontons and Shanghai snacks",
+          name: "Yu Hua Yin Shi Dian 玉华饮食店",
+          what: "Old-style neighborhood eatery for noodles, wontons and Shanghai snacks.",
+          address: "298 Maotai Rd 茅台路298号",
+          hours: "6:00–21:00",
+          amap: "玉华饮食店 茅台路"
+        },
+        {
+          meal: "Snack",
+          area: "Changning (Tianshan Rd)",
+          dish: "Sheng jian bao 生煎",
+          short: "pan-fried pork buns with soup inside",
+          name: "Yang's Dumplings 小杨生煎 (Tianshan Rd)",
+          what: "Pan-fried pork buns: fluffy on top, crispy on the bottom, with hot soup inside.",
+          why: "The Tianshan Rd branch, in a mall basement.",
+          address: "B1, East Tower, Parkson U-City Plaza, Tianshan Rd 天山路百盛优客城市广场东楼B1",
+          hours: "10:00–21:30",
+          amap: "小杨生煎 百盛优客"
+        },
+        {
+          meal: "Snack",
+          area: "Changning (Tianshan Rd)",
+          dish: "Fresh cream cake squares 鲜奶小方",
+          short: "light sponge with whipped cream",
+          name: "Hong Bao Shi 红宝石",
+          what: "A Shanghai bakery classic: small squares of light sponge and fresh whipped cream.",
+          address: "1F, Huijin Department Store, 900 Tianshan Rd 天山路900号汇金百货1楼",
+          hours: "8:30–22:00",
+          amap: "红宝石 天山路"
+        },
+        {
+          meal: "Snack",
+          area: "Changning (Tianshan Rd)",
+          dish: "Milk tea 奶茶",
+          short: "fresh-brewed tea with milk",
+          name: "Ba Wang Cha Ji 霸王茶姬",
+          what: "Popular Chinese tea chain: freshly brewed tea with milk, lighter than bubble tea. The jasmine milk tea (伯牙绝弦) is the famous one.",
+          address: "1F, East Tower, Parkson U-City Plaza, Loushanguan Rd 娄山关路百盛优客城市广场东楼1楼",
+          hours: "8:00–22:00",
+          amap: "霸王茶姬 百盛优客"
         }
       ],
       otherOptions: [
@@ -1992,16 +2356,6 @@ TRIP.shanghai = {
             { label: "Musinsa", amap: "MUSINSA安福路" }
           ],
           metro: "All walkable from Wunder. Closest station for the way back: Jiaotong University 交通大学 (Lines 10, 11).",
-          wander: [
-            { name: "Fumin Rd 富民路", note: "Indie boutiques and cafes, crosses Changle Rd.", amap: "富民路" },
-            { name: "Changle Rd 长乐路", note: "Small fashion and vintage shops.", amap: "长乐路" },
-            { name: "Julu Rd 巨鹿路", note: "Lane houses, restaurants and bars.", amap: "巨鹿路" },
-            {
-              name: "Xiangyang South Rd 襄阳南路",
-              note: "Cafes, including Honky Tonk and the herbal gelato shop.",
-              amap: "襄阳南路"
-            }
-          ],
           alsoShowNotes: [
             "Salomon \"Fu Jun\"",
             "Musinsa Store",
@@ -2096,6 +2450,86 @@ TRIP.shanghai = {
           amap: "Cozy Music Lab"
         }
       ],
+      explore: {
+        Morning: [
+          {
+            name: "Wukang Building",
+            zh: "武康大楼",
+            kind: "Architecture",
+            about: "The 1924 flatiron apartment building at the end of Wukang Rd, the most photographed corner of the French Concession.",
+            amap: "武康大楼"
+          },
+          {
+            name: "Ferguson Lane",
+            zh: "武康庭",
+            kind: "Courtyard",
+            about: "Little courtyard of cafes and shops on Wukang Rd.",
+            amap: "武康庭"
+          },
+          {
+            name: "Changle Rd",
+            zh: "长乐路",
+            kind: "Street",
+            about: "Small boutiques and cafes in old lane houses.",
+            amap: "长乐路"
+          },
+          {
+            name: "Fumin Rd & Julu Rd",
+            zh: "富民路 / 巨鹿路",
+            kind: "Streets",
+            about: "Short, leafy streets of cafes, indie shops and small bars.",
+            amap: "富民路"
+          },
+          {
+            name: "Xiangyang South Rd",
+            zh: "襄阳南路",
+            kind: "Street",
+            about: "Cafes, and the Chinese-medicine gelato shop from our list.",
+            amap: "襄阳南路"
+          }
+        ],
+        Midday: [
+          {
+            name: "Soong Ching-ling's former residence",
+            zh: "宋庆龄故居",
+            kind: "History",
+            about: "The calm villa and garden where Sun Yat-sen's widow lived, on Huaihai Middle Rd near Wukang Rd.",
+            amap: "宋庆龄故居"
+          }
+        ],
+        Afternoon: [
+          {
+            name: "Ba Jin's former residence",
+            zh: "巴金故居",
+            kind: "Literary spot",
+            about: "Garden house of the writer Ba Jin on Wukang Rd. Small, free and very calm.",
+            amap: "巴金故居"
+          },
+          {
+            name: "Fuxing West Rd",
+            zh: "复兴西路",
+            kind: "Old villas",
+            about: "Quiet plane-tree street of 1930s villas around our tea house.",
+            amap: "复兴西路"
+          },
+          {
+            name: "Hengshan Rd",
+            zh: "衡山路",
+            kind: "Street",
+            about: "Tree-lined avenue of old villas and the 1925 Community Church. Maybe the \"Henghi Xuhui\" from our notes.",
+            amap: "衡山路"
+          }
+        ],
+        Evening: [
+          {
+            name: "Julu Rd at night",
+            zh: "巨鹿路",
+            kind: "Bars",
+            about: "A string of small cocktail bars and wine bars, if we want one more stop after the music.",
+            amap: "巨鹿路"
+          }
+        ]
+      },
       food: {
         items: [
           {
@@ -2196,27 +2630,61 @@ TRIP.shanghai = {
       foodIdeas: [
         {
           meal: "Lunch",
+          area: "French Concession",
           dish: "Home-style Shanghainese 本帮家常菜",
+          short: "everyday Shanghai home cooking to share",
           name: "Yongxing Restaurant",
+          what: "Everyday Shanghai home cooking: sweet-savory braises, greens and small plates to share.",
           why: "In an old French Concession lane; salted-egg-yolk duck rolls and salt and pepper spare ribs.",
           address: "No. 1, Lane 626 Middle Fuxing Rd 复兴中路626弄1号",
           amap: "复兴中路626弄1号"
         },
         {
           meal: "Lunch",
+          area: "Near Xintiandi",
           dish: "Braised pork belly noodles 焖肉面",
+          short: "noodles topped with melt-soft pork belly",
           name: "Lao Di Fang Mian Guan 老地方面馆",
-          why: "Michelin Bib Gourmand noodle shop from our list. Cash only.",
+          what: "Noodles in soy broth topped with a slab of slow-braised pork belly that melts in the mouth.",
+          why: "Michelin Bib Gourmand noodle shop. Cash only.",
           address: "107 Sinan Rd 思南路107号",
-          amap: "老地方面馆 思南路"
+          amap: "老地方面馆 思南路",
+          hours: "7:00–10:00, 11:00–14:30, 17:00–19:30 (check weekends)"
         },
         {
           meal: "Snack",
+          area: "French Concession",
           dish: "Herbal gelato + homemade cola",
+          short: "Chinese-herb gelato and cola",
           name: "Chinese-medicine gelato shop",
-          why: "From our list, right next to ALOHA Coffee on Xiangyang South Rd.",
+          what: "Gelato flavored with Chinese herbs, plus a homemade cola with herbal notes.",
+          why: "Right next to ALOHA Coffee on Xiangyang South Rd.",
           address: "267 Xiangyang South Rd 襄阳南路267号",
           amap: "襄阳南路267号"
+        },
+        {
+          meal: "Breakfast",
+          area: "French Concession",
+          dish: "Noodles with spicy pork 辣肉面",
+          short: "noodles with mildly spicy minced pork",
+          name: "Xiao Tao Mian Guan 小陶面馆",
+          what: "Noodles topped with minced pork in a mildly spicy sauce, often with scallion oil.",
+          why: "Michelin Bib Gourmand noodle shop. Breakfast and lunch only.",
+          address: "222 Jiashan Rd 嘉善路222号",
+          hours: "6:00–14:00",
+          amap: "小陶面馆 嘉善路"
+        },
+        {
+          meal: "Lunch",
+          area: "Near Xintiandi",
+          dish: "Congee and noodles 粥 / 面",
+          short: "rice porridge and noodle bowls, open 24 hours",
+          name: "Ding Te Le 顶特勒",
+          what: "Rice porridge and noodle bowls, plus simple Shanghai dishes. Open around the clock, so good for very early or very late.",
+          why: "Michelin-listed noodle shop.",
+          address: "22, Lane 494 Middle Huaihai Rd 淮海中路494弄22号",
+          hours: "Open 24 hours",
+          amap: "顶特勒 淮海中路"
         }
       ],
       otherOptions: [
@@ -2336,20 +2804,7 @@ TRIP.shanghai = {
           detail: "Walk the old docks-turned-promenade along the Huangpu, and see the Long Museum built around an old coal-unloading bridge. Closed Mondays.",
           address: "3398 Longteng Ave 龙腾大道3398号",
           amap: "龙美术馆西岸馆",
-          metro: "Line 11 one stop to Yunjin Rd 云锦路, then walk to the river.",
-          wander: [
-            {
-              name: "Xuhui riverside 徐汇滨江",
-              note: "Long riverside promenade; keep walking north along the water.",
-              amap: "徐汇滨江"
-            },
-            {
-              name: "Yuz Museum 余德耀美术馆",
-              note: "Another big art museum on the same stretch.",
-              amap: "余德耀美术馆"
-            }
-          ],
-          alsoShowNotes: ["People's Park & Square"]
+          metro: "Line 11 one stop to Yunjin Rd 云锦路, then walk to the river."
         },
         {
           time: "16:30",
@@ -2359,15 +2814,7 @@ TRIP.shanghai = {
           detail: "Maze of 1930s shikumen lanes with tiny shops, studios and cafes. Then walk about 20 min to Yongkang Rd for dinner.",
           address: "Lane 210 Taikang Rd 泰康路210弄",
           amap: "田子坊",
-          metro: "Line 11 to Xujiahui 徐家汇, change to Line 9 for Dapuqiao 打浦桥.",
-          wander: [
-            { name: "Taikang Rd 泰康路", note: "The street outside the lanes.", amap: "泰康路" },
-            {
-              name: "Walk to Yongkang Rd 永康路",
-              note: "About 20 min through the French Concession to dinner.",
-              amap: "永康路"
-            }
-          ]
+          metro: "Line 11 to Xujiahui 徐家汇, change to Line 9 for Dapuqiao 打浦桥."
         },
         {
           time: "19:00",
@@ -2395,6 +2842,65 @@ TRIP.shanghai = {
           detail: "It will be much colder."
         }
       ],
+      explore: {
+        Morning: [
+          {
+            name: "Qiantan Taikoo Li",
+            zh: "前滩太古里",
+            kind: "Mall",
+            about: "Open-air mall next to the riverside park, with a rooftop running track and river views.",
+            amap: "前滩太古里"
+          },
+          {
+            name: "Houtan Park",
+            zh: "后滩公园",
+            kind: "Park",
+            about: "Wetland park along the river, built for Expo 2010. A little north of Qiantan.",
+            amap: "后滩公园"
+          }
+        ],
+        Midday: [
+          {
+            name: "Longhua Martyrs' Cemetery",
+            zh: "龙华烈士陵园",
+            kind: "Park + history",
+            about: "Big, quiet memorial park right next to the temple, with lawns and a peach orchard.",
+            amap: "龙华烈士陵园"
+          }
+        ],
+        Afternoon: [
+          {
+            name: "Xuhui riverside",
+            zh: "徐汇滨江",
+            kind: "Riverside",
+            about: "Old docks and cranes turned into a long riverside park with skaters and cafes.",
+            amap: "徐汇滨江"
+          },
+          {
+            name: "Tank Shanghai",
+            zh: "油罐艺术中心",
+            kind: "Art",
+            about: "Art center inside five old aviation fuel tanks on the West Bund.",
+            amap: "油罐艺术中心"
+          },
+          {
+            name: "Taikang Rd",
+            zh: "泰康路",
+            kind: "Street",
+            about: "The street outside Tianzifang, with snack stalls and more shops.",
+            amap: "泰康路"
+          }
+        ],
+        Evening: [
+          {
+            name: "Yongkang Rd",
+            zh: "永康路",
+            kind: "Bars",
+            about: "Short street of small bars and cafes, where Eight is. Fun for a drink before or after.",
+            amap: "永康路"
+          }
+        ]
+      },
       food: {
         items: [
           {
@@ -2446,31 +2952,35 @@ TRIP.shanghai = {
       ],
       foodIdeas: [
         {
-          meal: "Lunch",
-          dish: "Braised pork noodles 焖肉面",
-          name: "Any noodle shop near Longhua",
-          why: "If the temple kitchen is closed, tap Dianping for 焖肉面 nearby."
-        },
-        {
           meal: "Snack",
+          area: "Near Xintiandi",
           dish: "Braised pork belly noodles 焖肉面",
+          short: "noodles topped with melt-soft pork belly",
           name: "Lao Di Fang Mian Guan 老地方面馆",
-          why: "Michelin Bib Gourmand from our list, near Tianzifang. Cash only.",
+          what: "Noodles in soy broth topped with a slab of slow-braised pork belly that melts in the mouth.",
+          why: "Michelin Bib Gourmand near Tianzifang. Cash only.",
           address: "107 Sinan Rd 思南路107号",
-          amap: "老地方面馆 思南路"
+          amap: "老地方面馆 思南路",
+          hours: "7:00–10:00, 11:00–14:30, 17:00–19:30 (check weekends)"
         },
         {
           meal: "Snack",
+          area: "Xuhui",
           dish: "Gelato",
+          short: "unusual perfume-like flavors",
           name: "313 Mento",
+          what: "Gelato in unusual, perfume-like flavor pairings.",
           why: "Minimalist gelato on LiXi Rd, flavors curated like perfume.",
           address: "LiXi Rd 丽西路",
           amap: "313 Mento"
         },
         {
           meal: "Dinner",
+          area: "Near Maoming Rd",
           dish: "Braised pork 红烧肉",
+          short: "sweet, glossy red-braised pork belly",
           name: "Mao Long 茂隆",
+          what: "Red-braised pork belly: glossy, sweet and soy-dark, slow-cooked until soft.",
           why: "If Eight falls through: Michelin Bib Gourmand home cooking near Yongkang Rd. Call ahead: +86 21 6256 1167.",
           address: "134 Jinxian Rd 进贤路134号",
           amap: "茂隆餐厅 进贤路"
@@ -2560,6 +3070,31 @@ TRIP.shanghai = {
           amap: "上海虹桥站"
         }
       ],
+      explore: {
+        Morning: [
+          {
+            name: "Shanghai Museum (People's Square)",
+            zh: "上海博物馆",
+            kind: "Museum",
+            about: "The original museum, shaped like an ancient bronze cooking pot. Free, but it may need a reservation. Good if we have an hour before the train.",
+            amap: "上海博物馆人民广场"
+          },
+          {
+            name: "Fuzhou Rd bookstores",
+            zh: "福州路",
+            kind: "Books",
+            about: "Last chance for art books and stationery at Shanghai Book City.",
+            amap: "上海书城 福州路"
+          },
+          {
+            name: "Hongqiao Tiandi",
+            zh: "虹桥天地",
+            kind: "Mall",
+            about: "Mall by Hongqiao Airport T2, a stop from the station on Line 2 or 10. Has a bigger Deja Vu Recycle branch if there's time before the train.",
+            amap: "虹桥天地"
+          }
+        ]
+      },
       food: {
         items: [
           {
@@ -2597,27 +3132,75 @@ TRIP.shanghai = {
       foodIdeas: [
         {
           meal: "Breakfast",
+          area: "Near the hotel",
           dish: "Sheng jian bao 生煎",
+          short: "pan-fried pork buns with soup inside",
           name: "Da Hu Chun 大壶春",
+          what: "Pan-fried pork buns: fluffy on top, crispy on the bottom, with hot soup inside.",
           why: "Michelin Bib Gourmand, near the hotel, opens 8 AM.",
           address: "136 Middle Sichuan Rd 四川中路136号",
-          amap: "大壶春 四川中路"
+          amap: "大壶春 四川中路",
+          hours: "8:00–21:00"
         },
         {
           meal: "Lunch",
+          area: "Near the hotel",
           dish: "Xiao long bao 小笼包",
+          short: "soup dumplings",
           name: "Lai Lai Xiao Long 莱莱小笼",
+          what: "Steamed soup dumplings: a thin wrapper around pork and hot broth. Nibble a small hole and sip the soup first.",
           why: "One more round of pork soup dumplings, five minutes from the hotel.",
           address: "506 Tianjin Rd 天津路506号",
           amap: "天津路506号"
         },
         {
           meal: "Snack",
+          area: "Near the hotel",
           dish: "Mooncakes + sticky rice balls for the train",
+          short: "warm pork mooncakes and sweet rice balls",
           name: "Zhen Lao Da Fang 真老大房 & Shen Da Cheng 沈大成",
+          what: "Fresh-meat mooncakes are flaky pastry filled with savory pork, served warm. Double-filled rice balls (双酿团) are soft, chewy balls filled with red bean and black sesame.",
           why: "Grab fresh-meat mooncakes and glutinous rice balls on Nanjing East Rd before we go.",
           address: "536 & 636 Nanjing East Rd 南京东路536号",
           amap: "南京东路536号"
+        },
+        {
+          meal: "Breakfast",
+          area: "People's Square",
+          dish: "Jianbing 煎饼",
+          short: "egg crepe with a crispy cracker",
+          name: "Dingxing Rd Jianbing 定兴路蛋饼",
+          what: "Chinese street crepe: a thin egg crepe folded around a crispy cracker, savory sauces, scallion and coriander.",
+          why: "Viral street stall near People's Square Station, Exit 8.",
+          tip: "Ask for spicy or not (要辣 / 不要辣), and with or without coriander (要香菜 / 不要香菜).",
+          address: "No. 6 Dingxing Rd 定兴路6号",
+          amap: "定兴路蛋饼"
+        },
+        {
+          meal: "Lunch",
+          area: "Near the hotel",
+          dish: "Shanghai noodles 上海面",
+          short: "soy-broth noodles with braised toppings",
+          name: "Yong Feng Mian Guan 永丰面馆",
+          what: "Classic benbang noodle shop: soy-broth or tossed noodles with toppings like braised pork or fried eel.",
+          why: "Michelin-listed noodle shop.",
+          address: "320 Hankou Rd 汉口路320号",
+          hours: "7:00–21:00",
+          amap: "永丰面馆 汉口路",
+          dianping: "上海面馆"
+        },
+        {
+          meal: "Lunch",
+          area: "Near the hotel",
+          dish: "Shanghai noodles 上海面",
+          short: "soy-broth noodles with braised toppings",
+          name: "Fu Xing Mian Wang 复兴面王",
+          what: "Shanghai-style noodles in soup or tossed, with a choice of toppings.",
+          why: "Michelin-listed noodle shop.",
+          address: "Shop 101B, West Wing 1F, 355–377 Fuzhou Rd 福州路355号",
+          hours: "8:00–21:00",
+          amap: "复兴面王 福州路",
+          dianping: "上海面馆"
         }
       ],
       otherOptions: []

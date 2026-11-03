@@ -66,14 +66,17 @@
   .tab.today small { color: var(--tc); font-weight: 800; }
 
   /* Deck */
-  .deck { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 18px 0 48px; }
-  .deck::-webkit-scrollbar { display: none; }
-  .slot { flex: 0 0 100%; scroll-snap-align: center; padding: 0 14px; display: flex; justify-content: center; }
+  .deck { padding: 18px 0 48px; overflow-x: hidden; }
+  .slot { padding: 0 14px; display: flex; justify-content: center; }
+  .slot.in-right { animation: inRight .22s ease-out; }
+  .slot.in-left { animation: inLeft .22s ease-out; }
+  @keyframes inRight { from { transform: translateX(28px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes inLeft { from { transform: translateX(-28px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .slot { animation: none !important; } }
   .card {
     width: 100%; max-width: 560px; background: var(--card); border-radius: 18px; overflow: hidden;
-    box-shadow: var(--shadow); transition: transform .35s ease, opacity .35s ease;
+    box-shadow: var(--shadow);
   }
-  .slot.away .card { transform: scale(.95); opacity: .5; }
 
   /* Hero: the station sign */
   .hero { background: var(--c); color: #fff; padding: 18px 20px 0; overflow: hidden; }
@@ -116,6 +119,7 @@
 
   /* About this place */
   .about { margin-top: 10px; }
+  .about + .about { margin-top: 8px; }
   .about summary { list-style: none; cursor: pointer; font: 700 13.5px/1 Archivo, sans-serif; color: var(--at); display: inline-flex; align-items: center; gap: 7px; }
   .about summary::-webkit-details-marker { display: none; }
   .about summary::before { content: "i"; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--c); display: grid; place-items: center; font: italic 700 11px/1 Georgia, serif; }
@@ -235,6 +239,60 @@
   .wd b { display: block; font-size: 14.5px; }
   .wd span { display: block; color: var(--muted); font-size: 13px; }
   .wd .btn { flex: 0 0 auto; }
+  .band { margin: 14px -18px 6px; padding: 0 18px 4px; }
+  .band > h4 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 0 -18px 2px; padding: 14px 18px 12px; background: color-mix(in srgb, var(--c) 13%, var(--card)); border-left: 8px solid var(--c); }
+  .band .b-name { font: 800 24px/1 Archivo, sans-serif; font-stretch: 85%; color: var(--ink); }
+  .band .b-zh { font: 900 15px/1 "Noto Sans SC", sans-serif; color: var(--at); }
+  .band .b-time { margin-left: auto; font: 600 13px/1 Archivo, sans-serif; color: var(--muted); }
+  .near { margin: 10px 0 8px; border: 1.5px dashed color-mix(in srgb, var(--c) 45%, var(--line)); border-radius: 12px; padding: 0 12px; }
+  .near > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 11px 0; }
+  .near > summary::-webkit-details-marker { display: none; }
+  .near > summary b { display: block; font: 800 15.5px/1.2 Archivo, sans-serif; }
+  .near > summary small { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .near > summary .plus { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-weight: 700; transition: transform .2s; }
+  .near[open] > summary .plus { transform: rotate(45deg); }
+  .near ul { list-style: none; margin: 0; padding: 0 0 6px; }
+  .near li { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .near li > div { min-width: 0; }
+  .near li b { font-size: 15px; }
+  .near li .zh { font-family: "Noto Sans SC", sans-serif; font-weight: 500; color: var(--at); font-size: 14px; }
+  .near li p { margin: 3px 0 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+  .near li .btn { flex: 0 0 auto; margin-top: 2px; }
+  .kind { display: inline-block; font: 700 11.5px/1 Archivo, sans-serif; color: var(--at); border: 1.5px solid currentColor; border-radius: 999px; padding: 3px 7px; margin: 0 0 5px; }
+  .near li .kind { display: table; }
+  .remind { margin: 0 18px 4px; padding: 12px 14px; border-radius: 12px; background: color-mix(in srgb, #F2B705 22%, var(--card)); border: 1.5px solid color-mix(in srgb, #F2B705 70%, var(--line)); }
+  .remind .rm + .rm { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+  .remind .rm-h { display: block; font: 700 12.5px/1 Archivo, sans-serif; color: var(--muted); margin-bottom: 5px; }
+  .remind b { display: block; font: 800 16px/1.25 Archivo, sans-serif; }
+  .remind span:not(.rm-h) { display: block; font-size: 14px; color: var(--muted); margin-top: 3px; }
+  .remind .btn { margin-top: 8px; }
+  .sec-sub { margin: -4px 0 10px; color: var(--muted); font-size: 14px; }
+  .near.eat { border-color: color-mix(in srgb, #E0A100 55%, var(--line)); }
+  .eat-sub { font: 800 13px/1 Archivo, sans-serif; color: var(--muted); margin: 12px 0 6px; padding-top: 10px; border-top: 1px solid var(--line); }
+  .eat-try { margin: 0; font-size: 14px; line-height: 1.6; }
+  .eat-try a { font-weight: 700; color: var(--at); text-decoration: underline; text-underline-offset: 2px; }
+  .eat-try span { color: var(--muted); }
+  .eat-hint { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+  .near .eat-list li:first-child { border-top: 0; padding-top: 2px; }
+  .eat-list { list-style: none; margin: 0; padding: 0 0 6px; }
+  .near .eat-list li { display: block; padding: 9px 0; border-top: 1px solid var(--line); }
+  .eat-n b { font-size: 14.5px; }
+  .eat-n .dish { font-size: 13px; font-weight: 600; color: var(--at); }
+  .near .eat-list p { margin: 2px 0 0; font-size: 13px; line-height: 1.4; color: var(--muted); }
+  .eat-list p b { color: var(--ink); }
+  .eat-m { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-top: 4px; font-size: 12.5px; color: var(--muted); }
+  .eat-m .tl { font-weight: 700; color: var(--at); text-decoration: underline; text-underline-offset: 2px; }
+  .eat-g h5 { margin: 12px 0 2px; font: 800 14px/1.2 Archivo, sans-serif; color: var(--muted); }
+  .eat-g h4 { margin: 14px 0 4px; font: 800 17px/1.2 Archivo, sans-serif; font-stretch: 85%; }
+  .eat-i { padding: 10px 0; border-top: 1px solid var(--line); }
+  .eat-i b { font-size: 15.5px; }
+  .eat-i .dish { display: block; font-size: 13.5px; font-weight: 600; color: var(--at); margin-top: 2px; }
+  .eat-i p { margin: 4px 0 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+  .eat-i .a { font-size: 13px; color: var(--muted); margin-top: 3px; }
+  .eat-i p.what { color: var(--ink); }
+  .eat-i p.tip b { font-size: 14px; }
+  .eat-i .hrs { display: inline-block; font-weight: 700; color: var(--ink); margin-right: 8px; }
+  .eat-i .actions { margin-top: 8px; }
   .food-sec { border-top: 1px solid var(--line); margin-top: 6px; }
   .part.meal h4 { background: none; border: 1.5px solid var(--line); border-left: 6px solid var(--c); }
   .sec-h { display: flex; justify-content: space-between; align-items: center; }
@@ -420,7 +478,7 @@ function loadCity(T) {
   const start = Object.assign({ key: "start", zh: T.zh, area: "Before we go", when: "November 2026", tabTop: "S", tabSub: "Prep" }, T.prep);
   const H = T.history;
   const info = { title: H.title, photo: H.photo, paras: H.paragraphs, source: H.source, areas: (H.areas || []).map(a => ({ name: a.name, zh: a.zh, photo: a.photo, src: a.source, text: a.text })) };
-  const list = T.ourList.map(sec => [sec.section, sec.items.map(i => [i.name, i.zh || "", i.note || "", i.address || "", i.amap || ""])]);
+  const list = T.ourList.map(sec => [sec.section, sec.items.map(i => [i.name, i.zh || "", i.note || "", i.address || "", i.amap || "", i.dianping || ""])]);
   return { name: T.name, zh: T.zh, dates: T.dates, code: T.amapCity, start, list, days, alts, know: {}, info, hoods: T.neighborhoods || null };
 }
 const CTA = { "#C60C30": "Red Line", "#00A1DE": "Blue Line", "#62361B": "Brown Line", "#009B3A": "Green Line", "#F9461C": "Orange Line", "#522398": "Purple Line", "#E27EA6": "Pink Line", "#F9E300": "Yellow Line" };
@@ -431,10 +489,22 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;",
 const host = u => { try { const h = new URL(u).hostname.replace(/^www\.|^en\.|^english\./, ""); return h === "wikipedia.org" ? "Wikipedia" : h; } catch (e) { return "link"; } };
 const srcLink = (u, cls = "src") => u ? `<a class="${cls}" href="${u}" target="_blank" rel="noopener">Source: ${esc(host(u))}</a>` : "";
 
+// Dianping searches the food, not the restaurant: coffee -> 咖啡, xiao long bao -> 小笼包, and so on
+const FOOD_WORDS = [[/coffee|espresso|roaster|cafe/i, "咖啡"], [/milk tea/i, "奶茶"], [/gelato|ice cream/i, "冰淇淋"], [/xiao long|soup dumpling/i, "小笼包"], [/sheng ?jian/i, "生煎"],
+  [/jianbing|egg pancake|battercake/i, "煎饼"], [/sesame noodle/i, "麻酱面"], [/crawfish|crayfish/i, "小龙虾"], [/hot ?pot/i, "火锅"], [/peking duck|roast duck/i, "烤鸭"],
+  [/douzhi/i, "豆汁"], [/congee/i, "粥"], [/mooncake/i, "鲜肉月饼"], [/pork chop/i, "排骨年糕"], [/dumpling/i, "饺子"], [/noodle/i, "面馆"], [/baozi|\bbuns?\b/i, "包子"],
+  [/night market/i, "夜市"], [/breakfast/i, "早餐"], [/street food|snack/i, "小吃"]];
+const firstZh = t => ((t || "").match(/[㐀-鿿]+/) || [""])[0];
+function foodKw(...texts) {
+  const all = texts.filter(Boolean).join(" ");
+  for (const [re, kw] of FOOD_WORDS) if (re.test(all)) return kw;
+  return "";
+}
 function dpKey(s) {
+  if (s.type === "coffee") return "咖啡";
   if (s.dp) return s.dp;
-  if (s.type === "coffee") return "精品咖啡";
   if (s.type === "tea") return "茶馆";
+  if (s.type === "food") return firstZh(s.title) || foodKw(s.title, s.label);
   if (s.type === "tbd") {
     if (/breakfast/i.test(s.label)) return "早餐";
     if (/lunch|dinner/i.test(s.label)) return CITY === "bj" ? "北京菜" : "本帮菜";
@@ -482,17 +552,28 @@ function enrich(days, know) {
     const notes = [
       ...(d.sights || []).map(n => ["History", ...n]),
       ...(d.places || []).map(n => ["Known for", ...n]),
+      ...(d.shopping || []).map(n => ["Shop", ...n]),
       ...(d.food.items || []).map(n => ["The dish", ...n])
     ];
     d.stops.forEach(s => {
       const hay = (s.title + " " + (s.detail || "")).toLowerCase();
       s.about = notes.filter(([kind, name]) => {
         const en = enName(name), zh = cjk(name);
-        if (kind === "The dish") return zh && hay.includes(zh);
+        if (kind === "The dish") return zh && (hay.includes(zh) || (s.order || []).some(o => o[1].includes(zh) || zh.includes(o[1])) || (s.dp || "") === zh);
         const names = s.title + " " + (s.options || []).map(o => o[0]).join(" ");
         return (en.length >= 3 && names.toLowerCase().includes(en)) || (zh.length > 1 && names.includes(zh));
       });
       (s.know || []).forEach(k => { const hit = index[k]; if (hit && !s.about.some(x => x[1] === hit[1])) s.about.push(hit); });
+    });
+    // Anything that didn't match a stop still shows up: dish notes on the day's first meal, the rest on the first sight
+    const shown = new Set(d.stops.flatMap(s => s.about.map(x => x[1])));
+    // Leftover dish notes go on the day's first meal; leftover place notes go on the matching Explore nearby place
+    const exAll = Object.values(d.explore || {}).flat();
+    notes.filter(n => !shown.has(n[1])).forEach(n => {
+      if (n[0] === "The dish") { const to = d.stops.find(s => s.type === "food"); if (to) to.about.push(n); return; }
+      const en = enName(n[1]), zh = cjk(n[1]);
+      const ex = exAll.find(x => (en.length >= 3 && (x.name + " " + (x.zh || "")).toLowerCase().includes(en)) || (zh.length > 1 && (x.zh || "").includes(zh)));
+      if (ex) (ex.notes = ex.notes || []).push(n);
     });
   });
 }
@@ -501,17 +582,24 @@ Object.values(CITIES).forEach(c => enrich(c.days, c.know));
 let CITY = "sh";
 const amap = k => `https://uri.amap.com/search?keyword=${encodeURIComponent(k)}&city=${CITIES[CITY].code}`;
 
+// Notes about a dish say "About the food"; notes about a place, restaurant or sight say "About this place"
 function aboutHTML(s) {
   if (!s.about || !s.about.length) return "";
-  return `<details class="about"><summary>About this place</summary><div class="ab">
-    ${s.about.map(([kind, n, t]) => `<div class="ab-item"><b>${esc(disp(n))}</b>${paras(t)}${srcLink(SRC[n])}</div>`).join("")}</div></details>`;
+  const box = (label, list) => list.length ? `<details class="about"><summary>${label}</summary><div class="ab">
+    ${list.map(([kind, n, t]) => `<div class="ab-item"><b>${esc(disp(n))}</b>${paras(t)}${srcLink(SRC[n])}</div>`).join("")}</div></details>` : "";
+  const food = s.about.filter(x => x[0] === "The dish"), place = s.about.filter(x => x[0] !== "The dish");
+  const eatPlace = place.filter(x => x[0] === "Known for"), other = place.filter(x => x[0] !== "Known for");
+  const where = s.type === "coffee" ? "About the cafe" : s.type === "tea" ? "About the tea house" : s.type === "food" ? (eatPlace.length > 1 ? "About the restaurants" : "About the restaurant") : "About this place";
+  return s.type === "food" || s.type === "coffee" || s.type === "tea"
+    ? box(where, eatPlace) + box("About the food", food) + box("About this place", other)
+    : box("About this place", place) + box("About the food", food);
 }
 
 function altsHTML(key) {
   const list = CITIES[CITY].alts[key]; if (!list || !list.length) return "";
   const groups = {};
   list.forEach(a => (groups[a[0]] = groups[a[0]] || []).push(a));
-  return `<details class="panel">${panelHead("Other options", `${list.length} other ideas if a line is long, it rains, or we want more`)}<div class="alts">
+  return `<details class="panel">${panelHead("If we have time", `${list.length} more ${list.length === 1 ? "idea" : "ideas"} if a line is long, it rains, or we want more`)}<div class="alts">
     ${Object.entries(groups).map(([g, items]) => `<div class="alt-group"><h4>${esc(g)}</h4>
       ${items.map(([, n, w, a, k]) => `<div class="alt"><div class="n">${esc(n)}</div><div class="w">${esc(w)}</div>
         ${a ? `<div class="a">${esc(a)}</div>` : ""}
@@ -530,16 +618,15 @@ function stopHTML(s, inFood) {
     : s.map ? `<a class="btn" href="${amap(s.map)}" target="_blank" rel="noopener">${pinIcon}Open in Amap</a>` : "";
   const major = ["see", "tea", "shop"].includes(s.type) || !!s.options || /^(Lunch|Dinner|Music)$/.test(s.label);
   const hint = /^\d{1,2}:\d{2}$/.test(s.t) ? `around ${s.t}` : (/[−-]\d/.test(s.t) || /TBD/.test(s.t) ? s.t : "");
-  const head = `      ${(lbl => lbl || hint ? `<span class="tag">${esc(lbl)}${hint ? `<span class="hint">${esc(hint)}</span>` : ""}</span>` : "")(inFood && /^(Suggested .*|What to eat|Breakfast|Coffee|Lunch|Dinner|Snack)$/.test(s.label) ? "" : s.label)}
+  const head = `      ${(lbl => lbl || hint ? `<span class="tag">${esc(lbl)}${hint ? `<span class="hint">${esc(hint)}</span>` : ""}</span>` : "")(mealOf(s) || s.label)}
       <div class="title">${esc(s.title)}</div>`;
   const metro = metroOf(s);
   const rest = `${metro ? `<div class="metro"><span class="m">M</span>${esc(metro)}</div>` : ""}
       ${s.detail ? `<div class="detail">${esc(s.detail)}</div>` : ""}
       ${s.addr ? `<div class="addr">${esc(s.addr)}</div>` : ""}
-      ${(w => w ? `<div class="wander"><div class="opts-h">Wander around</div>${w.map(([n, note, k]) => `<div class="wd"><div><b>${esc(n)}</b><span>${esc(note)}</span></div><a class="btn sm" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}Amap</a></div>`).join("")}</div>` : "")(wanderOf(s))}
       ${s.order ? `<div class="order"><div class="opts-h">What to order (sharing)</div><ul>${s.order.map(([en, zh]) => `<li><span>${esc(en)}</span><b lang="zh-Hans">${esc(zh)}</b></li>`).join("")}</ul></div>` : ""}
-      ${s.options ? `<div class="opts"><div class="opts-h">Where to get it</div>${s.options.map(([n, w, ad, k]) => `<div class="opt"><div class="n">${esc(n)}</div><div class="w">${esc(w)}</div>${ad ? `<div class="a">${esc(ad)}</div>` : ""}<div class="actions">${k ? `<a class="btn sm" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}Open in Amap</a>` : ""}${dpBtn((n.match(/[㐀-鿿]+/g) || []).join("") || s.dp || "").replace('class="btn dp"', 'class="btn dp sm"')}</div></div>`).join("")}</div>` : ""}
-      ${(() => { const dp = dpBtn(dpKey(s), s.options ? "More nearby on Dianping: " : "Dianping: "); return links || s.url || dp ? `<div class="actions">${links}${dp}${s.url ? `<a class="btn" href="${s.url}" target="_blank" rel="noopener">Open booking page</a>` : ""}</div>` : ""; })()}
+      ${s.options ? `<div class="opts"><div class="opts-h">Where to get it</div>${s.options.map(([n, w, ad, k]) => `<div class="opt"><div class="n">${esc(n)}</div><div class="w">${esc(w)}</div>${ad ? `<div class="a">${esc(ad)}</div>` : ""}${k ? `<div class="actions"><a class="btn sm" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}Open in Amap</a></div>` : ""}</div>`).join("")}</div>` : ""}
+      ${(() => { const dp = dpBtn(dpKey(s), s.options ? "Find more on Dianping: " : "Dianping: "); return links || s.url || dp ? `<div class="actions">${links}${dp}${s.url ? `<a class="btn" href="${s.url}" target="_blank" rel="noopener">Open booking page</a>` : ""}</div>` : ""; })()}
       ${aboutHTML(s)}
 `;
   const open = rest.replace(/\s/g, "").length > 0;
@@ -575,7 +662,7 @@ const MEALS = [["Breakfast", "早餐"], ["Coffee", "咖啡"], ["Lunch", "午餐"
 function ideasHTML(ideas) {
   if (!ideas || !ideas.length) return "";
   const groups = MEALS.map(([m]) => [m, ideas.filter(f => f.meal === m)]).filter(([, l]) => l.length);
-  return `<details class="ideas"><summary><span><b>Not feeling it? Other food ideas</b><small>${ideas.length} backups near today's route</small></span><span class="plus" aria-hidden="true">+</span></summary>
+  return `<details class="ideas"><summary><span><b>Not feeling it?</b><small>${ideas.length} backups near today's route</small></span><span class="plus" aria-hidden="true">+</span></summary>
     ${groups.map(([m, list]) => `<div class="opts-h">${m}</div>${list.map(f => `<div class="opt">
       <div class="n">${esc(f.dish)}</div><div class="w"><b>${esc(f.name)}</b>: ${esc(f.why || "")}</div>${f.address ? `<div class="a">${esc(f.address)}</div>` : ""}
       <div class="actions">${f.amap ? `<a class="btn sm" href="${amap(f.amap)}" target="_blank" rel="noopener">${pinIcon}Amap</a>` : ""}${dpBtn((f.name.match(/[㐀-鿿]+/g) || []).join("") || (f.dish.match(/[㐀-鿿]+/g) || []).join("") || f.name).replace('class="btn dp"', 'class="btn dp sm"')}</div></div>`).join("")}`).join("")}
@@ -589,16 +676,69 @@ function foodHTML(stops, ideas) {
   }).join("")}${ideasHTML(ideas)}</div>`;
 }
 const PART_ZH = { Morning: "上午", Midday: "中午", Afternoon: "下午", Evening: "晚上" };
-function itinHTML(stops) {
-  const groups = []; let prev = null;
+const PART_TIME = { Morning: "until 11:00", Midday: "11:00 to 14:00", Afternoon: "14:00 to 17:00", Evening: "17:00 on" };
+const splitZh = n => { const zh = cjk(n); return [zh ? n.replace(/[㐀-鿿·]+/g, "").replace(/\s+/g, " ").trim() : n, zh]; };
+function exploreFor(d, part, stops) {
+  if (d.explore && d.explore[part]) return d.explore[part];
+  return stops.flatMap(s => (s.wander || []).map(([n, note, k]) => { const [en, zh] = splitZh(n); return { name: en, zh, about: note, amap: k }; }));
+}
+function exploreHTML(list) {
+  if (!list.length) return "";
+  const names = list.map(x => x.name);
+  const preview = names.length > 2 ? `${names.slice(0, 2).join(", ")} and ${names.length - 2} more` : names.join(" and ");
+  return `<details class="near"><summary><span><b>Explore nearby</b><small>${esc(preview)}</small></span><span class="plus" aria-hidden="true">+</span></summary>
+    <ul>${list.map(x => `<li><div>${x.kind ? `<span class="kind">${esc(x.kind)}</span>` : ""}<b>${esc(x.name)}</b>${x.zh ? ` <span class="zh" lang="zh-Hans">${esc(x.zh)}</span>` : ""}${x.about ? `<p>${esc(x.about)}</p>` : ""}${(x.notes || []).length ? `<details class="about"><summary>About this place</summary><div class="ab">${x.notes.map(([k, n, t]) => `<div class="ab-item">${paras(t)}${srcLink(SRC[n])}</div>`).join("")}</div></details>` : ""}</div>${x.amap ? `<a class="btn sm" href="${amap(x.amap)}" target="_blank" rel="noopener">${pinIcon}Amap</a>` : ""}</li>`).join("")}</ul></details>`;
+}
+function itinHTML(d, stops) {
+  const order = ["Morning", "Midday", "Afternoon", "Evening"];
+  const groups = Object.fromEntries(order.map(p => [p, []])); let prev = null;
   stops.forEach(s => {
     let p = partOf(s.t, prev);
-    const order = ["Morning", "Midday", "Afternoon", "Evening"];
     if (prev && order.indexOf(p) < order.indexOf(prev)) p = prev;
-    if (!groups.length || groups[groups.length - 1][0] !== p) groups.push([p, []]);
-    groups[groups.length - 1][1].push(s); prev = p;
+    groups[p].push(s); prev = p;
   });
-  return groups.map(([p, list]) => `<section class="part"><h4><span>${p}</span><small lang="zh-Hans">${PART_ZH[p]}</small></h4><ol class="plan">${list.map(stopHTML).join("")}</ol></section>`).join("");
+  // Restaurants go in the part of the day they suit; if we have nothing planned then, use the nearest part we do
+  const busy = order.filter(p => groups[p].length || exploreFor(d, p, groups[p]).length);
+  const home = p => busy.includes(p) ? p : (busy.filter(b => order.indexOf(b) < order.indexOf(p)).pop() || busy[0]);
+  return order.map(p => {
+    const list = groups[p], ex = exploreFor(d, p, list);
+    const eats = (d.foodIdeas || []).filter(f => home(MEAL_PART[f.meal] || "Evening") === p);
+    if (!list.length && !ex.length && !eats.length) return "";
+    return `<section class="band">
+      <h4><span class="b-name">${p}</span><span class="b-zh" lang="zh-Hans">${PART_ZH[p]}</span><span class="b-time">${PART_TIME[p]}</span></h4>
+      ${list.length ? `<ol class="plan">${list.map(x => stopHTML(x)).join("")}</ol>` : ""}
+      ${exploreHTML(ex)}
+      ${eatHTML(eats, d)}
+    </section>`;
+  }).join("");
+}
+function remindHTML(stops) {
+  if (!stops.length) return "";
+  return `<div class="remind">${stops.map(s => `<div class="rm"><span class="rm-h">Don't forget${/^\d/.test(s.t) ? `, ${esc(s.t)}` : ""}</span><b>${esc(s.title)}</b>${s.detail ? `<span>${esc(s.detail)}</span>` : ""}${s.url ? `<a class="btn sm" href="${s.url}" target="_blank" rel="noopener">Open booking page</a>` : ""}</div>`).join("")}</div>`;
+}
+const MEAL_PART = { Breakfast: "Morning", Coffee: "Morning", Lunch: "Midday", Snack: "Afternoon", Dinner: "Evening" };
+// Explore Food Choices: foods to try (comma list, tap to search Dianping), then places to get them.
+// Anything already in the day's plan is left out.
+function eatHTML(ideas, d) {
+  if (!ideas || !ideas.length) return "";
+  const planText = (d ? d.stops : []).map(s => [s.title, s.detail || "", ...(s.options || []).map(o => o[0]), ...(s.order || []).map(o => o[1])].join(" ")).join(" ");
+  const planLow = planText.toLowerCase();
+  const enOf = n => disp(n).replace(/\s*[㐀-鿿].*$/, "").trim();
+  const placeInPlan = f => { const zh = firstZh(f.name), en = enOf(f.name).toLowerCase(); return (zh.length > 1 && planText.includes(zh)) || (en.length > 3 && planLow.includes(en)); };
+  const dishInPlan = f => { const zh = firstZh(f.dish); return zh.length > 1 && planText.includes(zh); };
+  const places = ideas.filter(f => !placeInPlan(f));
+  const dishes = []; const seen = new Set();
+  ideas.forEach(f => { if (!f.dish || seen.has(f.dish) || dishInPlan(f)) return; seen.add(f.dish); dishes.push(f); });
+  if (!places.length && !dishes.length) return "";
+  const kw = f => f.dianping || (/coffee/i.test(f.meal + " " + f.dish) ? "咖啡" : firstZh(f.dish) || foodKw(f.dish, f.name, f.what) || firstZh(f.name));
+  const preview = [dishes.length ? dishes.slice(0, 3).map(f => enOf(f.dish)).join(", ") : "", places.length ? `${places.length} ${places.length === 1 ? "place" : "places"}` : ""].filter(Boolean).join(" · ");
+  return `<details class="near eat"><summary><span><b>Explore Food Choices</b><small>${esc(preview)}</small></span><span class="plus" aria-hidden="true">+</span></summary>
+    ${dishes.length ? `<div class="eat-sub">Foods to try</div><p class="eat-try">${dishes.map(f => `<a class="dp" href="${dpWeb(kw(f))}" data-dp="${esc(kw(f))}" target="_blank" rel="noopener">${esc(f.dish)}</a>${f.short ? ` <span>(${esc(f.short)})</span>` : ""}`).join(", ")}</p><p class="eat-hint">Tap a food to find it nearby on Dianping.</p>` : ""}
+    ${places.length ? `<div class="eat-sub">Places to get them</div><ul class="eat-list">${places.map(f => { const meta = [f.area, f.hours].filter(Boolean).join(" · ");
+      return `<li><div class="eat-n"><b>${esc(f.name)}</b>${f.dish ? ` <span class="dish">${esc(enOf(f.dish) || f.dish)}</span>` : ""}</div>
+      ${f.why ? `<p>${esc(f.why)}</p>` : ""}${f.tip ? `<p><b>Tip:</b> ${esc(f.tip)}</p>` : ""}
+      <div class="eat-m">${meta ? `<span>${esc(meta)}</span>` : ""}${f.amap ? `<a class="tl" href="${amap(f.amap)}" target="_blank" rel="noopener">Amap</a>` : ""}</div></li>`; }).join("")}</ul>` : ""}
+  </details>`;
 }
 
 function heroHTML(d, badge) {
@@ -620,13 +760,9 @@ function dayCard(d, i, total) {
   const rest = list => (list || []).filter(n => !shown.has(n[0]));
   return `<article class="card">
     ${heroHTML(d, `<span class="badge"><b>${i}</b>Day ${i} of ${total}</span>`)}
-    <div class="section"><div class="sec-h"><h3>Suggested plan</h3><button class="expand" data-expand>Expand all</button></div>${itinHTML(d.stops.filter(s => !mealOf(s)))}</div>
-    ${foodHTML(d.stops.filter(mealOf), d.foodIdeas)}
+    ${remindHTML(d.stops.filter(s => s.type === "book"))}
+    <div class="section"><div class="sec-h"><h3>Today's plan</h3><button class="expand" data-expand>Expand all</button></div>${itinHTML(d, d.stops.filter(s => s.type !== "book"))}</div>
     ${altsHTML(d.key)}
-    ${notesBlock("Today's food, explained", rest(d.food.items), d.food.intro)}
-    ${notesBlock("Where we're eating & drinking", rest(d.places))}
-    ${notesBlock("Where we're shopping", rest(d.shopping))}
-    ${notesBlock("Today's sights, explained", rest(d.sights))}
     <div class="card-foot">
       <button class="nav-btn" data-go="-1">‹ Prev</button>
       ${i === total && CITY === "sh"
@@ -730,12 +866,13 @@ function aboutCard(A, info) {
   </article>`;
 }
 function listCard(L, C) {
-  const item = ([n, zh, note, ad, k]) => `<div class="li-item"><div class="n">${esc(n)}${zh ? ` <span class="zh" lang="zh-Hans">${esc(zh)}</span>` : ""}</div>
+  const listKw = (sec, [n, zh, note, ad, k, dp]) => dp || (/coffee|cafe/i.test(sec) ? "咖啡" : /food spot/i.test(sec) ? (firstZh(note) || foodKw(n, note) || (zh || "").split(" / ")[0]) : (zh || "").split(" / ")[0] || k);
+  const item = ([n, zh, note, ad, k, dp], sec) => `<div class="li-item"><div class="n">${esc(n)}${zh ? ` <span class="zh" lang="zh-Hans">${esc(zh)}</span>` : ""}</div>
     ${note ? `<div class="w">${esc(note)}</div>` : ""}${ad ? `<div class="a">${esc(ad)}</div>` : ""}
-    ${k || zh ? `<div class="actions">${k ? `<a class="btn sm" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}Amap</a>` : ""}${dpBtn((zh || "").split(" / ")[0] || k).replace('class="btn dp"', 'class="btn dp sm"')}</div>` : ""}</div>`;
+    ${k || zh ? `<div class="actions">${k ? `<a class="btn sm" href="${amap(k)}" target="_blank" rel="noopener">${pinIcon}Amap</a>` : ""}${dpBtn(listKw(sec, [n, zh, note, ad, k, dp])).replace('class="btn dp"', 'class="btn dp sm"')}</div>` : ""}</div>`;
   return `<article class="card">
     ${heroHTML(L, `<span class="badge"><b>L</b>Our list</span>`)}
-    ${C.list.map(([sec, items], i) => `<details class="panel"${i === 0 ? " open" : ""}>${panelHead(sec, `${items.length} from our notes`)}<div class="li-list">${items.map(item).join("")}</div></details>`).join("")}
+    ${C.list.map(([sec, items], i) => `<details class="panel"${i === 0 ? " open" : ""}>${panelHead(sec, `${items.length} from our notes`)}<div class="li-list">${items.map(x => item(x, sec)).join("")}</div></details>`).join("")}
     <div class="card-foot">
       <button class="nav-btn" data-go="-1">‹ ${CITIES[CITY].hoods ? "Districts" : "About"}</button>
       <button class="nav-btn" data-go="1">Day 1 ›</button>
@@ -850,64 +987,89 @@ function todayFor() {
 }
 const [todayCity, todayKey] = todayFor();
 
+// One card at a time: only the card we're looking at is built, so the page is exactly as tall as that day
+let cardList = [], cardHTML = null;
 function render(city, idx = 0) {
   CITY = city;
   const C = CITIES[city];
-  const cards = cardsFor(C);
-  all = cards.map(c => c.d);
+  cardList = cardsFor(C);
+  all = cardList.map(c => c.d);
   document.title = `${C.name} · China 2026`;
   cityTitle.textContent = `${C.name}, ${C.dates}`;
   switchBtns.forEach(b => b.setAttribute("aria-pressed", b.dataset.city === city));
-  const html = c => c.kind === "start" ? startCard(C.start, C.info) : c.kind === "about" ? aboutCard(c.d, C.info) : c.kind === "hoods" ? hoodsCard(c.d, C) : c.kind === "list" ? listCard(c.d, C) : dayCard(c.d, c.n, C.days.length);
-  deck.innerHTML = cards.map((c, i) => { const d = c.d;
-    return `<section class="slot" id="card-${city}-${d.key}" data-i="${i}" style="--c:${d.color};--ct:${d.ink};--on:${onColor(d.color)}">${html(c)}</section>`; }).join("");
+  cardHTML = c => c.kind === "start" ? startCard(C.start, C.info) : c.kind === "about" ? aboutCard(c.d, C.info) : c.kind === "hoods" ? hoodsCard(c.d, C) : c.kind === "list" ? listCard(c.d, C) : dayCard(c.d, c.n, C.days.length);
   const tk = todayCity === city ? todayKey : null;
-  tabs.innerHTML = cards.map((c, i) => { const d = c.d;
+  tabs.innerHTML = cardList.map((c, i) => { const d = c.d;
     return `<button class="tab ${d.key === tk ? "today" : ""}" data-i="${i}" style="--tc:${d.color};--to:${onColor(d.color)}" aria-label="${esc(d.when)}, ${esc(d.area)}"><span class="roundel">${c.roundel}</span><small>${d.key === tk ? "Today" : c.tab}</small></button>`; }).join("");
-  slots = [...deck.querySelectorAll(".slot")];
   tabBtns = [...tabs.querySelectorAll(".tab")];
-  if (io) io.disconnect();
-  io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting && e.intersectionRatio > 0.6) setActive(+e.target.dataset.i); });
-  }, { root: deck, threshold: [0.6] });
-  slots.forEach(s => io.observe(s));
-  requestAnimationFrame(() => { goTo(idx, false); setActive(idx); window.scrollTo(0, 0); });
+  current = -1;
+  goTo(idx, 0);
 }
-
-function goTo(i, smooth = true) {
+function goTo(i, dir) {
   i = Math.max(0, Math.min(all.length - 1, i));
-  deck.scrollTo({ left: slots[i].offsetLeft, behavior: smooth ? "smooth" : "auto" });
+  if (i === current) return;
+  if (dir === undefined) dir = i > current ? 1 : -1;
+  const c = cardList[i], d = c.d;
+  deck.innerHTML = `<section class="slot${dir ? (dir > 0 ? " in-right" : " in-left") : ""}" id="card-${CITY}-${d.key}" data-i="${i}" style="--c:${d.color};--ct:${d.ink};--on:${onColor(d.color)}">${cardHTML(c)}</section>`;
+  slots = [deck.firstElementChild];
+  setActive(i);
+  window.scrollTo(0, 0);
 }
 function setActive(i) {
   current = i;
-  slots.forEach((s, k) => s.classList.toggle("away", k !== i));
   tabBtns.forEach((b, k) => b.classList.toggle("active", k === i));
   const tb = tabBtns[i];
-  tabs.scrollTo({ left: tb.offsetLeft - (tabs.clientWidth - tb.offsetWidth) / 2, behavior: "smooth" });
+  if (tb) tabs.scrollTo({ left: tb.offsetLeft - (tabs.clientWidth - tb.offsetWidth) / 2, behavior: "smooth" });
   try { history.replaceState(null, "", `#${CITY}-${all[i].key}`); } catch (e) {}
 }
+// Swipe left or right anywhere on the card to change day (vertical scrolling is left alone)
+let touch = null;
+deck.addEventListener("touchstart", e => {
+  if (e.touches.length !== 1 || e.target.closest("input, textarea, .dist, .hood-map")) { touch = null; return; }
+  touch = { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() };
+}, { passive: true });
+deck.addEventListener("touchend", e => {
+  if (!touch) return;
+  const dx = e.changedTouches[0].clientX - touch.x, dy = e.changedTouches[0].clientY - touch.y, dt = Date.now() - touch.t;
+  touch = null;
+  if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 2 && dt < 800) goTo(current + (dx < 0 ? 1 : -1));
+}, { passive: true });
 
 switchBtns.forEach(b => b.addEventListener("click", () => { if (b.dataset.city !== CITY) render(b.dataset.city, 0); }));
 tabs.addEventListener("click", e => {
   const b = e.target.closest(".tab"); if (!b) return;
-  goTo(+b.dataset.i); window.scrollTo({ top: 0, behavior: "smooth" });
+  goTo(+b.dataset.i);
 });
 deck.addEventListener("click", e => {
   const c = e.target.closest("[data-city]");
   if (c) { render(c.dataset.city, c.dataset.city === "sh" ? cardsFor(CITIES.sh).length - 1 : 0); return; }
   const b = e.target.closest("[data-go]"); if (!b || b.disabled) return;
-  goTo(current + (+b.dataset.go)); window.scrollTo({ top: 0, behavior: "smooth" });
+  goTo(current + (+b.dataset.go));
 });
-deck.addEventListener("click", e => {
-  const a = e.target.closest("a.dp"); if (!a) return;
-  e.preventDefault();
-  const web = a.href;
+// Tap Amap or Dianping: open the app if it's installed, otherwise fall back to the web page
+const UA = navigator.userAgent;
+const IOS = /iPhone|iPad|iPod/.test(UA) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+const ANDROID = /Android/.test(UA);
+function openApp(appUrl, web) {
   let left = false;
   const mark = () => { left = true; };
   document.addEventListener("visibilitychange", mark, { once: true });
   window.addEventListener("pagehide", mark, { once: true });
-  location.href = "dianping://searchshoplist?keyword=" + encodeURIComponent(a.dataset.dp);
-  setTimeout(() => { if (!left && document.visibilityState === "visible") window.open(web, "_blank", "noopener"); }, 1500);
+  window.addEventListener("blur", mark, { once: true });
+  location.href = appUrl;
+  setTimeout(() => { if (!left && document.visibilityState === "visible") window.open(web, "_blank", "noopener"); }, 1800);
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("a.dp, a[href^='https://uri.amap.com/search']"); if (!a) return;
+  if (!IOS && !ANDROID) return; // on a computer, just open the web page
+  e.preventDefault();
+  if (a.classList.contains("dp")) { openApp("dianping://searchshoplist?keyword=" + encodeURIComponent(a.dataset.dp), a.href); return; }
+  const kw = new URL(a.href).searchParams.get("keyword") || "";
+  const q = (kw.includes(CITIES[CITY].zh) ? "" : CITIES[CITY].zh + " ") + kw;
+  const app = IOS
+    ? `iosamap://poi?sourceApplication=ChinaTrip&name=${encodeURIComponent(q)}&dev=0`
+    : `androidamap://poi?sourceApplication=ChinaTrip&keywords=${encodeURIComponent(q)}&dev=0`;
+  openApp(app, a.href);
 });
 deck.addEventListener("click", e => {
   const b = e.target.closest("[data-expand]"); if (!b) return;
@@ -925,7 +1087,7 @@ function editList(box, fn) { const L = loadLists(); fn(L[box.dataset.kind][box.d
 deck.addEventListener("click", e => {
   const b = e.target.closest("[data-goto]"); if (!b) return;
   const i = all.findIndex(d => d.key === b.dataset.goto);
-  if (i >= 0) { goTo(i); window.scrollTo({ top: 0, behavior: "smooth" }); }
+  if (i >= 0) goTo(i);
 });
 deck.addEventListener("submit", e => {
   const nf = e.target.closest("form[data-newp]");
