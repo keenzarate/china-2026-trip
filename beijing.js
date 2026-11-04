@@ -48,7 +48,7 @@ TRIP.beijing = {
   // ---------- Start card ----------
   prep: {
     title: "Bookings & essentials",
-    summary: "Nov 20–25 (our flight leaves around midnight, Tue 24 into Wed 25), based by Wangfujing metro (Lines 1 & 8). Booked: Great Wall Sat 21 (tentative, weather), National Museum + Tiananmen Sun 22, Forbidden City Tue 24. Everything around them is a suggested plan we can change. Late November is cold, close to freezing at night, so pack layers, gloves and a hat for the Great Wall.",
+    summary: "Nov 20 to 25 (D's flight is around midnight Tue 24 going into Wed 25). Staying near Wangfujing metro (Lines 1 and 8). Booked: Great Wall Sat 21 (depends on weather), National Museum + Tiananmen Sun 22, Forbidden City Tue 24. It's cold in late November, almost freezing at night, so bring layers, gloves and a hat for the Great Wall.",
     color: "#6B7785",
     ink: "#4A5563",
     bookings: [
@@ -62,14 +62,14 @@ TRIP.beijing = {
       },
       {
         when: "Nov 15, 5 PM",
-        what: "Book the National Museum of China for Sun Nov 22 (opens 7 days ahead at 5 PM)",
+        what: "Book the National Museum of China for Sun Nov 22. Opens 7 days before at 5 PM",
         links: [
           { label: "Official booking site", url: "https://pcticket.chnmuseum.cn/museum-en/#/personal/index" }
         ]
       },
       {
         when: "Nov 15",
-        what: "Reserve Tiananmen Square entry for Sun Nov 22 (free; slots open 1–7 days ahead at 12:00 noon). WeChat mini program: 天安门广场预约参观",
+        what: "Reserve Tiananmen Square for Sun Nov 22. It's free, slots open 1 to 7 days before at 12 noon. WeChat mini program: 天安门广场预约参观",
         links: [
           {
             label: "How to book (Trip.com guide)",
@@ -79,7 +79,7 @@ TRIP.beijing = {
       },
       {
         when: "Nov 17, 8 PM",
-        what: "Book the Forbidden City for Tue Nov 24 (opens 7 days ahead at 8 PM)",
+        what: "Book the Forbidden City for Tue Nov 24. Opens 7 days before at 8 PM",
         links: [
           { label: "Official: bookingticket.dpm.org.cn", url: "https://bookingticket.dpm.org.cn" },
           { label: "International portal", url: "https://intl.dpm.org.cn" }
@@ -87,7 +87,7 @@ TRIP.beijing = {
       },
       {
         when: "Nov 18–19",
-        what: "Check the forecast and book Mubus (bus + Great Wall entry) on Trip.com. Plan is Sat Nov 21; Mon Nov 23 is the backup",
+        what: "Check the weather and book Mubus (bus + Great Wall ticket) on Trip.com. Plan is Sat Nov 21, Mon Nov 23 if the weather's bad",
         links: [
           {
             label: "Mubus on Trip.com",
@@ -109,46 +109,49 @@ TRIP.beijing = {
     apps: [
       {
         name: "Alipay 支付宝",
-        why: "Pays for almost everything, including the metro (Transport QR code) and share bikes. Link a foreign card before flying."
+        why: "Pays for basically everything, even the metro (Transport QR code) and the bikes. Link a card before we fly."
       },
       {
         name: "WeChat 微信",
-        why: "Messaging, plus mini programs used for bookings (e.g. 天安门广场预约参观 for Tiananmen). Some places only take WeChat Pay."
+        why: "Messages, and some bookings are only on WeChat mini programs (like 天安门广场预约参观 for Tiananmen). Some places only take WeChat Pay."
       },
       {
         name: "Amap 高德地图",
-        why: "Directions and public transit (公交) routes. Every Amap button on this site opens it."
+        why: "For directions and metro/bus routes (公交). All the Amap buttons here open it."
       },
       {
         name: "Dianping 大众点评",
-        why: "Opening hours, reviews, queues and menus. Every Dianping button on this site opens it."
+        why: "Hours, reviews, lines and menus. All the Dianping buttons here open it."
       },
-      { name: "Trip.com", why: "Train tickets, the Mubus Great Wall package, and English customer service." },
+      {
+        name: "Trip.com",
+        why: "Train tickets, the Mubus Great Wall thing, and customer service in English."
+      },
       {
         name: "Didi 滴滴 (or the Didi tab inside Alipay)",
-        why: "Taxis, for the times the metro doesn't work."
+        why: "Taxis, for when the metro doesn't make sense."
       },
-      { name: "eSIM or VPN", why: "Google, WhatsApp and Instagram are blocked without one." },
+      { name: "eSIM or VPN", why: "Google, WhatsApp and Instagram don't work without one." },
       {
         name: "Translate app with Chinese downloaded for offline use",
-        why: "Point the camera at menus and signs. Google Translate needs a VPN, so download offline Chinese in Apple Translate too."
+        why: "Point the camera at menus and signs. Google Translate needs a VPN so download offline Chinese on Apple Translate too."
       }
     ],
     tips: [
-      "Check the phone is unlocked before flying.",
-      "Forbidden City and National Museum are closed Mondays, and so are Red Brick, Nanchizi and Song Art Museum.",
-      "Bring the passport we booked with; the Forbidden City, National Museum and Tiananmen check it at the gate.",
-      "Dianping (大众点评) for hours and reviews, Amap for directions. Amap links on the Beijing cards search inside Beijing."
+      "Make sure the phone is unlocked before we fly.",
+      "Forbidden City and National Museum are closed Mondays. So are Red Brick, Nanchizi and Song Art Museum.",
+      "Bring the passport we booked with. The Forbidden City, National Museum and Tiananmen check it at the gate.",
+      "Dianping (大众点评) for hours and reviews, Amap for directions. The Amap buttons on the Beijing cards search in Beijing."
     ]
   },
   // ---------- About card ----------
   history: {
-    title: "Beijing, quickly",
+    title: "Beijing",
     photo: "Great Wall at Mutianyu.jpg",
     paragraphs: [
-      "Beijing has been a city for about 3,000 years. Its earliest form, the City of Ji, dates to around 1045 BC. The name means \"Northern Capital\", as opposed to Nanjing, the \"Southern Capital\".",
-      "Kublai Khan made it his capital, Dadu, in 1271, and in 1279 it became the capital of all China for the first time. The Ming renamed it Beijing in 1403, and the Yongle Emperor moved the capital here in 1421 and built the Forbidden City and Temple of Heaven.",
-      "The Qing took over in 1644 and ruled from here until 1912. It was renamed Beiping when the capital moved in 1928, and became the capital again in 1949."
+      "Beijing's been a city for about 3,000 years. The first version, the City of Ji, is from around 1045 BC. The name means \"Northern Capital\", and Nanjing means \"Southern Capital\".",
+      "Kublai Khan made it his capital, Dadu, in 1271, and in 1279 it became the capital of all of China for the first time. The Ming changed the name to Beijing in 1403, and the Yongle Emperor moved the capital here in 1421 and built the Forbidden City and the Temple of Heaven.",
+      "The Qing took over in 1644 and ruled from here until 1912. When the capital moved in 1928 it got renamed Beiping, and it became the capital again in 1949."
     ],
     source: "https://en.wikipedia.org/wiki/History_of_Beijing",
     areas: [
@@ -157,110 +160,107 @@ TRIP.beijing = {
         zh: "故宫",
         photo: "The Forbidden City - View from Coal Hill.jpg",
         source: "https://en.wikipedia.org/wiki/Forbidden_City",
-        text: "The imperial palace at the center of everything, built 1406–1420. Beijing was laid out along a north–south axis running from Qianmen through Tiananmen and the palace up to Jingshan and the Drum and Bell Towers. We walk most of it this week."
+        text: "The imperial palace right in the middle of everything, built 1406 to 1420. Beijing was planned along a straight north-south line from Qianmen through Tiananmen and the palace up to Jingshan and the Drum and Bell Towers. We'll walk most of it this week."
       },
       {
         name: "Tiananmen",
         zh: "天安门",
         photo: "Tiananmen or Gate of Heavenly Peace (6349930988).jpg",
         source: "https://en.wikipedia.org/wiki/Tiananmen_Square",
-        text: "The \"Gate of Heavenly Peace\" was the front door of the Imperial City. The huge square in front, lined by the National Museum and Great Hall of the People, is the political heart of modern China."
+        text: "The \"Gate of Heavenly Peace\" was the front door of the Imperial City. The huge square in front, with the National Museum and the Great Hall of the People on the sides, is basically the political center of China."
       },
       {
         name: "Wangfujing",
         zh: "王府井",
         photo: "Wangfujing street, Beijing.JPG",
         source: "https://en.wikipedia.org/wiki/Wangfujing",
-        text: "Our home base. Named for the princes' mansions (王府) and a sweet-water well (井), it's been a commercial street since the Ming dynasty and has been pedestrian since around 2000."
+        text: "Where we're staying. Named after the princes' mansions (王府) and a sweet water well (井). It's been a shopping street since the Ming dynasty and walking only since around 2000."
       },
       {
         name: "Qianmen & Dashilar",
         zh: "前门",
         photo: "Qianmen Gate.jpg",
         source: "https://en.wikipedia.org/wiki/Zhengyangmen",
-        text: "Qianmen, the \"Front Gate\", was first built in 1419 to guard the main southern entrance to the inner city. Its 42 m gatehouse survived the demolition of the city walls in the 1960s. The lanes south of it, Dashilar, have been shopping streets for centuries."
+        text: "Qianmen means \"Front Gate\", first built in 1419 to guard the main south entrance to the city. The 42 m gate is one of the few things that survived when they tore down the city walls in the 1960s. The lanes south of it, Dashilar, have been shopping streets for hundreds of years."
       },
       {
         name: "The hutongs & Gulou",
         zh: "胡同",
         photo: "Hutong Jiemen (Snowyowls).jpg",
         source: "https://en.wikipedia.org/wiki/Hutong",
-        text: "Narrow alleys of courtyard houses, named from a Mongolian word for \"well\" in the Yuan dynasty. The Drum and Bell Tower, Nanluoguxiang and Houhai area is where the old-Beijing feel is strongest."
+        text: "Narrow alleys with courtyard houses. The word hutong comes from a Mongolian word for \"well\". The Drum and Bell Tower, Nanluoguxiang and Houhai area is where it feels the most like old Beijing."
       },
       {
         name: "Temple of Heaven",
         zh: "天坛",
         photo: "Hall of Prayer for Good Harvest.JPG",
         source: "https://en.wikipedia.org/wiki/Temple_of_Heaven",
-        text: "Where emperors prayed for good harvests, built by the Yongle Emperor. Today it's a huge park, busiest in the early morning with tai chi, dancing and choirs."
+        text: "Where the emperors prayed for good harvests, built by the Yongle Emperor. Now it's a huge park, busiest in the early morning with tai chi, dancing and people singing."
       },
       {
         name: "Lama Temple & Guozijian",
         zh: "雍和宫",
         photo: "Beijing, Lama Temple (6169821757).jpg",
         source: "https://en.wikipedia.org/wiki/Yonghe_Temple",
-        text: "A prince's mansion turned Tibetan Buddhist monastery in 1744, with the Imperial Academy and Confucius Temple on the leafy street next door."
+        text: "It was a prince's mansion and became a Tibetan Buddhist monastery in 1744. The Imperial Academy and Confucius Temple are on the leafy street next to it."
       },
       {
         name: "Mutianyu Great Wall",
         zh: "慕田峪",
         photo: "",
         source: "https://en.wikipedia.org/wiki/Mutianyu",
-        text: "About 70 km northeast of the city. A restored Ming-era stretch, rebuilt in 1569, with 22 watchtowers and battlements on both sides."
+        text: "About 70 km northeast of the city. A Ming section that was rebuilt in 1569, with 22 watchtowers and walls on both sides."
       }
     ]
   },
   // ---------- Neighborhoods card ----------
   neighborhoods: {
-    title: "The districts around us",
-    summary: "Beijing is split into districts (区). Old Beijing inside the 2nd Ring Road is just two of them, Dongcheng (east) and Xicheng (west), and we're staying right in the middle. Each district shows the days we're in it.",
+    title: "",
+    summary: "Beijing is split into districts (区). Old Beijing inside the 2nd Ring Road is only two of them, Dongcheng (east) and Xicheng (west), and we're staying right in the middle. Each one shows which days we're there.",
+    mapUrl: "https://i.redd.it/biu62xh6asng1.jpeg",
+    mapFile: "beijing-rings.jpg",
+    mapCaption: "Beijing's ring roads, from the 2nd Ring around the old city (where we stay) out to the 5th.",
     layout: {
       title: "How Beijing is laid out",
       paragraphs: [
-        "Beijing is built like a target: a series of ring roads around the Forbidden City at the center. They're numbered outward from the 2nd Ring (there's no official 1st) to the 6th, and they're squarish rather than round. Locals describe where something is by ring: \"inside the 2nd Ring\" means the old city, \"near the East 3rd Ring\" means the business district.",
-        "The 2nd Ring follows the line of the old Ming city wall, which was torn down in the 1960s. Metro Line 2 runs in a loop right underneath it, and its stations are named after the old gates: Dongzhimen, Xizhimen, Qianmen, Jianguomen. The \"-men\" (门) in a name means gate.",
-        "Cutting through the middle is the central axis (中轴线), a straight north–south line from Yongdingmen Gate through Qianmen, Tiananmen, the Forbidden City and Jingshan Park up to the Drum and Bell Towers. It's a UNESCO World Heritage Site. Crossing it at Tiananmen is Chang'an Avenue, the big east–west boulevard, with Metro Line 1 underneath.",
-        "Old Beijing's streets run on a compass grid, so people give directions by north, south, east and west (往北走 = go north) rather than left and right. Keep the compass on in Amap."
+        "Beijing is kind of like a target, with ring roads around the Forbidden City in the middle. They go from the 2nd Ring (there's no official 1st) out to the 6th, and they're more square than round. Locals say where things are by ring, so \"inside the 2nd Ring\" means the old city and \"near the East 3rd Ring\" means the business district.",
+        "The 2nd Ring follows where the old Ming city wall used to be, it got torn down in the 1960s. Metro Line 2 goes in a loop right under it and the stations are named after the old gates, like Dongzhimen, Xizhimen, Qianmen, Jianguomen. \"-men\" (门) means gate.",
+        "Through the middle there's the central axis (中轴线), a straight line north to south from Yongdingmen Gate through Qianmen, Tiananmen, the Forbidden City and Jingshan Park up to the Drum and Bell Towers. It's a UNESCO World Heritage Site. Chang'an Avenue crosses it at Tiananmen going east to west, with Metro Line 1 under it.",
+        "The old streets are in a grid, so people give directions with north, south, east and west (往北走 = go north) instead of left and right. Keep the compass on in Amap."
       ],
       rings: [
         {
           name: "Inside the 2nd Ring",
-          what: "The old city: Forbidden City, Tiananmen, hutongs, Houhai, Temple of Heaven, Lama Temple. Where we're staying.",
+          what: "The old city. Forbidden City, Tiananmen, hutongs, Houhai, Temple of Heaven, Lama Temple. Where we're staying.",
           metro: "Line 2 loop"
         },
         {
           name: "2nd to 3rd Ring",
-          what: "Embassies, Sanlitun, Ritan Park; the CBD towers sit on the East 3rd Ring."
+          what: "Embassies, Sanlitun, Ritan Park. The business district towers are on the East 3rd Ring."
         },
         {
           name: "3rd to 4th Ring",
-          what: "Newer housing and offices; the Olympic Park (Bird's Nest) is on the North 4th Ring.",
+          what: "Newer apartments and offices. The Olympic Park (Bird's Nest) is on the North 4th Ring.",
           metro: "Line 10 loop, roughly"
         },
-        { name: "4th to 5th Ring", what: "Universities, the Summer Palace, 798 Art District." },
+        { name: "4th to 5th Ring", what: "Universities, the Summer Palace, 798." },
         {
           name: "Past the 5th and 6th",
-          what: "Suburbs and the airports. The Great Wall is far beyond, in the mountains."
+          what: "Suburbs and the airports. The Great Wall is way past that in the mountains."
         }
       ],
       map: {
         rings: [
           { name: "2nd", n: 39.949, s: 39.866, w: 116.354, e: 116.434 },
           { name: "3rd", n: 39.968, s: 39.853, w: 116.317, e: 116.462 },
-          { name: "4th", n: 39.987, s: 39.834, w: 116.281, e: 116.488 }
+          { name: "4th", n: 39.987, s: 39.834, w: 116.281, e: 116.488 },
+          { name: "5th", n: 40.024, s: 39.785, w: 116.207, e: 116.552 }
         ],
         axis: { n: 39.941, s: 39.864, lng: 116.3975 },
         avenue: { lat: 39.9075, w: 116.33, e: 116.47 },
         palace: { n: 39.9225, s: 39.9135, w: 116.3915, e: 116.4035 }
       }
     },
-    hotel: {
-      name: "Our hotel",
-      transit: "Nearest metro: Wangfujing 王府井 (Lines 1 & 8), a short walk. Line 1 runs east–west along Chang'an Ave past Tiananmen; Line 8 runs north to the hutongs and Shichahai.",
-      lat: 39.917,
-      lng: 116.41
-    },
-    note: "Sketch map: each pin is roughly the heart of the district, and distances are straight lines from the hotel. Real routes are longer, so use Amap for live directions.",
     areas: [
       {
         name: "Dongcheng District",
@@ -274,12 +274,12 @@ TRIP.beijing = {
         source: "https://en.wikipedia.org/wiki/Dongcheng_District,_Beijing",
         getThere: "We're in it. Wangfujing is on Lines 1 and 8, and most of the big sights are a short walk or one or two stops away.",
         days: ["d1", "d2", "d3", "d4", "d5"],
-        vibe: "The eastern half of the old imperial city, and where we're staying. The Forbidden City, Tiananmen and the National Museum are a walk away, with the busy Wangfujing shopping street outside the hotel. Further north are the hutong lanes around Nanluoguxiang, the Drum and Bell Towers and the Lama Temple; south is Qianmen and the Temple of Heaven. Grand and historic, busy around the big sights, quiet in the lanes.",
+        vibe: "The east half of the old city and where we're staying. The Forbidden City, Tiananmen and the National Museum are walking distance, and Wangfujing shopping street is right outside the hotel. Further north there's the hutongs around Nanluoguxiang, the Drum and Bell Towers and the Lama Temple, and south there's Qianmen and the Temple of Heaven. The big sights are busy but the alleys are quiet.",
         places: [
           {
             name: "Wangfujing St",
             zh: "王府井大街",
-            note: "Pedestrian shopping street right outside the hotel.",
+            note: "Walking street right outside the hotel.",
             plan: "Every day",
             amap: "王府井步行街"
           },
@@ -293,28 +293,28 @@ TRIP.beijing = {
           {
             name: "Forbidden City",
             zh: "故宫",
-            note: "The imperial palace. Enter from the south, exit north.",
+            note: "The palace. Go in from the south, come out the north.",
             plan: "Tue 24",
             amap: "故宫博物院"
           },
           {
             name: "Nanluoguxiang & Drum and Bell Towers",
             zh: "南锣鼓巷 / 钟鼓楼",
-            note: "Hutong lanes, courtyard cafes and the old timekeeping towers.",
+            note: "Hutongs, courtyard cafes and the old towers that used to tell the time.",
             plan: "Idea",
             amap: "钟鼓楼"
           },
           {
             name: "Lama Temple & Guozijian",
             zh: "雍和宫 / 国子监",
-            note: "Busy Tibetan Buddhist temple, then the calm old imperial academy next door.",
+            note: "Busy Tibetan Buddhist temple, then the quiet old academy next door.",
             plan: "Mon 23",
             amap: "雍和宫"
           },
           {
             name: "Temple of Heaven",
             zh: "天坛",
-            note: "Where emperors prayed for harvests; locals exercise in the park every morning.",
+            note: "Where emperors prayed for good harvests. Locals exercise in the park every morning.",
             plan: "Mon 23",
             amap: "天坛公园"
           },
@@ -338,54 +338,54 @@ TRIP.beijing = {
         source: "https://en.wikipedia.org/wiki/Xicheng_District",
         getThere: "Line 8 north to Shichahai 什刹海, about 15 min. Jingshan Park is a walk from the Forbidden City's north gate.",
         days: ["d3", "d4"],
-        vibe: "The western half of the old city, built around a chain of lakes. Houhai and Qianhai are lined with willows, hutongs, bars and rickshaws; Beihai Park has the White Dagoba; Jingshan Park gives the best view over the Forbidden City's roofs. Relaxed and pretty, especially at sunset, though the lakeside bars get touristy at night.",
+        vibe: "The west half of the old city, built around some lakes. Houhai and Qianhai have willow trees, hutongs, bars and rickshaws. Beihai Park has the White Dagoba. Jingshan Park has the best view of the Forbidden City roofs. Chill and pretty especially at sunset, the bars by the lake get touristy at night though.",
         places: [
           {
             name: "Jingshan Park",
             zh: "景山公园",
-            note: "Small hill with the classic view over the Forbidden City.",
+            note: "Little hill with the famous view of the Forbidden City.",
             plan: "Tue 24",
             amap: "景山公园"
           },
           {
             name: "Beihai Park",
             zh: "北海公园",
-            note: "Imperial lake garden with the White Dagoba.",
+            note: "Imperial lake park with the White Dagoba.",
             plan: "Idea",
             amap: "北海公园"
           },
           {
             name: "Houhai & Yinding Bridge",
             zh: "后海 / 银锭桥",
-            note: "Lakeside walk through the hutongs; lively at night.",
+            note: "Walk by the lake through the hutongs, busy at night.",
             plan: "Idea",
             amap: "银锭桥"
           },
           {
             name: "Prince Gong's Mansion",
             zh: "恭王府",
-            note: "Grand Qing-era courtyard mansion and garden. Book ahead.",
+            note: "Big old Qing mansion and garden. Book ahead.",
             plan: "Idea",
             amap: "恭王府"
           },
           {
             name: "Dashilar",
             zh: "大栅栏",
-            note: "Old lanes of century-old shops west of Qianmen.",
+            note: "Old lanes with shops that are 100+ years old, west of Qianmen.",
             plan: "Sun 22",
             amap: "大栅栏"
           },
           {
             name: "Niujie & Fayuan Temple",
             zh: "牛街 / 法源寺",
-            note: "Old Muslim quarter: food crawl, mosque and an ancient temple.",
+            note: "Old Muslim area. Food crawl, mosque and a really old temple.",
             plan: "Mon 23",
             amap: "牛街礼拜寺"
           },
           {
             name: "Liulichang",
             zh: "琉璃厂",
-            note: "Old street of brushes, ink, paper and paintings.",
+            note: "Old street with brushes, ink, paper and paintings.",
             plan: "Sun 22",
             amap: "琉璃厂文化街"
           }
@@ -402,26 +402,26 @@ TRIP.beijing = {
         source: "https://en.wikipedia.org/wiki/Chaoyang_District,_Beijing",
         getThere: "Sanlitun: Line 6 to Dongdaqiao 东大桥 (change from Line 8 at Nanluoguxiang), about 25 min. 798: Line 14 to Jiangtai 将台, then a 15-min walk.",
         maybe: ["d5"],
-        vibe: "Modern Beijing, east of the old city. The CBD skyscrapers and CCTV tower, the embassy area, Sanlitun's shops, restaurants and bars, and the 798 art district in old factories further out. Newer and more international; good for shopping, coffee and a change from palaces.",
+        vibe: "Modern Beijing, east of the old city. The business district skyscrapers and the CCTV tower, the embassy area, Sanlitun's shops, restaurants and bars, and 798 in old factories further out. Newer and more international, good for shopping and coffee when we need a break from palaces.",
         places: [
           {
             name: "Sanlitun Taikoo Li",
             zh: "三里屯太古里",
-            note: "Open-air shopping area with flagship stores, cafes and bars.",
+            note: "Outdoor shopping area with big brand stores, cafes and bars.",
             plan: "Idea",
             amap: "三里屯太古里"
           },
           {
             name: "798 Art District",
             zh: "798艺术区",
-            note: "Galleries and cafes in 1950s factory buildings.",
+            note: "Galleries and cafes in old 1950s factories.",
             plan: "Optional, Tue 24",
             amap: "798艺术区"
           },
           {
             name: "CBD & CCTV Headquarters",
             zh: "国贸 / 中央电视台总部大楼",
-            note: "Skyscraper district and the famous loop-shaped tower.",
+            note: "Skyscrapers and the famous loop shaped tower.",
             plan: "Idea",
             amap: "中央电视台总部大楼"
           },
@@ -444,7 +444,7 @@ TRIP.beijing = {
         source: "https://en.wikipedia.org/wiki/Haidian_District",
         getThere: "Line 1 west to Xidan 西单, then Line 4 north to Beigongmen 北宫门 for the Summer Palace, about 50 min.",
         maybe: ["d4"],
-        vibe: "The university and tech district in the northwest. Big, green imperial gardens (the Summer Palace on its lake, the ruins of the Old Summer Palace) plus Peking and Tsinghua universities and the student area of Wudaokou. Far from the hotel, so it's a half-day or full-day trip.",
+        vibe: "The university and tech area in the northwest. Big imperial gardens (the Summer Palace on its lake, the Old Summer Palace ruins), Peking and Tsinghua universities, and Wudaokou where all the students hang out. It's far from the hotel so it's a half day or full day thing.",
         places: [
           {
             name: "Summer Palace",
@@ -456,14 +456,14 @@ TRIP.beijing = {
           {
             name: "Old Summer Palace",
             zh: "圆明园",
-            note: "Ruins of the European-style palaces destroyed in 1860.",
+            note: "Ruins of the European style palaces that got destroyed in 1860.",
             plan: "Idea",
             amap: "圆明园遗址公园"
           },
           {
             name: "Wudaokou",
             zh: "五道口",
-            note: "Student neighborhood with cheap eats and cafes.",
+            note: "Student area with cheap food and cafes.",
             plan: "Idea",
             amap: "五道口"
           }
@@ -481,12 +481,12 @@ TRIP.beijing = {
         source: "https://en.wikipedia.org/wiki/Mutianyu",
         getThere: "Our Mubus from the city, about 1.5–2 hours each way.",
         days: ["d2"],
-        vibe: "Mountains and countryside about 70 km north of the city. We only come for the Great Wall at Mutianyu: restored watchtowers along a forested ridge, with a cable car up and a toboggan down. Cold and windy in late November, so dress warm.",
+        vibe: "Mountains and countryside about 70 km north of the city. We're only here for the Great Wall at Mutianyu. Restored watchtowers along a ridge with trees, cable car up and a toboggan down. Cold and windy in late November so dress warm.",
         places: [
           {
             name: "Mutianyu Great Wall",
             zh: "慕田峪长城",
-            note: "Restored section with cable car and toboggan.",
+            note: "Restored part with a cable car and toboggan.",
             plan: "Sat 21",
             amap: "慕田峪长城"
           }
@@ -503,7 +503,7 @@ TRIP.beijing = {
         source: "https://en.wikipedia.org/wiki/Beijing_Capital_International_Airport",
         getThere: "Airport Express trains from the city, about 1 hour. Check which airport is on our ticket. Capital (PEK): metro to Dongzhimen 东直门, then the Capital Airport Express. Daxing (PKX) is far south: metro to Caoqiao 草桥, then the Daxing Airport Express, about 1 hour 15 min.",
         days: ["d5", "d6"],
-        vibe: "Our flight home. Beijing has two big airports: Capital in the northeast, and the new Daxing in the far south. Leave plenty of time either way.",
+        vibe: "Flying home. Beijing has two big airports, Capital in the northeast and the new Daxing way down south. Leave lots of time for either one.",
         places: [
           {
             name: "Beijing Capital Airport",
@@ -529,9 +529,9 @@ TRIP.beijing = {
         {
           name: "Jianbing",
           zh: "煎饼",
-          note: "Classic breakfast: crepe with egg and a crispy cracker. Plan: Sat and Tue breakfast."
+          note: "Classic breakfast, crepe with egg and a crispy cracker. Plan: Sat and Tue breakfast."
         },
-        { name: "Shou juan", note: "Thin wrap rolled around meats and veggies." },
+        { name: "Shou juan", note: "Thin wrap rolled up with meat and veggies." },
         {
           name: "Peking duck",
           zh: "北京烤鸭",
@@ -542,7 +542,7 @@ TRIP.beijing = {
         {
           name: "Chao liang fen",
           zh: "炒凉粉",
-          note: "Chunks of wobbly, sticky mung bean jelly in a spicy, slightly vinegary sesame sauce."
+          note: "Chunks of wobbly sticky mung bean jelly in a spicy sesame sauce with a little vinegar."
         },
         { name: "Spicy sour noodles", zh: "酸辣粉" },
         {
@@ -553,41 +553,41 @@ TRIP.beijing = {
         {
           name: "Zhajiangmian",
           zh: "炸酱面",
-          note: "Beijing's most famous noodles, chunky meat sauce and crunchy veggies (~¥22); the ancestor of Korean jjajangmyeon. Plan: Sun lunch."
+          note: "Beijing's most famous noodles, chunky meat sauce and crunchy veggies (~¥22). It's where Korean jjajangmyeon came from. Plan: Sun lunch."
         },
         {
           name: "Beijing yogurt",
           zh: "老北京酸奶",
-          note: "Nice restaurants sometimes make their own; also the drinking yogurt brand. Plan: Sun snack."
+          note: "Nice restaurants sometimes make their own, it's also a drinking yogurt brand. Plan: Sun snack."
         },
         { name: "Snow pear tea", zh: "雪梨茶" },
         {
           name: "Liang mian (crepe roll)",
           zh: "凉面",
-          note: "Not cold noodles here: a thick chewy crepe rolled around spices and filling, heavy on cumin and chili."
+          note: "Not actually cold noodles here, it's a thick chewy crepe rolled around spices and filling, lots of cumin and chili."
         },
         { name: "Tang er duo", zh: "糖耳朵", note: "\"Sugar ear\", a traditional Beijing sweet (~¥3)." },
         { name: "Malatang", zh: "麻辣烫", note: "Not on the plan yet." },
-        { name: "Beef offal soup", zh: "牛杂汤", note: "Rich, warming broth simmered with beef offal (~¥35)." },
+        { name: "Beef offal soup", zh: "牛杂汤", note: "Warm rich soup with beef offal (~¥35)." },
         {
           name: "Fried dough stick",
           zh: "油条",
-          note: "Golden and airy; the breakfast pair for soy milk or douzhi (~¥3). Plan: Sun breakfast."
+          note: "Fried dough stick, goes with soy milk or douzhi (~¥3). Plan: Sun breakfast."
         },
         {
           name: "Douzhi",
           zh: "豆汁儿",
-          note: "Beijing's traditional fermented mung bean drink. Sour and earthy, an acquired taste, but a true old Beijing experience (~¥10). Plan: Sun breakfast."
+          note: "Old Beijing fermented mung bean drink. Sour and earthy, definitely an acquired taste, but very old Beijing (~¥10). Plan: Sun breakfast."
         },
         {
           name: "Braised beef noodles",
           zh: "红烧牛肉面",
-          note: "Tender beef, rich broth, chewy noodles (~¥18). Plan: Sun dinner."
+          note: "Tender beef, rich soup, chewy noodles (~¥18). Plan: Sun dinner."
         },
         {
           name: "Donkey burger",
           zh: "驴肉火烧",
-          note: "Crispy flatbread stuffed with tender donkey meat; a Beijing street staple (~¥15). Plan: Sun."
+          note: "Crispy flatbread with donkey meat inside, very common street food here (~¥15). Plan: Sun."
         }
       ]
     },
@@ -599,7 +599,7 @@ TRIP.beijing = {
         {
           name: "Ghost Street (Gui Jie)",
           zh: "簋街",
-          note: "The most famous late-night street food street.",
+          note: "The famous late night food street.",
           address: "Dongzhimen Inner St 东直门内大街",
           amap: "簋街"
         }
@@ -612,19 +612,19 @@ TRIP.beijing = {
         {
           name: "Jingshan Park",
           zh: "景山公园",
-          note: "Panoramic view of the Forbidden City. Plan: Tue.",
+          note: "The view over the whole Forbidden City. Plan: Tue.",
           amap: "景山公园"
         },
         {
           name: "Xianyukou Street",
           zh: "鲜鱼口",
-          note: "Traditional food street near Qianmen. Plan: Sun lunch.",
+          note: "Old food street near Qianmen. Plan: Sun lunch.",
           amap: "鲜鱼口美食街"
         },
         {
           name: "Qianmen East hutongs",
           zh: "前门东区",
-          note: "Calmer, lived-in streets. In Sun's Explore nearby.",
+          note: "Quieter streets where people actually live. In Sun's Explore nearby.",
           amap: "前门东区胡同"
         },
         { name: "Lama Temple (Yonghe Gong)", zh: "雍和宫", amap: "雍和宫", note: "Plan: Mon afternoon." },
@@ -638,7 +638,7 @@ TRIP.beijing = {
         {
           name: "Red Brick Art Museum",
           zh: "红砖美术馆",
-          note: "Really scenic! Closed Mondays. In Tue's Explore nearby.",
+          note: "Really pretty! Closed Mondays. In Tue's Explore nearby.",
           address: "Hegezhuang Village, Shunbai Rd, Cuigezhuang, Chaoyang 朝阳区崔各庄何各庄村顺白路",
           amap: "红砖美术馆"
         },
@@ -647,7 +647,7 @@ TRIP.beijing = {
           name: "Summer Palace",
           zh: "颐和园",
           amap: "颐和园",
-          note: "Half-day trip, about 50 min by metro (Line 4 to Beigongmen 北宫门). Optional on Mon 23."
+          note: "Half day trip, about 50 min on the metro (Line 4 to Beigongmen 北宫门). Optional on Mon 23."
         },
         {
           name: "Nanchizi Museum",
@@ -667,7 +667,7 @@ TRIP.beijing = {
         {
           name: "Wudaoying Hutong",
           zh: "五道营胡同",
-          note: "600-year-old hutong of shops and cafes. Plan: Mon afternoon.",
+          note: "600 year old hutong with shops and cafes. Plan: Mon afternoon.",
           amap: "五道营胡同"
         },
         { name: "Temple of Heaven", zh: "天坛", note: "Plan: Mon morning.", amap: "天坛公园" }
@@ -680,13 +680,13 @@ TRIP.beijing = {
         {
           name: "Zeng Sheng Kui",
           zh: "增盛魁",
-          note: "Breakfast since 1928: sugar pancake, savory silken tofu, doornail meat pie. Gets really busy. Plan: Sun breakfast option.",
+          note: "Breakfast place since 1928. Sugar pancake, salty silken tofu, and a meat pie shaped like a door nail. Gets really busy. Plan: Sun breakfast option.",
           amap: "增盛魁"
         },
         {
           name: "Hu Da",
           zh: "胡大",
-          note: "Popular for crawfish, on Ghost Street. Plan: Mon dinner.",
+          note: "Known for crawfish, on Ghost Street. Plan: Mon dinner.",
           amap: "胡大饭馆 簋街"
         },
         {
@@ -699,7 +699,7 @@ TRIP.beijing = {
         {
           name: "Yin San Douzhi",
           zh: "尹三豆汁",
-          note: "Breakfast; douzhi with fried dough rings. Open 5:30 to noon. Plan: Sun breakfast option.",
+          note: "Breakfast, douzhi with fried dough rings. Open 5:30 to noon. Plan: Sun breakfast option.",
           address: "176 Dongxiaoshi St 东晓市街176号",
           amap: "尹三豆汁"
         },
@@ -719,14 +719,14 @@ TRIP.beijing = {
         {
           name: "Donglaishun (Qianmen Street)",
           zh: "东来顺",
-          note: "Lamb skewers, street food; famous for copper-pot lamb hot pot.",
+          note: "Lamb skewers and street food, known for copper pot lamb hot pot.",
           address: "Qianmen Street 前门大街",
           amap: "东来顺 前门"
         },
         {
           name: "Niujie street food",
           zh: "牛街",
-          note: "Beijing's historic Muslim quarter. Plan: Mon lunch crawl.",
+          note: "Beijing's old Muslim area. Plan: Mon lunch crawl.",
           amap: "牛街"
         },
         {
@@ -748,7 +748,7 @@ TRIP.beijing = {
         {
           name: "Bai Ji Nian Gao",
           zh: "白记年糕",
-          note: "Sticky rice cakes and hawthorn cake; the shop right next to Ma Ji is good too. Plan: Mon lunch.",
+          note: "Sticky rice cakes and hawthorn cake. The shop right next to Ma Ji is good too. Plan: Mon lunch.",
           amap: "白记年糕 牛街",
           dianping: "年糕"
         },
@@ -775,19 +775,19 @@ TRIP.beijing = {
         },
         {
           name: "Brickyard Courtyard Cafe",
-          note: "Seating alcoves in century-old brick kilns.",
+          note: "You sit in little nooks inside 100 year old brick kilns.",
           address: "Dongsi hutong strip, Dongcheng 东四",
           amap: "Brickyard Courtyard Cafe"
         },
         {
           name: "Wudaoying Slow Coffee",
-          note: "One of Beijing's quietest hutong streets, with an ancient temple as backdrop.",
+          note: "One of the quietest hutong streets, with an old temple behind it.",
           address: "Wudaoying Hutong, near Lama Temple 五道营胡同",
           amap: "五道营胡同 咖啡"
         },
         {
           name: "Drum Tower Tea House Cafe",
-          note: "Qing carved architecture; oolong-infused americano?",
+          note: "Old carved Qing building. Oolong americano?",
           address: "Gulou East St, near the Drum Tower 鼓楼东大街",
           amap: "鼓楼 茶馆 咖啡"
         },
@@ -809,7 +809,7 @@ TRIP.beijing = {
         { name: "Chunfen", amap: "Chunfen coffee" },
         {
           name: "Townhouse",
-          note: "Scandi-style cafe on Guozijian St.",
+          note: "Scandi style cafe on Guozijian St.",
           address: "76 Guozijian St 国子监街76号",
           amap: "国子监街76号"
         },
@@ -823,7 +823,7 @@ TRIP.beijing = {
           address: "Nanluoguxiang 南锣鼓巷",
           amap: "南锣鼓巷 咖啡"
         },
-        { name: "StillWater", note: "Minimalist cafe in the old neighborhood.", amap: "StillWater coffee" },
+        { name: "StillWater", note: "Minimal cafe in the old neighborhood.", amap: "StillWater coffee" },
         {
           name: "Tangfant Coffee (Shichahai)",
           note: "Cozy cafe inside a hutong.",
@@ -854,14 +854,14 @@ TRIP.beijing = {
         {
           name: "Guanxia",
           zh: "观夏",
-          note: "Chinese fragrance brand in a courtyard shop. Plan: Mon afternoon.",
+          note: "Chinese perfume brand in a courtyard shop. Plan: Mon afternoon.",
           address: "42 Guozijian St 国子监街42号",
           amap: "观夏 国子监"
         },
         {
           name: "Peaceful East Bureau",
           zh: "和平菓局",
-          note: "Retro 80s–00s Beijing museum and pop-up of little shops. Plan: Fri evening.",
+          note: "Retro 80s to 00s Beijing, kind of a museum and a pop-up with little shops. Plan: Fri evening.",
           address: "Wangfujing",
           amap: "和平菓局 王府井"
         },
@@ -875,13 +875,13 @@ TRIP.beijing = {
         {
           name: "Yangmeizhu Xiejie",
           zh: "杨梅竹斜街",
-          note: "Little lane of design shops, with a favorite for postcards, prints and keepsakes. Plan: Sun afternoon.",
+          note: "Little lane with design shops, one has really nice postcards, prints and keepsakes. Plan: Sun afternoon.",
           amap: "杨梅竹斜街"
         },
         {
           name: "Liulichang Cultural Street",
           zh: "琉璃厂文化街",
-          note: "Chinese art: brushes, ink, paper, seals and paintings. Plan: Sun afternoon.",
+          note: "Chinese art stuff, brushes, ink, paper, seals and paintings. Plan: Sun afternoon.",
           amap: "琉璃厂文化街"
         },
         {
@@ -893,13 +893,13 @@ TRIP.beijing = {
         },
         {
           name: "Dulton (798)",
-          note: "Japanese homeware and design shop in the 798 Art District. Optional on Tue.",
+          note: "Japanese homeware and design shop in 798. Optional on Tue.",
           amap: "Dulton 798"
         },
         {
           name: "Panjiayuan Market",
           zh: "潘家园旧货市场",
-          note: "Antique and flea market; best on weekend mornings. Only if we can fit it.",
+          note: "Antique and flea market, best on weekend mornings. Only if we have time.",
           address: "Chaoyang",
           amap: "潘家园旧货市场"
         },
@@ -934,7 +934,7 @@ TRIP.beijing = {
         {
           name: "DaLiuShu ghost market",
           zh: "大柳树鬼市",
-          note: "Tuesday nights; clashes with our midnight flight.",
+          note: "Tuesday nights, but that's when D's flight is.",
           address: "Xiaowuji Rd, Chaoyang",
           amap: "大柳树鬼市"
         },
@@ -946,12 +946,12 @@ TRIP.beijing = {
         {
           name: "Peony radios",
           zh: "牡丹",
-          note: "Vintage Chinese radios. Search \"牡丹牌收音机\" on Taobao, or look at Panjiayuan."
+          note: "Old Chinese radios. Search \"牡丹牌收音机\" on Taobao or check Panjiayuan."
         },
         {
           name: "Flying Pigeon bikes",
           zh: "飞鸽",
-          note: "The classic Chinese bicycle. Try second-hand markets, or Fenghuang Bike near Beijing Language and Culture University, Haidian. (Probably not one for the suitcase!)"
+          note: "The classic Chinese bike. Try secondhand markets, or Fenghuang Bike near Beijing Language and Culture University in Haidian. (Probably not fitting in the suitcase lol)"
         }
       ]
     }
@@ -970,14 +970,14 @@ TRIP.beijing = {
       zh: "王府井",
       area: "Wangfujing",
       title: "Arrive, palace walls at dusk, Peking duck",
-      summary: "Train up from Shanghai and check in on Wangfujing. If we're in by late afternoon: walk to the Forbidden City moat for the corner towers at sunset, poke around the retro Peaceful East Bureau, then our first Peking duck at Siji Minfu.",
+      summary: "Hello Beijing! Train up from Shanghai and check in on Wangfujing. If we get in by late afternoon, walk to the Forbidden City moat to see the corner towers at sunset, check out the retro Peaceful East Bureau, then our first Peking duck at Siji Minfu.",
       stops: [
         {
           time: "Afternoon",
           type: "misc",
           label: "Arrive",
           title: "Train into Beijing",
-          detail: "Train time TO FIGURE OUT. Most trains from Shanghai arrive at Beijing South 北京南站: Line 4 north to Xidan 西单, then Line 1 east to Wangfujing 王府井, about 40 min. Amap will route it."
+          detail: "Train time TBD. Most trains from Shanghai get into Beijing South 北京南站. Line 4 north to Xidan 西单, then Line 1 east to Wangfujing 王府井, about 40 min. Amap will show the route."
         },
         {
           time: "After",
@@ -992,7 +992,7 @@ TRIP.beijing = {
           type: "see",
           label: "See",
           title: "Forbidden City corner tower at sunset",
-          detail: "Sunset is around 4:50 PM. Walk west to the palace moat and up to the northeast corner tower; the walls glow as the lights come on. About 20 min on foot.",
+          detail: "Sunset is around 4:50 PM. Walk west to the moat and up to the northeast corner tower, the walls look so pretty when the lights come on. About 20 min walk.",
           amap: "故宫角楼"
         },
         {
@@ -1000,7 +1000,7 @@ TRIP.beijing = {
           type: "shop",
           label: "Explore",
           title: "Peaceful East Bureau 和平菓局 (retro Beijing)",
-          detail: "Part 80s–00s Beijing museum, part giant pop-up: old shopfronts, snacks, little shops and workshops full of retro stuff. Indoors, so good once it's dark and cold.",
+          detail: "Kind of a museum of 80s to 00s Beijing and kind of a huge pop-up. Old shopfronts, snacks, little shops and workshops with retro stuff. It's inside so good once it's dark and cold.",
           amap: "和平菓局 王府井"
         },
         {
@@ -1008,7 +1008,7 @@ TRIP.beijing = {
           type: "food",
           label: "Dinner",
           title: "Peking duck 烤鸭",
-          detail: "Our first duck. Go early or take a queue number; dinner lines get long.",
+          detail: "First duck! Go early or get a queue number, the dinner line gets long.",
           order: [
             { en: "Peking duck (half is plenty for two)", zh: "烤鸭（半只）" },
             { en: "Mustard cabbage (cold, sinus-clearing)", zh: "芥末墩" },
@@ -1018,7 +1018,7 @@ TRIP.beijing = {
           options: [
             {
               name: "Siji Minfu 四季民福 (Forbidden City branch)",
-              why: "By the palace's east gate, with views of the wall. Very popular: get a number around 4:30 to 5 PM.",
+              why: "By the palace's east gate, you can see the wall. Super popular, get a number around 4:30 or 5.",
               amap: "四季民福 故宫店"
             },
             {
@@ -1036,28 +1036,28 @@ TRIP.beijing = {
             name: "Wangfujing Cathedral",
             zh: "王府井天主堂",
             kind: "Church",
-            about: "St. Joseph's Church on Wangfujing, rebuilt in 1904 and lit up at night.",
+            about: "St. Joseph's Church on Wangfujing, rebuilt in 1904. It's lit up at night.",
             amap: "王府井天主堂"
           },
           {
             name: "Shengxifu",
             zh: "盛锡福",
             kind: "Old shop",
-            about: "Beijing hat maker since 1911, at 256 Wangfujing St. Fur hats and old-school caps.",
+            about: "Hat shop since 1911, at 256 Wangfujing St. Fur hats and old school caps.",
             amap: "盛锡福 王府井"
           },
           {
             name: "Wangfujing Snack Street",
             zh: "王府井小吃街",
             kind: "Food street",
-            about: "Touristy lane of snack stalls just off Wangfujing. Fun to walk through even if we don't eat.",
+            about: "Touristy alley with snack stalls off Wangfujing. Fun to walk through even if we don't eat.",
             amap: "王府井小吃街"
           },
           {
             name: "Foreign Languages Bookstore",
             zh: "外文书店",
             kind: "Books",
-            about: "Big bookstore on Wangfujing with English books and maps.",
+            about: "Big bookstore on Wangfujing, has English books and maps.",
             amap: "王府井外文书店"
           }
         ]
@@ -1066,7 +1066,7 @@ TRIP.beijing = {
         items: [
           {
             name: "Peking duck 烤鸭",
-            text: "Beijing's most famous dish. The duck is air-dried, glazed and roasted until the skin is thin and crackly, then carved at the table.\nWrap slices in the thin pancakes with scallion, cucumber and sweet bean sauce. Dip the crispy skin in a little sugar; that's the old-school way.",
+            text: "Beijing's most famous dish. They dry the duck, glaze it and roast it until the skin is thin and crispy, then cut it at the table.\nWrap it in the thin pancakes with scallion, cucumber and sweet bean sauce. You can dip the crispy skin in a little sugar, that's how people used to eat it.",
             source: "https://en.wikipedia.org/wiki/Peking_duck"
           }
         ]
@@ -1074,11 +1074,11 @@ TRIP.beijing = {
       places: [
         {
           name: "Peaceful East Bureau",
-          text: "A huge indoor retro world on Wangfujing, recreating Beijing streets from the 1980s to 2000s: old shop signs, bikes, TVs, snacks and little stalls, with workshops and things to buy.\nIt's as much a museum of everyday life as a shopping spot. Its Chinese name, 和平菓局, is a play on an old-style \"fruit and grocery bureau\"."
+          text: "A huge indoor retro place on Wangfujing made to look like Beijing streets from the 80s to the 2000s. Old shop signs, bikes, TVs, snacks and little stalls, plus workshops and stuff to buy.\nIt's kind of a museum of normal life back then. The Chinese name 和平菓局 is a play on an old \"fruit and grocery bureau\"."
         },
         {
           name: "Siji Minfu 四季民福",
-          text: "One of the most popular places in Beijing for roast duck, liked by locals as much as visitors. The duck is roasted over fruitwood and carved at the table.\nThe Forbidden City branch sits right by the east gate, so some tables look out on the palace wall."
+          text: "One of the most popular duck places in Beijing, locals love it too. The duck is roasted over fruitwood and cut at the table.\nThe Forbidden City one is right by the east gate so some tables look out at the palace wall."
         }
       ],
       sights: [],
@@ -1090,8 +1090,8 @@ TRIP.beijing = {
           dish: "Copper-pot lamb hotpot 涮羊肉",
           short: "thin lamb swished in plain broth, sesame dip",
           name: "Dong Lai Shun 东来顺",
-          what: "Old Beijing hotpot: paper-thin lamb slices swished in plain broth in a charcoal copper pot, then dipped in sesame sauce.",
-          why: "A Beijing name since 1903, with a branch on Wangfujing.",
+          what: "Old Beijing hotpot. Super thin lamb you swish in plain broth in a copper pot, then dip in sesame sauce.",
+          why: "Old Beijing name since 1903, there's one on Wangfujing.",
           amap: "东来顺 王府井"
         },
         {
@@ -1100,8 +1100,8 @@ TRIP.beijing = {
           dish: "Beijing pastries 糕点",
           short: "flaky jujube, bean and nut cakes",
           name: "Daoxiangcun 稻香村",
-          what: "Traditional Beijing cakes and cookies: flaky pastries with jujube, bean or nut fillings. Good snacks and easy gifts.",
-          why: "Classic Beijing pastry brand with shops on Wangfujing.",
+          what: "Old Beijing cakes and cookies, flaky pastries with jujube, bean or nut inside. Good snacks and easy gifts.",
+          why: "The classic Beijing pastry brand, there's shops on Wangfujing.",
           amap: "稻香村 王府井"
         }
       ],
@@ -1119,7 +1119,7 @@ TRIP.beijing = {
       zh: "长城",
       area: "Mutianyu Great Wall",
       title: "The Great Wall at Mutianyu",
-      summary: "Great Wall day if the forecast is good (swap with Monday if not). Hot breakfast, Mubus up to Mutianyu, walk the wall and ride the toboggan down, farmhouse lunch in the village. Back in town, warm up with copper-pot lamb hotpot. If we still have energy, a Saturday-night ghost market near Qianmen.",
+      summary: "Great Wall day, yay! (If the weather's good, if not swap with Monday.) Hot breakfast, Mubus to Mutianyu, walk the wall and take the toboggan down, lunch in the village. Back in the city, warm up with lamb hotpot. If we still have energy, there's a Saturday night ghost market near Qianmen.",
       highlights: ["Great Wall", "Toboggan", "Lamb hotpot"],
       stops: [
         {
@@ -1127,11 +1127,11 @@ TRIP.beijing = {
           type: "food",
           label: "Breakfast",
           title: "Jianbing 煎饼 or baozi 包子",
-          detail: "Something hot near the hotel before the bus. Beijing jianbing is a thin egg crepe with sauce and a crispy cracker (薄脆) folded inside.",
+          detail: "Something hot near the hotel before the bus. Beijing jianbing is a thin egg crepe with sauce and a crispy cracker (薄脆) inside.",
           options: [
             {
               name: "Qing-Feng Baozi 庆丰包子铺",
-              why: "Simple Beijing chain for steamed pork buns and millet porridge.",
+              why: "Simple Beijing chain, steamed pork buns and millet porridge.",
               amap: "庆丰包子铺 王府井"
             }
           ],
@@ -1142,7 +1142,7 @@ TRIP.beijing = {
           type: "misc",
           label: "Transit",
           title: "Mubus to Mutianyu",
-          detail: "Bus and Great Wall entry in one booking. Pickup point and time are on the Trip.com voucher.",
+          detail: "Bus and Great Wall ticket in one. Pickup spot and time are on the Trip.com voucher.",
           bookingUrl: "https://www.trip.com/things-to-do/detail/89362507?language=EN&locale=en_xx&districtId=1&districtType=1"
         },
         {
@@ -1150,7 +1150,7 @@ TRIP.beijing = {
           type: "see",
           label: "See",
           title: "Mutianyu Great Wall",
-          detail: "Bring the passport used for the booking.",
+          detail: "Bring the passport we booked with.",
           address: "Mutianyu, Huairou District 慕田峪长城",
           amap: "慕田峪长城"
         },
@@ -1159,7 +1159,7 @@ TRIP.beijing = {
           type: "food",
           label: "Lunch",
           title: "Farmhouse lunch in Mutianyu village 农家菜",
-          detail: "Simple home-style dishes, noodles and dumplings at the bottom of the wall.",
+          detail: "Simple home style food, noodles and dumplings at the bottom of the wall.",
           dianping: "农家菜"
         },
         {
@@ -1167,14 +1167,14 @@ TRIP.beijing = {
           type: "misc",
           label: "Transit",
           title: "Mubus back to the city",
-          detail: "Check the return time on the voucher. Usually back around 4 to 5 PM."
+          detail: "Check the return time on the voucher. Usually back around 4 or 5."
         },
         {
           time: "Dinner",
           type: "food",
           label: "Dinner",
           title: "Copper-pot lamb hotpot 涮羊肉",
-          detail: "The perfect thing after a cold day on the wall.",
+          detail: "Exactly what we'll want after being cold on the wall all day.",
           order: [
             { en: "Hand-cut lamb", zh: "手切羊肉" },
             { en: "Sesame dipping sauce", zh: "麻酱小料" },
@@ -1186,12 +1186,12 @@ TRIP.beijing = {
           options: [
             {
               name: "Dong Lai Shun 东来顺 (Wangfujing)",
-              why: "A Beijing name since 1903, near the hotel.",
+              why: "Old Beijing name since 1903, near the hotel.",
               amap: "东来顺 王府井"
             },
             {
               name: "Ju Bao Yuan 聚宝源 (Niujie)",
-              why: "Famous halal hotpot in the old Muslim quarter. Long queues, so go early.",
+              why: "Famous halal hotpot in the old Muslim area. Long lines so go early.",
               amap: "聚宝源 牛街"
             }
           ],
@@ -1202,7 +1202,7 @@ TRIP.beijing = {
           type: "shop",
           label: "Optional",
           title: "Underground City ghost market 地下城鬼市",
-          detail: "Saturday-night flea market of antiques, old stuff and odds and ends. These markets run late; check the time on Dianping or Xiaohongshu before heading out.",
+          detail: "Saturday night flea market, antiques and random old stuff. These go late, check the time on Dianping or Xiaohongshu before going.",
           address: "62 West Damochang St, Dongcheng 西打磨厂街62号",
           amap: "地下城鬼市 西打磨厂街",
           metro: "Line 2 to Qianmen 前门, then about 10 min on foot."
@@ -1214,14 +1214,14 @@ TRIP.beijing = {
             name: "The toboggan",
             zh: "慕田峪滑道",
             kind: "Ride",
-            about: "Ride down from the wall on a metal track. Fun and fast; there's also a cable car.",
+            about: "Slide down from the wall on a metal track. Super fun. There's a cable car too.",
             amap: "慕田峪长城滑道"
           },
           {
             name: "Quieter stretches",
             zh: "慕田峪长城",
             kind: "Walk",
-            about: "Walk away from the cable car and toboggan stops for emptier sections and better photos.",
+            about: "Walk away from where the cable car and toboggan are, it's emptier and the pics are better.",
             amap: "慕田峪长城"
           }
         ],
@@ -1230,7 +1230,7 @@ TRIP.beijing = {
             name: "Mutianyu village",
             zh: "慕田峪村",
             kind: "Village",
-            about: "Little village at the bottom with snack stalls and farmhouse restaurants.",
+            about: "Small village at the bottom with snack stalls and farmhouse restaurants.",
             amap: "慕田峪村"
           }
         ],
@@ -1239,7 +1239,7 @@ TRIP.beijing = {
             name: "Qianmen at night",
             zh: "前门大街",
             kind: "Street",
-            about: "The rebuilt old shopping street is lit up at night, close to the ghost market.",
+            about: "The rebuilt old shopping street, it's lit up at night and close to the ghost market.",
             amap: "前门大街"
           }
         ]
@@ -1248,12 +1248,12 @@ TRIP.beijing = {
         items: [
           {
             name: "Copper-pot hotpot 涮羊肉",
-            text: "Old Beijing's hotpot, from the Muslim and Mongol cooking of the north. A charcoal copper pot of plain broth sits in the middle, and you swish paper-thin lamb for a few seconds, then dip it in sesame sauce.\nIt's not spicy like Sichuan hotpot: the lamb and the sauce are the stars. Finish with a sesame flatbread.",
+            text: "Old Beijing hotpot, it comes from Muslim and Mongolian cooking up north. There's a copper pot with plain broth in the middle and you swish super thin lamb in it for a few seconds, then dip it in sesame sauce.\nIt's not spicy like Sichuan hotpot, it's all about the lamb and the sauce. Get a sesame flatbread at the end.",
             source: "https://en.wikipedia.org/wiki/Hot_pot"
           },
           {
             name: "Jianbing 煎饼",
-            text: "A thin crepe of mung bean and wheat batter, cracked egg spread on top, brushed with sauces and folded around a crispy fried cracker with scallion and coriander.\nIt's the classic northern breakfast, made to order at street stalls in a couple of minutes.",
+            text: "Thin crepe made with mung bean and wheat batter, they crack an egg on it, brush on sauces, and fold it around a crispy fried cracker with scallion and coriander.\nIt's the classic breakfast up north, street stalls make it in like two minutes.",
             source: "https://en.wikipedia.org/wiki/Jianbing"
           }
         ]
@@ -1262,7 +1262,7 @@ TRIP.beijing = {
       sights: [
         {
           name: "Mutianyu Great Wall",
-          text: "A 2.25 km restored stretch about 70 km northeast of central Beijing, with 22 watchtowers.\nThe first wall here was built in the mid-500s (Northern Qi), and the Ming rebuilt it in 1569. Rare detail: both sides have battlements, so archers could fire either way. It opened to visitors in 1988.",
+          text: "A 2.25 km restored part about 70 km northeast of the city, with 22 watchtowers.\nThe first wall here was built in the mid 500s and the Ming rebuilt it in 1569. Cool thing is both sides have walls so archers could shoot either way. It opened to tourists in 1988.",
           source: "https://en.wikipedia.org/wiki/Mutianyu"
         }
       ],
@@ -1270,7 +1270,7 @@ TRIP.beijing = {
         {
           group: "Saturday night",
           name: "DongPeng ghost market 东鹏鬼市",
-          why: "Another Saturday-night flea market, at the corner of Taozhuang Rd and Huagong Rd in Chaoyang. Further out than the one near Qianmen.",
+          why: "Another Saturday night flea market, at the corner of Taozhuang Rd and Huagong Rd in Chaoyang. Further than the Qianmen one.",
           amap: "东鹏鬼市"
         }
       ],
@@ -1288,7 +1288,7 @@ TRIP.beijing = {
       zh: "天安门",
       area: "Tiananmen",
       title: "Tiananmen, Qianmen lanes & Liulichang",
-      summary: "Run the palace moat, a Beijing breakfast (maybe douzhi?!), then Tiananmen and the National Museum. Zhajiangmian for lunch near Qianmen, then a slow afternoon through Dashilar, the little design shops on Yangmeizhu Xiejie and the art street of Liulichang. Old-style yogurt for a snack, comfort noodles for dinner.",
+      summary: "Big sights day, hehe. Run the palace moat, a Beijing breakfast (maybe douzhi?!), then Tiananmen and the National Museum. Zhajiangmian for lunch near Qianmen, then a slow afternoon through Dashilar, the little design shops on Yangmeizhu Xiejie and the art street of Liulichang. Old-style yogurt for a snack, comfort noodles for dinner.",
       highlights: ["National Museum", "Dashilar", "Liulichang", "Zhajiangmian"],
       stops: [
         {
@@ -1296,7 +1296,7 @@ TRIP.beijing = {
           type: "run",
           label: "Run",
           title: "Forbidden City moat loop",
-          detail: "About 3.5 km around the palace moat, with the corner towers at sunrise. Then breakfast and shower.",
+          detail: "About 3.5 km around the moat, the corner towers at sunrise. Then breakfast and shower.",
           amap: "故宫筒子河"
         },
         {
@@ -1313,7 +1313,7 @@ TRIP.beijing = {
             },
             {
               name: "Zeng Sheng Kui 增盛魁",
-              why: "Breakfast since 1928: sugar pancakes, savory silken tofu and \"doornail\" meat pies. Gets busy.",
+              why: "Breakfast since 1928. Sugar pancakes, salty silken tofu and \"doornail\" meat pies. Gets busy.",
               amap: "增盛魁"
             }
           ],
@@ -1323,15 +1323,15 @@ TRIP.beijing = {
           time: "Morning",
           type: "see",
           label: "See",
-          title: "Tiananmen Square",
-          detail: "Bring the passport we booked with; there's a security check.",
+          title: "Tiananmen Square (reserved Nov 15)",
+          detail: "Bring the passport we booked with, there's a security check.",
           amap: "天安门广场"
         },
         {
           time: "Morning",
           type: "see",
           label: "Museum",
-          title: "National Museum of China",
+          title: "National Museum of China (booked Nov 15)",
           detail: "On the east side of Tiananmen Square. Closed Mondays.",
           address: "16 East Chang'an Ave 东长安街16号",
           amap: "中国国家博物馆"
@@ -1341,7 +1341,7 @@ TRIP.beijing = {
           type: "food",
           label: "Lunch",
           title: "Zhajiangmian 炸酱面",
-          detail: "Beijing's noodle. Thick noodles, salty soybean and pork sauce, crunchy fresh vegetables: mix it all together.",
+          detail: "THE Beijing noodle. Thick noodles, salty soybean and pork sauce, crunchy veggies. Mix it all up.",
           order: [
             { en: "Zhajiangmian", zh: "炸酱面" },
             { en: "Donkey burger (try one!)", zh: "驴肉火烧" },
@@ -1350,7 +1350,7 @@ TRIP.beijing = {
           options: [
             {
               name: "Xianyukou Street 鲜鱼口",
-              why: "Old food street just east of Qianmen St, full of Beijing snack and noodle shops.",
+              why: "Old food street just east of Qianmen St, lots of Beijing snack and noodle shops.",
               amap: "鲜鱼口美食街"
             }
           ],
@@ -1361,7 +1361,7 @@ TRIP.beijing = {
           type: "shop",
           label: "Shop",
           title: "Dashilar & Yangmeizhu Xiejie",
-          detail: "Walk the old shopping lanes west of Qianmen St: Neiliansheng 内联升 for handmade cloth shoes (since 1853, 34 Dazhalan), then the quiet little lane of Yangmeizhu Xiejie for design shops, postcards and prints. Look at the doorways and old shopfronts too.",
+          detail: "Walk the old shopping lanes west of Qianmen St. Neiliansheng 内联升 for handmade cloth shoes (since 1853, 34 Dazhalan), then the quiet little lane Yangmeizhu Xiejie for design shops, postcards and prints. Look at the old doors and shopfronts too.",
           amap: "大栅栏"
         },
         {
@@ -1369,7 +1369,7 @@ TRIP.beijing = {
           type: "shop",
           label: "Shop",
           title: "Liulichang Cultural Street 琉璃厂",
-          detail: "Old street of calligraphy brushes, ink, paper, seals and paintings. Good for souvenirs that aren't the usual ones.",
+          detail: "Old street with calligraphy brushes, ink, paper, stamps and paintings. Good for souvenirs that aren't the usual stuff.",
           amap: "琉璃厂文化街",
           metro: "About 10 min on foot west of Dashilar."
         },
@@ -1378,7 +1378,7 @@ TRIP.beijing = {
           type: "food",
           label: "Snack",
           title: "Old-style yogurt 老北京酸奶",
-          detail: "Thick, tangy yogurt in a little ceramic jar, drunk through a straw at the shop. Hand the jar back when you're done.",
+          detail: "Thick sour yogurt in a little jar, you drink it with a straw at the shop and give the jar back.",
           dianping: "老北京酸奶"
         },
         {
@@ -1386,7 +1386,7 @@ TRIP.beijing = {
           type: "food",
           label: "Dinner",
           title: "Braised beef noodles 红烧牛肉面 + donkey burger 驴肉火烧",
-          detail: "Easy comfort food after a big day. A donkey burger is shredded donkey meat in a crisp flatbread; it tastes like a richer pot roast.",
+          detail: "Easy comfort food after a long day. A donkey burger is shredded donkey meat in a crispy flatbread, tastes kind of like pot roast.",
           order: [
             { en: "Braised beef noodles", zh: "红烧牛肉面" },
             { en: "Donkey burger", zh: "驴肉火烧" },
@@ -1401,21 +1401,21 @@ TRIP.beijing = {
             name: "Zhongshan Park",
             zh: "中山公园",
             kind: "Park",
-            about: "Old imperial altar park right beside Tiananmen Gate, with the square Altar of Land and Grain. Few tourists.",
+            about: "Old imperial park right next to Tiananmen Gate, with the square Altar of Land and Grain. Not many tourists.",
             amap: "中山公园 北京"
           },
           {
             name: "Imperial Ancestral Temple",
             zh: "太庙",
             kind: "Temple",
-            about: "On the other side of Tiananmen Gate: the huge halls where emperors honored their ancestors. Usually quiet.",
+            about: "On the other side of Tiananmen Gate, the huge halls where emperors honored their ancestors. Usually quiet.",
             amap: "劳动人民文化宫"
           },
           {
             name: "Zhengyangmen (Qianmen) Gate",
             zh: "正阳门",
             kind: "History",
-            about: "The massive Ming city gate at the south end of the square.",
+            about: "The huge Ming gate at the south end of the square.",
             amap: "正阳门"
           }
         ],
@@ -1424,21 +1424,21 @@ TRIP.beijing = {
             name: "Legation Quarter",
             zh: "东交民巷",
             kind: "Old street",
-            about: "The old embassy quarter from the early 1900s: European-style buildings on a quiet, tree-lined street just east of the square.",
+            about: "The old embassy area from the early 1900s. European looking buildings on a quiet street with trees, just east of the square.",
             amap: "东交民巷"
           },
           {
             name: "Qianmen East hutongs",
             zh: "前门东区",
             kind: "Hutongs",
-            about: "Calmer, lived-in lanes east of Qianmen St, with small cafes tucked in.",
+            about: "Quieter lanes east of Qianmen St where people actually live, with little cafes.",
             amap: "前门东区"
           },
           {
             name: "Neiliansheng",
             zh: "内联升",
             kind: "Old shop",
-            about: "Handmade cloth shoes since 1853, at 34 Dazhalan. Makes a nice gift.",
+            about: "Handmade cloth shoes since 1853, at 34 Dazhalan. Good gift.",
             amap: "内联升 大栅栏"
           }
         ],
@@ -1447,14 +1447,14 @@ TRIP.beijing = {
             name: "Flag-lowering at sunset",
             zh: "天安门广场降旗",
             kind: "Ceremony",
-            about: "Soldiers lower the flag at sunset, around 5 PM in late November. Get there a little early.",
+            about: "Soldiers take the flag down at sunset, around 5 PM in late November. Get there a little early.",
             amap: "天安门广场"
           },
           {
             name: "Wangfujing at night",
             zh: "王府井步行街",
             kind: "Street",
-            about: "Back toward the hotel along the lit-up shopping street.",
+            about: "Walk back to the hotel on the shopping street when it's all lit up.",
             amap: "王府井步行街"
           }
         ]
@@ -1463,7 +1463,7 @@ TRIP.beijing = {
         items: [
           {
             name: "Zhajiangmian 炸酱面",
-            text: "\"Fried sauce noodles\": thick wheat noodles topped with a dark, salty sauce of fermented soybean paste and pork, plus a pile of fresh shredded vegetables.\nThe vegetables come on the side; tip them all in and mix hard. Beijing's version is saltier and less sweet than the Korean jajangmyeon it inspired.",
+            text: "Means \"fried sauce noodles\". Thick wheat noodles with a dark salty sauce made of fermented soybean paste and pork, and a pile of fresh shredded veggies.\nThe veggies come on the side, dump them all in and mix a lot. Beijing's is saltier and less sweet than Korean jajangmyeon, which came from this.",
             source: "https://en.wikipedia.org/wiki/Zhajiangmian"
           },
           {
@@ -1472,31 +1472,31 @@ TRIP.beijing = {
           },
           {
             name: "Old-style yogurt 老北京酸奶",
-            text: "Thick, tangy yogurt sold in little ceramic or glass jars sealed with paper, drunk through a straw. It's been a Beijing street snack for decades.\nThe jar has a deposit, so you drink it at the shop and hand it back."
+            text: "Thick sour yogurt in little ceramic or glass jars with paper on top, you drink it with a straw. It's been a Beijing street snack forever.\nThere's a deposit on the jar so drink it there and give it back."
           }
         ]
       },
       places: [
         {
           name: "Dashilar 大栅栏",
-          text: "One of Beijing's oldest shopping streets, running west from Qianmen since the Ming dynasty. Many shops here are \"time-honored brands\": Neiliansheng shoes (1853), Ruifuxiang silk and Tongrentang medicine.\nThe lanes around it, like Yangmeizhu Xiejie, were quietly restored with small design shops, cafes and guesthouses mixed in with homes.",
+          text: "One of Beijing's oldest shopping streets, going west from Qianmen since the Ming dynasty. A lot of the shops are really old brands, like Neiliansheng shoes (1853), Ruifuxiang silk and Tongrentang medicine.\nThe lanes around it like Yangmeizhu Xiejie got fixed up, now there's small design shops, cafes and guesthouses mixed in with people's homes.",
           source: "https://en.wikipedia.org/wiki/Dashilar"
         },
         {
           name: "Liulichang",
-          text: "Named after the glazed-tile kilns that stood here in the Ming dynasty. In the Qing it became the street for scholars' supplies: books, brushes, ink, paper and antiques.\nToday it's lined with shops selling calligraphy tools, paintings and seals. Browse slowly and bargain on anything pricey.",
+          text: "Named after the glazed tile kilns that used to be here in the Ming dynasty. In the Qing it was where scholars went for books, brushes, ink, paper and antiques.\nNow it's all shops with calligraphy stuff, paintings and stamps. Take your time and bargain if something's expensive.",
           source: "https://en.wikipedia.org/wiki/Liulichang"
         }
       ],
       sights: [
         {
           name: "Tiananmen Square",
-          text: "One of the largest city squares in the world, between Tiananmen gate (the \"Gate of Heavenly Peace\", with Mao's portrait) and Qianmen. The National Museum, Great Hall of the People and Mao's Mausoleum line it.",
+          text: "One of the biggest city squares in the world, between Tiananmen gate (the \"Gate of Heavenly Peace\" with Mao's picture) and Qianmen. The National Museum, Great Hall of the People and Mao's Mausoleum are all around it.",
           source: "https://en.wikipedia.org/wiki/Tiananmen_Square"
         },
         {
           name: "National Museum of China",
-          text: "Built in 1959 as one of the \"Ten Great Buildings\" and reopened in 2011 after a 4-year renovation. It's one of the biggest museums in the world, with over a million objects.\nMust-sees: the Houmuwu Ding, an 833 kg Shang dynasty bronze, and Han dynasty jade burial suits sewn with gold thread.",
+          text: "Built in 1959 as one of the \"Ten Great Buildings\", and reopened in 2011 after a 4 year renovation. One of the biggest museums in the world, over a million things.\nDon't miss the Houmuwu Ding, an 833 kg bronze pot from the Shang dynasty, and the Han dynasty jade burial suits sewn with gold thread.",
           source: "https://en.wikipedia.org/wiki/National_Museum_of_China"
         }
       ],
@@ -1504,7 +1504,7 @@ TRIP.beijing = {
         {
           group: "Shopping",
           name: "Panjiayuan Market 潘家园",
-          why: "Beijing's huge antique and flea market. Weekend mornings are the big days, so Sunday morning is ideal if we can fit it before Tiananmen. Beijing Antique City and Tianya Antique City are right next to it.",
+          why: "Beijing's huge antique and flea market. Weekend mornings are the busiest, so Sunday morning would be perfect if we can go before Tiananmen. Beijing Antique City and Tianya Antique City are right next to it.",
           amap: "潘家园旧货市场"
         }
       ],
@@ -1525,8 +1525,8 @@ TRIP.beijing = {
           dish: "Peking duck 烤鸭",
           short: "crispy roast duck in thin pancakes",
           name: "Quanjude 全聚德 (Qianmen)",
-          what: "Peking duck: crispy-skinned roast duck carved at the table, wrapped in thin pancakes with scallion, cucumber and sweet bean sauce.",
-          why: "The original Peking duck name, roasting since 1864. The Qianmen branch is the oldest.",
+          what: "Crispy roast duck cut at the table, you wrap it in thin pancakes with scallion, cucumber and sweet bean sauce.",
+          why: "The original Peking duck place, since 1864. The Qianmen one is the oldest.",
           amap: "全聚德 前门店"
         },
         {
@@ -1535,7 +1535,7 @@ TRIP.beijing = {
           dish: "Peking duck 烤鸭",
           short: "crispy roast duck in thin pancakes",
           name: "Siji Minfu 四季民福",
-          what: "Peking duck: crispy-skinned roast duck carved at the table, wrapped in thin pancakes with scallion, cucumber and sweet bean sauce.",
+          what: "Crispy roast duck cut at the table, you wrap it in thin pancakes with scallion, cucumber and sweet bean sauce.",
           why: "If we want duck round two.",
           amap: "四季民福 故宫店"
         }
@@ -1553,18 +1553,18 @@ TRIP.beijing = {
       zh: "牛街",
       area: "Niujie & the hutongs",
       title: "Temple of Heaven, Niujie food crawl, Lama Temple",
-      summary: "Our open day (and the Great Wall backup if Saturday's weather is bad). Morning with the locals at the Temple of Heaven, then a snack crawl down Niujie, Beijing's old Muslim street, with its mosque and Fayuan Temple. Afternoon at the Lama Temple and the cafes and shops of Guozijian St and Wudaoying Hutong, then spicy crayfish on Gui Jie. Most museums are closed on Mondays, so this day stays outdoors.",
+      summary: "Snack crawl day, yum. This is our free day (and the Great Wall backup if Saturday's weather is bad). Morning with the locals at the Temple of Heaven, then a snack crawl down Niujie, the old Muslim street, plus the mosque and Fayuan Temple. Afternoon at the Lama Temple and the cafes and shops on Guozijian St and Wudaoying Hutong, then spicy crayfish on Gui Jie. Most museums are closed Mondays so we're outside most of the day.",
       stops: [
         {
           time: "7:00",
           type: "food",
           label: "Breakfast",
           title: "Baozi 包子 + millet porridge 小米粥",
-          detail: "Quick and warm before the temple.",
+          detail: "Something quick and warm before the temple.",
           options: [
             {
               name: "Qing-Feng Baozi 庆丰包子铺",
-              why: "Simple Beijing chain; there are branches all over.",
+              why: "Simple Beijing chain, they're everywhere.",
               amap: "庆丰包子铺"
             }
           ],
@@ -1575,7 +1575,7 @@ TRIP.beijing = {
           type: "see",
           label: "See",
           title: "Temple of Heaven, with the locals",
-          detail: "Get there early: the park fills with people doing tai chi, dancing, singing and playing cards. The round, blue-roofed hall is the Hall of Prayer for Good Harvests. Check whether the halls are open on Mondays; the park is.",
+          detail: "Go early, the park is full of people doing tai chi, dancing, singing and playing cards. The round building with the blue roof is the Hall of Prayer for Good Harvests. Check if the halls are open on Mondays, the park is.",
           amap: "天坛公园东门",
           metro: "Line 5 from Dengshikou 灯市口 to Tiantandongmen 天坛东门, 3 stops."
         },
@@ -1584,7 +1584,7 @@ TRIP.beijing = {
           type: "food",
           label: "Lunch",
           title: "Niujie food crawl 牛街",
-          detail: "Beijing's historic Muslim quarter. Share a few bites at each stop instead of one big meal. All halal, so no pork.",
+          detail: "Beijing's old Muslim area. Share a few bites at each place instead of one big meal. It's all halal so no pork.",
           order: [
             { en: "Crispy meat pie (Shi Ji)", zh: "馅饼" },
             { en: "Sesame flatbread (Ma Ji)", zh: "烧饼" },
@@ -1594,24 +1594,24 @@ TRIP.beijing = {
           options: [
             {
               name: "Shi Ji Xian Bing 牛街石记馅饼",
-              why: "Pan-fried meat pies. About 50 m northeast of Lingyunju's east gate, a 470 m walk from Niujie station Exit C.",
+              why: "Pan-fried meat pies. About 50 m northeast of Lingyunju's east gate, 470 m walk from Niujie station Exit C.",
               address: "凌云居东门东北50米",
               amap: "牛街石记馅饼"
             },
             {
               name: "Ma Ji Shao Bing 马记烧饼",
-              why: "Sesame flatbreads, warm from the oven.",
+              why: "Sesame flatbreads fresh out of the oven.",
               address: "Bldg 2, Zone 2, Niujie Dongli 牛街东里二区2号楼14号",
               amap: "马记烧饼 牛街"
             },
             {
               name: "Bai Ji Nian Gao 白记年糕",
-              why: "Sticky rice cakes and hawthorn cake. The official shop is around the corner from Ma Ji; the hawthorn cake shop right next door to Ma Ji is good too.",
+              why: "Sticky rice cakes and hawthorn cake. The main shop is around the corner from Ma Ji, but the hawthorn cake place right next to Ma Ji is good too.",
               amap: "白记年糕 牛街"
             },
             {
               name: "Xiang Yun Xuan 祥云轩 (Fayuansi Xili)",
-              why: "One more snack stop on the same crawl, by Fayuan Temple.",
+              why: "One more snack stop on the crawl, by Fayuan Temple.",
               address: "Bldg 5, Fayuansi Xili, Jiaozi Hutong 教子胡同法源寺西里5号楼",
               amap: "祥云轩 法源寺西里"
             }
@@ -1624,7 +1624,7 @@ TRIP.beijing = {
           type: "see",
           label: "See",
           title: "Niujie Mosque & Fayuan Temple",
-          detail: "Beijing's oldest mosque, with Chinese-style halls (dress modestly, no shorts). Then Fayuan Temple a few minutes away: one of Beijing's oldest Buddhist temples, quiet and full of old trees.",
+          detail: "Beijing's oldest mosque, it looks like a Chinese temple (dress modest, no shorts). Then Fayuan Temple a few minutes away, one of the oldest Buddhist temples in Beijing, quiet with lots of old trees.",
           amap: "牛街礼拜寺"
         },
         {
@@ -1632,7 +1632,7 @@ TRIP.beijing = {
           type: "see",
           label: "See",
           title: "Lama Temple 雍和宫",
-          detail: "Busy Tibetan Buddhist temple with an 18 m Buddha carved from one sandalwood tree. Last entry is mid-afternoon in winter, so don't be late.",
+          detail: "Busy Tibetan Buddhist temple with an 18 m Buddha carved out of one sandalwood tree. Last entry is mid afternoon in winter so don't be late.",
           amap: "雍和宫",
           metro: "Line 2 or 5 to Yonghegong 雍和宫."
         },
@@ -1641,7 +1641,7 @@ TRIP.beijing = {
           type: "shop",
           label: "Shop + cafes",
           title: "Guozijian St 国子监街",
-          detail: "Shady old street right next to the temple, with small shops and cafes. The Confucius Temple here is usually closed on Mondays, but the shops are open. Our picks are under Explore nearby.",
+          detail: "Old shady street right next to the temple with small shops and cafes. The Confucius Temple here is usually closed Mondays but the shops are open. Our picks are in Explore nearby.",
           amap: "国子监街"
         },
         {
@@ -1649,7 +1649,7 @@ TRIP.beijing = {
           type: "see",
           label: "Wander",
           title: "Wudaoying Hutong 五道营胡同",
-          detail: "A 600-year-old hutong lane of small shops, cafes and rooftop bars, just across Andingmen Inner St from Guozijian St.",
+          detail: "600 year old hutong with small shops, cafes and rooftop bars, right across Andingmen Inner St from Guozijian St.",
           amap: "五道营胡同"
         },
         {
@@ -1657,7 +1657,7 @@ TRIP.beijing = {
           type: "food",
           label: "Dinner",
           title: "Spicy crayfish 麻辣小龙虾 on Gui Jie",
-          detail: "Gui Jie (Ghost Street) is a long strip of late-night restaurants under red lanterns, one stop from the Lama Temple. Gloves on!",
+          detail: "Gui Jie (Ghost Street) is a long street of restaurants open late with red lanterns everywhere, one stop from the Lama Temple. Gloves on!",
           order: [
             { en: "Spicy crayfish", zh: "麻辣小龙虾" },
             { en: "Garlic crayfish (milder)", zh: "蒜蓉小龙虾" },
@@ -1667,7 +1667,7 @@ TRIP.beijing = {
           options: [
             {
               name: "Hu Da 胡大饭馆 (Gui Jie)",
-              why: "The most famous spot on the street. Get a number by 5:30 or expect a wait.",
+              why: "The most famous place on the street. Get a number by 5:30 or we'll be waiting a while.",
               amap: "胡大饭馆 簋街"
             }
           ],
@@ -1681,14 +1681,14 @@ TRIP.beijing = {
             name: "Longtan Park",
             zh: "龙潭公园",
             kind: "Park",
-            about: "Lake park just east of the Temple of Heaven, with locals fishing and exercising. On our list.",
+            about: "Lake park right east of the Temple of Heaven, locals fishing and exercising. It's on our list.",
             amap: "龙潭公园"
           },
           {
             name: "Hongqiao Pearl Market",
             zh: "红桥市场",
             kind: "Market",
-            about: "Multi-floor market across from the Temple of Heaven's east gate: pearls, jade and souvenirs. Haggle.",
+            about: "Market with a bunch of floors across from the Temple of Heaven east gate. Pearls, jade, souvenirs. Haggle.",
             amap: "红桥市场"
           }
         ],
@@ -1697,7 +1697,7 @@ TRIP.beijing = {
             name: "Niujie St",
             zh: "牛街",
             kind: "Street",
-            about: "Walk the main street for halal bakeries, butchers and snack shops; the bakeries' sesame and date pastries make good snacks for later.",
+            about: "Walk the main street, halal bakeries, butchers and snack shops. The sesame and date pastries are good snacks for later.",
             amap: "牛街"
           }
         ],
@@ -1706,7 +1706,7 @@ TRIP.beijing = {
             name: "Guanxia",
             zh: "观夏",
             kind: "Fragrance shop",
-            about: "Chinese fragrance brand with scents inspired by Chinese plants and poetry, in a beautiful courtyard shop. 42 Guozijian St.",
+            about: "Chinese perfume brand, the scents are based on Chinese plants and poems, in a really pretty courtyard shop. 42 Guozijian St.",
             amap: "观夏 国子监"
           },
           {
@@ -1720,21 +1720,21 @@ TRIP.beijing = {
             name: "Remap Cafe (Red Maple)",
             zh: "红枫",
             kind: "Cafe",
-            about: "Cafe at 86 Guozijian St. There's a ramen shop at the same address if we're hungry.",
+            about: "Cafe at 86 Guozijian St. There's a ramen place at the same address if we're hungry.",
             amap: "国子监街86号"
           },
           {
             name: "Five Flowers Small Living Room",
             zh: "",
             kind: "Cafe",
-            about: "Tiny living-room cafe at Room 4, Compound 116, Andingmen Inner St, a short walk from Guozijian St.",
+            about: "Tiny cafe that feels like someone's living room, Room 4, Compound 116, Andingmen Inner St. Short walk from Guozijian St.",
             amap: "安定门内大街116号"
           },
           {
             name: "Townhouse",
             zh: "",
             kind: "Cafe",
-            about: "Scandi-style cafe on Guozijian St, from our list.",
+            about: "Scandi style cafe on Guozijian St, from our list.",
             amap: "国子监街 Townhouse"
           }
         ],
@@ -1743,7 +1743,7 @@ TRIP.beijing = {
             name: "Gui Jie at night",
             zh: "簋街",
             kind: "Food street",
-            about: "Red lanterns, crowds and the smell of chili. Worth a walk even after dinner.",
+            about: "Red lanterns, crowds and chili smell everywhere. Fun to walk even after dinner.",
             amap: "簋街"
           }
         ]
@@ -1752,7 +1752,7 @@ TRIP.beijing = {
         items: [
           {
             name: "Niujie snacks 牛街小吃",
-            text: "Niujie is famous for halal Beijing snacks: crispy meat pies (馅饼), sesame flatbreads (烧饼), sweet rice cakes (年糕) and tangy hawthorn cake (山楂糕), a sweet-sour jelly made from Chinese hawthorn fruit.\nShops are small and cheap, so the best way is to share one thing at each."
+            text: "Niujie is known for halal Beijing snacks. Crispy meat pies (馅饼), sesame flatbreads (烧饼), sweet rice cakes (年糕) and hawthorn cake (山楂糕), which is a sweet and sour jelly made from hawthorn fruit.\nThe shops are small and cheap so just share one thing at each."
           }
         ]
       },
@@ -1760,45 +1760,45 @@ TRIP.beijing = {
       sights: [
         {
           name: "Temple of Heaven",
-          text: "Built in 1420, the same time as the Forbidden City, where Ming and Qing emperors prayed for good harvests. The round Hall of Prayer for Good Harvests has three blue-tiled roofs and no nails.\nThe huge park around it is where locals come every morning for tai chi, dancing, singing and card games. That's half the reason to go early.",
+          text: "Built in 1420, same time as the Forbidden City. It's where the Ming and Qing emperors prayed for good harvests. The round hall has three blue tile roofs and no nails at all.\nThe big park around it is where locals come every morning for tai chi, dancing, singing and cards. That's half the reason to go early.",
           source: "https://en.wikipedia.org/wiki/Temple_of_Heaven"
         },
         {
           name: "Niujie Mosque",
-          text: "Beijing's oldest and biggest mosque, founded in 996. From the outside it looks like a Chinese temple: carved wood, painted beams and a hexagonal tower for watching the moon.\nThe Niujie area around it has been Beijing's Muslim quarter for centuries, which is why the food here is halal.",
+          text: "Beijing's oldest and biggest mosque, from 996. From outside it looks like a Chinese temple, carved wood, painted beams and a six sided tower for watching the moon.\nNiujie has been Beijing's Muslim area for hundreds of years, that's why all the food here is halal.",
           source: "https://en.wikipedia.org/wiki/Niujie_Mosque"
         },
         {
           name: "Fayuan Temple",
-          text: "One of the oldest Buddhist temples in Beijing, first built in 645. Today it houses the Buddhist Academy of China, so it's quiet, with monks, old cypress trees and lilacs.",
+          text: "One of the oldest Buddhist temples in Beijing, first built in 645. The Buddhist Academy of China is here now so it's quiet, monks, old trees and lilacs.",
           source: "https://en.wikipedia.org/wiki/Fayuan_Temple"
         },
         {
           name: "Lama Temple",
-          text: "Built in 1694 as a prince's palace, it became a Tibetan Buddhist monastery in 1744. The last hall holds an 18 m tall Maitreya Buddha carved from a single piece of white sandalwood.\nIt's a working temple and always busy, with incense smoke everywhere. Free incense comes with the ticket.",
+          text: "Built in 1694 as a prince's palace and became a Tibetan Buddhist monastery in 1744. The last hall has an 18 m tall Buddha carved from one piece of white sandalwood.\nIt's a real working temple and always busy, incense smoke everywhere. Incense comes free with the ticket.",
           source: "https://en.wikipedia.org/wiki/Yonghe_Temple"
         },
         {
           name: "Wudaoying Hutong",
-          text: "A hutong that's been here for about 600 years, once part of the Ming city's guard barracks. Today it mixes homes with small cafes, design shops and rooftop bars.\nOne of the nicest hutongs to just wander."
+          text: "A hutong that's been here about 600 years, it used to be part of the Ming guard barracks. Now it's homes mixed with small cafes, design shops and rooftop bars.\nOne of the nicest hutongs to just walk around."
         }
       ],
       otherOptions: [
         {
           group: "If the weather is bad on Saturday",
           name: "Great Wall swap",
-          why: "Move the Mubus trip here and do this day's plan on Saturday instead."
+          why: "Do the Mubus trip today instead and move this day's plan to Saturday."
         },
         {
           group: "Hutongs",
           name: "Nanluoguxiang & Drum and Bell Towers 南锣鼓巷 / 钟鼓楼",
-          why: "If we have time after Wudaoying: the lantern-lit hutong street and the old timekeeping towers, 10 min west.",
+          why: "If we have time after Wudaoying. The lantern street and the old drum and bell towers, 10 min west.",
           amap: "钟鼓楼"
         },
         {
           group: "Half-day trip",
           name: "Summer Palace 颐和园",
-          why: "The emperors' huge lake garden: the Long Corridor, Longevity Hill and Kunming Lake. Allow about half a day; it would replace the Temple of Heaven and Niujie morning. Open on Mondays.",
+          why: "The emperors' huge lake garden, the Long Corridor, Longevity Hill and Kunming Lake. Takes about half a day so it would replace the Temple of Heaven and Niujie morning. Open on Mondays.",
           address: "Haidian, northwest Beijing",
           amap: "颐和园北宫门"
         }
@@ -1810,8 +1810,8 @@ TRIP.beijing = {
           dish: "Copper-pot lamb hotpot 涮羊肉",
           short: "thin lamb swished in plain broth, sesame dip",
           name: "Ju Bao Yuan 聚宝源",
-          what: "Old Beijing hotpot: paper-thin lamb in plain broth, dipped in sesame sauce.",
-          why: "Famous halal hotpot on Niujie. Long queues.",
+          what: "Old Beijing hotpot. Super thin lamb in plain broth, dip it in sesame sauce.",
+          why: "Famous halal hotpot on Niujie. Long lines.",
           amap: "聚宝源 牛街"
         },
         {
@@ -1820,8 +1820,8 @@ TRIP.beijing = {
           dish: "Zhajiangmian 炸酱面",
           short: "noodles with salty soybean-pork sauce",
           name: "Fangzhuanchang No. 69 Zhajiangmian 方砖厂69号炸酱面",
-          what: "Thick noodles with a salty fermented soybean and pork sauce, mixed with crunchy fresh vegetables.",
-          why: "Famous little noodle shop, a short walk from the Drum Tower.",
+          what: "Thick noodles with a salty soybean and pork sauce, mixed with crunchy veggies.",
+          why: "Famous little noodle shop, short walk from the Drum Tower.",
           amap: "方砖厂69号炸酱面"
         },
         {
@@ -1830,8 +1830,8 @@ TRIP.beijing = {
           dish: "Coffee",
           short: "specialty coffee",
           name: "Metal Hands 金属手",
-          what: "Specialty coffee from one of Beijing's best-known roasters, in small hutong cafes.",
-          why: "Several branches; check Amap for the closest.",
+          what: "Coffee from one of Beijing's best known roasters, small cafes in the hutongs.",
+          why: "There's a few, check Amap for the closest one.",
           amap: "Metal Hands 金属手咖啡"
         }
       ],
@@ -1849,7 +1849,7 @@ TRIP.beijing = {
       zh: "故宫",
       area: "The Forbidden City",
       title: "Last day: Forbidden City, souvenirs, quiet night in",
-      summary: "Our last day; D's flight is around midnight. Up early so D can pack, then the Forbidden City first thing and the view from Jingshan. Old Beijing snacks for lunch, souvenirs on Wangfujing in the afternoon, then pick up dinner to go and be back at the hotel by 5 to relax and eat in. D heads to the airport around 8:30 PM.",
+      summary: "Last day, wahh. D's flight is around midnight. Up early so D can pack, then the Forbidden City first thing and the view from Jingshan. Old Beijing snacks for lunch, souvenirs on Wangfujing in the afternoon, then get dinner to go and be back at the hotel by 5 to relax and eat in. D leaves for the airport around 8:30 PM.",
       highlights: ["Forbidden City", "Jingshan view", "Souvenirs", "Night in"],
       stops: [
         {
@@ -1857,18 +1857,18 @@ TRIP.beijing = {
           type: "misc",
           label: "Hotel",
           title: "Up early: D packs",
-          detail: "Get D's bags packed and ready this morning so the evening is relaxed. K leaves 25th"
+          detail: "Get D's bags packed in the morning so the night is chill. We don't need to check out today, the room is until Wednesday morning."
         },
         {
           time: "7:15",
           type: "food",
           label: "Breakfast",
           title: "Jianbing 煎饼 or baozi 包子",
-          detail: "Fuel up; the palace is a lot of walking.",
+          detail: "Eat well, the palace is a lot of walking.",
           options: [
             {
               name: "Qing-Feng Baozi 庆丰包子铺",
-              why: "Simple Beijing chain for steamed pork buns.",
+              why: "Simple Beijing chain, steamed pork buns.",
               amap: "庆丰包子铺 王府井"
             }
           ],
@@ -1878,8 +1878,8 @@ TRIP.beijing = {
           time: "8:30",
           type: "see",
           label: "See",
-          title: "Forbidden City",
-          detail: "Enter at the Meridian Gate (south) and allow about 3 hours. Exit at the north gate, right across from Jingshan Park.",
+          title: "Forbidden City (booked Nov 17)",
+          detail: "Go in at the Meridian Gate (south), it takes about 3 hours. Come out the north gate, Jingshan Park is right across.",
           address: "Meridian Gate 午门 (Tiananmen East metro, Exit B)",
           amap: "故宫博物院 午门"
         },
@@ -1888,7 +1888,7 @@ TRIP.beijing = {
           type: "see",
           label: "See",
           title: "Jingshan Park view",
-          detail: "Right across from the palace's north exit. Climb to the pavilion at the top for the classic view over the golden roofs.",
+          detail: "Right across from the north exit. Climb up to the top for the famous view over all the gold roofs.",
           amap: "景山公园"
         },
         {
@@ -1896,7 +1896,7 @@ TRIP.beijing = {
           type: "food",
           label: "Lunch",
           title: "Old Beijing snacks 北京小吃",
-          detail: "A table of small things to share, then back toward the hotel.",
+          detail: "Get a bunch of little things to share, then head back toward the hotel.",
           order: [
             { en: "Donkey rolls (sweet sticky rice in soybean flour; no donkey!)", zh: "驴打滚" },
             { en: "Ai wo wo (sticky rice balls with sweet filling)", zh: "艾窝窝" },
@@ -1906,7 +1906,7 @@ TRIP.beijing = {
           options: [
             {
               name: "Huguosi Snacks 护国寺小吃",
-              why: "Old-school snack shop on Huguosi St, about 20 min west of Jingshan.",
+              why: "Old school snack shop on Huguosi St, about 20 min west of Jingshan.",
               amap: "护国寺小吃 护国寺街"
             }
           ],
@@ -1917,7 +1917,7 @@ TRIP.beijing = {
           type: "shop",
           label: "Shop",
           title: "Souvenirs on Wangfujing",
-          detail: "Shengxifu 盛锡福 for an old-school hat (256 Wangfujing St), Daoxiangcun 稻香村 pastries to take home, and the Foreign Languages Bookstore. All a short walk from the hotel.",
+          detail: "Shengxifu 盛锡福 for an old school hat (256 Wangfujing St), Daoxiangcun 稻香村 pastries to bring home, and the Foreign Languages Bookstore. All close to the hotel.",
           amap: "盛锡福 王府井"
         },
         {
@@ -1925,11 +1925,11 @@ TRIP.beijing = {
           type: "food",
           label: "Dinner",
           title: "Pick up dinner to go: Peking duck 烤鸭",
-          detail: "Get a duck to go and eat it back at the hotel. Siji Minfu does takeaway; ask for 打包 (dǎbāo, to go). Or order delivery to the hotel on Meituan 美团 later.",
+          detail: "Get a duck to go and eat at the hotel. Siji Minfu does takeout, ask for 打包 (dǎbāo, to go). Or just order delivery to the hotel on Meituan 美团 later.",
           options: [
             {
               name: "Siji Minfu 四季民福 (Dengshikou)",
-              why: "Closest branch to the hotel. Takeaway duck comes with pancakes, scallion and sauce.",
+              why: "Closest one to the hotel. The takeout duck comes with pancakes, scallion and sauce.",
               amap: "四季民福 灯市口店"
             }
           ],
@@ -1940,14 +1940,14 @@ TRIP.beijing = {
           type: "misc",
           label: "Hotel",
           title: "Back at the hotel: relax and eat in",
-          detail: "Dinner in hotel, last checks for D's flight."
+          detail: "Relax, duck in the room, double check everything for D's flight."
         },
         {
           time: "20:30",
           type: "misc",
           label: "Transit",
           title: "D heads to the airport",
-          detail: "D's flight is around midnight, so be at the airport by about 9 PM (3 hours before an international flight). Check which airport is on the ticket. Capital (PEK): metro to Dongzhimen 东直门, then the Capital Airport Express. Daxing (PKX): metro to Caoqiao 草桥, then the Daxing Airport Express. The airport trains stop in the late evening, so a Didi is the easy option.",
+          detail: "D's flight is around midnight so be at the airport by 9 (3 hours before for international). Check which airport is on the ticket. Capital (PEK): metro to Dongzhimen 东直门 then the Capital Airport Express. Daxing (PKX): metro to Caoqiao 草桥 then the Daxing Airport Express. The airport trains stop late at night so Didi is easiest.",
           amap: "北京首都国际机场"
         }
       ],
@@ -1957,14 +1957,14 @@ TRIP.beijing = {
             name: "Beihai Park",
             zh: "北海公园",
             kind: "Park",
-            about: "Imperial lake garden with the White Dagoba, just west of Jingshan.",
+            about: "Imperial lake park with the White Dagoba, just west of Jingshan.",
             amap: "北海公园"
           },
           {
             name: "Corner towers by day",
             zh: "故宫角楼",
             kind: "Sight",
-            about: "Walk a bit of the moat after Jingshan for the corner tower photos in daylight.",
+            about: "Walk part of the moat after Jingshan for corner tower pics in the daytime.",
             amap: "故宫角楼"
           }
         ],
@@ -1973,7 +1973,7 @@ TRIP.beijing = {
             name: "Peaceful East Bureau",
             zh: "和平菓局",
             kind: "Retro Beijing",
-            about: "If we skipped it on Friday: the retro 80s–00s Beijing pop-up, right on Wangfujing.",
+            about: "If we didn't go Friday. The retro 80s to 00s Beijing place, right on Wangfujing.",
             amap: "和平菓局 王府井"
           },
           {
@@ -1996,7 +1996,7 @@ TRIP.beijing = {
         items: [
           {
             name: "Donkey rolls 驴打滚",
-            text: "No donkey in it: sticky rice rolled around sweet red bean paste and dusted in toasted soybean flour. The name comes from it looking like a donkey that rolled in the dirt."
+            text: "There's no donkey in it lol. It's sticky rice rolled around sweet red bean paste and covered in toasted soybean powder. The name is because it looks like a donkey that rolled around in the dirt."
           }
         ]
       },
@@ -2004,17 +2004,17 @@ TRIP.beijing = {
       sights: [
         {
           name: "Forbidden City",
-          text: "Built 1406–1420 by about a million workers under the Yongle Emperor. It has 980 buildings and, legend says, \"9,999.5\" rooms.\n24 Ming and Qing emperors lived here from 1420 to 1912, and Puyi, the last emperor, stayed in the inner court until 1924. It became a museum in 1925.",
+          text: "Built from 1406 to 1420 by about a million workers for the Yongle Emperor. It has 980 buildings and supposedly \"9,999.5\" rooms.\n24 Ming and Qing emperors lived here from 1420 to 1912, and Puyi, the last emperor, stayed in the inner part until 1924. It became a museum in 1925.",
           source: "https://en.wikipedia.org/wiki/Forbidden_City"
         },
         {
           name: "Jingshan Park",
-          text: "An artificial hill made from the earth dug out for the Forbidden City's moat, once the emperors' private garden. The pavilion on top is the highest point in old Beijing.\nIt's also where the last Ming emperor, Chongzhen, took his life in 1644 as rebels entered the city.",
+          text: "A fake hill made from all the dirt they dug out for the Forbidden City's moat, it used to be the emperors' private garden. The pavilion on top is the highest point in old Beijing.\nIt's also where the last Ming emperor, Chongzhen, killed himself in 1644 when rebels came into the city.",
           source: "https://en.wikipedia.org/wiki/Jingshan_Park"
         },
         {
           name: "798 Art District",
-          text: "A complex of 1950s factories built with East German help, in the Bauhaus style. Artists moved into the empty workshops around 2000, and it grew into Beijing's best-known art district.\nYou can still see Mao-era slogans painted on some of the old factory walls.",
+          text: "A bunch of 1950s factories built with help from East Germany, in Bauhaus style. Artists moved into the empty buildings around 2000 and it turned into the most famous art area in Beijing.\nYou can still see old Mao-era slogans painted on some of the factory walls.",
           source: "https://en.wikipedia.org/wiki/798_Art_Zone"
         }
       ],
@@ -2022,7 +2022,7 @@ TRIP.beijing = {
         {
           group: "If there's time",
           name: "798 Art District 798艺术区",
-          why: "Galleries, design shops (Dulton) and cafes in old factories. It's about 50 min each way, so it doesn't fit with being back by 5.",
+          why: "Galleries, design shops (Dulton) and cafes in old factories. It's about 50 min each way so it doesn't really work if we want to be back by 5.",
           amap: "798艺术区"
         }
       ],
@@ -2033,7 +2033,7 @@ TRIP.beijing = {
           dish: "Zhajiangmian 炸酱面",
           short: "noodles with salty soybean-pork sauce",
           name: "Fangzhuanchang No. 69 Zhajiangmian 方砖厂69号炸酱面",
-          what: "Thick noodles with a salty fermented soybean and pork sauce, mixed with crunchy fresh vegetables.",
+          what: "Thick noodles with a salty soybean and pork sauce, mixed with crunchy veggies.",
           why: "Famous little noodle shop, about 15 min north of Jingshan.",
           amap: "方砖厂69号炸酱面"
         },
@@ -2043,7 +2043,7 @@ TRIP.beijing = {
           dish: "Steamed buns 包子",
           short: "fluffy pork and scallion buns",
           name: "Qing-Feng Baozi 庆丰包子铺",
-          what: "Fluffy steamed buns with pork and scallion filling, with millet porridge.",
+          what: "Soft steamed buns with pork and scallion, with millet porridge.",
           why: "Simple Beijing chain.",
           amap: "庆丰包子铺 王府井"
         }
@@ -2061,21 +2061,21 @@ TRIP.beijing = {
       zh: "再见",
       area: "Travel day",
       title: "Flight day",
-      summary: "D's flight leaves around midnight. The other flight is at 10 AM: check out and head to the airport around 6 AM.",
+      summary: "Bye bye Beijing! D's flight leaves around midnight. The other flight is at 10 AM, so check out and leave for the airport around 6.",
       stops: [
         {
           time: "0:00",
           type: "misc",
           label: "Flight",
           title: "D's flight, around midnight",
-          detail: "D heads to the airport Tuesday evening (see Tue 24). Might need to take Didi. Check the exact time and terminal on the ticket."
+          detail: "D leaves for the airport Tuesday night (see Tue 24). Check the time and terminal on the ticket."
         },
         {
           time: "6:00",
           type: "misc",
           label: "Hotel",
           title: "Check out and head to the airport",
-          detail: "For the 10 AM flight. The first airport trains start around 6 AM; a Didi is easiest with bags this early. Check which airport and terminal.",
+          detail: "For the 10 AM flight. The first airport trains start around 6, Didi is easier with bags this early. Check which airport and terminal.",
           amap: "北京首都国际机场"
         },
         {
