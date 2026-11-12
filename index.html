@@ -268,6 +268,13 @@
   .remind .btn { margin-top: 8px; }
   .sec-sub { margin: -4px 0 10px; color: var(--muted); font-size: 14px; }
   .near.eat { border-color: color-mix(in srgb, #E0A100 55%, var(--line)); }
+  .hut-list { list-style: none; margin: 0; padding: 0; }
+  .hut-list li { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .hut-list li:first-child { border-top: 0; }
+  .hut-list .zh { font-family: "Noto Sans SC", sans-serif; color: var(--at); font-size: 14px; }
+  .hut-list .hut-when { display: inline-block; font: 700 11.5px/1 Archivo, sans-serif; color: var(--at); border: 1.5px solid currentColor; border-radius: 999px; padding: 3px 7px; margin-left: 4px; vertical-align: 2px; }
+  .hut-list p { margin: 3px 0 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+  .hut-list .btn { flex: 0 0 auto; }
   .eat-sub { font: 800 13px/1 Archivo, sans-serif; color: var(--muted); margin: 12px 0 6px; padding-top: 10px; border-top: 1px solid var(--line); }
   .eat-try { margin: 0; font-size: 14px; line-height: 1.6; }
   .eat-try a { font-weight: 700; color: var(--at); text-decoration: underline; text-underline-offset: 2px; }
@@ -946,6 +953,11 @@ function hoodsCard(N, C) {
       ${(H.layout.paragraphs || []).map(t => `<p>${esc(t)}</p>`).join("")}
       ${(H.layout.rings || []).length ? `<ol class="rings">${H.layout.rings.map((r, i) => `<li style="--rk:${i}"><b>${esc(r.name)}</b><span>${esc(r.what)}</span>${r.metro ? `<em><span class="m">M</span>${esc(r.metro)}</em>` : ""}</li>`).join("")}</ol>` : ""}
     </div>` : ""}
+    ${(H.explainers || []).map(x => `<div class="section layout">
+      <h3>${esc(x.title)}</h3>
+      ${(x.paragraphs || []).map(t => `<p>${esc(t)}</p>`).join("")}
+      ${(x.list || []).length ? `<div class="eat-sub">${esc(x.listTitle || "")}</div><ul class="hut-list">${x.list.map(h => `<li><div><b>${esc(h.name)}</b>${h.zh ? ` <span class="zh" lang="zh-Hans">${esc(h.zh)}</span>` : ""}${h.when ? ` <span class="hut-when">${esc(h.when)}</span>` : ""}${h.note ? `<p>${esc(h.note)}</p>` : ""}</div>${h.amap ? `<a class="btn sm" href="${amap(h.amap)}" target="_blank" rel="noopener">${pinIcon}Amap</a>` : ""}</li>`).join("")}</ul>` : ""}
+    </div>`).join("")}
     <div class="section">${hoodMap(H)}
     </div>
     <div class="section"><div class="areas">${H.areas.map((a, i) => {
